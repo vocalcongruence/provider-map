@@ -1,0 +1,19 @@
+{
+    "providers": [
+        {
+            "name": "Leah B Helou, PhD, CCC-SLP",
+            "address": "1400 Locust Street, Pittsburgh, PA",
+            "location": {"lat": 40.4362085, "lng": -79.98562070000001},
+            "professionalAreas": ["Speech-Language Pathologist"],
+            "description": "Leah B Helou, PhD, CCC-SLP (she/her) is a Speech-Language Pathologist employed at UPMC Voice Center & University of Pittsburgh, who began working with general voice clients in 2004, and transgender/gender diverse clients in 2004. Individual training is offered in person or virtually, and group training is not offered. Services are available for those with feminine, masculine, and androgynous voice goals.\n\nThis provider is affiliated with the following: American Speech-Language-Hearing Association (ASHA).",
+            "virtualLocations": ["PA"],
+            "languages": ["English"],
+            "gender": "Cisgender Woman",
+            "email": "lbh7@pitt.edu",
+            "website": "https://www.upmc.com/services/ear-nose-throat/services/voice-speech-and-swallowing/voice-center",
+            "phone": "4122323687",
+            "payment": "Insurance/self-pay accepted, contact UPMC Voice Center",
+            "updated": 1711972800
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+:root {
+    --color-main: rgb(36, 36, 36);
+    --color-highlight: rgb(53, 53, 53);
+    --color-highlight2: rgb(80, 80, 80);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    height: 100vh;
+    width: 100vw;
+}
+
+#filters {
+    width: 90wvw;
+    
+    border-radius: 500px;
+    background-color: var(--color-main);
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    z-index: 999;
+
+    display: flex;
+    column-gap: 32px;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+    padding: 8px 32px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+button {
+    height: 32px;
+    padding: 0 8px;
+    border-radius: 8px;
+    background-color: var(--color-highlight);
+    color: white;
+    border: 1px solid gray;
+}
