@@ -25,13 +25,8 @@ $(".chosen-select").on("change", function (e) {
   generateMarkers(map);
 });
 
-function buildProviderJSON(json) {}
-
-function loadXLSX() {
-  fetch("providers.xlsx")
-    .then((response) => response.arrayBuffer())
-    .then((data) => {
-      const workbook = XLSX.read(data, { type: "array" });
+async function buildProviderJSON(data) {
+  const workbook = XLSX.read(data, { type: "array" });
 
       // Convert the worksheet to JSON format
       const headers = [
@@ -64,27 +59,55 @@ function loadXLSX() {
         { header: headers }
       );
       const cleanJsonData = jsonData.filter(function (row) {
-        return row.Name != null && row.Name != "";
+        if (row.Address == ', ' || row.Address == '') {
+          return false;
+        }
+
+        return row.Name != null && row.Name != "" && row.Name != 'Name' && row.Name != 'Options';
       });
 
-      // Use jsonData as needed
-      console.log(cleanJsonData);
+      providers = [];
+
+      for (let key in cleanJsonData) {
+        providers.push(cleanJsonData[key]);
+
+        let latlong = geocodeAddress(cleanJsonData[key]['Address']).then(() => {
+          providers[key].location = latlong;
+
+          let provider = providers[key];
+          console.log(provider)
+
+          const marker = new AdvancedMarkerElement({
+            map: map,
+            position: provider.location,
+            title: provider.name,
+          });
+    
+          markers.push(marker);
+        });
+      }
+
+      console.log(providers);
+
+      initMap(providers).then(() => {
+        //generateMarkers(map, providers);
+      });
+}
+
+async function loadXLSX() {
+  fetch("providers.xlsx")
+    .then((response) => response.arrayBuffer())
+    .then((data) => {
+      buildProviderJSON(data)
+      
     })
     .catch((error) => console.error("Error loading XLSX file:", error));
 }
 
-async function initMap(providers) {
-  // The location of Uluru
-  const position = { lat: 39.6414825, lng: -98.0441105 };
-  // Request needed libraries.
-  //@ts-ignore
-
-  // const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-
-  // The map, centered at Uluru
+async function initMap() {
   map = new Map(document.getElementById("map"), {
     zoom: 5,
-    center: position,
+    center: { lat: 39.6414825, lng: -98.0441105 },
     mapId: "DEMO_MAP_ID",
     mapTypeId: "roadmap",
     mapTypeControl: false,
@@ -102,6 +125,7 @@ function buildQuery() {
 }
 
 function providerMatchesQuery(provider, query) {
+  return true;
   if (query.state) {
     if (
       !(provider.virtualLocations.includes(query.state) || query.state == "any")
@@ -114,12 +138,12 @@ function providerMatchesQuery(provider, query) {
 }
 
 function generateMarkers(map) {
-  console.log("generateMarkers");
   removeAllMarkers(map);
 
   const query = buildQuery();
 
   for (let provider of providers) {
+    console.log(provider.location)
     if (providerMatchesQuery(provider, query)) {
       const marker = new AdvancedMarkerElement({
         map: map,
@@ -160,6 +184,7 @@ async function geocodeAddress(address) {
         // Resolve the Promise with the latitude and longitude
         resolve({ latitude, longitude });
       } else {
+        console.log('|' + address + '|')
         // Reject the Promise with an error message if geocoding fails
         reject(
           `Geocode was not successful for the following reason: ${status}`
@@ -183,3 +208,4 @@ function loadProviders() {
 
 //loadProviders();
 loadXLSX();
+
