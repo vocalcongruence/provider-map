@@ -46,6 +46,10 @@ button {
     border: 1px solid gray;
 }
 
+.hidden {
+    display: none !important;
+}
+
 #provider-details,
 #provider-list {
     background-color: var(--color-main);
@@ -100,6 +104,7 @@ button {
     left: 16px;
     top: 10vh;
     bottom: 16px;
+    overflow-y: auto;
 }
 
 .provider-list-item {
