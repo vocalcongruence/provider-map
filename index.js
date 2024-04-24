@@ -14,7 +14,7 @@ $(".multi-select").chosen({
 
 $(".chosen-select").chosen({
   disable_search: true,
-  width: "150px",
+  width: "100px",
 });
 
 $(".multi-select").on("change", function (e) {
@@ -38,19 +38,72 @@ async function initMap() {
 }
 
 function buildQuery() {
+  const isTrainer = $("#opt-trainer").val() == "true";
+  const area = $("#opt-area").val();
+  const number = $("#opt-number").val();
+  const modality = $("#opt-modality").val();
   const state = $("#opt-state").val();
 
+
   return {
+    isTrainer: isTrainer,
+    area: area,
+    number: number,
+    modality: modality,
     state: state,
   };
 }
 
 function providerMatchesQuery(provider, query) {
+  console.log(query)
+  if (query.isTrainer != null) {
+    
+    if (provider.isTrainer != query.isTrainer) {
+      console.log("cancelled")
+      return false;
+    }
+  }
+
+  /*if (query.area.length > 0) {
+    for (let opt of query.area) {
+      if (!(provider.professionalAreas.includes(opt))) {
+        return false;
+      }
+    }
+  }*/
+
+  if (query.number != null && query.modality != null) {
+    if (query.number== "individual") {
+      if (query.modality == 'inperson') {
+        if (!provider.numberModality.includes("IndividualTraining-InPerson")) {
+          return false;
+        }
+      }
+      else {
+        if (!provider.numberModality.includes("IndividualTraining-Virtual")) {
+          return false;
+        }
+      }
+    }
+    else {
+      if (query.modality == 'inperson') {
+        if (!provider.numberModality.includes("GroupTraining-InPerson")) {
+          return false;
+        }
+      }
+      else {
+        if (!provider.numberModality.includes("GroupTraining-Virtual")) {
+          return false;
+        }
+      }
+    }
+  }
+  
   if (query.state) {
     if (
       !(provider.virtualLocations.includes(query.state) || query.state == "any")
     ) {
-      return false;
+      //return false;
     }
   }
 
@@ -61,6 +114,7 @@ function generateMarkers(map) {
   removeAllMarkers(map);
 
   const query = buildQuery();
+  let validProviders = [];
 
   for (let provider of providers) {
     if (providerMatchesQuery(provider, query)) {
@@ -80,9 +134,12 @@ function generateMarkers(map) {
       });
 
       provider.marker = marker;
+      validProviders.push(provider);
       markers.push(marker);
     }
   }
+
+  populateListPane(validProviders);
 }
 
 function removeAllMarkers(map) {
@@ -200,12 +257,12 @@ function populateDetailsPane(provider) {
   }
 }
 
-function populateListPane() {
+function populateListPane(validProviders) {
   const pane = document.getElementById("provider-list");
 
   pane.innerHTML = "";
 
-  for (let provider of providers) {
+  for (let provider of validProviders) {
     const listItem = document.createElement("div");
     listItem.classList.add("provider-list-item");
     listItem.onclick = () => {

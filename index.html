@@ -36,38 +36,53 @@
       <h2>Filter By:</h2>
 
       <select
-        data-placeholder="Choose a country..."
-        multiple
-        class="multi-select"
+        id="opt-trainer"
+        data-placeholder="Trainer / Surgeon"
+        class="chosen-select"
       >
-        <option>Training</option>
-        <option>Surgery</option>
+        <option value="true">Training</option>
+        <option value="false">Surgery</option>
       </select>
 
       <select
-        data-placeholder="Choose a country..."
+        id="opt-area"
+        data-placeholder="Professional Area"
         multiple
         class="multi-select"
       >
-        <option>SLP</option>
-        <option>Voice Coach</option>
-        <option>Acting</option>
-        <option>Other</option>
+        <option value="slp">SLP</option>
+        <option value="vc">Voice Coach</option>
+        <option value="a">Acting</option>
+        <option value="o">Other</option>
       </select>
 
-      <select data-placeholder="Choose a country..." class="chosen-select">
-        <option>Individual</option>
-        <option>Group</option>
+      <select
+        id="opt-number"
+        data-placeholder="Individual / Group"
+        class="chosen-select"
+      >
+        <option value="individual">Individual</option>
+        <option value="group">Group</option>
       </select>
 
-      <select data-placeholder="Choose a country..." class="chosen-select">
-        <option>In Person</option>
-        <option>Virtual</option>
+      <select
+        id="opt-modality"
+        data-placeholder="In-Person / Virtual"
+        class="chosen-select"
+      >
+        <option value="inperson">In Person</option>
+        <option value="virtual">Virtual</option>
       </select>
+
+      <select
+        id="opt-country"
+        data-placeholder="Any Country"
+        class="chosen-select"
+      ></select>
 
       <select
         id="opt-state"
-        data-placeholder="Choose a country..."
+        data-placeholder="Any State"
         class="chosen-select"
       >
         <option value="any">Any State</option>
