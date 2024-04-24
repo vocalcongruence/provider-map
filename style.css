@@ -45,3 +45,72 @@ button {
     color: white;
     border: 1px solid gray;
 }
+
+#provider-details,
+#provider-list {
+    background-color: var(--color-main);
+    width: 25%;
+    position: absolute;
+    top: 10vh;
+    right: 32px;
+    bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: sans-serif;
+    padding: 32px 32px;
+    border-radius: 24px;
+}
+
+#provider-details label {
+    margin-top: 16px;
+    font-weight: 700;
+}
+
+.icon-list {
+    padding: 16px 0;
+}
+
+.icon-list > div {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
+
+.icon-list > div span{
+    margin-right: 8px;
+}
+
+#extra-details {
+    overflow-y: scroll;
+}
+
+#extra-details > p {
+    margin-top: 4px;
+    margin-bottom: 16px;
+}
+
+
+
+
+#provider-list {
+    background: var(--color-main);
+    width: 20%;
+    position: absolute;
+    left: 16px;
+    top: 10vh;
+    bottom: 16px;
+}
+
+.provider-list-item {
+    margin-bottom: 32px;
+}
+
+.provider-list-item:hover {
+    background-color: var(--color-highlight);
+}
+
+.provider-list-item label {
+    font-size: 20px;
+    font-weight: bold;
+}

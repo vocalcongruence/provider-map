@@ -22,11 +22,9 @@
       integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    ></script>    
+    ></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
-
-
 
     <link rel="stylesheet" type="text/css" href="./chosen.css" />
     <link rel="stylesheet" type="text/css" href="./style.css" />
@@ -67,7 +65,11 @@
         <option>Virtual</option>
       </select>
 
-      <select id="opt-state" data-placeholder="Choose a country..." class="chosen-select">
+      <select
+        id="opt-state"
+        data-placeholder="Choose a country..."
+        class="chosen-select"
+      >
         <option value="any">Any State</option>
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
@@ -124,10 +126,132 @@
       <button>Clear Filters</button>
     </div>
 
+    <div id="provider-details">
+      <h1>Orit Greenberg MS, CCC-SLP</h1>
+
+      <p>
+        Orit Greenberg MS, CCC-SLP (she/her) is a Speech-Language Pathologist
+        employed at UPMC Voice Center.
+      </p>
+
+      <div class="icon-list">
+        <div>
+          <span class="material-symbols-outlined"> captive_portal </span>
+          www.google.com
+        </div>
+
+        <div>
+          <span class="material-symbols-outlined"> location_on </span>
+          Pittsburgh, PA US
+        </div>
+
+        <div>
+          <span class="material-symbols-outlined"> call </span>
+          1-800-123-4567
+        </div>
+
+        <div>
+          <span class="material-symbols-outlined"> calendar_month </span>
+          <div style="display: flex; flex-direction: column">
+            <span> General Service since 2012 </span>
+            <span> Gender Affirming Care since 2016 </span>
+          </div>
+        </div>
+      </div>
+
+      <div id="extra-details">
+        <label>Affiliations</label>
+        <p>American Speech-Language-Hearing Association (ASHA)</p>
+
+        <label>Additional Identities</label>
+        <p>Genderqueer, queer, white</p>
+
+        <label>Financial Information</label>
+        <p>Insurance/self-pay accepted, contact UPMC Voice Center</p>
+
+        <label>Additional Trainings</label>
+        <p>
+          Voice specialized fellowship with over 70% gender affirming caseload,
+          GAVT with Sandy Hirsch and private observation/mentoring with Sandy
+          Hirsch.
+        </p>
+
+        <label>Cultural Competency</label>
+        <p>
+          GAVT with Sandy Hirsch and a session at Fall Voice, as well as a
+          training offered through Mt Sinai Hospita
+        </p>
+
+        <label>Additional Information</label>
+        <p>
+          GAVT with Sandy Hirsch and a session at Fall Voice, as well as a
+          training offered through Mt Sinai Hospita
+        </p>
+      </div>
+    </div>
+
+    <div id="provider-list">
+      <div class="provider-list-item">
+        <label>Orit Greenberg MS, CCC-SLP</label>
+        <p>Speech Language Pathologist</h1>
+        <p>Individual In-Person & Virtual</p>
+        <p>Group Virtual</p>
+      </div>
+
+      <div class="provider-list-item">
+        <label>Orit Greenberg MS, CCC-SLP</label>
+        <p>Speech Language Pathologist</h1>
+        <p>Individual In-Person & Virtual</p>
+        <p>Group Virtual</p>
+      </div>
+
+      <div class="provider-list-item">
+        <label>Orit Greenberg MS, CCC-SLP</label>
+        <p>Speech Language Pathologist</h1>
+        <p>Individual In-Person & Virtual</p>
+        <p>Group Virtual</p>
+      </div>
+    </div>
+
     <!-- prettier-ignore -->
     <script type="module" src="./index.js"></script>
 
-    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-        ({key: "AIzaSyDRVzmgSXonHr_QRZWLTEBGxTDZzU-MCUA", v: "weekly"});</script>
+    <script>
+      ((g) => {
+        var h,
+          a,
+          k,
+          p = "The Google Maps JavaScript API",
+          c = "google",
+          l = "importLibrary",
+          q = "__ib__",
+          m = document,
+          b = window;
+        b = b[c] || (b[c] = {});
+        var d = b.maps || (b.maps = {}),
+          r = new Set(),
+          e = new URLSearchParams(),
+          u = () =>
+            h ||
+            (h = new Promise(async (f, n) => {
+              await (a = m.createElement("script"));
+              e.set("libraries", [...r] + "");
+              for (k in g)
+                e.set(
+                  k.replace(/[A-Z]/g, (t) => "_" + t[0].toLowerCase()),
+                  g[k]
+                );
+              e.set("callback", c + ".maps." + q);
+              a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+              d[q] = f;
+              a.onerror = () => (h = n(Error(p + " could not load.")));
+              a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+              m.head.append(a);
+            }));
+        d[l]
+          ? console.warn(p + " only loads once. Ignoring:", g)
+          : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
+      })({ key: "AIzaSyDRVzmgSXonHr_QRZWLTEBGxTDZzU-MCUA", v: "weekly" });
+    </script>
   </body>
 </html>
