@@ -86,10 +86,10 @@ button {
 }
 
 #extra-details {
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
-#extra-details > p {
+#extra-details > div {
     margin-top: 4px;
     margin-bottom: 16px;
 }
@@ -104,6 +104,9 @@ button {
     left: 16px;
     top: 10vh;
     bottom: 16px;
+}
+
+#provider-list-scroll {
     overflow-y: auto;
 }
 

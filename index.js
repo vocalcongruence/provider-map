@@ -1,3 +1,5 @@
+
+
 // Initialize and add the map
 let map;
 
@@ -20,11 +22,19 @@ $(".chosen-select").chosen({
   width: "100px",
 });
 
+$(".chosen-select-searchable").chosen({
+  width: "150px",
+});
+
 $(".multi-select").on("change", function (e) {
   generateMarkers(map);
 });
 
 $(".chosen-select").on("change", function (e) {
+  generateMarkers(map);
+});
+
+$(".chosen-select-searchable").on("change", function (e) {
   generateMarkers(map);
 });
 
@@ -68,22 +78,35 @@ function buildQuery() {
   const area = $("#opt-area").val();
   const number = $("#opt-number").val();
   const modality = $("#opt-modality").val();
-  const state = $("#opt-state").val();
+
+  const country = $("#opt-country").val();
+
+  let state;
+  if (country == "US") {
+    state = $("#opt-state").val();
+  }
+  else if (country == "CA") {
+    state = $("#opt-province").val();
+  }
+  else {
+    state = null;
+  }
+  
 
   return {
     isTrainer: isTrainer,
     area: area,
     number: number,
     modality: modality,
+    country: country,
     state: state,
   };
 }
 
 function providerMatchesQuery(provider, query) {
-  //console.log(query)
+  console.log(query)
   if (query.isTrainer != null) {
     if (provider.isTrainer != query.isTrainer) {
-      //console.log("cancelled")
       return false;
     }
   }
@@ -120,11 +143,17 @@ function providerMatchesQuery(provider, query) {
     }
   }
 
+  if (query.country != null && query.country != '') {
+    if (provider.country != query.country) {
+      return false;
+    }
+  }
+
   if (query.state) {
     if (
-      !(provider.virtualLocations.includes(query.state) || query.state == "any")
+      !(provider.virtualLocations.includes(query.state) || query.state == "any" || provider.state == query.state)
     ) {
-      //return false;
+      return false;
     }
   }
 
@@ -244,7 +273,7 @@ function populateDetailsPane(provider) {
   // Set Financial
   if (provider.financial) {
     document.getElementById("data-provider-finance").innerText =
-      provider.website;
+      provider.financial;
   } else {
     document.getElementById("section-provider-finance").classList.add("hidden");
   }
@@ -252,7 +281,7 @@ function populateDetailsPane(provider) {
   // Set Trainings
   if (provider.training) {
     document.getElementById("data-provider-training").innerText =
-      provider.website;
+      provider.training;
   } else {
     document
       .getElementById("section-provider-training")
@@ -262,7 +291,7 @@ function populateDetailsPane(provider) {
   // Set Cultural Competency
   if (provider.cultural) {
     document.getElementById("data-provider-culture").innerText =
-      provider.website;
+      provider.cultural;
   } else {
     document.getElementById("section-provider-culture").classList.add("hidden");
   }
@@ -279,7 +308,7 @@ function populateDetailsPane(provider) {
 }
 
 function populateListPane(validProviders) {
-  const pane = document.getElementById("provider-list");
+  const pane = document.getElementById("provider-list-scroll");
 
   pane.innerHTML = "";
 
@@ -296,15 +325,42 @@ function populateListPane(validProviders) {
 
     listItem.appendChild(name);
 
-    const inPerson = document.createElement("p");
-    inPerson.innerText = "In Person for ...";
+    if (provider.numberModality.includes("IndividualTraining-InPerson") || provider.numberModality.includes("GroupTraining-InPerson")) {
+      const inPerson = document.createElement("p");
+      
+      let str = "In Person - ";
 
-    listItem.appendChild(inPerson);
+      if (provider.numberModality.includes("IndividualTraining-InPerson")) {
+        str += "Individual ";
+      }
 
-    const virtual = document.createElement("p");
-    virtual.innerText = "Virtual for ...";
+      if (provider.numberModality.includes("GroupTraining-InPerson")) {
+        str += "Group ";
+      }
 
-    listItem.appendChild(virtual);
+      inPerson.innerText = str;
+      
+      listItem.appendChild(inPerson);
+    }
+
+    if (provider.numberModality.includes("IndividualTraining-Virtual") || provider.numberModality.includes("GroupTraining-Virtual")) {
+      const virtual = document.createElement("p");
+      
+      let str = "Virtual - ";
+
+      if (provider.numberModality.includes("IndividualTraining-Virtual")) {
+        str += "Individual ";
+      }
+
+      if (provider.numberModality.includes("GroupTraining-Virtual")) {
+        str += "Group ";
+      }
+
+      virtual.innerText = str;
+      
+      listItem.appendChild(virtual);
+    }
+
 
     pane.appendChild(listItem);
   }

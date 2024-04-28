@@ -26,8 +26,15 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
 
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/simplebar@latest/dist/simplebar.css"
+    />
+    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="./chosen.css" />
     <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="stylesheet" type="text/css" href="./scrollbar.css" />
   </head>
   <body>
     <div id="map"></div>
@@ -58,18 +65,20 @@
 
       <select
         id="opt-number"
-        data-placeholder="Individual / Group"
+        data-placeholder="Individual or Group"
         class="chosen-select"
       >
+        <option value="">Individual or Group</option>
         <option value="individual">Individual</option>
         <option value="group">Group</option>
       </select>
 
       <select
         id="opt-modality"
-        data-placeholder="In-Person / Virtual"
+        data-placeholder="In-Person or Virtual"
         class="chosen-select"
       >
+        <option value="">In Person or Virtual</option>
         <option value="inperson">In Person</option>
         <option value="virtual">Virtual</option>
       </select>
@@ -77,9 +86,9 @@
       <select
         id="opt-country"
         data-placeholder="Any Country"
-        class="chosen-select"
+        class="chosen-select-searchable"
       >
-        <option>Any Country</option>
+        <option value="">Any Country</option>
         <option value="AF">Afghanistan</option>
         <option value="AX">�land Islands</option>
         <option value="AL">Albania</option>
@@ -385,7 +394,11 @@
         <option value="WY">Wyoming</option>
       </select>
 
-      <select id="opt-province" data-placeholder="Any Province" class="chosen-select">
+      <select
+        id="opt-province"
+        data-placeholder="Any Province"
+        class="chosen-select"
+      >
         <option value="any">Any Province</option>
         <option value="AB">Alberta</option>
         <option value="BC">British Columbia</option>
@@ -400,7 +413,6 @@
         <option value="QC">Quebec</option>
         <option value="SK">Saskatchewan</option>
         <option value="YT">Yukon</option>
-
       </select>
 
       <button>Reset</button>
@@ -493,26 +505,28 @@
     </div>
 
     <div id="provider-list">
-      <button id="test-refresh">Refresh</button>
-      <div class="provider-list-item">
-        <label>Orit Greenberg MS, CCC-SLP</label>
-        <p>Speech Language Pathologist</p>
-        <p>Individual In-Person & Virtual</p>
-        <p>Group Virtual</p>
-      </div>
+      <div id="provider-list-scroll">
+        <button id="test-refresh">Refresh</button>
+        <div class="provider-list-item">
+          <label>Orit Greenberg MS, CCC-SLP</label>
+          <p>Speech Language Pathologist</p>
+          <p>Individual In-Person & Virtual</p>
+          <p>Group Virtual</p>
+        </div>
 
-      <div class="provider-list-item">
-        <label>Orit Greenberg MS, CCC-SLP</label>
-        <p>Speech Language Pathologist</p>
-        <p>Individual In-Person & Virtual</p>
-        <p>Group Virtual</p>
-      </div>
+        <div class="provider-list-item">
+          <label>Orit Greenberg MS, CCC-SLP</label>
+          <p>Speech Language Pathologist</p>
+          <p>Individual In-Person & Virtual</p>
+          <p>Group Virtual</p>
+        </div>
 
-      <div class="provider-list-item">
-        <label>Orit Greenberg MS, CCC-SLP</label>
-        <p>Speech Language Pathologist</p>
-        <p>Individual In-Person & Virtual</p>
-        <p>Group Virtual</p>
+        <div class="provider-list-item">
+          <label>Orit Greenberg MS, CCC-SLP</label>
+          <p>Speech Language Pathologist</p>
+          <p>Individual In-Person & Virtual</p>
+          <p>Group Virtual</p>
+        </div>
       </div>
     </div>
 
@@ -554,7 +568,10 @@
         d[l]
           ? console.warn(p + " only loads once. Ignoring:", g)
           : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
-      })({ key: "AIzaSyDRVzmgSXonHr_QRZWLTEBGxTDZzU-MCUA", v: "weekly" });
+      })({
+        key: atob("QUl6YVN5RFJWem1nU1hvbkhyX1FSWldMVEVCR3hURFp6VS1NQ1VB"),
+        v: "weekly",
+      });
     </script>
   </body>
 </html>
