@@ -2,6 +2,9 @@
 let map;
 
 let providers;
+let countries;
+let us_states;
+let ca_provinces;
 let markers = [];
 
 const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
@@ -25,6 +28,29 @@ $(".chosen-select").on("change", function (e) {
   generateMarkers(map);
 });
 
+$("#opt_state_chosen").hide();
+$("#opt_province_chosen").hide();
+
+$("#opt-country")
+  .chosen()
+  .change(function () {
+    var selectedValue = $(this).val();
+
+    const us_states = $("#opt_state_chosen");
+    const ca_provinces = $("#opt_province_chosen");
+
+    if (selectedValue == "US") {
+      us_states.show();
+      ca_provinces.hide();
+    } else if (selectedValue == "CA") {
+      us_states.hide();
+      ca_provinces.show();
+    } else {
+      us_states.hide();
+      ca_provinces.hide();
+    }
+  });
+
 async function initMap() {
   map = new Map(document.getElementById("map"), {
     zoom: 5,
@@ -44,7 +70,6 @@ function buildQuery() {
   const modality = $("#opt-modality").val();
   const state = $("#opt-state").val();
 
-
   return {
     isTrainer: isTrainer,
     area: area,
@@ -55,11 +80,10 @@ function buildQuery() {
 }
 
 function providerMatchesQuery(provider, query) {
-  console.log(query)
+  //console.log(query)
   if (query.isTrainer != null) {
-    
     if (provider.isTrainer != query.isTrainer) {
-      console.log("cancelled")
+      //console.log("cancelled")
       return false;
     }
   }
@@ -73,32 +97,29 @@ function providerMatchesQuery(provider, query) {
   }*/
 
   if (query.number != null && query.modality != null) {
-    if (query.number== "individual") {
-      if (query.modality == 'inperson') {
+    if (query.number == "individual") {
+      if (query.modality == "inperson") {
         if (!provider.numberModality.includes("IndividualTraining-InPerson")) {
           return false;
         }
-      }
-      else {
+      } else {
         if (!provider.numberModality.includes("IndividualTraining-Virtual")) {
           return false;
         }
       }
-    }
-    else {
-      if (query.modality == 'inperson') {
+    } else {
+      if (query.modality == "inperson") {
         if (!provider.numberModality.includes("GroupTraining-InPerson")) {
           return false;
         }
-      }
-      else {
+      } else {
         if (!provider.numberModality.includes("GroupTraining-Virtual")) {
           return false;
         }
       }
     }
   }
-  
+
   if (query.state) {
     if (
       !(provider.virtualLocations.includes(query.state) || query.state == "any")
