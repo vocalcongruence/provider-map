@@ -56,23 +56,37 @@ button {
     width: 25%;
     position: absolute;
     top: 10vh;
-    right: 32px;
+    right: 0;
     bottom: 32px;
     display: flex;
     flex-direction: column;
     color: white;
     font-family: sans-serif;
     padding: 32px 32px;
-    border-radius: 24px;
+    border-radius: 24px 0 0 24px;
+}
+
+#provider-details h1 {
+    font-size: 24px;
+}
+
+#data-provider-intro {
+    margin-top: 8px;
+    font-size: 14px;
+    margin-bottom: 16px;
+
 }
 
 #provider-details label {
-    margin-top: 16px;
     font-weight: 700;
 }
 
 .icon-list {
     padding: 16px 0;
+}
+
+.icon-list a {
+    color: white;
 }
 
 .icon-list > div {
@@ -87,11 +101,22 @@ button {
 
 #extra-details {
     overflow-y: auto;
+    margin-top: 8px;
 }
 
 #extra-details > div {
     margin-top: 4px;
     margin-bottom: 16px;
+    font-size: 14px;
+}
+
+#extra-details > div > p {
+    margin-top: 4px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--color-highlight)
 }
 
 
@@ -101,9 +126,41 @@ button {
     background: var(--color-main);
     width: 20%;
     position: absolute;
-    left: 16px;
+    left: 0;
     top: 10vh;
     bottom: 16px;
+    transition: left .2s;
+    border-radius: 0 24px 24px 0;
+    overflow-x: hidden;
+}
+
+#provider-list-show {
+    background: var(--color-main);
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    left: 0;
+    top: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    border-radius: 0 50% 50% 0  ;
+}
+
+#provdier-list-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+#provider-list.collapsed #provdier-list-header {
+    display: none;
+}
+
+#provider-list.collapsed {
+    left: -1000px;
 }
 
 #provider-list-scroll {
@@ -111,7 +168,8 @@ button {
 }
 
 .provider-list-item {
-    margin-bottom: 32px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-highlight);
 }
 
 .provider-list-item:hover {
@@ -119,6 +177,10 @@ button {
 }
 
 .provider-list-item label {
-    font-size: 20px;
+    font-size: 14px;
     font-weight: bold;
+}
+
+.provider-list-item p {
+    font-size: 12px;
 }

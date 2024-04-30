@@ -419,12 +419,18 @@
     </div>
 
     <div id="provider-details">
+      <span id="provider-details-close" style="position: absolute; right: 16px; top: 16px;" class="material-symbols-outlined">
+        close
+        </span>
+
       <h1 id="data-provider-name">Orit Greenberg MS, CCC-SLP</h1>
 
       <p id="data-provider-intro">
         Orit Greenberg MS, CCC-SLP (she/her) is a Speech-Language Pathologist
         employed at UPMC Voice Center.
       </p>
+
+      <hr>
 
       <div class="icon-list">
         <div>
@@ -435,6 +441,13 @@
         <div>
           <span class="material-symbols-outlined"> location_on </span>
           <span id="data-provider-location">location goes here</span>
+        </div>
+
+        <div>
+          <span class="material-symbols-outlined">
+            connected_tv
+            </span>
+            <span id="data-provider-location-virtual">location goes here</span>
         </div>
 
         <div>
@@ -456,6 +469,8 @@
           </div>
         </div>
       </div>
+
+      <hr>
 
       <div id="extra-details">
         <div id="section-provider-affiliations">
@@ -504,30 +519,18 @@
       </div>
     </div>
 
-    <div id="provider-list">
-      <div id="provider-list-scroll">
-        <button id="test-refresh">Refresh</button>
-        <div class="provider-list-item">
-          <label>Orit Greenberg MS, CCC-SLP</label>
-          <p>Speech Language Pathologist</p>
-          <p>Individual In-Person & Virtual</p>
-          <p>Group Virtual</p>
-        </div>
+    <div id="provider-list-show"><span class="material-symbols-outlined">
+      list
+      </span></div>
 
-        <div class="provider-list-item">
-          <label>Orit Greenberg MS, CCC-SLP</label>
-          <p>Speech Language Pathologist</p>
-          <p>Individual In-Person & Virtual</p>
-          <p>Group Virtual</p>
-        </div>
-
-        <div class="provider-list-item">
-          <label>Orit Greenberg MS, CCC-SLP</label>
-          <p>Speech Language Pathologist</p>
-          <p>Individual In-Person & Virtual</p>
-          <p>Group Virtual</p>
-        </div>
+    <div id="provider-list" class="collapsed">
+      <div id="provdier-list-header">
+        <h2>Provider List</h2>
+        <span id="provider-list-close"><span class="material-symbols-outlined">
+          close
+          </span></span>
       </div>
+      <div id="provider-list-scroll"></div>
     </div>
 
     <!-- prettier-ignore -->

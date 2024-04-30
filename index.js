@@ -12,6 +12,16 @@ let markers = [];
 const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 const { Map } = await google.maps.importLibrary("maps");
 
+$("#provider-list-show").on("click", function (e) {
+  console.log("open")
+    $("#provider-list").removeClass("collapsed");
+})
+
+$("#provider-list-close").on("click", function (e) {
+  console.log("close")
+  $("#provider-list").addClass("collapsed");
+})
+
 $(".multi-select").chosen({
   display_selected_options: false,
   width: "200px",
@@ -38,8 +48,13 @@ $(".chosen-select-searchable").on("change", function (e) {
   generateMarkers(map);
 });
 
+$("#provider-details-close").on("click", function (e) {
+  $("#provider-details").hide();
+})
+
 $("#opt_state_chosen").hide();
 $("#opt_province_chosen").hide();
+$("#provider-details").hide();
 
 $("#opt-country")
   .chosen()
@@ -104,7 +119,7 @@ function buildQuery() {
 }
 
 function providerMatchesQuery(provider, query) {
-  console.log(query)
+  //console.log(query)
   if (query.isTrainer != null) {
     if (provider.isTrainer != query.isTrainer) {
       return false;
@@ -216,7 +231,7 @@ function loadProviders() {
 }
 
 function populateDetailsPane(provider) {
-  const pane = document.getElementById("provider-details");
+  const pane = $("#provider-details");
 
   // Set Name
   if (provider.name) {
@@ -233,7 +248,26 @@ function populateDetailsPane(provider) {
     document.getElementById("data-provider-website").href = provider.website;
   }
 
-  // Set Location
+  // Set In Person Location
+  if (provider.numberModality.includes("IndividualTraining-InPerson") || provider.numberModality.includes("GroupTraining-InPerson")) {
+    let city = "State College";
+    let individual = (provider.numberModality.includes("IndividualTraining-InPerson")) ? "Individual" : "";
+    let group = (provider.numberModality.includes("GroupTraining-InPerson")) ? "Group" : "";
+    let divider = (individual != "" && group != "") ? "/" : "";
+
+    document.getElementById("data-provider-location").innerText = "In Person - " + individual + divider + group + " (" + city + " " + provider.state + ", " + provider.country + ")";
+  }
+
+  // Set Virtual Location
+  if (provider.numberModality.includes("IndividualTraining-Virtual") || provider.numberModality.includes("GroupTraining-Virtual")) {
+    let individual = (provider.numberModality.includes("IndividualTraining-Virtual")) ? "Individual" : "";
+    let group = (provider.numberModality.includes("GroupTraining-Virtual")) ? "Group" : "";
+    let divider = (individual != "" && group != "") ? "/" : "";
+    let stateString = provider.virtualLocations.join(", ");
+    
+
+    document.getElementById("data-provider-location-virtual").innerText = "Virtual - " + individual + divider + group + " (" + stateString + ")";
+  }
 
   // Set Phone
   if (provider.phone) {
@@ -305,6 +339,8 @@ function populateDetailsPane(provider) {
       .getElementById("section-provider-additional")
       .classList.add("hidden");
   }
+
+  pane.show();
 }
 
 function populateListPane(validProviders) {
@@ -368,5 +404,5 @@ function populateListPane(validProviders) {
 
 loadProviders();
 
-document.getElementById("test-refresh").onclick = populateListPane;
+//document.getElementById("test-refresh").onclick = populateListPane;
 //loadXLSX();
