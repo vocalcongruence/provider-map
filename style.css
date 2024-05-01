@@ -33,6 +33,14 @@
     padding: 8px 32px;
 }
 
+#top-row td {
+    padding-bottom: 8px;
+}
+
+td {
+    padding: 0 8px;
+}
+
 h2 {
     font-size: 18px;
 }

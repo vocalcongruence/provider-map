@@ -126,15 +126,8 @@ function providerMatchesQuery(provider, query) {
     }
   }
 
-  if (query.area.length > 0) {
-    let hasOne = false;
-    for (let opt of provider.professionalAreas) {
-      if (query.area.includes(opt)) {
-        hasOne = true;
-      }
-    }
-
-    if (!hasOne) {
+  if (query.area != null && query.area != "") {
+    if (!provider.professionalAreas.includes(query.area)) {
       return false;
     }
   }
