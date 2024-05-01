@@ -29,7 +29,7 @@ $(".multi-select").chosen({
 
 $(".chosen-select").chosen({
   disable_search: true,
-  width: "100px",
+  width: "200px",
 });
 
 $(".chosen-select-searchable").chosen({
@@ -126,13 +126,18 @@ function providerMatchesQuery(provider, query) {
     }
   }
 
-  /*if (query.area.length > 0) {
-    for (let opt of query.area) {
-      if (!(provider.professionalAreas.includes(opt))) {
-        return false;
+  if (query.area.length > 0) {
+    let hasOne = false;
+    for (let opt of provider.professionalAreas) {
+      if (query.area.includes(opt)) {
+        hasOne = true;
       }
     }
-  }*/
+
+    if (!hasOne) {
+      return false;
+    }
+  }
 
   if (query.number != null && query.modality != null) {
     if (query.number == "individual") {
@@ -250,7 +255,7 @@ function populateDetailsPane(provider) {
 
   // Set In Person Location
   if (provider.numberModality.includes("IndividualTraining-InPerson") || provider.numberModality.includes("GroupTraining-InPerson")) {
-    let city = "State College";
+    let city = provider.city;
     let individual = (provider.numberModality.includes("IndividualTraining-InPerson")) ? "Individual" : "";
     let group = (provider.numberModality.includes("GroupTraining-InPerson")) ? "Group" : "";
     let divider = (individual != "" && group != "") ? "/" : "";
