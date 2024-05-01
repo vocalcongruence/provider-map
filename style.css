@@ -7,6 +7,36 @@
 * {
     margin: 0;
     padding: 0;
+
+    font-family: sans-serif;
+    color: white;
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid var(--color-highlight);
+    margin: 8px 0;
+}
+
+h1 {
+    color: white;
+    margin-bottom: 16px;
+}
+
+label {
+    color: white;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+select {
+    width: 100%;
+    height: 32px;
+    color: var(--color-main);
+}
+
+.hidden {
+    display: none !important;
 }
 
 #map {
@@ -14,181 +44,171 @@
     width: 100vw;
 }
 
-#filters {
-    width: 90wvw;
-    
-    border-radius: 500px;
-    background-color: var(--color-main);
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    right: 16px;
-    z-index: 999;
-
-    display: flex;
-    column-gap: 32px;
-    align-items: center;
-    color: white;
-    font-family: sans-serif;
-    padding: 8px 32px;
+.tab {
+    padding: 16px;
 }
 
-#top-row td {
-    padding-bottom: 8px;
+.filterSet {
+    border-top: 1px solid var(--color-highlight);
+    margin-top: 16px;
+    padding-top: 16px;
 }
 
-td {
-    padding: 0 8px;
-}
-
-h2 {
-    font-size: 18px;
-}
-
-button {
-    height: 32px;
-    padding: 0 8px;
-    border-radius: 8px;
-    background-color: var(--color-highlight);
-    color: white;
-    border: 1px solid gray;
-}
-
-.hidden {
-    display: none !important;
-}
-
-#provider-details,
-#provider-list {
-    background-color: var(--color-main);
-    width: 25%;
-    position: absolute;
-    top: 10vh;
-    right: 0;
-    bottom: 32px;
-    display: flex;
-    flex-direction: column;
-    color: white;
-    font-family: sans-serif;
-    padding: 32px 32px;
-    border-radius: 24px 0 0 24px;
-}
-
-#provider-details h1 {
-    font-size: 24px;
-}
-
-#data-provider-intro {
-    margin-top: 8px;
-    font-size: 14px;
-    margin-bottom: 16px;
-
-}
-
-#provider-details label {
-    font-weight: 700;
-}
-
-.icon-list {
-    padding: 16px 0;
-}
-
-.icon-list a {
-    color: white;
-}
-
-.icon-list > div {
+.labeled-icon {
     display: flex;
     align-items: center;
-    margin: 8px 0;
+    padding: 4px 0;
 }
 
-.icon-list > div span{
+.labeled-icon > span {
     margin-right: 8px;
 }
 
-#extra-details {
-    overflow-y: auto;
-    margin-top: 8px;
+.cbGroup {
+    display: grid;
+    grid-template-columns: 16px calc(100% - 16px - 8px);
+    padding: 8px 0;
 }
 
-#extra-details > div {
-    margin-top: 4px;
-    margin-bottom: 16px;
+.cbGroup > label {
+    margin-left: 8px;
+    font-weight: 500;
     font-size: 14px;
 }
 
-#extra-details > div > p {
-    margin-top: 4px;
-}
-
-hr {
-    border: none;
-    border-top: 1px solid var(--color-highlight)
-}
-
-
-
-
-#provider-list {
-    background: var(--color-main);
-    width: 20%;
-    position: absolute;
-    left: 0;
-    top: 10vh;
-    bottom: 16px;
-    transition: left .2s;
-    border-radius: 0 24px 24px 0;
-    overflow-x: hidden;
-}
-
-#provider-list-show {
-    background: var(--color-main);
-    width: 64px;
-    height: 64px;
-    position: absolute;
-    left: 0;
-    top: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-
-    border-radius: 0 50% 50% 0  ;
-}
-
-#provdier-list-header {
-    display: flex;
-    justify-content: space-between;
+.cbGroup > input {
     margin-bottom: 8px;
 }
 
-#provider-list.collapsed #provdier-list-header {
-    display: none;
+#panel-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    min-width: 300px;
+    width: 20%;
+    height: 100vh;
+    max-width: 500px;
+
+    background: var(--color-main);
 }
 
-#provider-list.collapsed {
-    left: -1000px;
+#panel-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    min-width: 300px;
+    width: 20%;
+    height: 100vh;
+    max-width: 500px;
+    box-sizing: border-box;
+
+    background: var(--color-main);
 }
 
-#provider-list-scroll {
-    overflow-y: auto;
-}
-
-.provider-list-item {
-    padding: 8px 0;
+#panel-right > h1 {
+    margin: 0;
+    padding: 0 16px;
+    height: 50px;
+    box-sizing: border-box;
+    font-size: 27px;
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid var(--color-highlight);
 }
 
-.provider-list-item:hover {
-    background-color: var(--color-highlight);
+#panel-left-tabMenu {
+    color: white;
+    display: flex;
+    height: 50px;
+    box-sizing: border-box;
 }
 
-.provider-list-item label {
-    font-size: 14px;
-    font-weight: bold;
+#panel-right-trainerDetails {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: calc(100% - 50px);
+    padding: 16px;
+    box-sizing: border-box;
 }
 
-.provider-list-item p {
-    font-size: 12px;
+#panel-right-trainerDetails-additional {
+    overflow-y: auto;
+}
+
+.tabButton {
+    width: 50%;
+    text-align: center;
+    padding: 8px 8px;
+    font-size: 32px;
+    border-bottom: 1px solid var(--color-highlight);
+    cursor: pointer;
+    border-right: 1px solid var(--color-highlight);
+    background: var(--color-main);
+}
+
+.tabButton:hover {
+    background: var(--color-highlight);
+}
+
+.tab {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 81px);
+}
+
+.filterSet {
+    overflow-y: auto;
+    height: calc(100% - 150px);
+    padding-right: 8px;
+}
+
+.section {
+    margin: 12px 0;
+}
+
+.section p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+#button-openLeftPanel {
+    background: var(--color-main);
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 12px;
+    border-radius: 50%;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+#button-closeLeftPanel {
+    position: absolute;
+    top: 0;
+    right: -50px;
+    width: 50px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 50% 50% 0;
+    color: white;
+}
+
+#button-closeRightPanel {
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 50px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50% 0 0 50%;
+    color: white;
 }
