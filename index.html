@@ -39,6 +39,19 @@
   <body>
     <div id="map"></div>
 
+    <button
+      id="query"
+      style="
+        position: absolute;
+        left: 400px;
+        top: 8px;
+        height: 32px;
+        color: black;
+      "
+    >
+      QUERY
+    </button>
+
     <span id="button-openLeftPanel" class="material-symbols-outlined">
       menu
     </span>
@@ -62,9 +75,9 @@
       <div id="panel-left-tabFilter" class="tab">
         <h1>Search and Filter</h1>
 
-        <select>
-          <option>Search for Trainer</option>
-          <option>Search for Surgeon</option>
+        <select id="opt-profession">
+          <option value="trainer">Search for Trainer</option>
+          <option value="surgeon">Search for Surgeon</option>
         </select>
 
         <div class="filterSet">
@@ -72,124 +85,222 @@
           <div class="cbGroup">
             <input
               type="checkbox"
-              id="cb-professionalArea-slp"
-              name="cb-professionalArea"
+              id="opt-professionalArea-slp"
+              name="opt-professionalArea-slp"
               value="slp"
             />
-            <label for="cb-professionalArea-slp"
+            <label for="opt-professionalArea-slp"
               >Speech-Language Pathologist</label
             >
             <input
               type="checkbox"
-              id="cb-professionalArea-vpst"
-              name="cb-professionalArea"
+              id="opt-professionalArea-vpst"
+              name="opt-professionalArea-vpst"
               value="vpst"
             />
-            <label for="cb-professionalArea-vpst"
+            <label for="opt-professionalArea-vpst"
               >Vocal Pedagogue/Singing Instructor</label
             >
             <input
               type="checkbox"
-              id="cb-professionalArea-tac"
-              name="cb-professionalArea"
+              id="opt-professionalArea-tac"
+              name="opt-professionalArea-tac"
               value="tac"
             />
-            <label for="cb-professionalArea-tac">Theater/Acting Coach</label>
+            <label for="opt-professionalArea-tac">Theater/Acting Coach</label>
             <input
               type="checkbox"
-              id="cb-professionalArea-gavt"
-              name="cb-professionalArea"
+              id="opt-professionalArea-gavt"
+              name="opt-professionalArea-gav"
               value="gavt"
             />
-            <label for="cb-professionalArea-gavt"
+            <label for="opt-professionalArea-gavt"
               >Gender Affirming Voice Trainer</label
             >
             <input
               type="checkbox"
-              id="cb-professionalArea-other"
-              name="cb-professionalArea"
+              id="opt-professionalArea-other"
+              name="opt-professionalArea-other"
               value="other"
             />
-            <label for="cb-professionalArea-other">Other</label>
+            <label for="opt-professionalArea-other">Other</label>
           </div>
 
           <hr />
 
           <label>Location</label>
-          <select>
-            <option default>Any Country</option>
-            <option default>United States</option>
+          <select id="opt-country">
+            <option value="any" default>Any Country</option>
+            <option value="us">United States</option>
           </select>
 
-          <select>
-            <option default>Any State</option>
-            <option default>United States</option>
+          <select id="opt-state">
+            <option value="any" default>Any State</option>
+            <option>Alabama</option>
           </select>
 
           <hr />
 
           <label>Language</label>
           <div class="cbGroup">
-            <input type="checkbox" />
+            <input
+              id="opt-language-english"
+              name="opt-language-english"
+              value="english"
+              type="checkbox"
+            />
             <label>English</label>
-            <input type="checkbox" />
+            <input
+              id="opt-language-spanish"
+              name="opt-language-spanish"
+              value="spanish"
+              type="checkbox"
+            />
             <label>Spanish</label>
-            <input type="checkbox" />
+            <input
+              id="opt-language-french"
+              name="opt-language-french"
+              value="french"
+              type="checkbox"
+            />
             <label>French</label>
-            <input type="checkbox" />
+            <input
+              id="opt-language-mandarin"
+              name="opt-language-mandarin"
+              value="mandarin"
+              type="checkbox"
+            />
             <label>Mandarin</label>
           </div>
 
           <hr />
 
           <label>In-Person or Virtual?</label>
-          <div>
-            <input type="radio" />
-            <label>In-Person</label>
-            <input type="radio" />
-            <label>Virtual</label>
+          <div class="radioGroup">
+            <div>
+              <input
+                id="opt-modality-inPerson"
+                name="opt-modality"
+                value="inPerson"
+                type="radio"
+              />
+              <label for="opt-modality-inPerson">In-Person</label>
+            </div>
+            <div>
+              <input
+                id="opt-modality-virtual"
+                name="opt-modality"
+                value="virtual"
+                type="radio"
+              />
+              <label for="opt-modality-virtual">Virtual</label>
+            </div>
           </div>
 
           <hr />
 
           <label>Individual or Group?</label>
-          <div>
-            <input type="radio" />
-            <label>Individual</label>
-            <input type="radio" />
-            <label>Group</label>
+          <div class="radioGroup">
+            <div>
+              <input
+                id="opt-number-individual"
+                name="opt-number"
+                value="individual"
+                type="radio"
+              />
+              <label for="opt-number-individual">Individual</label>
+            </div>
+            <div>
+              <input
+                id="opt-number-group"
+                name="opt-number"
+                value="group"
+                type="radio"
+              />
+              <label for="opt-number-group">Group</label>
+            </div>
           </div>
 
           <hr />
 
           <label>What are your goals?</label>
           <div class="cbGroup">
-            <input type="checkbox" />
-            <label>Masculine</label>
-            <input type="checkbox" />
-            <label>Feminine</label>
-            <input type="checkbox" />
-            <label>Androgynous</label>
-            <input type="checkbox" />
-            <label>Singing</label>
+            <input
+              id="opt-goal-masculine"
+              name="opt-goal-masculine"
+              value="masculine"
+              type="checkbox"
+            />
+            <label for="opt-goal-masculine">Masculine</label>
+            <input
+              id="opt-goal-feminine"
+              name="opt-goal-feminine"
+              value="feminine"
+              type="checkbox"
+            />
+            <label for="opt-goal-feminine">Feminine</label>
+            <input
+              id="opt-goal-androgynous"
+              name="opt-goal-androgynous"
+              value="androgynous"
+              type="checkbox"
+            />
+            <label for="opt-goal-androgynous">Androgynous</label>
+            <input
+              id="opt-goal-singing"
+              name="opt-goal-singing"
+              value="singing"
+              type="checkbox"
+            />
+            <label for="opt-goal-singing">Singing</label>
           </div>
 
           <hr />
 
           <label>Provider Identity</label>
           <div class="cbGroup">
-            <input type="checkbox" />
-            <label>Cisgender Man</label>
-            <input type="checkbox" />
-            <label>Cisgender Woman</label>
-            <input type="checkbox" />
-            <label>Transgender Man</label>
-            <input type="checkbox" />
-            <label>Transgender Woman</label>
-            <input type="checkbox" />
-            <label>Nonbinary</label>
-            <input type="checkbox" />
-            <label>Other / Did not share</label>
+            <input
+              id="opt-pi-cisman"
+              name="opt-pi-cisman"
+              value="cisman"
+              type="checkbox"
+            />
+            <label for="opt-goal-">Cisgender Man</label>
+            <input
+              id="opt-pi-ciswoman"
+              name="opt-pi-ciswoman"
+              value="ciswoman"
+              type="checkbox"
+            />
+            <label for="opt-goal-ciswoman">Cisgender Woman</label>
+            <input
+              id="opt-pi-transman"
+              name="opt-pi-transman"
+              value="transman"
+              type="checkbox"
+            />
+            <label for="opt-goal-transman">Transgender Man</label>
+            <input
+              id="opt-pi-transwoman"
+              name="opt-pi-transwoman"
+              value="transwoman"
+              type="checkbox"
+            />
+            <label for="opt-goal-transwoman">Transgender Woman</label>
+            <input
+              id="opt-pi-nonbinary"
+              name="opt-pi-nonbinary"
+              value="nonbinary"
+              type="checkbox"
+            />
+            <label for="opt-goal-nonbinary">Nonbinary</label>
+            <input
+              id="opt-pi-other"
+              name="opt-pi-other"
+              value="other"
+              type="checkbox"
+            />
+            <label for="opt-goal-other">Other / Did not disclose</label>
           </div>
         </div>
       </div>
