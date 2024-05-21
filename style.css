@@ -251,3 +251,64 @@ select {
     border-radius: 50% 0 0 50%;
     color: white;
 }
+
+/************************************************
+                MOBILE OVERRIDES
+************************************************/
+
+@media only screen and (max-width: 600px) {
+    
+    #panel-left {
+        right: 0;
+        top: 40vh;
+        max-width: 100vw;
+        width: 100vw;
+        height: 60vh;
+    }
+
+    #button-openLeftPanel {
+        top: calc(40vh - 32px);
+        left: 0;
+        right: 0;
+        width: 100vw;
+        border-radius: 0;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid lightgray;
+        font-size: 26px;
+        padding: 0;
+    }
+
+    #button-closeLeftPanel {
+        top: -32px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        border-radius: 0;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid lightgray;
+        font-size: 26px;
+    }
+
+    #panel-left-tabFilter {
+        height: calc(60vh - 60px);
+    }
+
+    #panel-right {
+        right: 0px;
+        left: 0;
+        width: 100vw;
+        top: calc(40vh - 32px);
+        height: calc(60vh + 54px);
+    }
+
+    #button-closeRightPanel {
+        right: 0;
+        left: unset;
+    }
+}

@@ -86,7 +86,14 @@ function generateMarkers(map) {
 
       marker.addListener("click", () => {
         map.setZoom(8);
-        map.setCenter(marker.position);
+        if (isMobile()) {
+          map.setCenter(marker.position);
+          let offsetY = window.innerHeight * .3;
+          map.panBy(0, offsetY);
+        }
+        else {
+          map.setCenter(marker.position);
+        }
 
         if (searchTrainers) {
           loadTrainer(provider);
@@ -146,26 +153,62 @@ function attachEvents() {
   $("#query").on("click", providerQuery);
 }
 
+function isMobile() {
+  return window.innerWidth < 600;
+}
+
 function showLeftPanel() {
   $("#panel-left").removeClass("hidden");
-  $("#panel-left").animate({ left: "0" }, 400, "swing");
+
+  if (isMobile()) {
+    let pos = window.innerHeight * .4 - 32;
+    $("#button-openLeftPanel").animate({ top: pos + "px" }, 400, "swing");
+    $("#panel-left").animate({ top: "40vh" }, 400, "swing");
+    $("#button-closeLeftPanel").show();
+  }
+  else { 
+    $("#panel-left").animate({ left: "0" }, 400, "swing");
+  }
 }
 
 function hideLeftPanel() {
-  $("#panel-left").animate({ left: "-400px" }, 400, "swing", function () {
-    $(this).addClass("hidden");
-  });
+  if (isMobile()) {
+    let pos = window.innerHeight - 32;
+
+    $("#button-openLeftPanel").animate({ top: pos + "px" }, 400, "swing");
+    $("#panel-left").animate({ top: "100vh" }, 400, "swing", function () {
+      $("#button-closeLeftPanel").hide();
+    });
+  }
+  else { 
+    $("#panel-left").animate({ left: "-400px" }, 400, "swing", function () {
+      $(this).addClass("hidden");
+    });
+  }
 }
 
 function showRightPanel() {
   $("#panel-right").removeClass("hidden");
-  $("#panel-right").animate({ right: "0" }, 400, "swing");
+
+  if (isMobile()) {
+    let pos = window.innerHeight * .4 - 32;
+    $("#panel-right").animate({ top: pos + "px" }, 400, "swing");
+  }
+  else {
+    $("#panel-right").animate({ right: "0" }, 400, "swing");
+  }
 }
 
 function hideRightPanel() {
-  $("#panel-right").animate({ right: "-400px" }, 400, "swing", function () {
-    $(this).addClass("hidden");
-  });
+  if (isMobile()) {
+    $("#panel-right").animate({ top: "100vh" }, 400, "swing");
+  }
+  else {
+
+    $("#panel-right").animate({ right: "-400px" }, 400, "swing", function () {
+      $(this).addClass("hidden");
+    });
+  }
 }
 
 function openTabFilter() {
@@ -287,8 +330,6 @@ function loadProviderList(providers) {
 }
 
 function loadTrainer(trainer) {
-  console.log(trainer);
-
   ///////////////////////////////////////////////////////
   //                      Header                       //
   ///////////////////////////////////////////////////////
@@ -353,7 +394,6 @@ function loadTrainer(trainer) {
 
       str += ")";
     }
-    console.log("HERE", str);
 
     $("#data-virtual").text(str);
     $("#container-virtual").show();
@@ -449,3 +489,4 @@ function loadTrainer(trainer) {
 }
 
 attachEvents();
+hideRightPanel();
