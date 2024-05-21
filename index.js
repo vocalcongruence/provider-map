@@ -6,7 +6,7 @@ let trainers = [];
 let surgeons = [];
 let markers = [];
 
-let searchTrainers = false;
+let searchTrainers = true;
 
 // Helper Lists
 
@@ -15,7 +15,9 @@ let countries;
 let us_states;
 let ca_provinces;
 
-const { AdvancedMarkerElement, PinElement  } = await google.maps.importLibrary("marker");
+const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
+  "marker"
+);
 const { Map } = await google.maps.importLibrary("maps");
 
 async function initMap() {
@@ -79,14 +81,17 @@ function generateMarkers(map) {
         map: map,
         position: provider.pin,
         title: provider.name,
-        content: pin.element
+        content: pin.element,
       });
 
       marker.addListener("click", () => {
         map.setZoom(8);
         map.setCenter(marker.position);
 
-        //populateDetailsPane(provider);
+        if (searchTrainers) {
+          loadTrainer(provider);
+          showRightPanel();
+        }
       });
 
       provider.marker = marker;
@@ -278,6 +283,168 @@ function loadProviderList(providers) {
     el.appendChild(gavc);
 
     panel.appendChild(el);
+  }
+}
+
+function loadTrainer(trainer) {
+  console.log(trainer);
+
+  ///////////////////////////////////////////////////////
+  //                      Header                       //
+  ///////////////////////////////////////////////////////
+
+  $("#data-name").text(trainer.name);
+  // TODO: update credentials
+  $("#data-intro").text(trainer.intro);
+
+  ///////////////////////////////////////////////////////
+  //                     Quick Info                    //
+  ///////////////////////////////////////////////////////
+
+  // Website
+  if (trainer.website != null && trainer.website != "") {
+    $("#container-website").show();
+    $("#data-website").attr("href", trainer.website);
+  } else {
+    $("#container-website").hide();
+  }
+
+  const nm = trainer.numMods;
+
+  // In Person
+  if (nm.individual_inPerson || nm.group_inPerson) {
+    let str = "In Person - ";
+
+    str += nm.individual_inPerson ? "Individual" : "";
+    str += nm.individual_inPerson && nm.group_inPerson ? "/" : "";
+    str += nm.group_inPerson ? "Group" : "";
+
+    if (trainer.country != null && trainer.country != "") {
+      str +=
+        "(" + trainer.city + " " + trainer.state + ", " + trainer.country + ")";
+    }
+
+    $("#data-inPerson").text(str);
+    $("#container-inPerson").show();
+  } else {
+    $("#container-inPerson").hide();
+  }
+
+  // Virtual
+  if (nm.individual_virtual || nm.group_virtual) {
+    let str = "Virtual - ";
+
+    str += nm.individual_virtual ? "Individual" : "";
+    str += nm.individual_virtual && nm.group_virtual ? "/" : "";
+    str += nm.group_virtual ? "Group" : "";
+
+    if (
+      trainer.virtualLocations != null &&
+      trainer.virtualLocations.length > 0
+    ) {
+      str += " (";
+
+      for (let i = 0; i < trainer.virtualLocations.length; i++) {
+        str += trainer.virtualLocations[i];
+        if (i < trainer.virtualLocations.length - 1) {
+          str += ", ";
+        }
+      }
+
+      str += ")";
+    }
+    console.log("HERE", str);
+
+    $("#data-virtual").text(str);
+    $("#container-virtual").show();
+  } else {
+    $("#container-virtual").hide();
+  }
+
+  // Phone
+  if (trainer.phone != null && trainer.phone != "") {
+    $("#container-phone").show();
+    $("#data-phone").attr("href", "tel:" + trainer.phone);
+    $("#data-phone").text(trainer.phone);
+  } else {
+    $("#container-phone").hide();
+  }
+
+  // Since
+  if (trainer.generalSince != null) {
+    $("#data-since").text(trainer.generalSince);
+  }
+
+  if (trainer.gavcSince != null) {
+    $("#data-sinceGA").text(trainer.gavcSince);
+  }
+
+  ///////////////////////////////////////////////////////
+  //               Trainer Provided Info               //
+  ///////////////////////////////////////////////////////
+
+  // Affiliations
+  if (trainer.affiliations != null && trainer.affiliations.length > 0) {
+    $("#data-provider-affiliations").html(null);
+
+    for (let aff of trainer.affiliations) {
+      $("#data-provider-affiliations").append("<li>" + aff + "</li>");
+    }
+
+    $("#section-provider-affiliations").show();
+  }
+  else {
+    $("#section-provider-affiliations").hide();
+  }
+
+  // Additional Identities
+  if (trainer.additionalIdentity != null && trainer.additionalIdentity != "") {
+    $("#data-provider-identities").text(trainer.additionalIdentity);
+
+    $("#section-provider-identities").show();
+  }
+  else {
+    $("#section-provider-identities").hide();
+  }
+
+  // Financial
+  if (trainer.financial != null && trainer.financial != "") {
+    $("#data-provider-finance").text(trainer.financial);
+
+    $("#section-provider-finance").show();
+  }
+  else {
+    $("#section-provider-finance").hide();
+  }
+
+  // Training
+  if (trainer.training != null && trainer.training != "") {
+    $("#data-provider-training").text(trainer.training);
+
+    $("#section-provider-training").show();
+  }
+  else {
+    $("#section-provider-training").hide();
+  }
+
+  // Cultural
+  if (trainer.cultural != null && trainer.cultural != "") {
+    $("#data-provider-culture").text(trainer.cultural);
+
+    $("#section-provider-culture").show();
+  }
+  else {
+    $("#section-provider-culture").hide();
+  }
+
+  // Additional
+  if (trainer.additionalInformation != null && trainer.additionalInformation != "") {
+    $("#data-provider-additional").text(trainer.additionalInformation);
+
+    $("#section-provider-additional").show();
+  }
+  else {
+    $("#section-provider-additional").hide();
   }
 }
 

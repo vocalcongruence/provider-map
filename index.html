@@ -305,8 +305,7 @@
         </div>
       </div>
 
-      <div id="panel-left-tabList" class="tab hidden">
-      </div>
+      <div id="panel-left-tabList" class="tab hidden"></div>
     </div>
 
     <div id="panel-right" class="panel">
@@ -319,36 +318,38 @@
       <h1>Provider Details</h1>
 
       <div id="panel-right-trainerDetails">
-        <h2>Danielle Schwartz</h2>
-        <h3>M.S., CCC-SLP</h3>
-        <p>
+        <h2 id="data-name">Danielle Schwartz</h2>
+        <h3 id="data-qualifications">M.S., CCC-SLP</h3>
+        <p id="data-intro">
           Danielle Schwartz, M.S., CCC-SLP (she/her) is a Speech-Language
           Pathologist employed at Empower Me Speech Services, KSU.
         </p>
 
         <hr />
 
-        <div class="labeled-icon">
+        <div class="labeled-icon" id="container-website">
           <span class="material-symbols-outlined"> captive_portal </span>
-          <a>View Provider Website</a>
+          <a id="data-website">View Provider Website</a>
         </div>
-        <div class="labeled-icon">
+        <div class="labeled-icon" id="container-inPerson">
           <span class="material-symbols-outlined"> location_on </span>
-          <p>In-Person</p>
+          <p id="data-inPerson"></p>
         </div>
-        <div class="labeled-icon">
+        <div class="labeled-icon" id="container-virtual">
           <span class="material-symbols-outlined"> connected_tv </span>
-          <p>Virtual</p>
+          <p id="data-virtual"></p>
         </div>
-        <div class="labeled-icon">
+        <div class="labeled-icon" id="container-phone">
           <span class="material-symbols-outlined"> call </span>
-          <a>1-234-567-8900</a>
+          <a id="data-phone"></a>
         </div>
         <div class="labeled-icon">
           <span class="material-symbols-outlined"> calendar_month </span>
           <div>
-            <p>General Care since 2015</p>
-            <p>Gender Affirming Care since 2018</p>
+            <p>General Care since <span id="data-since"></span></p>
+            <p>
+              Gender Affirming Care since <span id="data-sinceGA"></span>
+            </p>
           </div>
         </div>
 
@@ -357,46 +358,32 @@
         <div id="panel-right-trainerDetails-additional">
           <div id="section-provider-affiliations" class="section">
             <label>Affiliations</label>
-            <p id="data-provider-affiliations">
-              American Speech-Language-Hearing Association (ASHA)
-            </p>
+            <ul id="data-provider-affiliations"></ul>
           </div>
 
           <div id="section-provider-identities" class="section">
             <label>Additional Identities</label>
-            <p id="data-provider-identities">Genderqueer, queer, white</p>
+            <p id="data-provider-identities"></p>
           </div>
 
           <div id="section-provider-finance" class="section">
             <label>Financial Information</label>
-            <p id="data-provider-finance">
-              Insurance/self-pay accepted, contact UPMC Voice Center
-            </p>
+            <p id="data-provider-finance"></p>
           </div>
 
           <div id="section-provider-training" class="section">
             <label>Additional Trainings</label>
-            <p id="data-provider-training">
-              Voice specialized fellowship with over 70% gender affirming
-              caseload, GAVT with Sandy Hirsch and private observation/mentoring
-              with Sandy Hirsch.
-            </p>
+            <p id="data-provider-training"></p>
           </div>
 
           <div id="section-provider-culture" class="section">
             <label>Cultural Competency</label>
-            <p id="data-provider-culture">
-              GAVT with Sandy Hirsch and a session at Fall Voice, as well as a
-              training offered through Mt Sinai Hospita
-            </p>
+            <p id="data-provider-culture"></p>
           </div>
 
           <div id="section-provider-additional" class="section">
             <label>Additional Information</label>
-            <p id="data-provider-additional">
-              GAVT with Sandy Hirsch and a session at Fall Voice, as well as a
-              training offered through Mt Sinai Hospita
-            </p>
+            <p id="data-provider-additional"></p>
           </div>
         </div>
       </div>
