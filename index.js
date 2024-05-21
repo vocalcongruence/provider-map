@@ -1,13 +1,21 @@
 // Initialize and add the map
 let map;
 
+// State
+let trainers = [];
+let surgeons = [];
+let markers = [];
+
+let searchTrainers = false;
+
+// Helper Lists
+
 let providers;
 let countries;
 let us_states;
 let ca_provinces;
-let markers = [];
 
-const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+const { AdvancedMarkerElement, PinElement  } = await google.maps.importLibrary("marker");
 const { Map } = await google.maps.importLibrary("maps");
 
 async function initMap() {
@@ -55,21 +63,30 @@ function generateMarkers(map) {
   const query = buildQuery();
   let validProviders = [];
 
-  for (let provider of providers) {
+  const providerPool = searchTrainers ? trainers : surgeons;
+  const color = searchTrainers ? "#cc87bf" : "#2872b8";
+  const color2 = searchTrainers ? "#a35394" : "#0f4c85";
+
+  for (let provider of providerPool) {
     if (true || providerMatchesQuery(provider, query)) {
-      const el = document.createElement("p");
-      el.innerText = "Test Element";
+      const pin = new PinElement({
+        background: color,
+        borderColor: color2,
+        glyphColor: color2,
+      });
+
       const marker = new AdvancedMarkerElement({
         map: map,
-        position: provider.location,
+        position: provider.pin,
         title: provider.name,
+        content: pin.element
       });
 
       marker.addListener("click", () => {
         map.setZoom(8);
         map.setCenter(marker.position);
 
-        populateDetailsPane(provider);
+        //populateDetailsPane(provider);
       });
 
       provider.marker = marker;
@@ -78,7 +95,7 @@ function generateMarkers(map) {
     }
   }
 
-  populateListPane(validProviders);
+  loadProviderList(validProviders);
 }
 
 function removeAllMarkers(map) {
@@ -93,12 +110,13 @@ function removeAllMarkers(map) {
 }
 
 function loadProviders() {
-  fetch("./providers.json")
+  fetch("./output.json")
     .then((response) => response.json())
     .then((json) => {
-      providers = json;
+      trainers = json.trainers;
+      surgeons = json.surgeons;
 
-      initMap(providers).then(() => {
+      initMap().then(() => {
         generateMarkers(map);
       });
     });
@@ -116,6 +134,7 @@ loadProviders();
 function attachEvents() {
   $("#button-openLeftPanel").on("click", showLeftPanel);
   $("#button-closeLeftPanel").on("click", hideLeftPanel);
+  $("#button-closeRightPanel").on("click", hideRightPanel);
   $("#button-tabFilter").on("click", openTabFilter);
   $("#button-tabList").on("click", openTabList);
 
@@ -124,15 +143,25 @@ function attachEvents() {
 
 function showLeftPanel() {
   $("#panel-left").removeClass("hidden");
+  $("#panel-left").animate({ left: "0" }, 400, "swing");
 }
 
 function hideLeftPanel() {
-  $("#panel-left").addClass("hidden");
+  $("#panel-left").animate({ left: "-400px" }, 400, "swing", function () {
+    $(this).addClass("hidden");
+  });
 }
 
-function showRightPanel() {}
+function showRightPanel() {
+  $("#panel-right").removeClass("hidden");
+  $("#panel-right").animate({ right: "0" }, 400, "swing");
+}
 
-function hideRightPanel() {}
+function hideRightPanel() {
+  $("#panel-right").animate({ right: "-400px" }, 400, "swing", function () {
+    $(this).addClass("hidden");
+  });
+}
 
 function openTabFilter() {
   showLeftPanel();
@@ -225,6 +254,31 @@ function providerQuery() {
   };
   console.log(q);
   return q;
+}
+
+function loadProviderList(providers) {
+  const panel = document.getElementById("panel-left-tabList");
+  panel.innerHTML = "";
+
+  for (let provider of providers) {
+    const el = document.createElement("div");
+    el.className = "provider-list-item";
+
+    const name = document.createElement("p");
+    name.className = "name";
+    name.innerText = provider.name;
+    el.appendChild(name);
+
+    const general = document.createElement("p");
+    general.innerText = "General Services since " + provider.generalSince;
+    el.appendChild(general);
+
+    const gavc = document.createElement("p");
+    gavc.innerText = "GAVC since " + provider.gavcSince;
+    el.appendChild(gavc);
+
+    panel.appendChild(el);
+  }
 }
 
 attachEvents();

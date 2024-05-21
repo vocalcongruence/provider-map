@@ -141,6 +141,11 @@ select {
     box-sizing: border-box;
 }
 
+#panel-left-tabList {
+    height: calc(100vh - 82px);
+    overflow: auto;
+}
+
 #panel-right-trainerDetails {
     display: flex;
     flex-direction: column;
@@ -172,7 +177,7 @@ select {
 .tab {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 81px);
+    height: calc(100vh - 82px);
 }
 
 .filterSet {
@@ -187,6 +192,26 @@ select {
 
 .section p {
     margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.provider-list-item {
+    padding: 12px 0 8px 0;
+    border-bottom: 1px solid var(--color-highlight);
+}
+
+.provider-list-item:hover {
+    cursor: pointer;
+    background: var(--color-highlight);
+}
+
+.provider-list-item .name {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.provider-list-item p {
+    font-size: 12px;
     margin-bottom: 4px;
 }
 
