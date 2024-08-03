@@ -80,6 +80,10 @@ option {
     display: none !important;
 }
 
+ul {
+    padding-left: 18px;
+}
+
 .GMAMP-maps-pin-view {
     transition: .3s;
 }
@@ -292,6 +296,35 @@ option {
     align-items: center;
     justify-content: center;
     border-radius: 50% 0 0 50%;
+}
+
+.radio-label-clear {
+    display: flex;
+
+}
+
+.radio-label-clear button {
+    height: 20px;
+    background: none;
+    border: none;
+    border-radius: 3px;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.radio-label-clear p {
+    margin-bottom: 0;
+}
+
+.radio-label-clear button:hover {
+    background-color: var(--color-highlight);
+}
+
+.radio-label-clear button .material-symbols-outlined {
+    color: var(--color-highlight2);
+    font-size: 16px;
+    margin-right: 4px;
 }
 
 /************************************************

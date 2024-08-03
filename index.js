@@ -123,6 +123,14 @@ function attachEvents() {
   $("#opt-country").on("change", generateMarkers);
   $("#opt-state").on("change", generateMarkers);
 
+  $("#btn-reset-modality").on("click", resetModality);
+  $("#opt-modality-inPerson").on("click", onSelectModality);
+  $("#opt-modality-virtual").on("click", onSelectModality);
+
+  $("#btn-reset-number").on("click", resetNumber);
+  $("#opt-number-individual").on("click", onSelectNumber);
+  $("#opt-number-group").on("click", onSelectNumber);
+
   // DEBUG
   $("#query").on("click", providerQuery);
 }
@@ -208,6 +216,30 @@ function switchProfession(e) {
   }
 
   generateMarkers();
+}
+
+function resetModality(e) {
+  $("#btn-reset-modality").hide();
+  $("#opt-modality-inPerson").prop('checked', false); 
+  $("#opt-modality-virtual").prop('checked', false); 
+
+  generateMarkers();
+}
+
+function onSelectModality(e) {
+  $("#btn-reset-modality").show();
+}
+
+function resetNumber(e) {
+  $("#btn-reset-number").hide();
+  $("#opt-number-individual").prop('checked', false); 
+  $("#opt-number-group").prop('checked', false); 
+
+  generateMarkers();
+}
+
+function onSelectNumber(e) {
+  $("#btn-reset-number").show();
 }
 
 function showTrainerFilters() {
@@ -569,7 +601,7 @@ function loadTrainer(trainer) {
   ///////////////////////////////////////////////////////
 
   $("#data-name").text(trainer.name);
-  // TODO: update credentials
+  $("#data-credentials").text(trainer.credentials);
   $("#data-intro").text(trainer.intro);
 
   ///////////////////////////////////////////////////////
@@ -834,7 +866,7 @@ function loadSurgeon(surgeon) {
 }
 
 function centerMarker(marker) {
-  map.setZoom(8);
+  map.setZoom(10);
   if (isMobile()) {
     map.setCenter(marker.position);
     let offsetY = window.innerHeight * 0.3;
@@ -858,3 +890,5 @@ function centerMarker(marker) {
 
 attachEvents();
 hideRightPanel();
+$("#btn-reset-modality").hide();
+$("#btn-reset-number").hide();
