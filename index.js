@@ -98,6 +98,7 @@ function loadProviders() {
       loadCountries(json.countries);
       loadStates();
       loadProvinces();
+      loadLanguages(json.languages);
 
       initMap().then(() => {
         generateMarkers();
@@ -107,9 +108,6 @@ function loadProviders() {
 
 showTrainerFilters();
 loadProviders();
-
-//document.getElementById("test-refresh").onclick = populateListPane;
-//loadXLSX();
 
 /* 
 ----------------------------------------------------------------------------------------------------------------------
@@ -339,10 +337,15 @@ function providerQuery() {
   const province = $("#opt-province").val();
 
   // Language
-  const lang_english = $("#opt-language-english").is(":checked");
-  const lang_spanish = $("#opt-language-spanish").is(":checked");
-  const lang_french = $("#opt-language-french").is(":checked");
-  const lang_mandarin = $("#opt-language-mandarin").is(":checked");
+  const languages = [];
+  const languageInputs = $("[name='opt-language']");
+  for (let li of languageInputs) {
+    if (li.checked) {
+      languages.push(li.value);
+    }
+  }
+
+  console.log(languages);
 
   // Modality
   const modality = $('input[name="opt-modality"]:checked').val();
@@ -384,12 +387,7 @@ function providerQuery() {
     country: country,
     state: state,
     province: province,
-    language: {
-      english: lang_english,
-      spanish: lang_spanish,
-      french: lang_french,
-      mandarin: lang_mandarin,
-    },
+    languages: languages,
     modality: modality,
     number: number,
     goal: {
@@ -482,7 +480,7 @@ function providerMatchesQuery(p, q) {
         return false;
       }
     }
-console.log(q);
+
     // Province
     if (q.country == "CA" && q.province != null && q.province != "any") {
       console.log(q.province);
@@ -494,6 +492,26 @@ console.log(q);
   }
 
   // Language
+  if (q.languages != null && q.languages.length != 0) {
+    let hasAtLeastOne = false;
+    console.log("QUERY");
+    console.log(q.languages);
+    console.log("PROVIDER");
+    console.log(p.languages);
+    for (let providerLanguage of p.languages) {
+      if (q.languages.includes(providerLanguage)) {
+        hasAtLeastOne = true;
+        break;
+      }
+      else {
+        console.log(providerLanguage + " not in " + q.languages);
+      }
+    }
+
+    if (!hasAtLeastOne) {
+      return false;
+    }
+  }
 
   // Number + Modality
   if (q.profession == "trainer" && q.number != null && q.modality == null) {
@@ -971,6 +989,29 @@ function loadProvinces() {
       optgroup.appendChild(el);
     }
   });
+}
+
+function loadLanguages(languages) {
+  const optgroup = document.getElementById("group-language");
+
+  for (let l of languages) {
+    const l_nospace = l.replace(/\s+/g, '');
+
+    const el = document.createElement("input");
+    el.type = "checkbox";
+    el.name = "opt-language";
+    el.id = "opt-language-" + l_nospace;
+    el.value = l;
+    el.onchange = generateMarkers;
+
+    const el2 = document.createElement("label");
+    el2.innerText = l;
+    el2.style = "text-transform: capitalize;";
+    el2.htmlFor = "opt-language-" + l_nospace;
+
+    optgroup.appendChild(el);
+    optgroup.appendChild(el2);
+  }
 }
 
 attachEvents();
