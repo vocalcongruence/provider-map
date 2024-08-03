@@ -95,6 +95,10 @@ function loadProviders() {
       trainers = json.trainers;
       surgeons = json.surgeons;
 
+      loadCountries(json.countries);
+      loadStates();
+      loadProvinces();
+
       initMap().then(() => {
         generateMarkers();
       });
@@ -122,6 +126,7 @@ function attachEvents() {
   $("input").on("change", generateMarkers);
   $("#opt-country").on("change", generateMarkers);
   $("#opt-state").on("change", generateMarkers);
+  $("#opt-province").on("change", generateMarkers);
 
   $("#btn-reset-modality").on("click", resetModality);
   $("#opt-modality-inPerson").on("click", onSelectModality);
@@ -130,6 +135,8 @@ function attachEvents() {
   $("#btn-reset-number").on("click", resetNumber);
   $("#opt-number-individual").on("click", onSelectNumber);
   $("#opt-number-group").on("click", onSelectNumber);
+
+  $("#opt-country").on("change", onSelectCountry);
 
   // DEBUG
   $("#query").on("click", providerQuery);
@@ -242,6 +249,27 @@ function onSelectNumber(e) {
   $("#btn-reset-number").show();
 }
 
+function onSelectCountry(e) {
+  const country = $("#opt-country").val();
+
+  if (country == "US") {
+    $("#opt-state").show();
+    $("#opt-province").hide();
+    $("#opt-province").val("any");
+  }
+  else if (country == "CA") {
+    $("#opt-state").hide();
+    $("#opt-state").val("any");
+    $("#opt-province").show();
+  }
+  else {
+    $("#opt-province").hide();
+    $("#opt-state").val("any");
+    $("#opt-state").hide();
+    $("#opt-province").val("any");
+  }
+}
+
 function showTrainerFilters() {
   $("#label-professionalArea").show();
   $("#group-professionalArea").show();
@@ -305,11 +333,10 @@ function providerQuery() {
   const pro_t3t = $("#opt-procedures-t3t").is(":checked");
   const pro_other = $("#opt-procedures-other").is(":checked");
 
-  // Country
+  // Location
   const country = $("#opt-country").val();
-
-  // State
   const state = $("#opt-state").val();
+  const province = $("#opt-province").val();
 
   // Language
   const lang_english = $("#opt-language-english").is(":checked");
@@ -356,6 +383,7 @@ function providerQuery() {
     },
     country: country,
     state: state,
+    province: province,
     language: {
       english: lang_english,
       spanish: lang_spanish,
@@ -442,17 +470,26 @@ function providerMatchesQuery(p, q) {
     }
   }
 
-  // Country
+  // Location
   if (q.country != null && q.country != "any") {
     if (q.country != p.country) {
       return false;
     }
-  }
 
-  // State
-  if (q.state != null && q.state != "any") {
-    if (q.state != p.state) {
-      return false;
+    // State
+    if (q.country == "US" && q.state != null && q.state != "any") {
+      if (q.state != p.state) {
+        return false;
+      }
+    }
+console.log(q);
+    // Province
+    if (q.country == "CA" && q.province != null && q.province != "any") {
+      console.log(q.province);
+      console.log(p.state);
+      if (q.province != p.state) {
+        return false;
+      }
     }
   }
 
@@ -888,7 +925,57 @@ function centerMarker(marker) {
   marker.content.classList.add("highlight");
 }
 
+function loadCountries(countries) {
+  fetch("./countries.json")
+  .then((response) => response.json())
+  .then((json) => {
+    const optgroup = document.getElementById("opt-country");
+    
+    for (let c of countries) {
+      if (c in json) {
+        const el = document.createElement("option");
+        el.value = c;
+        el.innerText = json[c];
+
+        optgroup.appendChild(el);
+      }
+    }
+  });
+}
+
+function loadStates() {
+  fetch("./us_states.json")
+  .then((response) => response.json())
+  .then((json) => {
+    const optgroup = document.getElementById("opt-state");
+    for (let s in json) {
+      const el = document.createElement("option");
+      el.value = s;
+      el.innerText = json[s];
+
+      optgroup.appendChild(el);
+    }
+  });
+}
+
+function loadProvinces() {
+  fetch("./ca_provinces.json")
+  .then((response) => response.json())
+  .then((json) => {
+    const optgroup = document.getElementById("opt-province");
+    for (let p in json) {
+      const el = document.createElement("option");
+      el.value = p;
+      el.innerText = json[p];
+
+      optgroup.appendChild(el);
+    }
+  });
+}
+
 attachEvents();
 hideRightPanel();
 $("#btn-reset-modality").hide();
 $("#btn-reset-number").hide();
+$("#opt-state").hide();
+$("#opt-province").hide();
