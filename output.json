@@ -1,11 +1,58 @@
 {
     "trainers": [
         {
-            "name": "Orit Greenberg MS",
-            "credentials": "CCC-SLP",
+            "name": "Leah B Helou",
+            "credentials": "PhD, CCC-SLP",
             "pin": {
                 "lat": 40.4362085,
                 "lng": -79.98562070000001
+            },
+            "city": "Pittsburgh",
+            "state": "PA",
+            "country": "US",
+            "areas": [
+                "slp"
+            ],
+            "virtualLocations": [
+                "PA"
+            ],
+            "numMods": {
+                "individual_inPerson": true,
+                "individual_virtual": true,
+                "group_inPerson": false,
+                "group_virtual": false
+            },
+            "goals": [
+                "feminine",
+                "masculine",
+                "androgynous"
+            ],
+            "languages": [
+                "english"
+            ],
+            "identity": "ciswoman",
+            "intro": "Leah B Helou, PhD, CCC-SLP (she/her) is a Speech-Language Pathologist employed at UPMC Voice Center & University of Pittsburgh.",
+            "generalSince": 2004,
+            "gavcSince": 2004,
+            "affiliations": [
+                "American Speech-Language-Hearing Association (ASHA)"
+            ],
+            "additionalIdentity": null,
+            "financial": null,
+            "website": "https://www.upmc.com/services/ear-nose-throat/services/voice-speech-and-swallowing/voice-center",
+            "phone": null,
+            "email": "lbh7@pitt.edu",
+            "training": null,
+            "speciality": null,
+            "cultural": null,
+            "additionalInformation": null
+        },
+        {
+            "name": "Orit Greenberg MS",
+            "credentials": "CCC-SLP",
+            "pin": {
+                "lat": 40.436127458419335,
+                "lng": -79.98567764243207
             },
             "city": "Pittsburgh",
             "state": "PA",
@@ -49,11 +96,58 @@
             "additionalInformation": null
         },
         {
+            "name": "Ali Lewandowski",
+            "credentials": "MA, CCC-SLP",
+            "pin": {
+                "lat": 40.436115218042715,
+                "lng": -79.98571250139558
+            },
+            "city": "Pittsburgh",
+            "state": "PA",
+            "country": "US",
+            "areas": [
+                "slp"
+            ],
+            "virtualLocations": [
+                "PA"
+            ],
+            "numMods": {
+                "individual_inPerson": true,
+                "individual_virtual": true,
+                "group_inPerson": false,
+                "group_virtual": false
+            },
+            "goals": [
+                "feminine",
+                "masculine",
+                "androgynous"
+            ],
+            "languages": [
+                "english"
+            ],
+            "identity": "ciswoman",
+            "intro": "Ali Lewandowski, MA, CCC-SLP (she/her) is a Speech-Language Pathologist employed at UPMC Voice Center & University of Pittsburgh.",
+            "generalSince": 2015,
+            "gavcSince": 2018,
+            "affiliations": [
+                "American Speech-Language-Hearing Association (ASHA)"
+            ],
+            "additionalIdentity": null,
+            "financial": "UPMC insurance ",
+            "website": "https://www.upmc.com/services/ear-nose-throat/services/voice-speech-and-swallowing/voice-center",
+            "phone": null,
+            "email": "ael89@pitt.edu",
+            "training": null,
+            "speciality": null,
+            "cultural": null,
+            "additionalInformation": null
+        },
+        {
             "name": "Brittani Farrell MM",
             "credentials": "BME, MS CCC-SLP",
             "pin": {
-                "lat": 40.8448405,
-                "lng": -73.9345391
+                "lat": 40.8448591,
+                "lng": -73.9345139
             },
             "city": "New York",
             "state": "NY",
@@ -450,7 +544,8 @@
                 "slp"
             ],
             "virtualLocations": [
-                "WI"
+                "WI",
+                "MN"
             ],
             "numMods": {
                 "individual_inPerson": false,
@@ -586,8 +681,8 @@
             "name": "Natalia Evans",
             "credentials": "MSc(A), SLP, Reg. CASLPO",
             "pin": {
-                "lat": 43.1630917,
-                "lng": -79.250333
+                "lat": 43.1631696,
+                "lng": -79.25036159999999
             },
             "city": "St. Catharines",
             "state": "ON",
@@ -828,8 +923,8 @@
             "name": "Melanie Tapson",
             "credentials": null,
             "pin": {
-                "lat": 43.661527,
-                "lng": -79.351751
+                "lat": 43.6615453,
+                "lng": -79.3517408
             },
             "city": "Toronto",
             "state": "ON",
@@ -1608,8 +1703,8 @@
             "name": "Janine Fitzpatrick",
             "credentials": "MSc, S-LP (C), Reg. CASLPO",
             "pin": {
-                "lat": 43.65395470000001,
-                "lng": -79.3775241
+                "lat": 43.653894812782184,
+                "lng": -79.37758367367384
             },
             "city": "Toronto",
             "state": "ON",
@@ -2048,8 +2143,8 @@
             "name": "Elizabeth Treatman",
             "credentials": "M.A., CCC-SLP",
             "pin": {
-                "lat": 41.8781136,
-                "lng": -87.6297982
+                "lat": 41.878016003480404,
+                "lng": -87.62991179627178
             },
             "city": "Chicago",
             "state": "IL",
@@ -2096,8 +2191,8 @@
             "name": "Trescha Kay",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 44.5282404,
-                "lng": -89.5722735
+                "lat": 44.5282496,
+                "lng": -89.57217729999999
             },
             "city": "Stevens Point",
             "state": "WI",
@@ -2436,8 +2531,8 @@
             "name": "Michael Starr",
             "credentials": "M.A., CCC-SLP",
             "pin": {
-                "lat": 42.3827629,
-                "lng": -72.52078589999999
+                "lat": 42.3828003,
+                "lng": -72.5207959
             },
             "city": "Amherst",
             "state": "MA",
@@ -2481,8 +2576,8 @@
             "name": "Lori Holmes",
             "credentials": "M.Sc. Reg CASLPO, SL-P (C)",
             "pin": {
-                "lat": 42.9825924,
-                "lng": -81.2735388
+                "lat": 42.9826069,
+                "lng": -81.2735527
             },
             "city": "London",
             "state": "ON",
@@ -2681,8 +2776,8 @@
             "name": "Laura Adams",
             "credentials": "M.S., CCC-SLP",
             "pin": {
-                "lat": 37.33874,
-                "lng": -121.8852525
+                "lat": 37.33867161463565,
+                "lng": -121.88532642527963
             },
             "city": "San Jose",
             "state": "CA",
@@ -2873,8 +2968,8 @@
             "name": "Maia Braden",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 43.0788044,
-                "lng": -89.41867479999999
+                "lat": 43.0788482,
+                "lng": -89.4186963
             },
             "city": "Madison",
             "state": "WI",
@@ -3014,8 +3109,8 @@
             "name": "Diana Orbelo",
             "credentials": "PhD CCC-SLP",
             "pin": {
-                "lat": 44.0222939,
-                "lng": -92.4673091
+                "lat": 44.0223132,
+                "lng": -92.4667642
             },
             "city": "Rochester",
             "state": "MN",
@@ -3261,8 +3356,8 @@
             "name": "Karen Sussman",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 40.76379490000001,
-                "lng": -73.52933139999999
+                "lat": 40.7638015,
+                "lng": -73.5293228
             },
             "city": "Hicksville",
             "state": "NY",
@@ -3705,8 +3800,8 @@
             "name": "Kacie La Forest",
             "credentials": "CCC-SLP",
             "pin": {
-                "lat": 34.0616867,
-                "lng": -118.2024187
+                "lat": 34.061616259725646,
+                "lng": -118.20248997919951
             },
             "city": "Los Angeles",
             "state": "CA",
@@ -3798,8 +3893,8 @@
             "name": "M. Eugenia Castro",
             "credentials": "M.S. CCC-SLP",
             "pin": {
-                "lat": 34.0549076,
-                "lng": -118.242643
+                "lat": 34.05482693267423,
+                "lng": -118.24272886012567
             },
             "city": "Los Angles",
             "state": "CA",
@@ -3849,8 +3944,8 @@
             "name": "Gretchen McGinty",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 35.2270869,
-                "lng": -80.8431267
+                "lat": 35.227007163171926,
+                "lng": -80.84321414473882
             },
             "city": "Charlotte",
             "state": "NC",
@@ -4046,8 +4141,8 @@
             "name": "Quinn Dinsmore",
             "credentials": null,
             "pin": {
-                "lat": 41.8781136,
-                "lng": -87.6297982
+                "lat": 41.87804381460465,
+                "lng": -87.62987370757511
             },
             "city": "Chicago",
             "state": "IL",
@@ -4791,8 +4886,8 @@
             "name": "Aubrey Dunlap",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 33.6603168,
-                "lng": -112.1839126
+                "lat": 33.6603397,
+                "lng": -112.1838832
             },
             "city": "Glendale",
             "state": "AZ",
@@ -5231,8 +5326,8 @@
             "name": "Bethany Beckham",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 41.5028576,
-                "lng": -81.6218519
+                "lat": 41.50274397245472,
+                "lng": -81.62195091428015
             },
             "city": "Cleveland",
             "state": "OH",
@@ -5762,8 +5857,8 @@
             "name": "John Fredeking",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 39.1429546,
-                "lng": -84.499029
+                "lat": 39.14273470000001,
+                "lng": -84.4994948
             },
             "city": "Cincinnati ",
             "state": "OH",
@@ -5906,8 +6001,8 @@
             "name": "Kate DeVore",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 41.8781136,
-                "lng": -87.6297982
+                "lat": 41.87802210868396,
+                "lng": -87.62987526678461
             },
             "city": "Chicago",
             "state": "IL",
@@ -6051,8 +6146,8 @@
             "name": "Carolyn Hsu",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 42.3627964,
-                "lng": -71.0701368
+                "lat": 42.362722597395944,
+                "lng": -71.07021256548569
             },
             "city": "Boston",
             "state": "MA",
@@ -6294,8 +6389,8 @@
             "name": "Michelle Wilson",
             "credentials": "MM, MS, CCC-SLP",
             "pin": {
-                "lat": 39.2969505,
-                "lng": -76.5951702
+                "lat": 39.29687152686579,
+                "lng": -76.5952785614535
             },
             "city": "Baltimore",
             "state": "MD",
@@ -6344,8 +6439,8 @@
             "name": "Kristine Pietsch",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 39.2903848,
-                "lng": -76.6121893
+                "lat": 39.29029425309815,
+                "lng": -76.61226088476185
             },
             "city": "Baltimore",
             "state": "MD",
@@ -6684,8 +6779,8 @@
             "name": "Donna Gonzalez",
             "credentials": null,
             "pin": {
-                "lat": 32.9542984,
-                "lng": -96.8029839
+                "lat": 32.95423796170583,
+                "lng": -96.80304153775646
             },
             "city": "Dallas",
             "state": "TX",
@@ -6835,8 +6930,8 @@
             "name": "Marianna Rubino",
             "credentials": "MFA, PhD, CCC-SLP",
             "pin": {
-                "lat": 29.71988,
-                "lng": -95.3422444
+                "lat": 29.7204627,
+                "lng": -95.34293190000001
             },
             "city": "Houston",
             "state": "TX",
@@ -7033,8 +7128,8 @@
             "name": "Jordan Majdalani",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 41.8781136,
-                "lng": -87.6297982
+                "lat": 41.87801896144362,
+                "lng": -87.62985670101142
             },
             "city": "Chicago",
             "state": "IL ",
@@ -7125,8 +7220,8 @@
             "name": "Dahlia Exurrana",
             "credentials": null,
             "pin": {
-                "lat": 35.115945,
-                "lng": -106.517784
+                "lat": 35.1159279,
+                "lng": -106.5177605
             },
             "city": "Albuquerque",
             "state": "NM",
@@ -7170,8 +7265,8 @@
             "name": "Tempe Thomas",
             "credentials": "MHS, CCC-SLP",
             "pin": {
-                "lat": 41.9465709,
-                "lng": -87.77062629999999
+                "lat": 41.9465565,
+                "lng": -87.77061309999999
             },
             "city": "Chicago",
             "state": "IL",
@@ -7405,8 +7500,8 @@
             "name": "Anna Diemer",
             "credentials": "MM",
             "pin": {
-                "lat": 35.5950581,
-                "lng": -82.5514869
+                "lat": 35.594982850395674,
+                "lng": -82.55155220820616
             },
             "city": "Asheville",
             "state": "NC",
@@ -7456,8 +7551,8 @@
             "name": "Sheri Bayley",
             "credentials": "PhD, CCC-SLP",
             "pin": {
-                "lat": 35.9823475,
-                "lng": -114.9384305
+                "lat": 35.9823315,
+                "lng": -114.9381794
             },
             "city": "Henderson",
             "state": "NV",
@@ -7501,8 +7596,8 @@
             "name": "Sena Crutchley",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 36.0726354,
-                "lng": -79.7919754
+                "lat": 36.07257232180403,
+                "lng": -79.79207640136966
             },
             "city": "Greensboro",
             "state": "NC",
@@ -7747,8 +7842,8 @@
             "name": "Stefani Kalos",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 42.3627964,
-                "lng": -71.0701368
+                "lat": 42.36273386606339,
+                "lng": -71.07022114828365
             },
             "city": "Boston",
             "state": "MA",
@@ -8088,8 +8183,8 @@
             "name": "Mx Niall Taylor",
             "credentials": "BA, MSpeechPath",
             "pin": {
-                "lat": -31.9513993,
-                "lng": 115.8616783
+                "lat": -31.951493779337035,
+                "lng": 115.86158479255245
             },
             "city": "Perth",
             "state": "Western Australia ",
@@ -8183,8 +8278,8 @@
             "name": "Samantha Fitzenrider",
             "credentials": null,
             "pin": {
-                "lat": 39.7589478,
-                "lng": -84.1916069
+                "lat": 39.75884882203948,
+                "lng": -84.19167861895993
             },
             "city": "Dayton",
             "state": "OH",
@@ -8426,8 +8521,8 @@
             "name": "Anita L. Kozan",
             "credentials": "Ph.D., CCC-SLP",
             "pin": {
-                "lat": 44.9496322,
-                "lng": -93.2168719
+                "lat": 44.949636,
+                "lng": -93.2168547
             },
             "city": "Minneapolis",
             "state": "MN",
@@ -8529,8 +8624,8 @@
             "name": "Rachel Norotsky",
             "credentials": "MS, CF-SLP",
             "pin": {
-                "lat": 33.7684962,
-                "lng": -84.3860644
+                "lat": 33.7685663,
+                "lng": -84.3861178
             },
             "city": "Atlanta",
             "state": "GA",
@@ -8625,8 +8720,8 @@
             "name": "Emily Zimmer",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 44.9355013,
-                "lng": -93.2463222
+                "lat": 44.9354844,
+                "lng": -93.2463269
             },
             "city": "Minneapolis",
             "state": "MN",
@@ -8963,8 +9058,8 @@
             "name": "Eli Van Hook",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 35.5950581,
-                "lng": -82.5514869
+                "lat": 35.594981228732244,
+                "lng": -82.55159315609582
             },
             "city": "Asheville",
             "state": "NC",
@@ -9112,8 +9207,8 @@
             "name": "Glenda Falovitch",
             "credentials": "MSc (C)",
             "pin": {
-                "lat": 45.4812531,
-                "lng": -73.5928266
+                "lat": 45.4812567,
+                "lng": -73.5928327
             },
             "city": "Montreal",
             "state": "QC",
@@ -9258,8 +9353,8 @@
             "name": "KrisAnne Weiss",
             "credentials": "DMA",
             "pin": {
-                "lat": 44.977753,
-                "lng": -93.2650108
+                "lat": 44.97768820066925,
+                "lng": -93.2650704647491
             },
             "city": "Minneapolis",
             "state": "MN",
@@ -9404,8 +9499,8 @@
             "name": "Dr. Carli Barrios",
             "credentials": "CCC-SLP",
             "pin": {
-                "lat": 48.7572102,
-                "lng": -122.4811729
+                "lat": 48.75719549999999,
+                "lng": -122.4811522
             },
             "city": "Bellingham",
             "state": "WA",
@@ -9451,8 +9546,8 @@
             "name": "Kristin Slawson",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 38.9836655,
-                "lng": -76.94369089999999
+                "lat": 38.9836868,
+                "lng": -76.9437026
             },
             "city": "College Park",
             "state": "MD",
@@ -9592,8 +9687,8 @@
             "name": "Sarah Gopalakrishnan",
             "credentials": "MS,  CCC-SLP",
             "pin": {
-                "lat": 47.6482682,
-                "lng": -122.4138952
+                "lat": 47.64827510000001,
+                "lng": -122.4138836
             },
             "city": "Seattle",
             "state": "WA",
@@ -9836,8 +9931,8 @@
             "name": "Kristina Hassan",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 39.2903848,
-                "lng": -76.6121893
+                "lat": 39.29031616807223,
+                "lng": -76.61226426487445
             },
             "city": "Baltimore",
             "state": "MD",
@@ -9882,8 +9977,8 @@
             "name": "Anna Dubiak M.S.",
             "credentials": "CCC-SLP",
             "pin": {
-                "lat": 42.8829878,
-                "lng": -85.6056157
+                "lat": 42.88288784472154,
+                "lng": -85.60567254209579
             },
             "city": "Grand Rapids",
             "state": "MI",
@@ -10022,8 +10117,8 @@
             "name": "Abi Strong",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 33.4483771,
-                "lng": -112.0740373
+                "lat": 33.448268413526804,
+                "lng": -112.07410301360994
             },
             "city": "Phoenix ",
             "state": "AZ",
@@ -10066,8 +10161,8 @@
             "name": "Christine Adaire",
             "credentials": "Designated Linklater Voice Teacher",
             "pin": {
-                "lat": 34.0549076,
-                "lng": -118.242643
+                "lat": 34.05480420711012,
+                "lng": -118.24274670553702
             },
             "city": "Los Angeles",
             "state": "CA",
@@ -10310,8 +10405,8 @@
             "name": "Juliana Litts MA",
             "credentials": "CCC-SLP",
             "pin": {
-                "lat": 39.7392358,
-                "lng": -104.990251
+                "lat": 39.73917758909421,
+                "lng": -104.99032730781715
             },
             "city": "Denver",
             "state": "CO",
@@ -10358,8 +10453,8 @@
             "name": "Mary Trifiro",
             "credentials": "M.S., CCC-SLP",
             "pin": {
-                "lat": 38.2648259,
-                "lng": -104.6144362
+                "lat": 38.26475083664229,
+                "lng": -104.61452683098975
             },
             "city": "Pueblo ",
             "state": "CO",
@@ -10496,8 +10591,8 @@
             "name": "Dusty Allaway",
             "credentials": "MS",
             "pin": {
-                "lat": 45.515232,
-                "lng": -122.6783853
+                "lat": 45.515141921575015,
+                "lng": -122.67847932693681
             },
             "city": "Portland",
             "state": "OR",
@@ -10540,8 +10635,8 @@
             "name": "Sarah Maines",
             "credentials": "DMA ",
             "pin": {
-                "lat": 45.4540033,
-                "lng": -122.7017139
+                "lat": 45.4539927,
+                "lng": -122.7017785
             },
             "city": "Portland ",
             "state": "OR",
@@ -10589,8 +10684,8 @@
             "name": "Catherine Blair Whiteside",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 39.6461815,
-                "lng": -104.8996253
+                "lat": 39.646199,
+                "lng": -104.8996065
             },
             "city": "Denver",
             "state": "CO",
@@ -10637,8 +10732,8 @@
             "name": "Karen Floriano-Heimerl",
             "credentials": null,
             "pin": {
-                "lat": 44.4779548,
-                "lng": -87.94067989999999
+                "lat": 44.47794529999999,
+                "lng": -87.9405196
             },
             "city": "Green Bay",
             "state": "WI",
@@ -10684,8 +10779,8 @@
             "name": "Anick Lamarche",
             "credentials": null,
             "pin": {
-                "lat": 43.2410959,
-                "lng": -79.8057944
+                "lat": 43.2411088,
+                "lng": -79.8058009
             },
             "city": "Hamilton",
             "state": "ON",
@@ -10977,8 +11072,8 @@
             "name": "R. Lyn Shultz",
             "credentials": "CCC-SLP",
             "pin": {
-                "lat": 35.1031252,
-                "lng": -89.8917115
+                "lat": 35.1031085,
+                "lng": -89.8917272
             },
             "city": "Memphis",
             "state": "TN",
@@ -11024,8 +11119,8 @@
             "name": "Mary Krupicz",
             "credentials": "M.Cl.Sc. S-LP (C) Reg. CASLPO",
             "pin": {
-                "lat": 43.6616736,
-                "lng": -79.72136440000001
+                "lat": 43.6616583,
+                "lng": -79.7213273
             },
             "city": "Brampton",
             "state": "ON",
@@ -11165,8 +11260,8 @@
             "name": "Julia Ellerston",
             "credentials": "SLP.D., CCC-SLP",
             "pin": {
-                "lat": 40.7531267,
-                "lng": -111.8250934
+                "lat": 40.7535141,
+                "lng": -111.8247698
             },
             "city": "Salt Lake City",
             "state": "UT",
@@ -11408,8 +11503,8 @@
             "name": "Laura Kennedy BSpPath CPSP",
             "credentials": null,
             "pin": {
-                "lat": -27.4435511,
-                "lng": 152.9942962
+                "lat": -27.4435383,
+                "lng": 152.9943301
             },
             "city": "Brisbane",
             "state": "Queensland",
@@ -11457,8 +11552,8 @@
             "name": "Katie Milton CPSP",
             "credentials": null,
             "pin": {
-                "lat": -31.9303393,
-                "lng": 115.8667325
+                "lat": -31.9302861,
+                "lng": 115.8667547
             },
             "city": "Perth",
             "state": "Western Australia",
@@ -11691,8 +11786,8 @@
             "name": "R. Wes Smith",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 45.5103079,
-                "lng": -122.7736038
+                "lat": 45.5107942,
+                "lng": -122.7718365
             },
             "city": "Portland",
             "state": "OR",
@@ -11921,8 +12016,8 @@
             "name": "Sarah Bone",
             "credentials": "B Sp Path (Hons)",
             "pin": {
-                "lat": -32.9347878,
-                "lng": 151.7582791
+                "lat": -32.9347984,
+                "lng": 151.7582864
             },
             "city": "Newcastle",
             "state": "New South Wales",
@@ -11967,8 +12062,8 @@
             "name": "Joseph Nicol",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 39.1071783,
-                "lng": -77.1818562
+                "lat": 39.1071056,
+                "lng": -77.1819308
             },
             "city": "Rockville",
             "state": "MD",
@@ -12008,8 +12103,8 @@
             "name": "R. Jun Lin",
             "credentials": "MD",
             "pin": {
-                "lat": 43.65395470000001,
-                "lng": -79.3775241
+                "lat": 43.65388913649511,
+                "lng": -79.37759525007365
             },
             "city": "Toronto",
             "state": "ON",
@@ -12043,8 +12138,8 @@
             "name": "Hayley Born",
             "credentials": "MD, MS",
             "pin": {
-                "lat": 40.7580448,
-                "lng": -73.9696712
+                "lat": 40.757977418548016,
+                "lng": -73.96977140503013
             },
             "city": "New York City",
             "state": "NY",
@@ -12079,8 +12174,8 @@
             "name": "Simon R. A. Best",
             "credentials": "MD",
             "pin": {
-                "lat": 39.2969505,
-                "lng": -76.5951702
+                "lat": 39.29687179289726,
+                "lng": -76.59525672788851
             },
             "city": "Baltmore",
             "state": "MD",
@@ -12151,8 +12246,8 @@
             "name": "Michael Johns MD",
             "credentials": null,
             "pin": {
-                "lat": 34.0616867,
-                "lng": -118.2024187
+                "lat": 34.061628983641356,
+                "lng": -118.20249894001472
             },
             "city": "Los Angeles",
             "state": "CA",
@@ -12295,8 +12390,8 @@
             "name": "William S. Tierney",
             "credentials": "MD, MS, MS",
             "pin": {
-                "lat": 41.5028576,
-                "lng": -81.6218519
+                "lat": 41.502767155159106,
+                "lng": -81.62193213050512
             },
             "city": "Cleveland",
             "state": "OH",
@@ -12330,8 +12425,8 @@
             "name": "Jeanne L. Hatcher",
             "credentials": "MD, FACS",
             "pin": {
-                "lat": 33.7684962,
-                "lng": -84.3860644
+                "lat": 33.768480096046254,
+                "lng": -84.38617696954678
             },
             "city": "Atlanta",
             "state": "GA",
@@ -12401,8 +12496,8 @@
             "name": "Katherine Yung",
             "credentials": "MD, FACS",
             "pin": {
-                "lat": 37.7895828,
-                "lng": -122.407874
+                "lat": 37.78951396590606,
+                "lng": -122.40796174209788
             },
             "city": "San Francisco",
             "state": "CA",
@@ -12544,8 +12639,8 @@
             "name": "Lyndsay Madden",
             "credentials": "DO",
             "pin": {
-                "lat": 36.0915358,
-                "lng": -80.2732899
+                "lat": 36.091482726742754,
+                "lng": -80.27337412428513
             },
             "city": "Winston-Salem",
             "state": "NC",
@@ -12621,8 +12716,8 @@
             "name": "Paul Paddle",
             "credentials": "MD",
             "pin": {
-                "lat": -37.81032829999999,
-                "lng": 144.9834796
+                "lat": -37.81041862003016,
+                "lng": 144.9833973864349
             },
             "city": "East Melbourne ",
             "state": "Victoria",

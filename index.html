@@ -7,12 +7,21 @@
 <html>
   <head>
     <title>Add Map</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+
+    <!-- Inter from Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -75,16 +84,25 @@
       >
 
       <div id="panel-left-tabFilter" class="tab">
-        <h1>Search and Filter</h1>
-
-        <select id="opt-profession">
-          <option value="trainer">Search for Trainer</option>
-          <option value="surgeon">Search for Surgeon</option>
-        </select>
+        <div
+          style="
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+          "
+        >
+          <label style="margin: 0; margin-right: 16px"
+            >I am looking for a
+          </label>
+          <select style="width: 40%" class="pink" id="opt-profession">
+            <option value="trainer">Trainer</option>
+            <option value="surgeon">Surgeon</option>
+          </select>
+        </div>
 
         <div class="filterSet">
-          <label>Professional Area</label>
-          <div class="cbGroup">
+          <p id="label-professionalArea" class="label">Professional Area</p>
+          <div id="group-professionalArea" class="cbGroup">
             <input
               type="checkbox"
               id="opt-professionalArea-slp"
@@ -128,23 +146,77 @@
             <label for="opt-professionalArea-other">Other</label>
           </div>
 
+          <p id="label-procedures" class="label">Procedures Offered</p>
+          <div id="group-procedures" class="cbGroup">
+            <input
+              type="checkbox"
+              id="opt-procedures-chond"
+              name="opt-procedures-chond"
+              value="chond"
+            />
+            <label for="opt-procedures-chond">Chondrolaryngoplasty</label>
+
+            <input
+              type="checkbox"
+              id="opt-procedures-wg"
+              name="opt-procedures-wg"
+              value="wg"
+            />
+            <label for="opt-procedures-wg">Wendler's Glottoplasty</label>
+
+            <input
+              type="checkbox"
+              id="opt-procedures-lava"
+              name="opt-procedures-lava"
+              value="lava"
+            />
+            <label for="opt-procedures-lava">LAVA</label>
+
+            <input
+              type="checkbox"
+              id="opt-procedures-criapp"
+              name="opt-procedures-criapp"
+              value="criapp"
+            />
+            <label for="opt-procedures-criapp"
+              >Cricothyroid Approximation</label
+            >
+
+            <input
+              type="checkbox"
+              id="opt-procedures-t3t"
+              name="opt-procedures-t3t"
+              value="t3t"
+            />
+            <label for="opt-procedures-t3t">Type 3 Thyroplasty</label>
+
+            <input
+              type="checkbox"
+              id="opt-procedures-other"
+              name="opt-procedures-other"
+              value="other"
+            />
+            <label for="opt-procedures-other">Other</label>
+          </div>
+
           <hr />
 
-          <label>Location</label>
-          <select id="opt-country">
+          <p class="label">Location</p>
+          <select id="opt-country" style="margin-bottom: 4px; margin-top: 4px">
             <option value="any" default>Any Country</option>
-            <option value="us">United States</option>
+            <option value="US">United States</option>
           </select>
 
           <select id="opt-state">
             <option value="any" default>Any State</option>
-            <option>Alabama</option>
+            <option value="AL">Alabama</option>
+            <option value="PA">Pennsylvania</option>
           </select>
 
           <hr />
 
-          <label>Language</label>
-          <div class="cbGroup">
+          <p id="label-language" class="label">Language</p>
+          <div id="group-language" class="cbGroup">
             <input
               id="opt-language-english"
               name="opt-language-english"
@@ -175,10 +247,10 @@
             <label>Mandarin</label>
           </div>
 
-          <hr />
+          <hr class="divider-trainer" />
 
-          <label>In-Person or Virtual?</label>
-          <div class="radioGroup">
+          <p id="label-modality" class="label">In-Person or Virtual?</p>
+          <div id="group-modality" class="radioGroup">
             <div>
               <input
                 id="opt-modality-inPerson"
@@ -199,10 +271,10 @@
             </div>
           </div>
 
-          <hr />
+          <hr class="divider-trainer" />
 
-          <label>Individual or Group?</label>
-          <div class="radioGroup">
+          <p id="label-number" class="label">Individual or Group?</p>
+          <div id="group-number" class="radioGroup">
             <div>
               <input
                 id="opt-number-individual"
@@ -223,10 +295,10 @@
             </div>
           </div>
 
-          <hr />
+          <hr class="divider-trainer" />
 
-          <label>What are your goals?</label>
-          <div class="cbGroup">
+          <p id="label-goal" class="label">What are your goals?</p>
+          <div id="group-goal" class="cbGroup">
             <input
               id="opt-goal-masculine"
               name="opt-goal-masculine"
@@ -257,9 +329,9 @@
             <label for="opt-goal-singing">Singing</label>
           </div>
 
-          <hr />
+          <hr class="divider-trainer" />
 
-          <label>Provider Identity</label>
+          <p class="label">Provider Identity</p>
           <div class="cbGroup">
             <input
               id="opt-pi-cisman"
@@ -267,42 +339,42 @@
               value="cisman"
               type="checkbox"
             />
-            <label for="opt-goal-">Cisgender Man</label>
+            <label for="opt-pi-cisman">Cisgender Man</label>
             <input
               id="opt-pi-ciswoman"
               name="opt-pi-ciswoman"
               value="ciswoman"
               type="checkbox"
             />
-            <label for="opt-goal-ciswoman">Cisgender Woman</label>
+            <label for="opt-pi-ciswoman">Cisgender Woman</label>
             <input
               id="opt-pi-transman"
               name="opt-pi-transman"
               value="transman"
               type="checkbox"
             />
-            <label for="opt-goal-transman">Transgender Man</label>
+            <label for="opt-pi-transman">Transgender Man</label>
             <input
               id="opt-pi-transwoman"
               name="opt-pi-transwoman"
               value="transwoman"
               type="checkbox"
             />
-            <label for="opt-goal-transwoman">Transgender Woman</label>
+            <label for="opt-pi-transwoman">Transgender Woman</label>
             <input
               id="opt-pi-nonbinary"
               name="opt-pi-nonbinary"
               value="nonbinary"
               type="checkbox"
             />
-            <label for="opt-goal-nonbinary">Nonbinary</label>
+            <label for="opt-pi-nonbinary">Nonbinary</label>
             <input
               id="opt-pi-other"
               name="opt-pi-other"
               value="other"
               type="checkbox"
             />
-            <label for="opt-goal-other">Other / Did not disclose</label>
+            <label for="opt-pi-other">Other / Did not disclose</label>
           </div>
         </div>
       </div>
@@ -349,9 +421,7 @@
           <span class="material-symbols-outlined"> calendar_month </span>
           <div>
             <p>General Care since <span id="data-since"></span></p>
-            <p>
-              Gender Affirming Care since <span id="data-sinceGA"></span>
-            </p>
+            <p>Gender Affirming Care since <span id="data-sinceGA"></span></p>
           </div>
         </div>
 

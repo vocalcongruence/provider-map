@@ -32,37 +32,10 @@ async function initMap() {
   });
 }
 
-function buildQuery() {
-  const isTrainer = $("#opt-trainer").val() == "true";
-  const area = $("#opt-area").val();
-  const number = $("#opt-number").val();
-  const modality = $("#opt-modality").val();
-
-  const country = $("#opt-country").val();
-
-  let state;
-  if (country == "US") {
-    state = $("#opt-state").val();
-  } else if (country == "CA") {
-    state = $("#opt-province").val();
-  } else {
-    state = null;
-  }
-
-  return {
-    isTrainer: isTrainer,
-    area: area,
-    number: number,
-    modality: modality,
-    country: country,
-    state: state,
-  };
-}
-
-function generateMarkers(map) {
+function generateMarkers() {
   removeAllMarkers(map);
 
-  const query = buildQuery();
+  const query = providerQuery();
   let validProviders = [];
 
   const providerPool = searchTrainers ? trainers : surgeons;
@@ -70,7 +43,7 @@ function generateMarkers(map) {
   const color2 = searchTrainers ? "#a35394" : "#0f4c85";
 
   for (let provider of providerPool) {
-    if (true || providerMatchesQuery(provider, query)) {
+    if (providerMatchesQuery(provider, query)) {
       const pin = new PinElement({
         background: color,
         borderColor: color2,
@@ -85,20 +58,14 @@ function generateMarkers(map) {
       });
 
       marker.addListener("click", () => {
-        map.setZoom(8);
-        if (isMobile()) {
-          map.setCenter(marker.position);
-          let offsetY = window.innerHeight * .3;
-          map.panBy(0, offsetY);
-        }
-        else {
-          map.setCenter(marker.position);
-        }
+        centerMarker(marker);
 
         if (searchTrainers) {
           loadTrainer(provider);
-          showRightPanel();
+        } else {
+          loadSurgeon(provider);
         }
+        showRightPanel();
       });
 
       provider.marker = marker;
@@ -129,11 +96,12 @@ function loadProviders() {
       surgeons = json.surgeons;
 
       initMap().then(() => {
-        generateMarkers(map);
+        generateMarkers();
       });
     });
 }
 
+showTrainerFilters();
 loadProviders();
 
 //document.getElementById("test-refresh").onclick = populateListPane;
@@ -149,7 +117,13 @@ function attachEvents() {
   $("#button-closeRightPanel").on("click", hideRightPanel);
   $("#button-tabFilter").on("click", openTabFilter);
   $("#button-tabList").on("click", openTabList);
+  $("#opt-profession").on("change", switchProfession);
 
+  $("input").on("change", generateMarkers);
+  $("#opt-country").on("change", generateMarkers);
+  $("#opt-state").on("change", generateMarkers);
+
+  // DEBUG
   $("#query").on("click", providerQuery);
 }
 
@@ -161,12 +135,11 @@ function showLeftPanel() {
   $("#panel-left").removeClass("hidden");
 
   if (isMobile()) {
-    let pos = window.innerHeight * .4 - 32;
+    let pos = window.innerHeight * 0.4 - 32;
     $("#button-openLeftPanel").animate({ top: pos + "px" }, 400, "swing");
     $("#panel-left").animate({ top: "40vh" }, 400, "swing");
     $("#button-closeLeftPanel").show();
-  }
-  else { 
+  } else {
     $("#panel-left").animate({ left: "0" }, 400, "swing");
   }
 }
@@ -179,8 +152,7 @@ function hideLeftPanel() {
     $("#panel-left").animate({ top: "100vh" }, 400, "swing", function () {
       $("#button-closeLeftPanel").hide();
     });
-  }
-  else { 
+  } else {
     $("#panel-left").animate({ left: "-400px" }, 400, "swing", function () {
       $(this).addClass("hidden");
     });
@@ -191,10 +163,9 @@ function showRightPanel() {
   $("#panel-right").removeClass("hidden");
 
   if (isMobile()) {
-    let pos = window.innerHeight * .4 - 32;
+    let pos = window.innerHeight * 0.4 - 32;
     $("#panel-right").animate({ top: pos + "px" }, 400, "swing");
-  }
-  else {
+  } else {
     $("#panel-right").animate({ right: "0" }, 400, "swing");
   }
 }
@@ -202,12 +173,14 @@ function showRightPanel() {
 function hideRightPanel() {
   if (isMobile()) {
     $("#panel-right").animate({ top: "100vh" }, 400, "swing");
-  }
-  else {
-
+  } else {
     $("#panel-right").animate({ right: "-400px" }, 400, "swing", function () {
       $(this).addClass("hidden");
     });
+  }
+
+  for(let marker of markers) {
+    marker.content.classList.remove("highlight")
   }
 }
 
@@ -223,6 +196,64 @@ function openTabList() {
   $("#panel-left-tabList").removeClass("hidden");
 }
 
+function switchProfession(e) {
+  if (e.target.value == "trainer") {
+    searchTrainers = true;
+
+    showTrainerFilters();
+  } else {
+    searchTrainers = false;
+
+    showSurgeonFilters();
+  }
+
+  generateMarkers();
+}
+
+function showTrainerFilters() {
+  $("#label-professionalArea").show();
+  $("#group-professionalArea").show();
+
+  $("#label-procedures").hide();
+  $("#group-procedures").hide();
+
+  $("#label-language").show();
+  $("#group-language").show();
+
+  $("#label-modality").show();
+  $("#group-modality").show();
+
+  $("#label-number").show();
+  $("#group-number").show();
+
+  $("#label-goal").show();
+  $("#group-goal").show();
+
+  $(".divider-trainer").show();
+}
+
+function showSurgeonFilters() {
+  $("#label-professionalArea").hide();
+  $("#group-professionalArea").hide();
+
+  $("#label-procedures").show();
+  $("#group-procedures").show();
+
+  $("#label-language").hide();
+  $("#group-language").hide();
+
+  $("#label-modality").hide();
+  $("#group-modality").hide();
+
+  $("#label-number").hide();
+  $("#group-number").hide();
+
+  $("#label-goal").hide();
+  $("#group-goal").hide();
+
+  $(".divider-trainer").hide();
+}
+
 function providerQuery() {
   // Profession
   const profession = $("#opt-profession").val();
@@ -234,7 +265,15 @@ function providerQuery() {
   const pa_gavt = $("#opt-professionalArea-gavt").is(":checked");
   const pa_other = $("#opt-professionalArea-other").is(":checked");
 
-  // Location
+  // Professional Area
+  const pro_chond = $("#opt-procedures-chond").is(":checked");
+  const pro_wg = $("#opt-procedures-wg").is(":checked");
+  const pro_lava = $("#opt-procedures-lava").is(":checked");
+  const pro_criapp = $("#opt-procedures-criapp").is(":checked");
+  const pro_t3t = $("#opt-procedures-t3t").is(":checked");
+  const pro_other = $("#opt-procedures-other").is(":checked");
+
+  // Country
   const country = $("#opt-country").val();
 
   // State
@@ -275,6 +314,14 @@ function providerQuery() {
       gavt: pa_gavt,
       other: pa_other,
     },
+    procedures: {
+      chond: pro_chond,
+      wg: pro_wg,
+      lava: pro_lava,
+      criapp: pro_criapp,
+      t3t: pro_t3t,
+      other: pro_other,
+    },
     country: country,
     state: state,
     language: {
@@ -300,8 +347,185 @@ function providerQuery() {
       other: pi_other,
     },
   };
-  console.log(q);
+
   return q;
+}
+
+function providerMatchesQuery(p, q) {
+  // Professional Area
+  if (
+    q.profession == "trainer" &&
+    q.professionalArea != null &&
+    (q.professionalArea.gavt || // Make sure at least one professional area is selected
+      q.professionalArea.other ||
+      q.professionalArea.slp ||
+      q.professionalArea.tac ||
+      q.professionalArea.vpst)
+  ) {
+    // Check each option
+    let matchGavt = q.professionalArea.gavt == true && p.areas.includes("gavt");
+    let matchOther =
+      q.professionalArea.other == true && p.areas.includes("other");
+    let matchSlp = q.professionalArea.slp == true && p.areas.includes("slp");
+    let matchTac = q.professionalArea.tac == true && p.areas.includes("tac");
+    let matchVpst = q.professionalArea.vpst == true && p.areas.includes("vpst");
+
+    // If at least one of these is a match, provider passes test
+    if (!(matchGavt || matchOther || matchSlp || matchTac || matchVpst)) {
+      return false;
+    }
+  }
+
+  // Procedures
+  if (
+    q.profession == "surgeon" &&
+    q.procedures != null &&
+    (q.procedures.chond || // Make sure at least one procedure is selected
+      q.procedures.wg ||
+      q.procedures.lava ||
+      q.procedures.criapp ||
+      q.procedures.t3t ||
+      q.procedures.other)
+  ) {
+    // Check each option
+    let matchChond = q.procedures.chond == true && p.procedures.chond;
+    let matchWg = q.procedures.wg == true && p.procedures.wg;
+    let matchLava = q.procedures.lava == true && p.procedures.lava;
+    let matchCriapp = q.procedures.criapp == true && p.procedures.criapp;
+    let matchT3t = q.procedures.t3t == true && p.procedures.t3t;
+    let matchOther = q.procedures.other == true && p.procedures.other;
+
+    // If at least one of these is a match, provider passes test
+    if (
+      !(
+        matchChond ||
+        matchWg ||
+        matchLava ||
+        matchCriapp ||
+        matchT3t ||
+        matchOther
+      )
+    ) {
+      return false;
+    }
+  }
+
+  // Country
+  if (q.country != null && q.country != "any") {
+    if (q.country != p.country) {
+      return false;
+    }
+  }
+
+  // State
+  if (q.state != null && q.state != "any") {
+    if (q.state != p.state) {
+      return false;
+    }
+  }
+
+  // Language
+
+  // Number + Modality
+  if (q.profession == "trainer" && q.number != null && q.modality == null) {
+    // If only number being filtered
+    if (q.number == "individual") {
+      if (!(p.numMods.individual_inPerson || p.numMods.individual_virtual)) {
+        return false;
+      }
+    } else {
+      if (!(p.numMods.group_inPerson || p.numMods.group_virtual)) {
+        return false;
+      }
+    }
+  } else if (
+    q.profession == "trainer" &&
+    q.number == null &&
+    q.modality != null
+  ) {
+    // If only modality being filtered
+    if (q.modality == "inPerson") {
+      if (!(p.numMods.individual_inPerson || p.numMods.group_inPerson)) {
+        return false;
+      }
+    } else {
+      if (!(p.numMods.individual_virtual || p.numMods.group_virtual)) {
+        return false;
+      }
+    }
+  } else if (
+    q.profession == "trainer" &&
+    q.number != null &&
+    q.modality != null
+  ) {
+    // If both being filtered
+    if (!p.numMods[q.number + "_" + q.modality]) {
+      return false;
+    }
+  }
+
+  // Goal
+  if (
+    q.profession == "trainer" &&
+    q.goal != null &&
+    (q.goal.androgynous || // Make sure at least one goal is selected
+      q.goal.feminine ||
+      q.goal.masculine ||
+      q.goal.singing)
+  ) {
+    // Check each option
+    let matchAndrogynous =
+      q.goal.androgynous == true && p.goals.includes("androgynous");
+    let matchFeminine = q.goal.feminine == true && p.goals.includes("feminine");
+    let matchMasculine =
+      q.goal.masculine == true && p.goals.includes("masculine");
+    let matchSinging = q.goal.singing == true && p.goals.includes("singing");
+
+    // If at least one of these is a match, provider passes test
+    if (
+      !(matchAndrogynous || matchFeminine || matchMasculine || matchSinging)
+    ) {
+      return false;
+    }
+  }
+
+  // Identity
+  if (
+    q.identity != null &&
+    (q.identity.cisman || // Make sure at least one identity is selected
+      q.identity.ciswoman ||
+      q.identity.nonbinary ||
+      q.identity.other ||
+      q.identity.transman ||
+      q.identity.transwoman)
+  ) {
+    // Check each option
+    let matchCisman = q.identity.cisman == true && p.identity == "cisman";
+    let matchCiswoman = q.identity.ciswoman == true && p.identity == "ciswoman";
+    let matchNonbinary =
+      q.identity.nonbinary == true && p.identity == "nonbinary";
+    let matchOther = q.identity.other == true && p.identity == "other";
+    let matchTransman = q.identity.transman == true && p.identity == "transman";
+    let matchTranswoman =
+      q.identity.transwoman == true && p.identity == "transwoman";
+
+    // If at least one of these is a match, provider passes test
+    if (
+      !(
+        matchCisman ||
+        matchCiswoman ||
+        matchNonbinary ||
+        matchOther ||
+        matchTransman ||
+        matchTranswoman
+      )
+    ) {
+      return false;
+    }
+  }
+
+  // If no tests fail, provider is a match
+  return true;
 }
 
 function loadProviderList(providers) {
@@ -311,6 +535,16 @@ function loadProviderList(providers) {
   for (let provider of providers) {
     const el = document.createElement("div");
     el.className = "provider-list-item";
+    el.onclick = () => {
+      centerMarker(provider.marker);
+      
+      if (searchTrainers) {
+        loadTrainer(provider);
+      } else {
+        loadSurgeon(provider);
+      }
+      showRightPanel();
+    };
 
     const name = document.createElement("p");
     name.className = "name";
@@ -432,8 +666,7 @@ function loadTrainer(trainer) {
     }
 
     $("#section-provider-affiliations").show();
-  }
-  else {
+  } else {
     $("#section-provider-affiliations").hide();
   }
 
@@ -442,8 +675,7 @@ function loadTrainer(trainer) {
     $("#data-provider-identities").text(trainer.additionalIdentity);
 
     $("#section-provider-identities").show();
-  }
-  else {
+  } else {
     $("#section-provider-identities").hide();
   }
 
@@ -452,8 +684,7 @@ function loadTrainer(trainer) {
     $("#data-provider-finance").text(trainer.financial);
 
     $("#section-provider-finance").show();
-  }
-  else {
+  } else {
     $("#section-provider-finance").hide();
   }
 
@@ -462,8 +693,7 @@ function loadTrainer(trainer) {
     $("#data-provider-training").text(trainer.training);
 
     $("#section-provider-training").show();
-  }
-  else {
+  } else {
     $("#section-provider-training").hide();
   }
 
@@ -472,20 +702,158 @@ function loadTrainer(trainer) {
     $("#data-provider-culture").text(trainer.cultural);
 
     $("#section-provider-culture").show();
-  }
-  else {
+  } else {
     $("#section-provider-culture").hide();
   }
 
   // Additional
-  if (trainer.additionalInformation != null && trainer.additionalInformation != "") {
+  if (
+    trainer.additionalInformation != null &&
+    trainer.additionalInformation != ""
+  ) {
     $("#data-provider-additional").text(trainer.additionalInformation);
 
     $("#section-provider-additional").show();
-  }
-  else {
+  } else {
     $("#section-provider-additional").hide();
   }
+
+  for(let marker of markers) {
+    marker.content.classList.remove("highlight")
+  }
+
+  trainer.marker.content.classList.add("highlight");
+}
+
+function loadSurgeon(surgeon) {
+  ///////////////////////////////////////////////////////
+  //                      Header                       //
+  ///////////////////////////////////////////////////////
+
+  $("#data-name").text(surgeon.name);
+  // TODO: update credentials
+  $("#data-intro").text(surgeon.intro);
+
+  ///////////////////////////////////////////////////////
+  //                     Quick Info                    //
+  ///////////////////////////////////////////////////////
+
+  // Website
+  if (surgeon.website != null && surgeon.website != "") {
+    $("#container-website").show();
+    $("#data-website").attr("href", surgeon.website);
+  } else {
+    $("#container-website").hide();
+  }
+
+  $("#container-inPerson").hide();
+  $("#container-virtual").hide();
+
+  // Phone
+  if (surgeon.phone != null && surgeon.phone != "") {
+    $("#container-phone").show();
+    $("#data-phone").attr("href", "tel:" + surgeon.phone);
+    $("#data-phone").text(surgeon.phone);
+  } else {
+    $("#container-phone").hide();
+  }
+
+  // Since
+  if (surgeon.generalSince != null) {
+    $("#data-since").text(surgeon.generalSince);
+  }
+
+  if (surgeon.gavcSince != null) {
+    $("#data-sinceGA").text(surgeon.gavcSince);
+  }
+
+  ///////////////////////////////////////////////////////
+  //               Trainer Provided Info               //
+  ///////////////////////////////////////////////////////
+
+  // Affiliations
+  if (surgeon.affiliations != null && surgeon.affiliations.length > 0) {
+    $("#data-provider-affiliations").html(null);
+
+    for (let aff of surgeon.affiliations) {
+      $("#data-provider-affiliations").append("<li>" + aff + "</li>");
+    }
+
+    $("#section-provider-affiliations").show();
+  } else {
+    $("#section-provider-affiliations").hide();
+  }
+
+  // Additional Identities
+  if (surgeon.additionalIdentity != null && surgeon.additionalIdentity != "") {
+    $("#data-provider-identities").text(surgeon.additionalIdentity);
+
+    $("#section-provider-identities").show();
+  } else {
+    $("#section-provider-identities").hide();
+  }
+
+  // Financial
+  if (surgeon.financial != null && surgeon.financial != "") {
+    $("#data-provider-finance").text(surgeon.financial);
+
+    $("#section-provider-finance").show();
+  } else {
+    $("#section-provider-finance").hide();
+  }
+
+  // Training
+  if (surgeon.training != null && surgeon.training != "") {
+    $("#data-provider-training").text(surgeon.training);
+
+    $("#section-provider-training").show();
+  } else {
+    $("#section-provider-training").hide();
+  }
+
+  // Cultural
+  if (surgeon.cultural != null && surgeon.cultural != "") {
+    $("#data-provider-culture").text(surgeon.cultural);
+
+    $("#section-provider-culture").show();
+  } else {
+    $("#section-provider-culture").hide();
+  }
+
+  // Additional
+  if (
+    surgeon.additionalInformation != null &&
+    surgeon.additionalInformation != ""
+  ) {
+    $("#data-provider-additional").text(surgeon.additionalInformation);
+
+    $("#section-provider-additional").show();
+  } else {
+    $("#section-provider-additional").hide();
+  }
+}
+
+function centerMarker(marker) {
+  map.setZoom(8);
+  if (isMobile()) {
+    map.setCenter(marker.position);
+    let offsetY = window.innerHeight * 0.3;
+    map.panBy(0, offsetY);
+  } else {
+    map.setCenter(marker.position);
+  }
+
+  const newPin = new PinElement({
+    background: "#FFFFFF",
+    borderColor: "#000000",
+    glyphColor: "#F0F0F0",
+  });
+
+  for(let marker of markers) {
+    marker.content.classList.remove("highlight")
+  }
+
+  marker.content.classList.add("highlight");
 }
 
 attachEvents();

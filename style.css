@@ -1,15 +1,27 @@
 :root {
-    --color-main: rgb(36, 36, 36);
-    --color-highlight: rgb(53, 53, 53);
-    --color-highlight2: rgb(80, 80, 80);
+    --color-main: #1f1f1f;
+    --color-highlight: #363636;
+    --color-highlight2: rgb(209, 209, 209);
+
+    --color-pink: #d98abb;
+    --color-pink-bright: #ebabd2;
+    --color-blue: #8aa2d9;
+    --color-blue-bright: #a9bdee;
+
+    --gradient-ltr: linear-gradient(45deg, var(--color-pink) 0%, var(--color-blue) 100%);
+    --gradient-ltr-bright: linear-gradient(45deg, var(--color-pink-bright) 0%, var(--color-blue-bright) 100%);
 }
 
 * {
     margin: 0;
     padding: 0;
 
-    font-family: sans-serif;
-    color: white;
+    font-family: "Inter", sans-serif;
+    color: var(--color-highlight2);
+}
+
+.material-symbols-outlined {
+    color: var(--color-pink);
 }
 
 hr {
@@ -24,8 +36,13 @@ h1 {
 }
 
 label {
-    color: white;
     margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.label {
+    margin-bottom: 8px;
+    color: white;
     font-weight: bold;
 }
 
@@ -34,13 +51,42 @@ input[type="radio"] + label {
 }
 
 select {
+    border: none;
     width: 100%;
     height: 32px;
-    color: var(--color-main);
+    border-radius: 16px;
+    padding: 0 8px;
+    background-color: var(--color-highlight);
+    background-image: linear-gradient(45deg, rgba(30, 30, 33, 0.31) 0%, rgba(77, 77, 82, 0.004) 50%);
+}
+
+select.pink {
+    background-color: #D889BA;
+    background-image: linear-gradient(45deg, rgba(30,30,33,0.31) 0%, rgba(77,77,82,0.004) 100%);
+    color: white;
+    font-weight: bold;
+}
+
+select.pink option {
+    color: white;
+    background: var(--color-highlight);
+}
+
+option {
+    height: 24px;
 }
 
 .hidden {
     display: none !important;
+}
+
+.GMAMP-maps-pin-view {
+    transition: .3s;
+}
+
+.highlight {
+    filter: brightness(1.3);
+    scale: 1.2;
 }
 
 #map {
@@ -135,7 +181,6 @@ select {
 }
 
 #panel-left-tabMenu {
-    color: white;
     display: flex;
     height: 50px;
     box-sizing: border-box;
@@ -182,7 +227,7 @@ select {
 
 .filterSet {
     overflow-y: auto;
-    height: calc(100% - 150px);
+    height: calc(100% - 100px);
     padding-right: 8px;
 }
 
@@ -222,7 +267,6 @@ select {
     left: 16px;
     padding: 12px;
     border-radius: 50%;
-    color: white;
     font-size: 40px;
     cursor: pointer;
 }
@@ -236,7 +280,6 @@ select {
     align-items: center;
     justify-content: center;
     border-radius: 0 50% 50% 0;
-    color: white;
 }
 
 #button-closeRightPanel {
@@ -249,7 +292,6 @@ select {
     align-items: center;
     justify-content: center;
     border-radius: 50% 0 0 50%;
-    color: white;
 }
 
 /************************************************

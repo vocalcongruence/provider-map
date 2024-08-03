@@ -6,16 +6,20 @@
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: none;
+    background: var(--color-highlight);
+    border-radius: 6px;
+    margin-top: 4px;
   }
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #888;
+    background-image: var(--gradient-ltr);
     margin-right: 32px;
+    border-radius: 6px;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background-image: var(--gradient-ltr-bright);
+
   }
