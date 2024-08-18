@@ -192,8 +192,8 @@ function hideRightPanel() {
     });
   }
 
-  for(let marker of markers) {
-    marker.content.classList.remove("highlight")
+  for (let marker of markers) {
+    marker.content.classList.remove("highlight");
   }
 }
 
@@ -225,8 +225,8 @@ function switchProfession(e) {
 
 function resetModality(e) {
   $("#btn-reset-modality").hide();
-  $("#opt-modality-inPerson").prop('checked', false); 
-  $("#opt-modality-virtual").prop('checked', false); 
+  $("#opt-modality-inPerson").prop("checked", false);
+  $("#opt-modality-virtual").prop("checked", false);
 
   generateMarkers();
 }
@@ -237,8 +237,8 @@ function onSelectModality(e) {
 
 function resetNumber(e) {
   $("#btn-reset-number").hide();
-  $("#opt-number-individual").prop('checked', false); 
-  $("#opt-number-group").prop('checked', false); 
+  $("#opt-number-individual").prop("checked", false);
+  $("#opt-number-group").prop("checked", false);
 
   generateMarkers();
 }
@@ -254,13 +254,11 @@ function onSelectCountry(e) {
     $("#opt-state").show();
     $("#opt-province").hide();
     $("#opt-province").val("any");
-  }
-  else if (country == "CA") {
+  } else if (country == "CA") {
     $("#opt-state").hide();
     $("#opt-state").val("any");
     $("#opt-province").show();
-  }
-  else {
+  } else {
     $("#opt-province").hide();
     $("#opt-state").val("any");
     $("#opt-state").hide();
@@ -502,8 +500,7 @@ function providerMatchesQuery(p, q) {
       if (q.languages.includes(providerLanguage)) {
         hasAtLeastOne = true;
         break;
-      }
-      else {
+      } else {
         console.log(providerLanguage + " not in " + q.languages);
       }
     }
@@ -624,7 +621,7 @@ function loadProviderList(providers) {
     el.className = "provider-list-item";
     el.onclick = () => {
       centerMarker(provider.marker);
-      
+
       if (searchTrainers) {
         loadTrainer(provider);
       } else {
@@ -638,13 +635,65 @@ function loadProviderList(providers) {
     name.innerText = provider.name;
     el.appendChild(name);
 
-    const general = document.createElement("p");
-    general.innerText = "General Services since " + provider.generalSince;
-    el.appendChild(general);
+    const credentials = document.createElement("p");
+    credentials.className = "credentials";
+    credentials.innerText = provider.credentials;
+    el.appendChild(credentials);
 
-    const gavc = document.createElement("p");
-    gavc.innerText = "GAVC since " + provider.gavcSince;
-    el.appendChild(gavc);
+    const nm = provider.numMods;
+
+    // In Person
+    if (nm.individual_inPerson || nm.group_inPerson) {
+      let str = "In Person - ";
+
+      str += nm.individual_inPerson ? "Individual" : "";
+      str += nm.individual_inPerson && nm.group_inPerson ? "/" : "";
+      str += nm.group_inPerson ? "Group" : "";
+
+      if (provider.country != null && provider.country != "") {
+        str +=
+          " (" +
+          provider.city +
+          " " +
+          provider.state +
+          ", " +
+          provider.country +
+          ")";
+      }
+
+      const inPerson = document.createElement("p");
+      inPerson.innerText = str;
+      el.appendChild(inPerson);
+    } 
+
+    // Virtual
+    if (nm.individual_virtual || nm.group_virtual) {
+      let str = "Virtual - ";
+
+      str += nm.individual_virtual ? "Individual" : "";
+      str += nm.individual_virtual && nm.group_virtual ? "/" : "";
+      str += nm.group_virtual ? "Group" : "";
+
+      if (
+        provider.virtualLocations != null &&
+        provider.virtualLocations.length > 0
+      ) {
+        str += " (";
+
+        for (let i = 0; i < provider.virtualLocations.length; i++) {
+          str += provider.virtualLocations[i];
+          if (i < provider.virtualLocations.length - 1) {
+            str += ", ";
+          }
+        }
+
+        str += ")";
+      }
+
+      const virtual = document.createElement("p");
+      virtual.innerText = str;
+      el.appendChild(virtual);
+    }
 
     panel.appendChild(el);
   }
@@ -683,7 +732,7 @@ function loadTrainer(trainer) {
 
     if (trainer.country != null && trainer.country != "") {
       str +=
-        "(" + trainer.city + " " + trainer.state + ", " + trainer.country + ")";
+        " (" + trainer.city + " " + trainer.state + ", " + trainer.country + ")";
     }
 
     $("#data-inPerson").text(str);
@@ -805,8 +854,8 @@ function loadTrainer(trainer) {
     $("#section-provider-additional").hide();
   }
 
-  for(let marker of markers) {
-    marker.content.classList.remove("highlight")
+  for (let marker of markers) {
+    marker.content.classList.remove("highlight");
   }
 
   trainer.marker.content.classList.add("highlight");
@@ -936,8 +985,8 @@ function centerMarker(marker) {
     glyphColor: "#F0F0F0",
   });
 
-  for(let marker of markers) {
-    marker.content.classList.remove("highlight")
+  for (let marker of markers) {
+    marker.content.classList.remove("highlight");
   }
 
   marker.content.classList.add("highlight");
@@ -945,57 +994,57 @@ function centerMarker(marker) {
 
 function loadCountries(countries) {
   fetch("./countries.json")
-  .then((response) => response.json())
-  .then((json) => {
-    const optgroup = document.getElementById("opt-country");
-    
-    for (let c of countries) {
-      if (c in json) {
-        const el = document.createElement("option");
-        el.value = c;
-        el.innerText = json[c];
+    .then((response) => response.json())
+    .then((json) => {
+      const optgroup = document.getElementById("opt-country");
 
-        optgroup.appendChild(el);
+      for (let c of countries) {
+        if (c in json) {
+          const el = document.createElement("option");
+          el.value = c;
+          el.innerText = json[c];
+
+          optgroup.appendChild(el);
+        }
       }
-    }
-  });
+    });
 }
 
 function loadStates() {
   fetch("./us_states.json")
-  .then((response) => response.json())
-  .then((json) => {
-    const optgroup = document.getElementById("opt-state");
-    for (let s in json) {
-      const el = document.createElement("option");
-      el.value = s;
-      el.innerText = json[s];
+    .then((response) => response.json())
+    .then((json) => {
+      const optgroup = document.getElementById("opt-state");
+      for (let s in json) {
+        const el = document.createElement("option");
+        el.value = s;
+        el.innerText = json[s];
 
-      optgroup.appendChild(el);
-    }
-  });
+        optgroup.appendChild(el);
+      }
+    });
 }
 
 function loadProvinces() {
   fetch("./ca_provinces.json")
-  .then((response) => response.json())
-  .then((json) => {
-    const optgroup = document.getElementById("opt-province");
-    for (let p in json) {
-      const el = document.createElement("option");
-      el.value = p;
-      el.innerText = json[p];
+    .then((response) => response.json())
+    .then((json) => {
+      const optgroup = document.getElementById("opt-province");
+      for (let p in json) {
+        const el = document.createElement("option");
+        el.value = p;
+        el.innerText = json[p];
 
-      optgroup.appendChild(el);
-    }
-  });
+        optgroup.appendChild(el);
+      }
+    });
 }
 
 function loadLanguages(languages) {
   const optgroup = document.getElementById("group-language");
 
   for (let l of languages) {
-    const l_nospace = l.replace(/\s+/g, '');
+    const l_nospace = l.replace(/\s+/g, "");
 
     const el = document.createElement("input");
     el.type = "checkbox";
