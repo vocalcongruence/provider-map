@@ -15,6 +15,15 @@ let countries;
 let us_states;
 let ca_provinces;
 
+const PROCEDURE_NAMES = {
+  "chond": "Chondrolaryngoplasty",
+  "wg": "Wendler's Glottoplasty",
+  "lava": "LAVA",
+  "criapp": "Cricothyroid Approximation",
+  "t3t": "Type 3 Thyroplasty",
+  "other": "Other"
+};
+
 const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
   "marker"
 );
@@ -33,6 +42,7 @@ async function initMap() {
 }
 
 function generateMarkers() {
+  console.log(searchTrainers);
   removeAllMarkers(map);
 
   const query = providerQuery();
@@ -114,11 +124,17 @@ loadProviders();
 */
 
 function attachEvents() {
-  $("#button-openLeftPanel").on("click", showLeftPanel);
+  $("#button-openLeftPanel-filter").on("click", () => {showLeftPanel(); openTabFilter();});
+  $("#button-openLeftPanel-list").on("click", () => {showLeftPanel(); openTabList();});
+
+
   $("#button-closeLeftPanel").on("click", hideLeftPanel);
   $("#button-closeRightPanel").on("click", hideRightPanel);
+
   $("#button-tabFilter").on("click", openTabFilter);
   $("#button-tabList").on("click", openTabList);
+  $("#button-tabSearch").on("click", openTabSearch);
+  
   $("#opt-profession").on("change", switchProfession);
 
   $("input").on("change", generateMarkers);
@@ -135,6 +151,8 @@ function attachEvents() {
   $("#opt-number-group").on("click", onSelectNumber);
 
   $("#opt-country").on("change", onSelectCountry);
+
+  $("#input-search").on("input", searchProviders);
 
   // DEBUG
   $("#query").on("click", providerQuery);
@@ -201,12 +219,21 @@ function openTabFilter() {
   showLeftPanel();
   $("#panel-left-tabList").addClass("hidden");
   $("#panel-left-tabFilter").removeClass("hidden");
+  $("#panel-left-tabSearch").addClass("hidden");
 }
 
 function openTabList() {
   showLeftPanel();
   $("#panel-left-tabFilter").addClass("hidden");
   $("#panel-left-tabList").removeClass("hidden");
+  $("#panel-left-tabSearch").addClass("hidden");
+}
+
+function openTabSearch() {
+  showLeftPanel();
+  $("#panel-left-tabFilter").addClass("hidden");
+  $("#panel-left-tabList").addClass("hidden");
+  $("#panel-left-tabSearch").removeClass("hidden");
 }
 
 function switchProfession(e) {
@@ -308,6 +335,36 @@ function showSurgeonFilters() {
   $("#group-goal").hide();
 
   $(".divider-trainer").hide();
+}
+
+function searchProviders(e) {
+  let matches = [];
+  let searchStr = e.target.value.toLowerCase();
+
+  for (let trainer of trainers) {
+    let nameParts = trainer.name.split(" ");
+    
+
+    for (let part of nameParts) {
+      if (part.toLowerCase().startsWith(searchStr)) {
+        matches.push(trainer);
+        break;
+      }
+    }
+  }
+
+  for (let surgeon of surgeons) {
+    let nameParts = surgeon.name.split(" ");
+
+    for (let part of nameParts) {
+      if (part.toLowerCase().startsWith(searchStr)) {
+        matches.push(surgeon);
+        break;
+      }
+    }
+  }
+
+  loadSearchList(matches);
 }
 
 function providerQuery() {
@@ -474,15 +531,13 @@ function providerMatchesQuery(p, q) {
 
     // State
     if (q.country == "US" && q.state != null && q.state != "any") {
-      if (q.state != p.state) {
+      if (q.state != p.state && !p.virtualLocations.includes(q.state)) {
         return false;
       }
     }
 
     // Province
-    if (q.country == "CA" && q.province != null && q.province != "any") {
-      console.log(q.province);
-      console.log(p.state);
+    if (q.country == "CA" && q.province != null && q.province != "any" && !p.virtualLocations.includes(q.province)) {
       if (q.province != p.state) {
         return false;
       }
@@ -558,17 +613,16 @@ function providerMatchesQuery(p, q) {
       q.goal.singing)
   ) {
     // Check each option
-    let matchAndrogynous =
-      q.goal.androgynous == true && p.goals.includes("androgynous");
-    let matchFeminine = q.goal.feminine == true && p.goals.includes("feminine");
-    let matchMasculine =
-      q.goal.masculine == true && p.goals.includes("masculine");
-    let matchSinging = q.goal.singing == true && p.goals.includes("singing");
-
-    // If at least one of these is a match, provider passes test
-    if (
-      !(matchAndrogynous || matchFeminine || matchMasculine || matchSinging)
-    ) {
+    if (q.goal.androgynous == true && !p.goals.includes("androgynous")) {
+      return false;
+    }
+    if (q.goal.feminine == true && !p.goals.includes("feminine")) {
+      return false;
+    }
+    if (q.goal.masculine == true && !p.goals.includes("masculine")) {
+      return false;
+    }
+    if (q.goal.singing == true && !p.goals.includes("singing")) {
       return false;
     }
   }
@@ -617,6 +671,8 @@ function loadProviderList(providers) {
   panel.innerHTML = "";
 
   for (let provider of providers) {
+    const isTrainer = provider.procedures ? false : true;
+
     const el = document.createElement("div");
     el.className = "provider-list-item";
     el.onclick = () => {
@@ -635,6 +691,7 @@ function loadProviderList(providers) {
     name.innerText = provider.name;
     el.appendChild(name);
 
+    if (isTrainer) {
     const credentials = document.createElement("p");
     credentials.className = "credentials";
     credentials.innerText = provider.credentials;
@@ -694,9 +751,146 @@ function loadProviderList(providers) {
       virtual.innerText = str;
       el.appendChild(virtual);
     }
+  }
+
+    if (!isTrainer) {
+      const procedures = document.createElement("p");
+      let str = "";
+      
+      for (let procedure of Object.keys(provider.procedures)) {
+        if (provider.procedures[procedure]) {
+          str += str == "" ? PROCEDURE_NAMES[procedure] : ", " + PROCEDURE_NAMES[procedure];
+        }
+      }
+      
+      procedures.innerText = str;
+  
+      el.appendChild(procedures);
+    }
 
     panel.appendChild(el);
   }
+}
+
+function loadSearchList(providers) {
+  const panel = document.getElementById("search-results");
+  panel.innerHTML = "";
+
+  for (let provider of providers) {
+    const isTrainer = provider.procedures ? false : true;
+
+    const el = document.createElement("div");
+    el.className = "provider-list-item";
+    el.onclick = () => {
+      if (isTrainer) {
+        searchTrainers = true;
+        $("#opt-profession").val("trainer");
+        showTrainerFilters();
+        generateMarkers();
+        loadTrainer(provider);
+      } else {
+        searchTrainers = false;
+        $("#opt-profession").val("surgeon");
+        showSurgeonFilters();
+        generateMarkers();
+        loadSurgeon(provider);
+      }
+      showRightPanel();
+      centerMarker(provider.marker);
+    };
+
+    const nameContainer = document.createElement("div");
+    nameContainer.className = "name-container";
+    el.appendChild(nameContainer);
+
+    const name = document.createElement("p");
+    name.className = "name";
+    name.innerText = provider.name;
+    nameContainer.appendChild(name);
+
+    const role = document.createElement("p");
+    role.innerText = isTrainer ? "Trainer" : "Surgeon";
+    nameContainer.appendChild(role);
+
+    if (isTrainer) {
+    const credentials = document.createElement("p");
+    credentials.className = "credentials";
+    credentials.innerText = provider.credentials;
+    el.appendChild(credentials);
+
+    const nm = provider.numMods;
+
+    // In Person
+    if (nm.individual_inPerson || nm.group_inPerson) {
+      let str = "In Person - ";
+
+      str += nm.individual_inPerson ? "Individual" : "";
+      str += nm.individual_inPerson && nm.group_inPerson ? "/" : "";
+      str += nm.group_inPerson ? "Group" : "";
+
+      if (provider.country != null && provider.country != "") {
+        str +=
+          " (" +
+          provider.city +
+          " " +
+          provider.state +
+          ", " +
+          provider.country +
+          ")";
+      }
+
+      const inPerson = document.createElement("p");
+      inPerson.innerText = str;
+      el.appendChild(inPerson);
+    } 
+
+    // Virtual
+    if (nm.individual_virtual || nm.group_virtual) {
+      let str = "Virtual - ";
+
+      str += nm.individual_virtual ? "Individual" : "";
+      str += nm.individual_virtual && nm.group_virtual ? "/" : "";
+      str += nm.group_virtual ? "Group" : "";
+
+      if (
+        provider.virtualLocations != null &&
+        provider.virtualLocations.length > 0
+      ) {
+        str += " (";
+
+        for (let i = 0; i < provider.virtualLocations.length; i++) {
+          str += provider.virtualLocations[i];
+          if (i < provider.virtualLocations.length - 1) {
+            str += ", ";
+          }
+        }
+
+        str += ")";
+      }
+
+      const virtual = document.createElement("p");
+      virtual.innerText = str;
+      el.appendChild(virtual);
+    }
+  }
+  
+  if (!isTrainer) {
+    const procedures = document.createElement("p");
+    let str = "";
+    
+    for (let procedure of Object.keys(provider.procedures)) {
+      if (provider.procedures[procedure]) {
+        str += str == "" ? PROCEDURE_NAMES[procedure] : ", " + PROCEDURE_NAMES[procedure];
+      }
+    }
+    
+    procedures.innerText = str;
+
+    el.appendChild(procedures);
+  }
+  
+  panel.appendChild(el);
+}
 }
 
 function loadTrainer(trainer) {
@@ -787,6 +981,38 @@ function loadTrainer(trainer) {
 
   if (trainer.gavcSince != null) {
     $("#data-sinceGA").text(trainer.gavcSince);
+  }
+
+  // Languages
+  if (trainer.languages.length > 0) {
+    let str = "";
+
+    for (let lang of trainer.languages) {
+      if (str == "") {
+        str += lang;
+      }
+      else {
+        str += ", " + lang;
+      }
+    }
+
+    $("#data-languages").text(str);
+  }
+
+  // Goals
+  if (trainer.goals.length > 0) {
+    let str = "";
+
+    for (let goal of trainer.goals) {
+      if (str == "") {
+        str += goal;
+      }
+      else {
+        str += ", " + goal;
+      }
+    }
+
+    $("#data-goals").text(str);
   }
 
   ///////////////////////////////////////////////////////

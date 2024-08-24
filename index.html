@@ -6,7 +6,7 @@
 -->
 <html>
   <head>
-    <title>Add Map</title>
+    <title>Vocal Congruence Project - Provider Map</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link
@@ -63,9 +63,21 @@
       QUERY
     </button>
 
-    <span id="button-openLeftPanel" class="material-symbols-outlined">
-      menu
+    <span id="button-openLeftPanel-filter" class="material-symbols-outlined">
+      filter_alt
     </span>
+
+    <span id="button-openLeftPanel-list" class="material-symbols-outlined">
+      list
+    </span>
+
+    <span id="button-openLeftPanel-search" class="material-symbols-outlined">
+      search
+    </span>
+
+    <a href="https://vocalcongruence.org/" target="_blank" id="button-vclink">
+      <img src="./vcp-logo.png">
+    </a>
 
     <div id="panel-left" class="panel">
       <div id="panel-left-tabMenu">
@@ -74,6 +86,9 @@
         >
         <span id="button-tabList" class="tabButton material-symbols-outlined"
           >list</span
+        >
+        <span id="button-tabSearch" class="tabButton material-symbols-outlined"
+          >search</span
         >
       </div>
 
@@ -217,14 +232,18 @@
           <hr />
 
           <p id="label-language" class="label">Language</p>
-          <div id="group-language" class="cbGroup">
-          </div>
+          <details style="margin-top: -30px; position: relative;">
+            <summary>&nbsp;</summary>
+          <div id="group-language" style="max-height: 100px; overflow: scroll;" class="cbGroup"></div>
+          </details>
 
           <hr class="divider-trainer" />
 
           <div class="radio-label-clear">
             <p id="label-modality" class="label">In-Person or Virtual?</p>
-            <button id="btn-reset-modality"><span class="material-symbols-outlined"> replay </span>RESET</button>
+            <button id="btn-reset-modality">
+              <span class="material-symbols-outlined"> replay </span>RESET
+            </button>
           </div>
           <div id="group-modality" class="radioGroup">
             <div>
@@ -251,7 +270,9 @@
 
           <div class="radio-label-clear">
             <p id="label-number" class="label">Individual or Group?</p>
-            <button id="btn-reset-number"><span class="material-symbols-outlined"> replay </span>RESET</button>
+            <button id="btn-reset-number">
+              <span class="material-symbols-outlined"> replay </span>RESET
+            </button>
           </div>
           <div id="group-number" class="radioGroup">
             <div>
@@ -359,6 +380,12 @@
       </div>
 
       <div id="panel-left-tabList" class="tab hidden"></div>
+
+      <div id="panel-left-tabSearch" class="tab hidden">
+        <label for="input-search">Search by Provider Name</label>
+        <input id="input-search" type="text">
+        <div id="search-results"></div>
+      </div>
     </div>
 
     <div id="panel-right" class="panel">
@@ -395,48 +422,60 @@
         <div class="labeled-icon">
           <span class="material-symbols-outlined"> calendar_month </span>
           <div>
-            <p>General Voice Services since <span id="data-since"></span></p>
-            <p>Gender-affirming Voice Services since <span id="data-sinceGA"></span></p>
+            <p style="font-size: 12px;">General Services since <span id="data-since"></span></p>
+            <p style="font-size: 12px;">
+              Gender-affirming Services since
+              <span id="data-sinceGA"></span>
+            </p>
+          </div>
+        </div>
+        <div class="labeled-icon">
+          <span class="material-symbols-outlined"> translate </span>
+          <div>
+            <p><span id="data-languages" style="text-transform: capitalize;"></span></p>
+          </div>
+        </div>
+        <div class="labeled-icon">
+          <span class="material-symbols-outlined"> sports_score </span>
+          <div>
+            <p><span id="data-goals" style="text-transform: capitalize;"></span></p>
           </div>
         </div>
 
         <hr />
 
-        <p id="data-intro">
-          Danielle Schwartz, M.S., CCC-SLP (she/her) is a Speech-Language
-          Pathologist employed at Empower Me Speech Services, KSU.
-        </p>
+        <p id="data-intro"></p>
 
         <div id="panel-right-trainerDetails-additional">
-          <div id="section-provider-affiliations" class="section">
-            <label>Affiliations</label>
+          <details id="section-provider-affiliations" class="section">
+            <summary><span style="display: flex; align-items: center;">Affiliations <a href="https://vocalcongruence.org/#glossary" target="_blank" style="line-height: 12px; margin-left: 8px"><span style="font-size: 16px;" class="material-symbols-outlined"> help </span></a></span>  </summary>
             <ul id="data-provider-affiliations"></ul>
-          </div>
+          </details>
 
-          <div id="section-provider-identities" class="section">
-            <label>Additional Identities</label>
+          <details id="section-provider-identities" class="section">
+            <summary>Additional Identities</summary>
             <p id="data-provider-identities"></p>
-          </div>
+          </details>
 
-          <div id="section-provider-finance" class="section">
-            <label>Financial Information</label>
+          <details id="section-provider-finance" class="section">
+            <summary>Financial Information</summary>
             <p id="data-provider-finance"></p>
-          </div>
+          </details>
 
-          <div id="section-provider-training" class="section">
-            <label>Additional Trainings</label>
+          <details id="section-provider-training" class="section">
+            <summary>Additional Trainings</summary>
             <p id="data-provider-training"></p>
-          </div>
+          </details>
 
-          <div id="section-provider-culture" class="section">
-            <label>Cultural Competency</label>
+          <details id="section-provider-culture" class="section">
+            <summary>Cultural Competency</summary>
             <p id="data-provider-culture"></p>
-          </div>
+          </details>
 
-          <div id="section-provider-additional" class="section">
-            <label>Additional Information</label>
+          <details id="section-provider-additional" class="section">
+            <summary>Additional Information</summary>
             <p id="data-provider-additional"></p>
-          </div>
+          </details>
         </div>
       </div>
     </div>
