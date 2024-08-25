@@ -76,7 +76,7 @@
     </span>
 
     <a href="https://vocalcongruence.org/" target="_blank" id="button-vclink">
-      <img src="./vcp-logo.png">
+      <img src="./vcp-logo.png" />
     </a>
 
     <div id="panel-left" class="panel">
@@ -116,7 +116,7 @@
         </div>
 
         <div class="filterSet">
-          <p id="label-professionalArea" class="label">Professional Area</p>
+          <p style="display: flex; align-items: center;" id="label-professionalArea" class="label">Professional Area<a class="tooltip" data-tooltip="Learn More" href="https://vocalcongruence.org/#provider-types" target="_blank"><span class="material-symbols-outlined"> help </span></a></p>
           <div id="group-professionalArea" class="cbGroup">
             <input
               type="checkbox"
@@ -150,7 +150,7 @@
               value="gavt"
             />
             <label for="opt-professionalArea-gavt"
-              >Gender Affirming Voice Trainer</label
+              >Nontraditional Gender-Affirming Voice Trainers</label
             >
             <input
               type="checkbox"
@@ -161,58 +161,16 @@
             <label for="opt-professionalArea-other">Other</label>
           </div>
 
-          <p id="label-procedures" class="label">Procedures Offered</p>
-          <div id="group-procedures" class="cbGroup">
-            <input
-              type="checkbox"
-              id="opt-procedures-chond"
-              name="opt-procedures-chond"
-              value="chond"
-            />
-            <label for="opt-procedures-chond">Chondrolaryngoplasty</label>
-
-            <input
-              type="checkbox"
-              id="opt-procedures-wg"
-              name="opt-procedures-wg"
-              value="wg"
-            />
-            <label for="opt-procedures-wg">Wendler's Glottoplasty</label>
-
-            <input
-              type="checkbox"
-              id="opt-procedures-lava"
-              name="opt-procedures-lava"
-              value="lava"
-            />
-            <label for="opt-procedures-lava">LAVA</label>
-
-            <input
-              type="checkbox"
-              id="opt-procedures-criapp"
-              name="opt-procedures-criapp"
-              value="criapp"
-            />
-            <label for="opt-procedures-criapp"
-              >Cricothyroid Approximation</label
-            >
-
-            <input
-              type="checkbox"
-              id="opt-procedures-t3t"
-              name="opt-procedures-t3t"
-              value="t3t"
-            />
-            <label for="opt-procedures-t3t">Type 3 Thyroplasty</label>
-
-            <input
-              type="checkbox"
-              id="opt-procedures-other"
-              name="opt-procedures-other"
-              value="other"
-            />
-            <label for="opt-procedures-other">Other</label>
-          </div>
+          <p style="display: flex; align-items: center;" id="label-procedures" class="label">Procedures Offered<a class="tooltip" data-tooltip="Learn More" href="https://vocalcongruence.org/#phonosurgery" target="_blank"><span class="material-symbols-outlined"> help </span></a></p>
+          <select id="opt-procedure">
+            <option value="any" default>Any Procedure</option>
+            <option value="chond">Chondrolaryngoplasty</option>
+            <option value="wg">Wendler's Glottoplasty</option>
+            <option value="lava">LAVA</option>
+            <option value="criapp">Cricothyroid Approximation</option>
+            <option value="t3t">Type 3 Thyroplasty</option>
+            <option value="other">Other</option>
+          </select>
 
           <hr />
 
@@ -232,10 +190,9 @@
           <hr />
 
           <p id="label-language" class="label">Language</p>
-          <details style="margin-top: -30px; position: relative;">
-            <summary>&nbsp;</summary>
-          <div id="group-language" style="max-height: 100px; overflow: scroll;" class="cbGroup"></div>
-          </details>
+          <select style="margin: 4px 0;" id="opt-language" style="text-transform: capitalize;">
+            <option value="any" default>Any Language</option>
+          </select>
 
           <hr class="divider-trainer" />
 
@@ -297,7 +254,7 @@
 
           <hr class="divider-trainer" />
 
-          <p id="label-goal" class="label">What are your goals?</p>
+          <p id="label-goal" style="display: flex; align-items: center;" class="label">What are your goals?<a class="tooltip" data-tooltip="Learn More" href="https://vocalcongruence.org/#goals" target="_blank"><span class="material-symbols-outlined"> help </span></a></p>
           <div id="group-goal" class="cbGroup">
             <input
               id="opt-goal-masculine"
@@ -383,7 +340,7 @@
 
       <div id="panel-left-tabSearch" class="tab hidden">
         <label for="input-search">Search by Provider Name</label>
-        <input id="input-search" type="text">
+        <input id="input-search" type="text" />
         <div id="search-results"></div>
       </div>
     </div>
@@ -422,33 +379,63 @@
         <div class="labeled-icon">
           <span class="material-symbols-outlined"> calendar_month </span>
           <div>
-            <p style="font-size: 12px;">General Services since <span id="data-since"></span></p>
-            <p style="font-size: 12px;">
+            <p style="font-size: 12px">
+              General Services since <span id="data-since"></span>
+            </p>
+            <p style="font-size: 12px">
               Gender-affirming Services since
               <span id="data-sinceGA"></span>
             </p>
           </div>
         </div>
-        <div class="labeled-icon">
+        <div class="labeled-icon" id="container-languages">
           <span class="material-symbols-outlined"> translate </span>
           <div>
-            <p><span id="data-languages" style="text-transform: capitalize;"></span></p>
+            <p>
+              <span
+                id="data-languages"
+                style="text-transform: capitalize"
+              ></span>
+            </p>
           </div>
         </div>
-        <div class="labeled-icon">
-          <span class="material-symbols-outlined"> sports_score </span>
+        <div class="labeled-icon" id="container-goals">
+          <span class="material-symbols-outlined"> target </span>
           <div>
-            <p><span id="data-goals" style="text-transform: capitalize;"></span></p>
+            <p>
+              <span id="data-goals" style="text-transform: capitalize"></span>
+            </p>
           </div>
         </div>
 
         <hr />
 
+        <p class="disclaimer" style="margin-bottom: 8px;">Information was submitted by provider.</p>
+
         <p id="data-intro"></p>
+
+        <div id="container-procedures" style="margin-bottom: 16px;">
+          <label>Procedures Offered</label>
+          <ul id="data-procedures">
+
+          </ul>
+        </div>
+
 
         <div id="panel-right-trainerDetails-additional">
           <details id="section-provider-affiliations" class="section">
-            <summary><span style="display: flex; align-items: center;">Affiliations <a href="https://vocalcongruence.org/#glossary" target="_blank" style="line-height: 12px; margin-left: 8px"><span style="font-size: 16px;" class="material-symbols-outlined"> help </span></a></span>  </summary>
+            <summary>
+              <span style="display: flex; align-items: center"
+                >Affiliations
+                <a
+                  class="tooltip"
+                  data-tooltip="Learn More"
+                  href="https://vocalcongruence.org/#glossary"
+                  target="_blank"
+                  ><span class="material-symbols-outlined"> help </span></a
+                ></span
+              >
+            </summary>
             <ul id="data-provider-affiliations"></ul>
           </details>
 
@@ -463,7 +450,7 @@
           </details>
 
           <details id="section-provider-training" class="section">
-            <summary>Additional Trainings</summary>
+            <summary>Specialized Trainings</summary>
             <p id="data-provider-training"></p>
           </details>
 

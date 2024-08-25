@@ -264,6 +264,33 @@ ul {
   margin-bottom: 4px;
 }
 
+.tooltip {
+  line-height: 12px; 
+  margin-left: 8px;
+  position: relative;
+}
+
+.tooltip:hover::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -18px;
+  left: -26px;
+  font-size: 12px;
+  text-align: center;
+  padding: 4px 4px;
+  white-space: nowrap;
+  color: var(--color-pink);
+}
+
+.tooltip span {
+  font-size: 16px;
+}
+
+.disclaimer {
+  font-size: 12px;
+  font-style: italic;
+}
+
 .provider-list-item {
   padding: 12px 0 8px 0;
   border-bottom: 1px solid var(--color-highlight);
@@ -280,7 +307,7 @@ ul {
   align-items: center;
 }
 
-.search-results {
+#search-results {
   max-height: calc(100% - 96px);
   overflow: auto;
 }
@@ -288,6 +315,14 @@ ul {
 .provider-list-item .name {
   font-size: 16px;
   margin-bottom: 8px;
+}
+
+.provider-list-item .name.trainer {
+  color: var(--color-pink);
+}
+
+.provider-list-item .name.surgeon {
+  color: var(--color-blue);
 }
 
 .provider-list-item p {

@@ -16,12 +16,12 @@ let us_states;
 let ca_provinces;
 
 const PROCEDURE_NAMES = {
-  "chond": "Chondrolaryngoplasty",
-  "wg": "Wendler's Glottoplasty",
-  "lava": "LAVA",
-  "criapp": "Cricothyroid Approximation",
-  "t3t": "Type 3 Thyroplasty",
-  "other": "Other"
+  chond: "Chondrolaryngoplasty",
+  wg: "Wendler's Glottoplasty",
+  lava: "LAVA",
+  criapp: "Cricothyroid Approximation",
+  t3t: "Type 3 Thyroplasty",
+  other: "Other",
 };
 
 const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
@@ -84,6 +84,8 @@ function generateMarkers() {
     }
   }
 
+  validProviders.sort((a, b) => a["name"].localeCompare(b["name"]));
+
   loadProviderList(validProviders);
 }
 
@@ -124,9 +126,14 @@ loadProviders();
 */
 
 function attachEvents() {
-  $("#button-openLeftPanel-filter").on("click", () => {showLeftPanel(); openTabFilter();});
-  $("#button-openLeftPanel-list").on("click", () => {showLeftPanel(); openTabList();});
-
+  $("#button-openLeftPanel-filter").on("click", () => {
+    showLeftPanel();
+    openTabFilter();
+  });
+  $("#button-openLeftPanel-list").on("click", () => {
+    showLeftPanel();
+    openTabList();
+  });
 
   $("#button-closeLeftPanel").on("click", hideLeftPanel);
   $("#button-closeRightPanel").on("click", hideRightPanel);
@@ -134,13 +141,15 @@ function attachEvents() {
   $("#button-tabFilter").on("click", openTabFilter);
   $("#button-tabList").on("click", openTabList);
   $("#button-tabSearch").on("click", openTabSearch);
-  
+
   $("#opt-profession").on("change", switchProfession);
 
   $("input").on("change", generateMarkers);
   $("#opt-country").on("change", generateMarkers);
   $("#opt-state").on("change", generateMarkers);
   $("#opt-province").on("change", generateMarkers);
+  $("#opt-language").on("change", generateMarkers);
+  $("#opt-procedure").on("change", generateMarkers);
 
   $("#btn-reset-modality").on("click", resetModality);
   $("#opt-modality-inPerson").on("click", onSelectModality);
@@ -298,10 +307,10 @@ function showTrainerFilters() {
   $("#group-professionalArea").show();
 
   $("#label-procedures").hide();
-  $("#group-procedures").hide();
+  $("#opt-procedure").hide();
 
   $("#label-language").show();
-  $("#group-language").show();
+  $("#opt-language").show();
 
   $("#label-modality").show();
   $("#group-modality").show();
@@ -320,10 +329,10 @@ function showSurgeonFilters() {
   $("#group-professionalArea").hide();
 
   $("#label-procedures").show();
-  $("#group-procedures").show();
+  $("#opt-procedure").show();
 
   $("#label-language").hide();
-  $("#group-language").hide();
+  $("#opt-language").hide();
 
   $("#label-modality").hide();
   $("#group-modality").hide();
@@ -343,7 +352,6 @@ function searchProviders(e) {
 
   for (let trainer of trainers) {
     let nameParts = trainer.name.split(" ");
-    
 
     for (let part of nameParts) {
       if (part.toLowerCase().startsWith(searchStr)) {
@@ -364,6 +372,8 @@ function searchProviders(e) {
     }
   }
 
+  matches.sort((a, b) => a["name"].localeCompare(b["name"]));
+
   loadSearchList(matches);
 }
 
@@ -378,13 +388,8 @@ function providerQuery() {
   const pa_gavt = $("#opt-professionalArea-gavt").is(":checked");
   const pa_other = $("#opt-professionalArea-other").is(":checked");
 
-  // Professional Area
-  const pro_chond = $("#opt-procedures-chond").is(":checked");
-  const pro_wg = $("#opt-procedures-wg").is(":checked");
-  const pro_lava = $("#opt-procedures-lava").is(":checked");
-  const pro_criapp = $("#opt-procedures-criapp").is(":checked");
-  const pro_t3t = $("#opt-procedures-t3t").is(":checked");
-  const pro_other = $("#opt-procedures-other").is(":checked");
+  // Procedures offered
+  const procedure = $("#opt-procedure").val();
 
   // Location
   const country = $("#opt-country").val();
@@ -392,15 +397,7 @@ function providerQuery() {
   const province = $("#opt-province").val();
 
   // Language
-  const languages = [];
-  const languageInputs = $("[name='opt-language']");
-  for (let li of languageInputs) {
-    if (li.checked) {
-      languages.push(li.value);
-    }
-  }
-
-  console.log(languages);
+  const language = $("#opt-language").val();
 
   // Modality
   const modality = $('input[name="opt-modality"]:checked').val();
@@ -431,18 +428,11 @@ function providerQuery() {
       gavt: pa_gavt,
       other: pa_other,
     },
-    procedures: {
-      chond: pro_chond,
-      wg: pro_wg,
-      lava: pro_lava,
-      criapp: pro_criapp,
-      t3t: pro_t3t,
-      other: pro_other,
-    },
+    procedure: procedure,
     country: country,
     state: state,
     province: province,
-    languages: languages,
+    language: language,
     modality: modality,
     number: number,
     goal: {
@@ -490,35 +480,8 @@ function providerMatchesQuery(p, q) {
   }
 
   // Procedures
-  if (
-    q.profession == "surgeon" &&
-    q.procedures != null &&
-    (q.procedures.chond || // Make sure at least one procedure is selected
-      q.procedures.wg ||
-      q.procedures.lava ||
-      q.procedures.criapp ||
-      q.procedures.t3t ||
-      q.procedures.other)
-  ) {
-    // Check each option
-    let matchChond = q.procedures.chond == true && p.procedures.chond;
-    let matchWg = q.procedures.wg == true && p.procedures.wg;
-    let matchLava = q.procedures.lava == true && p.procedures.lava;
-    let matchCriapp = q.procedures.criapp == true && p.procedures.criapp;
-    let matchT3t = q.procedures.t3t == true && p.procedures.t3t;
-    let matchOther = q.procedures.other == true && p.procedures.other;
-
-    // If at least one of these is a match, provider passes test
-    if (
-      !(
-        matchChond ||
-        matchWg ||
-        matchLava ||
-        matchCriapp ||
-        matchT3t ||
-        matchOther
-      )
-    ) {
+  if (q.procedure != "any") {
+    if (!p.procedures[q.procedure]) {
       return false;
     }
   }
@@ -537,7 +500,12 @@ function providerMatchesQuery(p, q) {
     }
 
     // Province
-    if (q.country == "CA" && q.province != null && q.province != "any" && !p.virtualLocations.includes(q.province)) {
+    if (
+      q.country == "CA" &&
+      q.province != null &&
+      q.province != "any" &&
+      !p.virtualLocations.includes(q.province)
+    ) {
       if (q.province != p.state) {
         return false;
       }
@@ -545,22 +513,17 @@ function providerMatchesQuery(p, q) {
   }
 
   // Language
-  if (q.languages != null && q.languages.length != 0) {
-    let hasAtLeastOne = false;
-    console.log("QUERY");
-    console.log(q.languages);
-    console.log("PROVIDER");
-    console.log(p.languages);
+  if (q.language != "any") {
+    let hasLanguage = false;
+
     for (let providerLanguage of p.languages) {
-      if (q.languages.includes(providerLanguage)) {
-        hasAtLeastOne = true;
+      if (q.language == providerLanguage) {
+        hasLanguage = true;
         break;
-      } else {
-        console.log(providerLanguage + " not in " + q.languages);
       }
     }
 
-    if (!hasAtLeastOne) {
+    if (!hasLanguage) {
       return false;
     }
   }
@@ -670,6 +633,18 @@ function loadProviderList(providers) {
   const panel = document.getElementById("panel-left-tabList");
   panel.innerHTML = "";
 
+  const label = document.createElement("label");
+  label.innerText = "List View";
+  panel.appendChild(label);
+
+  const disclaimer = document.createElement("p");
+  disclaimer.className = "disclaimer";
+  disclaimer.innerText = "Results are sorted alphabetically.";
+  panel.appendChild(disclaimer);
+
+  const divider = document.createElement("hr");
+  panel.appendChild(divider);
+
   for (let provider of providers) {
     const isTrainer = provider.procedures ? false : true;
 
@@ -688,83 +663,87 @@ function loadProviderList(providers) {
 
     const name = document.createElement("p");
     name.className = "name";
+    name.className += isTrainer ? " trainer" : " surgeon";
     name.innerText = provider.name;
     el.appendChild(name);
 
     if (isTrainer) {
-    const credentials = document.createElement("p");
-    credentials.className = "credentials";
-    credentials.innerText = provider.credentials;
-    el.appendChild(credentials);
+      const credentials = document.createElement("p");
+      credentials.className = "credentials";
+      credentials.innerText = provider.credentials;
+      el.appendChild(credentials);
 
-    const nm = provider.numMods;
+      const nm = provider.numMods;
 
-    // In Person
-    if (nm.individual_inPerson || nm.group_inPerson) {
-      let str = "In Person - ";
+      // In Person
+      if (nm.individual_inPerson || nm.group_inPerson) {
+        let str = "In Person - ";
 
-      str += nm.individual_inPerson ? "Individual" : "";
-      str += nm.individual_inPerson && nm.group_inPerson ? "/" : "";
-      str += nm.group_inPerson ? "Group" : "";
+        str += nm.individual_inPerson ? "Individual" : "";
+        str += nm.individual_inPerson && nm.group_inPerson ? "/" : "";
+        str += nm.group_inPerson ? "Group" : "";
 
-      if (provider.country != null && provider.country != "") {
-        str +=
-          " (" +
-          provider.city +
-          " " +
-          provider.state +
-          ", " +
-          provider.country +
-          ")";
-      }
-
-      const inPerson = document.createElement("p");
-      inPerson.innerText = str;
-      el.appendChild(inPerson);
-    } 
-
-    // Virtual
-    if (nm.individual_virtual || nm.group_virtual) {
-      let str = "Virtual - ";
-
-      str += nm.individual_virtual ? "Individual" : "";
-      str += nm.individual_virtual && nm.group_virtual ? "/" : "";
-      str += nm.group_virtual ? "Group" : "";
-
-      if (
-        provider.virtualLocations != null &&
-        provider.virtualLocations.length > 0
-      ) {
-        str += " (";
-
-        for (let i = 0; i < provider.virtualLocations.length; i++) {
-          str += provider.virtualLocations[i];
-          if (i < provider.virtualLocations.length - 1) {
-            str += ", ";
-          }
+        if (provider.country != null && provider.country != "") {
+          str +=
+            " (" +
+            provider.city +
+            " " +
+            provider.state +
+            ", " +
+            provider.country +
+            ")";
         }
 
-        str += ")";
+        const inPerson = document.createElement("p");
+        inPerson.innerText = str;
+        el.appendChild(inPerson);
       }
 
-      const virtual = document.createElement("p");
-      virtual.innerText = str;
-      el.appendChild(virtual);
+      // Virtual
+      if (nm.individual_virtual || nm.group_virtual) {
+        let str = "Virtual - ";
+
+        str += nm.individual_virtual ? "Individual" : "";
+        str += nm.individual_virtual && nm.group_virtual ? "/" : "";
+        str += nm.group_virtual ? "Group" : "";
+
+        if (
+          provider.virtualLocations != null &&
+          provider.virtualLocations.length > 0
+        ) {
+          str += " (";
+
+          for (let i = 0; i < provider.virtualLocations.length; i++) {
+            str += provider.virtualLocations[i];
+            if (i < provider.virtualLocations.length - 1) {
+              str += ", ";
+            }
+          }
+
+          str += ")";
+        }
+
+        const virtual = document.createElement("p");
+        virtual.innerText = str;
+        el.appendChild(virtual);
+      }
     }
-  }
 
     if (!isTrainer) {
       const procedures = document.createElement("p");
       let str = "";
-      
+
       for (let procedure of Object.keys(provider.procedures)) {
         if (provider.procedures[procedure]) {
-          str += str == "" ? PROCEDURE_NAMES[procedure] : ", " + PROCEDURE_NAMES[procedure];
+          str +=
+            str == ""
+              ? PROCEDURE_NAMES[procedure]
+              : ", " + PROCEDURE_NAMES[procedure];
         }
       }
-      
+
       procedures.innerText = str;
-  
+
       el.appendChild(procedures);
     }
 
@@ -805,92 +784,96 @@ function loadSearchList(providers) {
 
     const name = document.createElement("p");
     name.className = "name";
+    name.className += isTrainer ? " trainer" : " surgeon";
     name.innerText = provider.name;
     nameContainer.appendChild(name);
 
     const role = document.createElement("p");
     role.innerText = isTrainer ? "Trainer" : "Surgeon";
-    nameContainer.appendChild(role);
+    //nameContainer.appendChild(role);
 
     if (isTrainer) {
-    const credentials = document.createElement("p");
-    credentials.className = "credentials";
-    credentials.innerText = provider.credentials;
-    el.appendChild(credentials);
+      const credentials = document.createElement("p");
+      credentials.className = "credentials";
+      credentials.innerText = provider.credentials;
+      el.appendChild(credentials);
 
-    const nm = provider.numMods;
+      const nm = provider.numMods;
 
-    // In Person
-    if (nm.individual_inPerson || nm.group_inPerson) {
-      let str = "In Person - ";
+      // In Person
+      if (nm.individual_inPerson || nm.group_inPerson) {
+        let str = "In Person - ";
 
-      str += nm.individual_inPerson ? "Individual" : "";
-      str += nm.individual_inPerson && nm.group_inPerson ? "/" : "";
-      str += nm.group_inPerson ? "Group" : "";
+        str += nm.individual_inPerson ? "Individual" : "";
+        str += nm.individual_inPerson && nm.group_inPerson ? "/" : "";
+        str += nm.group_inPerson ? "Group" : "";
 
-      if (provider.country != null && provider.country != "") {
-        str +=
-          " (" +
-          provider.city +
-          " " +
-          provider.state +
-          ", " +
-          provider.country +
-          ")";
-      }
-
-      const inPerson = document.createElement("p");
-      inPerson.innerText = str;
-      el.appendChild(inPerson);
-    } 
-
-    // Virtual
-    if (nm.individual_virtual || nm.group_virtual) {
-      let str = "Virtual - ";
-
-      str += nm.individual_virtual ? "Individual" : "";
-      str += nm.individual_virtual && nm.group_virtual ? "/" : "";
-      str += nm.group_virtual ? "Group" : "";
-
-      if (
-        provider.virtualLocations != null &&
-        provider.virtualLocations.length > 0
-      ) {
-        str += " (";
-
-        for (let i = 0; i < provider.virtualLocations.length; i++) {
-          str += provider.virtualLocations[i];
-          if (i < provider.virtualLocations.length - 1) {
-            str += ", ";
-          }
+        if (provider.country != null && provider.country != "") {
+          str +=
+            " (" +
+            provider.city +
+            " " +
+            provider.state +
+            ", " +
+            provider.country +
+            ")";
         }
 
-        str += ")";
+        const inPerson = document.createElement("p");
+        inPerson.innerText = str;
+        el.appendChild(inPerson);
       }
 
-      const virtual = document.createElement("p");
-      virtual.innerText = str;
-      el.appendChild(virtual);
-    }
-  }
-  
-  if (!isTrainer) {
-    const procedures = document.createElement("p");
-    let str = "";
-    
-    for (let procedure of Object.keys(provider.procedures)) {
-      if (provider.procedures[procedure]) {
-        str += str == "" ? PROCEDURE_NAMES[procedure] : ", " + PROCEDURE_NAMES[procedure];
+      // Virtual
+      if (nm.individual_virtual || nm.group_virtual) {
+        let str = "Virtual - ";
+
+        str += nm.individual_virtual ? "Individual" : "";
+        str += nm.individual_virtual && nm.group_virtual ? "/" : "";
+        str += nm.group_virtual ? "Group" : "";
+
+        if (
+          provider.virtualLocations != null &&
+          provider.virtualLocations.length > 0
+        ) {
+          str += " (";
+
+          for (let i = 0; i < provider.virtualLocations.length; i++) {
+            str += provider.virtualLocations[i];
+            if (i < provider.virtualLocations.length - 1) {
+              str += ", ";
+            }
+          }
+
+          str += ")";
+        }
+
+        const virtual = document.createElement("p");
+        virtual.innerText = str;
+        el.appendChild(virtual);
       }
     }
-    
-    procedures.innerText = str;
 
-    el.appendChild(procedures);
+    if (!isTrainer) {
+      const procedures = document.createElement("p");
+      let str = "";
+
+      for (let procedure of Object.keys(provider.procedures)) {
+        if (provider.procedures[procedure]) {
+          str +=
+            str == ""
+              ? PROCEDURE_NAMES[procedure]
+              : ", " + PROCEDURE_NAMES[procedure];
+        }
+      }
+
+      procedures.innerText = str;
+
+      el.appendChild(procedures);
+    }
+
+    panel.appendChild(el);
   }
-  
-  panel.appendChild(el);
-}
 }
 
 function loadTrainer(trainer) {
@@ -901,6 +884,7 @@ function loadTrainer(trainer) {
   $("#data-name").text(trainer.name);
   $("#data-credentials").text(trainer.credentials);
   $("#data-intro").text(trainer.intro);
+  $("#container-procedures").hide();
 
   ///////////////////////////////////////////////////////
   //                     Quick Info                    //
@@ -926,7 +910,13 @@ function loadTrainer(trainer) {
 
     if (trainer.country != null && trainer.country != "") {
       str +=
-        " (" + trainer.city + " " + trainer.state + ", " + trainer.country + ")";
+        " (" +
+        trainer.city +
+        " " +
+        trainer.state +
+        ", " +
+        trainer.country +
+        ")";
     }
 
     $("#data-inPerson").text(str);
@@ -990,13 +980,16 @@ function loadTrainer(trainer) {
     for (let lang of trainer.languages) {
       if (str == "") {
         str += lang;
-      }
-      else {
+      } else {
         str += ", " + lang;
       }
     }
 
     $("#data-languages").text(str);
+    $("#container-languages").show();
+  }
+  else {
+    $("#container-languages").hide();
   }
 
   // Goals
@@ -1006,13 +999,16 @@ function loadTrainer(trainer) {
     for (let goal of trainer.goals) {
       if (str == "") {
         str += goal;
-      }
-      else {
+      } else {
         str += ", " + goal;
       }
     }
 
     $("#data-goals").text(str);
+    $("#container-goals").show();
+  }
+  else {
+    $("#container-goals").hide();
   }
 
   ///////////////////////////////////////////////////////
@@ -1093,8 +1089,17 @@ function loadSurgeon(surgeon) {
   ///////////////////////////////////////////////////////
 
   $("#data-name").text(surgeon.name);
-  // TODO: update credentials
+  $("#data-credentials").text(surgeon.credentials);
   $("#data-intro").text(surgeon.intro);
+
+  for (let procedure of Object.keys(surgeon.procedures)) {
+    if (surgeon.procedures[procedure]) {
+      const el = document.createElement("li");
+      el.innerText = PROCEDURE_NAMES[procedure];
+      $("#data-procedures").append(el);
+    }
+  }
+  $("#container-procedures").show();
 
   ///////////////////////////////////////////////////////
   //                     Quick Info                    //
@@ -1110,6 +1115,8 @@ function loadSurgeon(surgeon) {
 
   $("#container-inPerson").hide();
   $("#container-virtual").hide();
+  $("#container-languages").hide();
+  $("#container-goals").hide();
 
   // Phone
   if (surgeon.phone != null && surgeon.phone != "") {
@@ -1267,25 +1274,17 @@ function loadProvinces() {
 }
 
 function loadLanguages(languages) {
-  const optgroup = document.getElementById("group-language");
+  const optgroup = document.getElementById("opt-language");
 
   for (let l of languages) {
     const l_nospace = l.replace(/\s+/g, "");
 
-    const el = document.createElement("input");
-    el.type = "checkbox";
-    el.name = "opt-language";
-    el.id = "opt-language-" + l_nospace;
+    const el = document.createElement("option");
     el.value = l;
-    el.onchange = generateMarkers;
-
-    const el2 = document.createElement("label");
-    el2.innerText = l;
-    el2.style = "text-transform: capitalize;";
-    el2.htmlFor = "opt-language-" + l_nospace;
+    el.style = "text-transform: capitalize;";
+    el.innerText = l;
 
     optgroup.appendChild(el);
-    optgroup.appendChild(el2);
   }
 }
 
