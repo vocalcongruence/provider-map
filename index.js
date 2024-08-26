@@ -1,3 +1,11 @@
+/*
+
+Vocal Congruence Project - Provider Map
+https://vocalcongruence.org/
+
+v 0.0 - Closed Beta Testing
+*/
+
 // Initialize and add the map
 let map;
 
