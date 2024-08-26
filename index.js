@@ -42,7 +42,6 @@ async function initMap() {
 }
 
 function generateMarkers() {
-  console.log(searchTrainers);
   removeAllMarkers(map);
 
   const query = providerQuery();
@@ -84,7 +83,7 @@ function generateMarkers() {
     }
   }
 
-  validProviders.sort((a, b) => a["name"].localeCompare(b["name"]));
+  validProviders.sort((a, b) => a["nameSort"].localeCompare(b["nameSort"]));
 
   loadProviderList(validProviders);
 }
@@ -134,6 +133,10 @@ function attachEvents() {
     showLeftPanel();
     openTabList();
   });
+  $("#button-openLeftPanel-search").on("click", () => {
+    showLeftPanel();
+    openTabSearch();
+  });
 
   $("#button-closeLeftPanel").on("click", hideLeftPanel);
   $("#button-closeRightPanel").on("click", hideRightPanel);
@@ -159,9 +162,14 @@ function attachEvents() {
   $("#opt-number-individual").on("click", onSelectNumber);
   $("#opt-number-group").on("click", onSelectNumber);
 
+  $("#button-resetAll").on("click", resetAllFilters);
+
   $("#opt-country").on("change", onSelectCountry);
 
   $("#input-search").on("input", searchProviders);
+
+  $("#button-closeModal").on("click", closeModal);
+  $("#button-help").on("click", openModal);
 
   // DEBUG
   $("#query").on("click", providerQuery);
@@ -169,6 +177,14 @@ function attachEvents() {
 
 function isMobile() {
   return window.innerWidth < 600;
+}
+
+function closeModal() {
+  $("#introModal").hide();
+}
+
+function openModal() {
+  $("#introModal").show();
 }
 
 function showLeftPanel() {
@@ -256,7 +272,8 @@ function switchProfession(e) {
     showSurgeonFilters();
   }
 
-  generateMarkers();
+
+  resetAllFilters();
 }
 
 function resetModality(e) {
@@ -377,6 +394,47 @@ function searchProviders(e) {
   loadSearchList(matches);
 }
 
+function resetAllFilters() {
+  // Professional Area
+  $("#opt-professionalArea-slp").prop('checked', false);
+  $("#opt-professionalArea-vpst").prop('checked', false);
+  $("#opt-professionalArea-tac").prop('checked', false);
+  $("#opt-professionalArea-gavt").prop('checked', false);
+  $("#opt-professionalArea-other").prop('checked', false);
+  
+  // Procedures offered
+  $("#opt-procedure").val("any");
+  
+  // Location
+  $("#opt-country").val("any");
+  $("#opt-state").val("any");
+  $("#opt-province").val("any");
+
+  // Language
+  $("#opt-language").val("any");
+
+  // Number/Modality
+  resetModality();
+  resetNumber();
+
+  // Goals
+  $("#opt-goal-masculine").prop('checked', false);
+  $("#opt-goal-feminine").prop('checked', false);
+  $("#opt-goal-androgynous").prop('checked', false);
+  $("#opt-goal-singing").prop('checked', false);
+
+  // Provider identity
+  $("#opt-pi-cisman").prop('checked', false);
+  $("#opt-pi-ciswoman").prop('checked', false);
+  $("#opt-pi-transman").prop('checked', false);
+  $("#opt-pi-transwoman").prop('checked', false);
+  $("#opt-pi-nonbinary").prop('checked', false);
+  $("#opt-pi-other").prop('checked', false);
+
+  // Regenerate the markers 
+  generateMarkers();
+}
+
 function providerQuery() {
   // Profession
   const profession = $("#opt-profession").val();
@@ -494,8 +552,19 @@ function providerMatchesQuery(p, q) {
 
     // State
     if (q.country == "US" && q.state != null && q.state != "any") {
-      if (q.state != p.state && !p.virtualLocations.includes(q.state)) {
-        return false;
+      if (q.state != p.state) {
+        // If they are a surgeon, ignore virtual locations
+        if (!p.isTrainer) {
+          return false;
+        }
+
+        // If not in person only, check virtual locations
+        if (q.modality == "inPerson") {
+          return false;
+        }
+        else if (!p.virtualLocations.includes(q.state)) {
+          return false;
+        }
       }
     }
 
@@ -503,11 +572,21 @@ function providerMatchesQuery(p, q) {
     if (
       q.country == "CA" &&
       q.province != null &&
-      q.province != "any" &&
-      !p.virtualLocations.includes(q.province)
+      q.province != "any"
     ) {
       if (q.province != p.state) {
-        return false;
+        // If they are a surgeon, ignore virtual locations
+        if (!p.isTrainer) {
+          return false;
+        }
+
+        // If not in person only, check virtual locations
+        if (q.modality == "inPerson") {
+          return false;
+        }
+        else if (!p.virtualLocations.includes(q.province)) {
+          return false;
+        }
       }
     }
   }
@@ -601,14 +680,14 @@ function providerMatchesQuery(p, q) {
       q.identity.transwoman)
   ) {
     // Check each option
-    let matchCisman = q.identity.cisman == true && p.identity == "cisman";
-    let matchCiswoman = q.identity.ciswoman == true && p.identity == "ciswoman";
+    let matchCisman = q.identity.cisman == true && p.identityFilter == "cisman";
+    let matchCiswoman = q.identity.ciswoman == true && p.identityFilter == "ciswoman";
     let matchNonbinary =
-      q.identity.nonbinary == true && p.identity == "nonbinary";
-    let matchOther = q.identity.other == true && p.identity == "other";
-    let matchTransman = q.identity.transman == true && p.identity == "transman";
+      q.identity.nonbinary == true && p.identityFilter == "nonbinary";
+    let matchOther = q.identity.other == true && p.identityFilter == "other";
+    let matchTransman = q.identity.transman == true && p.identityFilter == "transman";
     let matchTranswoman =
-      q.identity.transwoman == true && p.identity == "transwoman";
+      q.identity.transwoman == true && p.identityFilter == "transwoman";
 
     // If at least one of these is a match, provider passes test
     if (
@@ -967,10 +1046,25 @@ function loadTrainer(trainer) {
   // Since
   if (trainer.generalSince != null) {
     $("#data-since").text(trainer.generalSince);
+    $("#container-servicesSinceGeneral").show();
+  }
+  else {
+    $("#container-servicesSinceGeneral").hide();
   }
 
   if (trainer.gavcSince != null) {
     $("#data-sinceGA").text(trainer.gavcSince);
+    $("#container-servicesSinceGA").show();
+  }
+  else {
+    $("#container-servicesSinceGA").hide();
+  }
+
+  if (trainer.generalSince != null && trainer.gavcSince != null) {
+    $("#container-servicesSince").show();
+  }
+  else {
+    $("#container-servicesSince").hide();
   }
 
   // Languages
@@ -1029,7 +1123,8 @@ function loadTrainer(trainer) {
   }
 
   // Additional Identities
-  if (trainer.additionalIdentity != null && trainer.additionalIdentity != "") {
+  if ((trainer.identityDisplay != null && trainer.identityDisplay != "Prefer Not to Say") || (trainer.additionalIdentity != null && trainer.additionalIdentity != "")) {
+    $("#data-provider-identity").text(trainer.identityDisplay);
     $("#data-provider-identities").text(trainer.additionalIdentity);
 
     $("#section-provider-identities").show();
@@ -1092,6 +1187,7 @@ function loadSurgeon(surgeon) {
   $("#data-credentials").text(surgeon.credentials);
   $("#data-intro").text(surgeon.intro);
 
+  $("#data-procedures").empty();
   for (let procedure of Object.keys(surgeon.procedures)) {
     if (surgeon.procedures[procedure]) {
       const el = document.createElement("li");
@@ -1130,10 +1226,25 @@ function loadSurgeon(surgeon) {
   // Since
   if (surgeon.generalSince != null) {
     $("#data-since").text(surgeon.generalSince);
+    $("#container-servicesSinceGeneral").show();
+  }
+  else {
+    $("#container-servicesSinceGeneral").hide();
   }
 
   if (surgeon.gavcSince != null) {
     $("#data-sinceGA").text(surgeon.gavcSince);
+    $("#container-servicesSinceGA").show();
+  }
+  else {
+    $("#container-servicesSinceGA").hide();
+  }
+
+  if (surgeon.generalSince != null && surgeon.gavcSince != null) {
+    $("#container-servicesSince").show();
+  }
+  else {
+    $("#container-servicesSince").hide();
   }
 
   ///////////////////////////////////////////////////////
@@ -1277,12 +1388,10 @@ function loadLanguages(languages) {
   const optgroup = document.getElementById("opt-language");
 
   for (let l of languages) {
-    const l_nospace = l.replace(/\s+/g, "");
-
     const el = document.createElement("option");
-    el.value = l;
+    el.value = l.value;
     el.style = "text-transform: capitalize;";
-    el.innerText = l;
+    el.innerText = l.display;
 
     optgroup.appendChild(el);
   }
