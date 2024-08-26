@@ -2,9 +2,9 @@
     "trainers": [
         {
             "isTrainer": true,
-            "name": "Orit Greenberg",
-            "nameSort": "Greenberg",
-            "credentials": "MS, CCC-SLP",
+            "name": "Orit Greenberg MS",
+            "nameSort": "MS",
+            "credentials": "CCC-SLP",
             "pin": {
                 "lat": 40.4362085,
                 "lng": -79.98562070000001
@@ -188,7 +188,7 @@
                 "english"
             ],
             "identityDisplay": "Genderqueer",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Taylor Strande, MClSc, S-LP (C), Reg. CASLPO (she/they) is a Speech-Language Pathologist employed at St. Michael's Hospital .",
             "generalSince": 2016,
             "gavcSince": 2020,
@@ -570,9 +570,9 @@
         },
         {
             "isTrainer": true,
-            "name": "Ashley Laudick",
-            "nameSort": "Laudick",
-            "credentials": "M.A. CCC-SLP",
+            "name": "Ashley Laudick M.A. CCC-SLP ",
+            "nameSort": "",
+            "credentials": null,
             "pin": {
                 "lat": 41.5868417,
                 "lng": -93.6249522
@@ -1177,7 +1177,7 @@
                 "english"
             ],
             "identityDisplay": "Transgender Man",
-            "identityFilter": "other",
+            "identityFilter": "transman",
             "intro": "Peter Fullerton, MA (he/him) is a Vocal Pedagogue/Singing Instructor employed at Peter Fullerton Voice Studio .",
             "generalSince": 2012,
             "gavcSince": 2012,
@@ -1711,8 +1711,8 @@
             "nameSort": "Fitzpatrick",
             "credentials": "MSc, S-LP (C), Reg. CASLPO",
             "pin": {
-                "lat": 43.652139278495945,
-                "lng": -79.37905249383815
+                "lat": 43.652562289363644,
+                "lng": -79.37880697033894
             },
             "city": "Toronto",
             "state": "ON",
@@ -2179,8 +2179,8 @@
             "nameSort": "Treatman",
             "credentials": "M.A., CCC-SLP",
             "pin": {
-                "lat": 41.87669022427429,
-                "lng": -87.63135104105714
+                "lat": 41.8767850665792,
+                "lng": -87.63167882201611
             },
             "city": "Chicago",
             "state": "IL",
@@ -2309,7 +2309,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Ruchi Kapila, MS, CCC-SLP (they/she) is a Speech-Language Pathologist employed at Kapila Voice and Speech Services .",
             "generalSince": 2020,
             "gavcSince": 2020,
@@ -2467,7 +2467,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Zoe Weinstein, MA, CCC-SLP, TSSLD (they/them) is a Speech-Language Pathologist employed at Harmonic Speech Therapy.",
             "generalSince": 2023,
             "gavcSince": 2023,
@@ -2851,8 +2851,8 @@
             "nameSort": "Adams",
             "credentials": "M.S., CCC-SLP",
             "pin": {
-                "lat": 37.336765377831064,
-                "lng": -121.88688226500396
+                "lat": 37.336592734888086,
+                "lng": -121.8865464215413
             },
             "city": "San Jose",
             "state": "CA",
@@ -3286,7 +3286,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Gregory Robinson, Ph.D. CCC-SLP (they/them) is a Speech-Language Pathologist employed at University of Arkansas for Medical Sciences and Prismatic Speech Services.",
             "generalSince": 1997,
             "gavcSince": 2016,
@@ -3654,7 +3654,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Felicia Fran\u00e7ois, MS, CCC-SLP (she/they) is a Speech-Language Pathologist employed at USC Voice Center.",
             "generalSince": 2016,
             "gavcSince": 2018,
@@ -3705,7 +3705,7 @@
                 "english"
             ],
             "identityDisplay": "Genderqueer",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Ali Heitzman, MS, CCC-SLP (they/them) is a Speech-Language Pathologist employed at Lavender Speech Services.",
             "generalSince": 2018,
             "gavcSince": 2018,
@@ -3938,8 +3938,8 @@
             "nameSort": "Forest",
             "credentials": "CCC-SLP",
             "pin": {
-                "lat": 34.0603093948166,
-                "lng": -118.20446353239986
+                "lat": 34.05953283634787,
+                "lng": -118.20443454688898
             },
             "city": "Los Angeles",
             "state": "CA",
@@ -4037,8 +4037,8 @@
             "nameSort": "Castro",
             "credentials": "M.S. CCC-SLP",
             "pin": {
-                "lat": 34.05329166005755,
-                "lng": -118.2445028326514
+                "lat": 34.05379086503,
+                "lng": -118.2441490996076
             },
             "city": "Los Angles",
             "state": "CA",
@@ -4091,8 +4091,8 @@
             "nameSort": "McGinty",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 35.22607077048063,
-                "lng": -80.8444860691408
+                "lat": 35.225853034443254,
+                "lng": -80.84446892272369
             },
             "city": "Charlotte",
             "state": "NC",
@@ -4175,7 +4175,7 @@
                 "german"
             ],
             "identityDisplay": "Trans Non-binary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Wynde Vastine, CCC-SLP (they/them) is a Speech-Language Pathologist and Gender-Affirming Singing Teacher employed at Transformative Voice & San Francisco Voice and Swallowing.",
             "generalSince": 2006,
             "gavcSince": 2006,
@@ -4278,7 +4278,7 @@
                 "english"
             ],
             "identityDisplay": "She/They",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Kelli Turczyn, M.S., CCC-SLP, Vocologist (she/they) is a Speech-Language Pathologist employed at Trillium Speech, Language, & Voice Services, LLC.",
             "generalSince": 2010,
             "gavcSince": 2017,
@@ -4301,8 +4301,8 @@
             "nameSort": "Dinsmore",
             "credentials": null,
             "pin": {
-                "lat": 41.876486855723186,
-                "lng": -87.63141143730572
+                "lat": 41.877020644556325,
+                "lng": -87.63152338967578
             },
             "city": "Chicago",
             "state": "IL",
@@ -4328,7 +4328,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Quinn Dinsmore (they/them) is a Gender Affirming Voice Trainer employed at Quintessential Voice Lessons LLC.",
             "generalSince": 2020,
             "gavcSince": 2020,
@@ -4429,7 +4429,7 @@
                 "spanish"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Jennifer Cleary, MS, CCC-SLP (zie/hir and she/her) is a Speech-Language Pathologist employed at ExploreVoice Studios.",
             "generalSince": 2005,
             "gavcSince": 2015,
@@ -4698,7 +4698,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Kevin Dorman, MS, CCC-SLP (they/them) is a Speech-Language Pathologist employed at Prismatic Speech Services.",
             "generalSince": 2015,
             "gavcSince": 2015,
@@ -4960,7 +4960,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary / Demigender",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Sierra Downs, MA CCC-SLP (she/they) is a Speech-Language Pathologist and Singing Voice Coach employed at Veritas Voice & Speech, LLC.",
             "generalSince": 2014,
             "gavcSince": 2016,
@@ -5507,8 +5507,8 @@
             "nameSort": "Beckham",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 41.500843341247254,
-                "lng": -81.6238697135425
+                "lat": 41.5011908791141,
+                "lng": -81.62344053728336
             },
             "city": "Cleveland",
             "state": "OH",
@@ -5838,7 +5838,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Charlie Lenell, PhD, CCC-SLP (they/them) is a Speech-Language Pathologist employed at University of Northern Colorado.",
             "generalSince": 2014,
             "gavcSince": 2022,
@@ -5942,7 +5942,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Kristin Jones, M.A., CCC-SLP (she/they) is a Speech-Language Pathologist employed at Voce Speech Therapy, PLLC.",
             "generalSince": 2007,
             "gavcSince": 2021,
@@ -6224,8 +6224,8 @@
             "nameSort": "DeVore",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 41.87689005825718,
-                "lng": -87.63173493489887
+                "lat": 41.876246907791355,
+                "lng": -87.63093055173631
             },
             "city": "Chicago",
             "state": "IL",
@@ -6379,8 +6379,8 @@
             "nameSort": "Hsu",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 42.36101854056476,
-                "lng": -71.07167231479526
+                "lat": 42.361617459705315,
+                "lng": -71.07181658308274
             },
             "city": "Boston",
             "state": "MA",
@@ -6638,8 +6638,8 @@
             "nameSort": "Wilson",
             "credentials": "MM, MS, CCC-SLP",
             "pin": {
-                "lat": 39.29546260908103,
-                "lng": -76.59676534219018
+                "lat": 39.295266651196506,
+                "lng": -76.59676814209757
             },
             "city": "Baltimore",
             "state": "MD",
@@ -6691,8 +6691,8 @@
             "nameSort": "Pietsch",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 39.289065242529496,
-                "lng": -76.6137067100529
+                "lat": 39.288729469176225,
+                "lng": -76.61330857261967
             },
             "city": "Baltimore",
             "state": "MD",
@@ -6819,7 +6819,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Clare Henderson, MA, CCC-SLP, CBIS (she/her) is a Speech-Language Pathologist employed at Center for Vocal Health.",
             "generalSince": 2020,
             "gavcSince": 2021,
@@ -7052,8 +7052,8 @@
             "nameSort": "Gonzalez",
             "credentials": null,
             "pin": {
-                "lat": 32.952210604094795,
-                "lng": -96.80505476977558
+                "lat": 32.95221891885613,
+                "lng": -96.80441731853429
             },
             "city": "Dallas",
             "state": "TX",
@@ -7423,8 +7423,8 @@
             "nameSort": "Majdalani",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 41.87611738848218,
-                "lng": -87.63084099048513
+                "lat": 41.87659166821675,
+                "lng": -87.63157170623838
             },
             "city": "Chicago",
             "state": "IL ",
@@ -7548,7 +7548,7 @@
                 "english"
             ],
             "identityDisplay": "Transgender Woman",
-            "identityFilter": "other",
+            "identityFilter": "transwoman",
             "intro": "Dahlia Exurrana (she/her) is a Gender Affirming Voice Trainer employed at New Mexico Gender Voice Center.",
             "generalSince": 2022,
             "gavcSince": 2022,
@@ -7795,7 +7795,7 @@
                 "english"
             ],
             "identityDisplay": "Transgender Man",
-            "identityFilter": "other",
+            "identityFilter": "transman",
             "intro": "Aaron Ayala, MVP, MS, CCC-SLP (he/him) is a Speech-Language Pathologist employed at Penn State Health Milton S. Hershey Medical Center - Department of Otolaryngology.",
             "generalSince": 2017,
             "gavcSince": 2017,
@@ -7819,8 +7819,8 @@
             "nameSort": "Diemer",
             "credentials": "MM",
             "pin": {
-                "lat": 35.59341070381939,
-                "lng": -82.55262516578654
+                "lat": 35.59359895694079,
+                "lng": -82.5527518471381
             },
             "city": "Asheville",
             "state": "NC",
@@ -7847,7 +7847,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Anna Diemer, MM (they/them) is a Vocal Pedagogue/Singing Instructor employed at Diemer Voice Studio.",
             "generalSince": 2013,
             "gavcSince": 2021,
@@ -7921,8 +7921,8 @@
             "nameSort": "Crutchley",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 36.071454819102705,
-                "lng": -79.7931929313127
+                "lat": 36.07085151045342,
+                "lng": -79.79325897071236
             },
             "city": "Greensboro",
             "state": "NC",
@@ -7949,7 +7949,7 @@
                 "interpretationservicesavailable"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Sena Crutchley, MA, CCC-SLP (she/her) is a Speech-Language Pathologist employed at UNC Greensboro.",
             "generalSince": 2006,
             "gavcSince": 2007,
@@ -8055,7 +8055,7 @@
                 "english"
             ],
             "identityDisplay": "Transgender Man",
-            "identityFilter": "other",
+            "identityFilter": "transman",
             "intro": "AC Goldberg (he/him) is a Gender Affirming Voice Trainer employed at Northeastern University.",
             "generalSince": 2004,
             "gavcSince": 2016,
@@ -8182,8 +8182,8 @@
             "nameSort": "Kalos",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 42.361729257952156,
-                "lng": -71.07121706274592
+                "lat": 42.36088612415332,
+                "lng": -71.07135171343452
             },
             "city": "Boston",
             "state": "MA",
@@ -8470,7 +8470,7 @@
                 "turkish"
             ],
             "identityDisplay": "Gender Non-Conforming / Androgynous Female",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Oya Topbas, MS, CCC-SLP (they/she) is a Speech-Language Pathologist employed at ENT Institute.",
             "generalSince": 2020,
             "gavcSince": 2021,
@@ -8544,8 +8544,8 @@
             "nameSort": "Taylor",
             "credentials": "BA, MSpeechPath",
             "pin": {
-                "lat": -31.95304789960426,
-                "lng": 115.85964102033098
+                "lat": -31.9528425706087,
+                "lng": 115.85971202480663
             },
             "city": "Perth",
             "state": "Western Australia ",
@@ -8571,7 +8571,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Mx Niall Taylor, BA, MSpeechPath (he/she) is a Speech-Language Pathologist employed at Niall Taylor Speech Pathology .",
             "generalSince": 2019,
             "gavcSince": 2019,
@@ -8645,8 +8645,8 @@
             "nameSort": "Fitzenrider",
             "credentials": null,
             "pin": {
-                "lat": 39.75742873965271,
-                "lng": -84.19278459608853
+                "lat": 39.757746928202046,
+                "lng": -84.19322369653275
             },
             "city": "Dayton",
             "state": "OH",
@@ -9244,7 +9244,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Maevon Gumble, MMT, MT-BC, LPC (they/them) is a Vocal Pedagogue/Singing Instructor employed at Becoming Through Sound LLC.",
             "generalSince": 2019,
             "gavcSince": 2019,
@@ -9303,7 +9303,7 @@
                 "french"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Sarah Quintana, M.S., CCC-SLP (she/they) is a Speech-Language Pathologist employed at LSUS.",
             "generalSince": 2014,
             "gavcSince": 2020,
@@ -9453,7 +9453,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Adi Cabral, MFA (they/them) is a Theater/Acting Coach employed at University of Nevada, Reno.",
             "generalSince": 2011,
             "gavcSince": 2017,
@@ -9476,8 +9476,8 @@
             "nameSort": "Hook",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 35.59297066482029,
-                "lng": -82.55329648541048
+                "lat": 35.59384552542224,
+                "lng": -82.55260759805346
             },
             "city": "Asheville",
             "state": "NC",
@@ -9788,8 +9788,8 @@
             "nameSort": "Weiss",
             "credentials": "DMA",
             "pin": {
-                "lat": 44.97559077304905,
-                "lng": -93.26665241303036
+                "lat": 44.976294372341656,
+                "lng": -93.2668199152979
             },
             "city": "Minneapolis",
             "state": "MN",
@@ -10399,8 +10399,8 @@
             "nameSort": "Hassan",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 39.28880549034881,
-                "lng": -76.61328733760887
+                "lat": 39.28822861809275,
+                "lng": -76.6140337822788
             },
             "city": "Baltimore",
             "state": "MD",
@@ -10448,8 +10448,8 @@
             "nameSort": "Dubiak",
             "credentials": "M.S., CCC-SLP",
             "pin": {
-                "lat": 42.880956441430875,
-                "lng": -85.60771172151433
+                "lat": 42.88138948760487,
+                "lng": -85.60697784922189
             },
             "city": "Grand Rapids",
             "state": "MI",
@@ -10597,8 +10597,8 @@
             "nameSort": "Strong",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 33.446614076652764,
-                "lng": -112.07520537447749
+                "lat": 33.446633947370934,
+                "lng": -112.07613133938848
             },
             "city": "Phoenix ",
             "state": "AZ",
@@ -10644,8 +10644,8 @@
             "nameSort": "Adaire",
             "credentials": "Designated Linklater Voice Teacher",
             "pin": {
-                "lat": 34.0532106269639,
-                "lng": -118.2440878460689
+                "lat": 34.05367152246794,
+                "lng": -118.24478617878927
             },
             "city": "Los Angeles",
             "state": "CA",
@@ -10726,7 +10726,7 @@
                 "english"
             ],
             "identityDisplay": "Transgender Man",
-            "identityFilter": "other",
+            "identityFilter": "transman",
             "intro": "Collin M Eagen, MA, MAT  (he/him) is a Speech-Language Pathologist employed at UC Health Anschutz.",
             "generalSince": 2021,
             "gavcSince": 2021,
@@ -10903,8 +10903,8 @@
             "nameSort": "Litts",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 39.737465063843416,
-                "lng": -104.99202735378181
+                "lat": 39.73729644073772,
+                "lng": -104.9922610572259
             },
             "city": "Denver",
             "state": "CO",
@@ -10954,8 +10954,8 @@
             "nameSort": "Trifiro",
             "credentials": "M.S., CCC-SLP",
             "pin": {
-                "lat": 38.262827881024954,
-                "lng": -104.61633990871839
+                "lat": 38.26290662482382,
+                "lng": -104.61580686839142
             },
             "city": "Pueblo ",
             "state": "CO",
@@ -11102,8 +11102,8 @@
             "nameSort": "Allaway",
             "credentials": "MS",
             "pin": {
-                "lat": 45.513286899689085,
-                "lng": -122.67987186782509
+                "lat": 45.513717065808216,
+                "lng": -122.68015173482789
             },
             "city": "Portland",
             "state": "OR",
@@ -11130,7 +11130,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Dusty Allaway, MS is a Vocal Pedagogue/Singing Instructor employed at Fluid Voice Studio.",
             "generalSince": 2020,
             "gavcSince": 2020,
@@ -11957,7 +11957,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Kate Walker, CPSP (she/they) is a Speech-Language Pathologist employed at Affirm and Thrive. ",
             "generalSince": 2009,
             "gavcSince": 2018,
@@ -12321,7 +12321,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Tallulah Breslin, MS, CCC/SLP (she/they) is a Speech-Language Pathologist employed at Harmonic Speech Therapy and Mantra Voice. ",
             "generalSince": 2009,
             "gavcSince": 2014,
@@ -12855,9 +12855,9 @@
         },
         {
             "isTrainer": true,
-            "name": "Dana Halevi",
-            "nameSort": "Halevi",
-            "credentials": "SLP, Int'l ASHA affiliate",
+            "name": "Dana Halevi SLP",
+            "nameSort": "SLP",
+            "credentials": "Int'l ASHA affiliate",
             "pin": {
                 "lat": 32.6960656,
                 "lng": 34.9458283
@@ -13013,8 +13013,8 @@
             "nameSort": "Goings",
             "credentials": "M.S., CCC-SLP",
             "pin": {
-                "lat": 43.15535976613677,
-                "lng": -77.61084861809063
+                "lat": 43.15526346967568,
+                "lng": -77.6103730219924
             },
             "city": "Rochester",
             "state": "NY",
@@ -13040,7 +13040,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Andy Goings, M.S., CCC-SLP (they/them) is a Speech-Language Pathologist employed at University of Rochester Medical Center. ",
             "generalSince": 2022,
             "gavcSince": 2022,
@@ -13163,8 +13163,8 @@
             "nameSort": "Habich",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 40.438913229868604,
-                "lng": -79.99736489371578
+                "lat": 40.439004586971805,
+                "lng": -79.99699800550519
             },
             "city": "Pittsburgh",
             "state": "PA",
@@ -13468,8 +13468,8 @@
             "nameSort": "Collum",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 40.75168528449007,
-                "lng": -111.82660480557958
+                "lat": 40.752469850866795,
+                "lng": -111.82713656241775
             },
             "city": "Salt Lake City",
             "state": "UT",
@@ -13776,8 +13776,8 @@
             "nameSort": "Mahon",
             "credentials": "MS, CF-SLP",
             "pin": {
-                "lat": 40.4350173727247,
-                "lng": -79.98722125201412
+                "lat": 40.43503023186057,
+                "lng": -79.98716813042452
             },
             "city": "Pittsburgh",
             "state": "PA",
@@ -13803,7 +13803,7 @@
                 "english"
             ],
             "identityDisplay": "Transgender Woman",
-            "identityFilter": "other",
+            "identityFilter": "transwoman",
             "intro": "Nora Mahon, MS, CF-SLP (she/her) is a Speech-Language Pathologist employed at UPMC Voice & Airway Center. ",
             "generalSince": 2023,
             "gavcSince": 2023,
@@ -13960,7 +13960,7 @@
                 "english"
             ],
             "identityDisplay": "Nonbinary",
-            "identityFilter": "other",
+            "identityFilter": "nonbinary",
             "intro": "Elle Gilbert, MA, CF-SLP (they/them) is a Speech-Language Pathologist, Vocal Pedagogue/Singing Instructor employed at Frederick SLP. ",
             "generalSince": 2019,
             "gavcSince": 2022,
@@ -14037,8 +14037,8 @@
             "nameSort": "Lin",
             "credentials": "MD",
             "pin": {
-                "lat": 43.65187869053956,
-                "lng": -79.37898877735688
+                "lat": 43.65275384554502,
+                "lng": -79.37894984361186
             },
             "city": "Toronto",
             "state": "ON",
@@ -14075,8 +14075,8 @@
             "nameSort": "Born",
             "credentials": "MD, MS",
             "pin": {
-                "lat": 40.75658942573006,
-                "lng": -73.97098949960709
+                "lat": 40.75691157649245,
+                "lng": -73.97117686700332
             },
             "city": "New York City",
             "state": "NY",
@@ -14114,8 +14114,8 @@
             "nameSort": "Best",
             "credentials": "MD",
             "pin": {
-                "lat": 39.29485642502407,
-                "lng": -76.5965578821338
+                "lat": 39.29487885737884,
+                "lng": -76.5967572059023
             },
             "city": "Baltmore",
             "state": "MD",
@@ -14191,8 +14191,8 @@
             "nameSort": "Johns",
             "credentials": "MD",
             "pin": {
-                "lat": 34.06057167545261,
-                "lng": -118.20428930869966
+                "lat": 34.059962783900495,
+                "lng": -118.20355933814194
             },
             "city": "Los Angeles",
             "state": "CA",
@@ -14348,8 +14348,8 @@
             "nameSort": "Tierney",
             "credentials": "MD, MS, MS",
             "pin": {
-                "lat": 41.501086513716636,
-                "lng": -81.6236297662408
+                "lat": 41.500899653019154,
+                "lng": -81.62345175215138
             },
             "city": "Cleveland",
             "state": "OH",
@@ -14386,8 +14386,8 @@
             "nameSort": "Hatcher",
             "credentials": "MD, FACS",
             "pin": {
-                "lat": 33.76701825142845,
-                "lng": -84.38765258689968
+                "lat": 33.76737709564721,
+                "lng": -84.38811484613248
             },
             "city": "Atlanta",
             "state": "GA",
@@ -14463,8 +14463,8 @@
             "nameSort": "Yung",
             "credentials": "MD, FACS",
             "pin": {
-                "lat": 37.788301815938496,
-                "lng": -122.41000299802603
+                "lat": 37.78799375529166,
+                "lng": -122.40974351546053
             },
             "city": "San Francisco",
             "state": "CA",
@@ -14618,8 +14618,8 @@
             "nameSort": "Madden",
             "credentials": "DO",
             "pin": {
-                "lat": 36.08978882503262,
-                "lng": -80.27485773187534
+                "lat": 36.08949070560479,
+                "lng": -80.27487227797822
             },
             "city": "Winston-Salem",
             "state": "NC",
@@ -14701,8 +14701,8 @@
             "nameSort": "Paddle",
             "credentials": "MD",
             "pin": {
-                "lat": -37.81150777562792,
-                "lng": 144.982281214211
+                "lat": -37.81168135236147,
+                "lng": 144.98173845455088
             },
             "city": "East Melbourne ",
             "state": "Victoria",
@@ -15001,8 +15001,8 @@
             "nameSort": "Leuchter",
             "credentials": "MD",
             "pin": {
-                "lat": 46.19117174130305,
-                "lng": 6.147646733250563
+                "lat": 46.19141087279973,
+                "lng": 6.146951785223983
             },
             "city": "Geneva",
             "state": "Geneva",
@@ -15216,7 +15216,7 @@
                 "other": false
             },
             "identityDisplay": "Nonbinary",
-            "identityFilter": "nonbinary",
+            "identityFilter": "other",
             "intro": "Brian Nuyen, MD (any pronouns) is a fellowship-trained Laryngologist employed at Stanford University School of Medicine.",
             "generalSince": 2021,
             "gavcSince": 2021,
