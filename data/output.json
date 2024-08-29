@@ -570,9 +570,9 @@
         },
         {
             "isTrainer": true,
-            "name": "Ashley Laudick M.A. CCC-SLP ",
-            "nameSort": "",
-            "credentials": null,
+            "name": "Ashley Laudick",
+            "nameSort": "Laudick",
+            "credentials": "M.A. CCC-SLP",
             "pin": {
                 "lat": 41.5868417,
                 "lng": -93.6249522

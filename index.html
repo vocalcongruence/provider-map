@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<!--
- @license
- Copyright 2019 Google LLC. All Rights Reserved.
- SPDX-License-Identifier: Apache-2.0
--->
 <html>
   <head>
-    <title>Vocal Congruence Project - Provider Map</title>
+    <title>Vocal Congruence Project: Provider Map</title>
+
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/vcp-logo.png" />
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <!-- Material Symbols -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -23,6 +20,7 @@
       rel="stylesheet"
     />
 
+    <!-- JQuery -->
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -35,50 +33,56 @@
       referrerpolicy="no-referrer"
     ></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
-
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/simplebar@latest/dist/simplebar.css"
-    />
-    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="./chosen.css" />
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <link rel="stylesheet" type="text/css" href="./scrollbar.css" />
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/scrollbar.css" />
   </head>
+
   <body>
     <div id="map"></div>
 
-    <!--<button
-      id="query"
-      style="
-        position: absolute;
-        left: 400px;
-        top: 8px;
-        height: 32px;
-        color: black;
-        display: none;
-      "
-    >
-      QUERY
-    </button> -->
-
     <div id="introModal">
       <div id="content">
-        <button id="button-closeModal"><span class="material-symbols-outlined">close</span></button>
-        <h1>Welcome!</h1> 
-        <p>This map is presented by the <a href="https://vocalcongruence.org/" target="_blank">Vocal Congruence Project</a> (VCP) to help you find vocal congruence — the sense that your voice accurately reflects who you are. 
-          <br>
-          <br>
-          It includes gender-affirming voice and communication <span style="color: var(--color-pink)">trainers</span> and <span style="color: var(--color-blue)">surgeons</span>.</p>
-        <br>
+        <button id="button-closeModal">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+        <h1>Welcome!</h1>
+        <p>
+          This map is presented by the
+          <a href="https://vocalcongruence.org/" target="_blank"
+            >Vocal Congruence Project</a
+          >
+          (VCP) to help you find vocal congruence — the sense that your voice
+          accurately reflects who you are.
+          <br />
+          <br />
+          It includes gender-affirming voice and communication
+          <span style="color: var(--color-pink)">trainers</span> and
+          <span style="color: var(--color-blue)">surgeons</span>.
+        </p>
+        <br />
         <h2>How to Use:</h2>
         <ul id="how-to-use">
-          <li>Select a pin to learn more about a provider (<span style="font-style: italic;">locations are approximate</span>). </li>
-          <li>Use the icons on the left to filter, view as a list, or search.</li>
-          <li>Select the <span style="font-size: 16px;" class="material-symbols-outlined">help</span> icons to see a related resource on the VCP website.</li>
-          <li>Use the icons on the right to visit the VCP website, support this project, or view these instructions again.</li>
+          <li>
+            Select a pin to learn more about a provider (<span
+              style="font-style: italic"
+              >locations are approximate</span
+            >).
+          </li>
+          <li>
+            Use the icons on the left to filter, view as a list, or search.
+          </li>
+          <li>
+            Select the
+            <span style="font-size: 16px" class="material-symbols-outlined"
+              >help</span
+            >
+            icons to see a related resource on the VCP website.
+          </li>
+          <li>
+            Use the icons on the right to visit the VCP website, support this
+            project, or view these instructions again.
+          </li>
         </ul>
       </div>
     </div>
@@ -99,15 +103,15 @@
       <img src="./vcp-logo.png" />
     </a>
 
-    <a href="https://vocalcongruence.org/#support" target="_blank" id="button-donate">
-      <span class="material-symbols-outlined">
-        favorite
-      </span>
+    <a
+      href="https://vocalcongruence.org/#support"
+      target="_blank"
+      id="button-donate"
+    >
+      <span class="material-symbols-outlined"> favorite </span>
     </a>
 
-    <span id="button-help" class="material-symbols-outlined">
-      help
-    </span>
+    <span id="button-help" class="material-symbols-outlined"> help </span>
 
     <div id="panel-left" class="panel">
       <div id="panel-left-tabMenu">
@@ -139,11 +143,17 @@
           <label style="margin: 0; margin-right: 16px"
             >I am looking for a
           </label>
-          <select style="width: 40%" class="pink" id="opt-profession">
-            <option value="trainer">Trainer</option>
-            <option value="surgeon">Surgeon</option>
+          <select style="width: 40%" class="pink filter" id="opt-providerType">
+            <option value="0" default></option>
+            <option value="1">Trainer</option>
+            <option value="2">Surgeon</option>
           </select>
         </div>
+
+        <hr id="divider-nofilter" />
+        <p id="nofilter">
+          Please select a provider type to filter the results.
+        </p>
 
         <hr id="divider-resetAll" />
         <button id="button-resetAll">Reset all Filters</button>
@@ -168,6 +178,7 @@
               id="opt-professionalArea-slp"
               name="opt-professionalArea-slp"
               value="slp"
+              class="filter"
             />
             <label for="opt-professionalArea-slp"
               >Speech-Language Pathologist</label
@@ -177,6 +188,7 @@
               id="opt-professionalArea-vpst"
               name="opt-professionalArea-vpst"
               value="vpst"
+              class="filter"
             />
             <label for="opt-professionalArea-vpst"
               >Vocal Pedagogue/Singing Instructor</label
@@ -186,6 +198,7 @@
               id="opt-professionalArea-tac"
               name="opt-professionalArea-tac"
               value="tac"
+              class="filter"
             />
             <label for="opt-professionalArea-tac">Theater/Acting Coach</label>
             <input
@@ -193,6 +206,7 @@
               id="opt-professionalArea-gavt"
               name="opt-professionalArea-gav"
               value="gavt"
+              class="filter"
             />
             <label for="opt-professionalArea-gavt"
               >Nontraditional Gender-Affirming Voice Trainers</label
@@ -202,6 +216,7 @@
               id="opt-professionalArea-other"
               name="opt-professionalArea-other"
               value="other"
+              class="filter"
             />
             <label for="opt-professionalArea-other">Other</label>
           </div>
@@ -219,7 +234,7 @@
               ><span class="material-symbols-outlined"> help </span></a
             >
           </p>
-          <select id="opt-procedure">
+          <select id="opt-procedure" class="filter">
             <option value="any" default>Any Procedure</option>
             <option value="chond">Chondrolaryngoplasty</option>
             <option value="wg">Wendler's Glottoplasty</option>
@@ -229,28 +244,33 @@
             <option value="other">Other</option>
           </select>
 
-          <hr />
+          <hr class="divider-location" />
 
-          <p class="label">Location</p>
-          <select id="opt-country" style="margin-bottom: 4px; margin-top: 4px">
+          <p id="label-location" class="label">Location</p>
+          <select
+            id="opt-country"
+            class="filter"
+            style="margin-bottom: 4px; margin-top: 4px"
+          >
             <option value="any" default>Any Country</option>
           </select>
 
-          <select id="opt-state">
+          <select id="opt-state" class="filter">
             <option value="any" default>Any State</option>
           </select>
 
-          <select id="opt-province">
+          <select id="opt-province" class="filter">
             <option value="any" default>Any Province</option>
           </select>
 
-          <hr />
+          <hr class="divider-location" />
 
           <p id="label-language" class="label">Language</p>
           <select
             style="margin: 4px 0"
             id="opt-language"
             style="text-transform: capitalize"
+            class="filter"
           >
             <option value="any" default>Any Language</option>
           </select>
@@ -270,6 +290,7 @@
                 name="opt-modality"
                 value="inPerson"
                 type="radio"
+                class="filter"
               />
               <label for="opt-modality-inPerson">In-Person</label>
             </div>
@@ -279,6 +300,7 @@
                 name="opt-modality"
                 value="virtual"
                 type="radio"
+                class="filter"
               />
               <label for="opt-modality-virtual">Virtual</label>
             </div>
@@ -299,6 +321,7 @@
                 name="opt-number"
                 value="individual"
                 type="radio"
+                class="filter"
               />
               <label for="opt-number-individual">Individual</label>
             </div>
@@ -308,6 +331,7 @@
                 name="opt-number"
                 value="group"
                 type="radio"
+                class="filter"
               />
               <label for="opt-number-group">Group</label>
             </div>
@@ -334,6 +358,7 @@
               name="opt-goal-masculine"
               value="masculine"
               type="checkbox"
+              class="filter"
             />
             <label for="opt-goal-masculine">Masculine</label>
             <input
@@ -341,6 +366,7 @@
               name="opt-goal-feminine"
               value="feminine"
               type="checkbox"
+              class="filter"
             />
             <label for="opt-goal-feminine">Feminine</label>
             <input
@@ -348,6 +374,7 @@
               name="opt-goal-androgynous"
               value="androgynous"
               type="checkbox"
+              class="filter"
             />
             <label for="opt-goal-androgynous">Androgynous</label>
             <input
@@ -355,19 +382,21 @@
               name="opt-goal-singing"
               value="singing"
               type="checkbox"
+              class="filter"
             />
             <label for="opt-goal-singing">Singing</label>
           </div>
 
           <hr class="divider-trainer" />
 
-          <p class="label">Provider Identity</p>
-          <div class="cbGroup">
+          <p id="label-identity" class="label">Provider Identity</p>
+          <div id="group-identity" class="cbGroup">
             <input
               id="opt-pi-cisman"
               name="opt-pi-cisman"
               value="cisman"
               type="checkbox"
+              class="filter"
             />
             <label for="opt-pi-cisman">Cisgender Man</label>
             <input
@@ -375,6 +404,7 @@
               name="opt-pi-ciswoman"
               value="ciswoman"
               type="checkbox"
+              class="filter"
             />
             <label for="opt-pi-ciswoman">Cisgender Woman</label>
             <input
@@ -382,20 +412,27 @@
               name="opt-pi-transman"
               value="transman"
               type="checkbox"
+              class="filter"
             />
-            <label for="opt-pi-transman">Transgender Man / Transmasculine</label>
+            <label for="opt-pi-transman"
+              >Transgender Man / Transmasculine</label
+            >
             <input
               id="opt-pi-transwoman"
               name="opt-pi-transwoman"
               value="transwoman"
               type="checkbox"
+              class="filter"
             />
-            <label for="opt-pi-transwoman">Transgender Woman / Transfeminine</label>
+            <label for="opt-pi-transwoman"
+              >Transgender Woman / Transfeminine</label
+            >
             <input
               id="opt-pi-nonbinary"
               name="opt-pi-nonbinary"
               value="nonbinary"
               type="checkbox"
+              class="filter"
             />
             <label for="opt-pi-nonbinary">Nonbinary / Genderqueer</label>
             <input
@@ -403,22 +440,23 @@
               name="opt-pi-other"
               value="other"
               type="checkbox"
+              class="filter"
             />
             <label for="opt-pi-other">Other / Did Not Disclose</label>
           </div>
         </div>
       </div>
 
-      <div id="panel-left-tabList" class="tab hidden"></div>
+      <div id="panel-left-tabList" class="tab" hidden></div>
 
-      <div id="panel-left-tabSearch" class="tab hidden">
+      <div id="panel-left-tabSearch" class="tab" hidden>
         <label for="input-search">Search by Provider Name</label>
         <input id="input-search" type="text" />
         <div id="search-results"></div>
       </div>
     </div>
 
-    <div id="panel-right" class="panel">
+    <div id="panel-right" class="panel" hidden>
       <span
         id="button-closeRightPanel"
         class="tabButton material-symbols-outlined"
@@ -540,7 +578,7 @@
       </div>
     </div>
 
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./src/init.js"></script>
 
     <script>
       const aiojr = "Xc2VE1WZ1E0WTkw";
