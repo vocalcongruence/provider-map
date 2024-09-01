@@ -96,6 +96,7 @@ function resetNumber(e) {
 }
 
 function resetAllFilters() {
+  console.log("meep");
   // Professional Area
   $("#opt-professionalArea-slp").prop("checked", false);
   $("#opt-professionalArea-vpst").prop("checked", false);
@@ -138,20 +139,20 @@ function renderFilters() {
 
   // No-filter message
   if (mode == MODE_ANY) {
-    $("#nofilter").show();
-    $("#divider-nofilter").show();
+    $("#noTypeSelectedMessage").show();
+    $("#divider-noTypeSelectedMessage").show();
   } else {
-    $("#nofilter").hide();
-    $("#divider-nofilter").hide();
+    $("#noTypeSelectedMessage").hide();
+    $("#divider-noTypeSelectedMessage").hide();
   }
 
   // Reset button
   if (mode == MODE_TRAINERS || mode == MODE_SURGEONS) {
-    $("#button-resetAll").show();
-    $("#divider-resetAll").show();
+    $("#button-resetAllFilters").show();
+    $("#divider-resetAllFilters").show();
   } else {
-    $("#button-resetAll").hide();
-    $("#divider-resetAll").hide();
+    $("#button-resetAllFilters").hide();
+    $("#divider-resetAllFilters").hide();
   }
 
   // Professional Area
@@ -169,6 +170,10 @@ function renderFilters() {
     $("#disclaimer-location").show();
     $(".divider-location").show();
     $("#opt-country").show();
+    
+    if (mode == MODE_SURGEONS) {
+      $("#disclaimer-location").hide();
+    }
 
     const country = $("#opt-country").val();
 
@@ -269,7 +274,7 @@ function renderFilters() {
   }
 
   // Provider Identity
-  if (mode == MODE_TRAINERS) {
+  if (mode == MODE_TRAINERS || mode == MODE_SURGEONS) {
     $("#label-identity").show();
     $("#group-identity").show();
   } else {

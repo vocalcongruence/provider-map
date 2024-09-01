@@ -28,7 +28,6 @@ let languages;
 async function initialize() {
   UI.renderFilters();
   UI.showModal(false);
-  UI.showLeftPanel(false);
 
   await initializeMap();
   await loadData();
@@ -212,7 +211,11 @@ function attachEvents() {
     UI.resetNumber();
     onFilterChange();
   });
-  $("#button-resetAll").on("click", () => {
+  $("#button-resetAllFilters").on("click", () => {
+    UI.resetAllFilters();
+    onFilterChange();
+  });
+  $("#button-resetAllFilters-listView").on("click", () => {
     UI.resetAllFilters();
     onFilterChange();
   });

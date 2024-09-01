@@ -75,9 +75,4 @@ details {
     font-weight: bold;
   }
   
-  input[type="text"] {
-      height: 24px;
-      color: var(--color-main);
-      padding-left: 4px;
-      margin-bottom: 16px;
-  }
+  

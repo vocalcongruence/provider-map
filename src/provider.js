@@ -118,120 +118,120 @@ export function searchProviders(map, trainers, surgeons, languages) {
   loadSearchList(map, matches, languages);
 }
 
-function loadProviderList(map, providers, languages) {
-  const panel = document.getElementById("panel-left-tabList");
-  panel.innerHTML = "";
+function buildProviderListItem(map, provider, languages) {
+  const isTrainer = provider.procedures ? false : true;
 
-  const label = document.createElement("label");
-  label.innerText = "List View";
-  panel.appendChild(label);
+  const el = document.createElement("div");
+  el.className = "provider-list-item";
+  el.onclick = () => {
+    MAP.moveTo(map, provider.marker.position);
+    loadProvider(provider, languages);
+  };
 
-  const disclaimer = document.createElement("p");
-  disclaimer.className = "disclaimer";
-  disclaimer.innerText = "Results are sorted alphabetically.";
-  panel.appendChild(disclaimer);
+  const nameContainer = document.createElement("span")
+  nameContainer.className = "name-container";
 
-  const divider = document.createElement("hr");
-  panel.appendChild(divider);
+  const name = document.createElement("span");
+  name.className = "name";
+  name.className += isTrainer ? " trainer" : " surgeon";
+  if (provider.credentials != null && provider.credentials != "") {
 
-  for (let provider of providers) {
-    const isTrainer = provider.procedures ? false : true;
-
-    const el = document.createElement("div");
-    el.className = "provider-list-item";
-    el.onclick = () => {
-      MAP.moveTo(map, provider.marker.position);
-      loadProvider(provider, languages);
-    };
-
-    const name = document.createElement("p");
-    name.className = "name";
-    name.className += isTrainer ? " trainer" : " surgeon";
+    name.innerText = provider.name + ",";
+  }
+  else {
     name.innerText = provider.name;
-    el.appendChild(name);
+  }
+  nameContainer.appendChild(name);
 
-    if (isTrainer) {
-      const credentials = document.createElement("p");
-      credentials.className = "credentials";
-      credentials.innerText = provider.credentials;
-      el.appendChild(credentials);
+  const credentials = document.createElement("span");
+  credentials.className = "credentials";
+  credentials.innerText = provider.credentials;
+  nameContainer.appendChild(credentials);
 
-      const nm = provider.numMods;
+  el.appendChild(nameContainer);
 
-      // In Person
-      if (nm.individual_inPerson || nm.group_inPerson) {
-        let str = "In Person - ";
+  if (isTrainer) {
+    const nm = provider.numMods;
 
-        str += nm.individual_inPerson ? "Individual" : "";
-        str += nm.individual_inPerson && nm.group_inPerson ? "/" : "";
-        str += nm.group_inPerson ? "Group" : "";
+    // In Person
+    if (nm.individual_inPerson || nm.group_inPerson) {
+      let str =
+        provider.city + " " + provider.state + ", " + provider.country;
 
-        if (provider.country != null && provider.country != "") {
-          str +=
-            " (" +
-            provider.city +
-            " " +
-            provider.state +
-            ", " +
-            provider.country +
-            ")";
-        }
+      const inPerson = document.createElement("p");
+      inPerson.className = "inPerson-container";
 
-        const inPerson = document.createElement("p");
-        inPerson.innerText = str;
-        el.appendChild(inPerson);
-      }
+      const inPersonIcon = document.createElement("span");
+      inPersonIcon.className = "material-symbols-outlined";
+      inPersonIcon.innerText = "location_on";
+      inPerson.appendChild(inPersonIcon);
 
-      // Virtual
-      if (nm.individual_virtual || nm.group_virtual) {
-        let str = "Virtual - ";
+      const inPersonText = document.createElement("span");
+      inPersonText.innerText = str;
+      inPerson.appendChild(inPersonText);
 
-        str += nm.individual_virtual ? "Individual" : "";
-        str += nm.individual_virtual && nm.group_virtual ? "/" : "";
-        str += nm.group_virtual ? "Group" : "";
+      el.appendChild(inPerson);
+    }
 
-        if (
-          provider.virtualLocations != null &&
-          provider.virtualLocations.length > 0
-        ) {
-          str += " (";
+    // Virtual
+    if (nm.individual_virtual || nm.group_virtual) {
+      if (
+        provider.virtualLocations != null &&
+        provider.virtualLocations.length > 0
+      ) {
+             let str = "";
 
-          for (let i = 0; i < provider.virtualLocations.length; i++) {
-            str += provider.virtualLocations[i];
-            if (i < provider.virtualLocations.length - 1) {
-              str += ", ";
-            }
+        for (let i = 0; i < provider.virtualLocations.length; i++) {
+          str += provider.virtualLocations[i];
+          if (i < provider.virtualLocations.length - 1) {
+            str += ", ";
           }
-
-          str += ")";
         }
 
         const virtual = document.createElement("p");
-        virtual.innerText = str;
+        virtual.className = "virtual-container";
+
+        const virtualIcon = document.createElement("span");
+        virtualIcon.className = "material-symbols-outlined";
+        virtualIcon.innerText = "devices";
+        virtual.appendChild(virtualIcon);
+
+        const virtualText = document.createElement("span");
+        virtualText.innerText = str;
+        virtual.appendChild(virtualText);
+
         el.appendChild(virtual);
       }
     }
+  }
+  else {
+    let str =
+        provider.city + " " + provider.state + ", " + provider.country;
 
-    // Procedures offered
-    if (!isTrainer) {
-      const procedures = document.createElement("p");
-      let str = "";
+      const inPerson = document.createElement("p");
+      inPerson.className = "inPerson-container";
 
-      for (let procedure of Object.keys(provider.procedures)) {
-        if (provider.procedures[procedure]) {
-          str +=
-            str == ""
-              ? PROCEDURE_NAMES[procedure]
-              : ", " + PROCEDURE_NAMES[procedure];
-        }
-      }
+      const inPersonIcon = document.createElement("span");
+      inPersonIcon.className = "material-symbols-outlined blue";
+      inPersonIcon.innerText = "location_on";
+      inPerson.appendChild(inPersonIcon);
 
-      procedures.innerText = str;
+      const inPersonText = document.createElement("span");
+      inPersonText.innerText = str;
+      inPerson.appendChild(inPersonText);
 
-      el.appendChild(procedures);
-    }
+      el.appendChild(inPerson);
+  }
 
-    panel.appendChild(el);
+  return el;
+}
+
+function loadProviderList(map, providers, languages) {
+  const panel = document.getElementById("panel-left-tabList-items");
+  panel.innerHTML = "";
+
+  for (let provider of providers) {
+      panel.appendChild(buildProviderListItem(map, provider, languages));
   }
 }
 
@@ -240,110 +240,7 @@ function loadSearchList(map, providers, languages) {
   panel.innerHTML = "";
 
   for (let provider of providers) {
-    const isTrainer = provider.procedures ? false : true;
-
-    const el = document.createElement("div");
-    el.className = "provider-list-item";
-    el.onclick = () => {
-      loadProvider(provider, languages);
-      MAP.moveTo(map, provider.marker.position)
-    };
-
-    const nameContainer = document.createElement("div");
-    nameContainer.className = "name-container";
-    el.appendChild(nameContainer);
-
-    const name = document.createElement("p");
-    name.className = "name";
-    name.className += isTrainer ? " trainer" : " surgeon";
-    name.innerText = provider.name;
-    nameContainer.appendChild(name);
-
-    const role = document.createElement("p");
-    role.innerText = isTrainer ? "Trainer" : "Surgeon";
-    //nameContainer.appendChild(role);
-
-    if (isTrainer) {
-      const credentials = document.createElement("p");
-      credentials.className = "credentials";
-      credentials.innerText = provider.credentials;
-      el.appendChild(credentials);
-
-      const nm = provider.numMods;
-
-      // In Person
-      if (nm.individual_inPerson || nm.group_inPerson) {
-        let str = "In Person - ";
-
-        str += nm.individual_inPerson ? "Individual" : "";
-        str += nm.individual_inPerson && nm.group_inPerson ? "/" : "";
-        str += nm.group_inPerson ? "Group" : "";
-
-        if (provider.country != null && provider.country != "") {
-          str +=
-            " (" +
-            provider.city +
-            " " +
-            provider.state +
-            ", " +
-            provider.country +
-            ")";
-        }
-
-        const inPerson = document.createElement("p");
-        inPerson.innerText = str;
-        el.appendChild(inPerson);
-      }
-
-      // Virtual
-      if (nm.individual_virtual || nm.group_virtual) {
-        let str = "Virtual - ";
-
-        str += nm.individual_virtual ? "Individual" : "";
-        str += nm.individual_virtual && nm.group_virtual ? "/" : "";
-        str += nm.group_virtual ? "Group" : "";
-
-        if (
-          provider.virtualLocations != null &&
-          provider.virtualLocations.length > 0
-        ) {
-          str += " (";
-
-          for (let i = 0; i < provider.virtualLocations.length; i++) {
-            str += provider.virtualLocations[i];
-            if (i < provider.virtualLocations.length - 1) {
-              str += ", ";
-            }
-          }
-
-          str += ")";
-        }
-
-        const virtual = document.createElement("p");
-        virtual.innerText = str;
-        el.appendChild(virtual);
-      }
-    }
-
-    if (!isTrainer) {
-      const procedures = document.createElement("p");
-      let str = "";
-
-      for (let procedure of Object.keys(provider.procedures)) {
-        if (provider.procedures[procedure]) {
-          str +=
-            str == ""
-              ? PROCEDURE_NAMES[procedure]
-              : ", " + PROCEDURE_NAMES[procedure];
-        }
-      }
-
-      procedures.innerText = str;
-
-      el.appendChild(procedures);
-    }
-
-    panel.appendChild(el);
+    panel.appendChild(buildProviderListItem(map, provider, languages));
   }
 }
 
@@ -359,8 +256,7 @@ function loadProvider(provider, languages) {
     $("#data-credentials").text(provider.credentials);
     $("#data-credentials").removeAttr("hidden");
     $("#tooltip-credentials").removeAttr("hidden");
-  }
-  else {
+  } else {
     $("#data-credentials").attr("hidden", true);
     $("#tooltip-credentials").attr("hidden", true);
   }
@@ -547,11 +443,13 @@ function loadProvider(provider, languages) {
   ) {
     $("#data-provider-identity").text(provider.identityDisplay);
 
-    if (provider.additionalIdentity != null && provider.additionalIdentity != "") {
+    if (
+      provider.additionalIdentity != null &&
+      provider.additionalIdentity != ""
+    ) {
       $("#section-provider-identities-additional").removeAttr("hidden");
       $("#data-provider-identities").text(provider.additionalIdentity);
-    }
-    else {
+    } else {
       $("#section-provider-identities-additional").attr("hidden", "true");
     }
 

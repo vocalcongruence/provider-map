@@ -26,6 +26,8 @@
 
   font-family: "Inter", sans-serif;
   color: var(--color-highlight2);
+
+  accent-color: var(--color-pink);
 }
 
 *[hidden] {
@@ -34,6 +36,10 @@
 
 .material-symbols-outlined {
   color: var(--color-pink);
+}
+
+.material-symbols-outlined.blue {
+  color: var(--color-blue);
 }
 
 hr {
@@ -76,31 +82,6 @@ select {
   );
 }
 
-#opt-providerType.mode-trainers {
-  background-color: #d889ba;
-  background-image: linear-gradient(
-    45deg,
-    rgba(30, 30, 33, 0.31) 0%,
-    rgba(77, 77, 82, 0.004) 100%
-  );
-  color: white;
-  font-weight: bold;
-}
-
-#opt-providerType.mode-surgeons {
-  background-color: var(--color-blue);
-  background-image: linear-gradient(
-    45deg,
-    rgba(30, 30, 33, 0.31) 0%,
-    rgba(77, 77, 82, 0.004) 100%
-  );
-  color: white;
-  font-weight: bold;
-}
-
-#opt-providerType option  {
-  background-color: var(--color-highlight);
-}
 
 option {
   height: 24px;
@@ -128,30 +109,7 @@ ul {
   width: 100vw;
 }
 
-.tab {
-  padding: 16px;
-}
 
-.filterSet {
-  border-top: 1px solid var(--color-highlight);
-  margin-top: 8px;
-  padding-top: 16px;
-  overflow-y: auto;
-  height: calc(100% - 100px);
-  padding-right: 8px;
-}
-
-.labeled-icon {
-  display: flex;
-  align-items: center;
-  padding: 4px 0;
-  font-size: 12px;
-}
-
-.labeled-icon > span {
-  margin-right: 8px;
-  font-size: 18px;
-}
 
 .radioGroup {
   margin-top: 8px;
@@ -179,106 +137,7 @@ ul {
   margin-bottom: 8px;
 }
 
-#data-name {
-  color: white;
-}
 
-#data-credentials {
-  font-size: 16px;
-  font-weight: 500;
-}
-
-#panel-left {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-
-  min-width: 300px;
-  width: 20%;
-  height: 100vh;
-  max-width: 500px;
-
-  background: var(--color-main);
-}
-
-#panel-right {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-
-  min-width: 300px;
-  width: 20%;
-  height: 100vh;
-  max-width: 500px;
-  box-sizing: border-box;
-
-  background: var(--color-main);
-}
-
-#panel-right > h1 {
-  margin: 0;
-  padding: 0 16px;
-  height: 50px;
-  box-sizing: border-box;
-  font-size: 27px;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid var(--color-highlight);
-}
-
-#panel-left-tabMenu {
-  display: flex;
-  height: 50px;
-  box-sizing: border-box;
-}
-
-#panel-left-tabList {
-  height: calc(100vh - 82px);
-  overflow: auto;
-}
-
-#panel-right-trainerDetails {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  height: calc(100% - 50px);
-  padding: 16px;
-  box-sizing: border-box;
-}
-
-#panel-right-trainerDetails-additional {
-  overflow-y: auto;
-}
-
-#data-intro {
-  margin-bottom: 16px;
-  color: white;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.tabButton {
-  width: 50%;
-  text-align: center;
-  padding: 8px 8px;
-  font-size: 32px;
-  border-bottom: 1px solid var(--color-highlight);
-  cursor: pointer;
-  border-right: 1px solid var(--color-highlight);
-  background: var(--color-main);
-}
-
-.tabButton:hover {
-  background: var(--color-highlight);
-}
-
-.tab {
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 82px);
-}
 
 .section {
   margin: 12px 0;
@@ -290,7 +149,7 @@ ul {
 }
 
 .tooltip {
-  line-height: 12px; 
+  line-height: 12px;
   margin-left: 8px;
   position: relative;
 }
@@ -315,71 +174,6 @@ ul {
 .disclaimer {
   font-size: 12px;
   font-style: italic;
-}
-
-.provider-list-item {
-  padding: 12px 0 8px 0;
-  border-bottom: 1px solid var(--color-highlight);
-}
-
-.provider-list-item:hover {
-  cursor: pointer;
-  background: var(--color-highlight);
-}
-
-.provider-list-item .name-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#search-results {
-  max-height: calc(100% - 96px);
-  overflow: auto;
-}
-
-.provider-list-item .name {
-  font-size: 16px;
-  margin-bottom: 8px;
-}
-
-.provider-list-item .name.trainer {
-  color: var(--color-pink);
-}
-
-.provider-list-item .name.surgeon {
-  color: var(--color-blue);
-}
-
-.provider-list-item p {
-  font-size: 12px;
-  margin-bottom: 4px;
-}
-
-
-
-#button-resetAll {
-  background-color: var(--color-main);
-  border: 1px solid var(--color-highlight);
-  border-radius: 8px;
-  padding: 4px 0;
-}
-
-#button-resetAll:hover {
-  background-color: var(--color-highlight);
-}
-
-
-
-#button-closeLeftPanel {
-  position: absolute;
-  top: 0;
-  right: -50px;
-  width: 50px;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0 50% 50% 0;
 }
 
 #button-closeRightPanel {
