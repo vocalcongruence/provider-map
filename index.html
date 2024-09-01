@@ -184,8 +184,7 @@
 
       <div id="panel-left-tabFilter" class="tab">
         <div id="container-providerType">
-          <label>I am looking for a
-          </label>
+          <label>I am looking for a </label>
           <select class="filter" id="opt-providerType">
             <option value="0" default></option>
             <option value="1">Trainer</option>
@@ -195,8 +194,8 @@
 
         <hr id="divider-noTypeSelectedMessage" />
         <p id="noTypeSelectedMessage">
-          Please make a selection above to filter by services offered,
-          location, provider identity, and more.
+          Please make a selection above to filter by services offered, location,
+          provider identity, and more.
         </p>
 
         <hr id="divider-resetAllFilters" />
@@ -496,11 +495,19 @@
 
       <div id="panel-left-tabList" class="tab" hidden>
         <h1>List View</h1>
-        <p class="disclaimer">Results are affected by filters and sorted alphabetically.</p>
+        <p class="disclaimer">
+          Results are affected by filters and sorted alphabetically.
+        </p>
         <hr />
         <div class="icon-key">
-          <span><span class="material-symbols-outlined">location_on</span>In Person Location</span>
-          <span><span class="material-symbols-outlined">devices</span>Virtual Locations</span>
+          <span
+            ><span class="material-symbols-outlined">location_on</span>In Person
+            Location</span
+          >
+          <span
+            ><span class="material-symbols-outlined">devices</span>Virtual
+            Locations</span
+          >
         </div>
         <hr />
         <button id="button-resetAllFilters-listView">Reset all Filters</button>
@@ -518,8 +525,14 @@
         </div>
         <hr />
         <div class="icon-key">
-          <span><span class="material-symbols-outlined">location_on</span>In Person Location</span>
-          <span><span class="material-symbols-outlined">devices</span>Virtual Locations</span>
+          <span
+            ><span class="material-symbols-outlined">location_on</span>In Person
+            Location</span
+          >
+          <span
+            ><span class="material-symbols-outlined">devices</span>Virtual
+            Locations</span
+          >
         </div>
         <hr />
         <div id="search-results"></div>
@@ -535,7 +548,9 @@
         >close</span
       >
 
-      <h1>Provider Details</h1>
+      <div id="panel-header">
+        <span class="material-symbols-outlined">person</span>
+      </div>
 
       <div id="panel-right-providerDetails">
         <h2 id="data-name"></h2>
@@ -553,54 +568,63 @@
 
         <hr />
 
-        <div class="labeled-icon" id="container-website">
-          <span class="material-symbols-outlined"> captive_portal </span>
-          <a id="data-website" target="_blank">View Provider Website</a>
+        <div class="quick-info-item" id="qii-contact">
+          <p class="quick-info-item-label">
+            <span class="material-symbols-outlined">call</span>Contact Info
+          </p>
+          <p class="quick-info-item-value">
+            <a id="data-phone"></a> |
+            <a id="data-website" target="_blank">Website</a>
+          </p>
         </div>
-        <div class="labeled-icon" id="container-inPerson">
-          <span class="material-symbols-outlined"> location_on </span>
-          <p id="data-inPerson"></p>
+
+        <div class="quick-info-item" id="qii-inPerson">
+          <p class="quick-info-item-label">
+            <span class="material-symbols-outlined">location_on</span>In Person
+            Services
+          </p>
+          <p id="data-inPerson" class="quick-info-item-value"></p>
         </div>
-        <div class="labeled-icon" id="container-virtual">
-          <span class="labeled-icon-desc">Virtual Locations</span>
-          <span class="material-symbols-outlined"> devices </span>
-          <p id="data-virtual"></p>
+
+        <div class="quick-info-item" id="qii-virtual">
+          <p class="quick-info-item-label">
+            <span class="material-symbols-outlined">devices</span>Virtual
+            Services
+          </p>
+          <p id="data-virtual" class="quick-info-item-value"></p>
         </div>
-        <div class="labeled-icon" id="container-phone">
-          <span class="material-symbols-outlined"> call </span>
-          <a id="data-phone"></a>
+
+        <div class="quick-info-item" id="qii-servicesSince">
+          <p class="quick-info-item-label">
+            <span class="material-symbols-outlined">calendar_month</span
+            >Services Offered Since
+          </p>
+          <p class="quick-info-item-value">
+            <span id="qii-servicesSince-general"
+              >General since <span id="data-since"></span>
+          </span>
+              <span id="qii-servicesSince-ga"
+                >Gender-affirming since <span id="data-sinceGA"></span></span
+            ></span>
+          </p>
         </div>
-        <div id="container-servicesSince" class="labeled-icon">
-          <span class="material-symbols-outlined"> calendar_month </span>
-          <div>
-            <p id="container-servicesSinceGeneral">
-              General Services since <span id="data-since"></span>
-            </p>
-            <p id="container-servicesSinceGA">
-              Gender-affirming Services since
-              <span id="data-sinceGA"></span>
-            </p>
-          </div>
+
+        <div class="quick-info-item" id="qii-languages">
+          <p class="quick-info-item-label">
+            <span class="material-symbols-outlined">translate</span>Languages
+          </p>
+          <p id="data-languages" class="quick-info-item-value"></p>
         </div>
-        <div class="labeled-icon" id="container-languages">
-          <span class="material-symbols-outlined"> translate </span>
-          <div>
-            <p>
-              <span
-                id="data-languages"
-                style="text-transform: capitalize"
-              ></span>
-            </p>
-          </div>
-        </div>
-        <div class="labeled-icon" id="container-goals">
-          <span class="material-symbols-outlined"> target </span>
-          <div>
-            <p>
-              Goals:
-              <span id="data-goals" style="text-transform: capitalize"></span>
-            </p>
-          </div>
+
+        <div class="quick-info-item" id="qii-goals">
+          <p class="quick-info-item-label">
+            <span class="material-symbols-outlined">target</span>Goals Supported
+          </p>
+          <p
+            id="data-goals"
+            class="quick-info-item-value"
+            style="text-transform: capitalize"
+          ></p>
         </div>
 
         <hr />
@@ -610,6 +634,8 @@
         </p>
 
         <p id="data-intro"></p>
+
+        <hr />
 
         <div id="container-procedures" style="margin-bottom: 16px">
           <label>Procedures Offered</label>

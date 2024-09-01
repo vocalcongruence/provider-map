@@ -247,6 +247,16 @@ function loadSearchList(map, providers, languages) {
 function loadProvider(provider, languages) {
   const isTrainer = provider.isTrainer;
 
+  // Update colors of panel
+  if (isTrainer) {
+    $("#panel-right").addClass("trainer")
+    $("#panel-right").removeClass("surgeon")
+  }
+  else {
+    $("#panel-right").removeClass("trainer")
+    $("#panel-right").addClass("surgeon")
+  }
+
   ///////////////////////////////////////////////////////
   //                      Header                       //
   ///////////////////////////////////////////////////////
@@ -273,11 +283,30 @@ function loadProvider(provider, languages) {
     $("#container-website").hide();
   }
 
+  // Phone
+  if (provider.phone != null && provider.phone != "") {
+    $("#container-phone").show();
+    $("#data-phone").attr("href", "tel:" + provider.phone);
+
+    let phoneText = provider.phone.toString();
+
+    if (phoneText.length == 10) {
+      phoneText = `(${phoneText.slice(0, 3)})-${phoneText.slice(3, 6)}-${phoneText.slice(6)}`;
+    }
+    else if (phoneText.length == 11) {
+      phoneText = `+${phoneText[0]} (${phoneText.slice(1, 4)})-${phoneText.slice(4, 7)}-${phoneText.slice(7)}`;
+    }
+
+    $("#data-phone").text(phoneText);
+  } else {
+    $("#container-phone").hide();
+  }
+
   const nm = provider.numMods;
 
   // In Person
   if (nm != null && (nm.individual_inPerson || nm.group_inPerson)) {
-    let str = "In Person - ";
+    let str = "";
 
     str += nm.individual_inPerson ? "Individual" : "";
     str += nm.individual_inPerson && nm.group_inPerson ? "/" : "";
@@ -285,24 +314,24 @@ function loadProvider(provider, languages) {
 
     if (provider.country != null && provider.country != "") {
       str +=
-        " (" +
+        " - " +
         provider.city +
         " " +
         provider.state +
         ", " +
         provider.country +
-        ")";
+        "";
     }
 
     $("#data-inPerson").text(str);
-    $("#container-inPerson").show();
+    $("#qii-inPerson").show();
   } else {
-    $("#container-inPerson").hide();
+    $("#qii-inPerson").hide();
   }
 
   // Virtual
   if (nm != null && (nm.individual_virtual || nm.group_virtual)) {
-    let str = "Virtual - ";
+    let str = "";
 
     str += nm.individual_virtual ? "Individual" : "";
     str += nm.individual_virtual && nm.group_virtual ? "/" : "";
@@ -312,7 +341,7 @@ function loadProvider(provider, languages) {
       provider.virtualLocations != null &&
       provider.virtualLocations.length > 0
     ) {
-      str += " (";
+      str += " - ";
 
       for (let i = 0; i < provider.virtualLocations.length; i++) {
         str += provider.virtualLocations[i];
@@ -321,43 +350,34 @@ function loadProvider(provider, languages) {
         }
       }
 
-      str += ")";
+      //str += ")";
     }
 
     $("#data-virtual").text(str);
-    $("#container-virtual").show();
+    $("#qii-virtual").show();
   } else {
-    $("#container-virtual").hide();
-  }
-
-  // Phone
-  if (provider.phone != null && provider.phone != "") {
-    $("#container-phone").show();
-    $("#data-phone").attr("href", "tel:" + provider.phone);
-    $("#data-phone").text(provider.phone);
-  } else {
-    $("#container-phone").hide();
+    $("#qii-virtual").hide();
   }
 
   // Since
   if (provider.generalSince != null) {
     $("#data-since").text(provider.generalSince);
-    $("#container-servicesSinceGeneral").show();
+    $("#qii-servicesSince-general").show();
   } else {
-    $("#container-servicesSinceGeneral").hide();
+    $("#qii-servicesSince-general").hide();
   }
 
   if (provider.gavcSince != null) {
     $("#data-sinceGA").text(provider.gavcSince);
-    $("#container-servicesSinceGA").show();
+    $("#qii-servicesSince-ga").show();
   } else {
-    $("#container-servicesSinceGA").hide();
+    $("#qii-servicesSince-ga").hide();
   }
 
-  if (provider.generalSince != null && provider.gavcSince != null) {
-    $("#container-servicesSince").show();
+  if (provider.generalSince != null || provider.gavcSince != null) {
+    $("#qii-servicesSince").show();
   } else {
-    $("#container-servicesSince").hide();
+    $("#qii-servicesSince").hide();
   }
 
   // Languages
@@ -379,9 +399,9 @@ function loadProvider(provider, languages) {
     }
 
     $("#data-languages").text(str);
-    $("#container-languages").show();
+    $("#qii-languages").show();
   } else {
-    $("#container-languages").hide();
+    $("#qii-languages").hide();
   }
 
   // Goals
@@ -397,9 +417,9 @@ function loadProvider(provider, languages) {
     }
 
     $("#data-goals").text(str);
-    $("#container-goals").show();
+    $("#qii-goals").show();
   } else {
-    $("#container-goals").hide();
+    $("#qii-goals").hide();
   }
 
   ///////////////////////////////////////////////////////

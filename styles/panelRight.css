@@ -13,15 +13,19 @@
   background: var(--color-main);
 }
 
-#panel-right > h1 {
+#panel-right > #panel-header {
   margin: 0;
   padding: 0 16px;
   height: 50px;
   box-sizing: border-box;
-  font-size: 27px;
   display: flex;
   align-items: center;
+  justify-content: center;
   border-bottom: 1px solid var(--color-highlight);
+}
+
+#panel-right > #panel-header > span {
+    font-size: 32px;
 }
 
 /* Provider Details */
@@ -44,6 +48,33 @@
 }
 
 /* Quick Info */
+
+.quick-info-item {
+    margin-bottom: 8px;
+}
+
+.quick-info-item > .quick-info-item-label {
+    display: flex;
+    align-items: center;
+    color: var(--color-pink);
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.quick-info-item > .quick-info-item-label > .material-symbols-outlined {
+    font-size: 16px;
+    margin-right: 4px;
+}
+
+.quick-info-item > .quick-info-item-value {
+    font-size: 14px;
+}
+
+#qii-servicesSince > .quick-info-item-value {
+    display: flex;
+    flex-direction: column;
+}
 
 .labeled-icon {
     position: relative;
@@ -73,8 +104,17 @@
 }
 
 #data-intro {
-  margin-bottom: 16px;
   color: white;
   font-size: 14px;
   line-height: 20px;
+}
+
+#container-procedures > label {
+    color: white;
+}
+
+#panel-right.surgeon > #panel-header > span,
+#panel-right.surgeon .quick-info-item-label,
+#panel-right.surgeon .quick-info-item-label > span {
+    color: var(--color-blue);
 }
