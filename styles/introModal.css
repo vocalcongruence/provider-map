@@ -1,0 +1,88 @@
+#introModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-color: #757575be;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#introModal #content {
+  position: relative;
+  width: 80%;
+  background-color: var(--color-main);
+  padding: 32px;
+  border-radius: 32px;
+  max-width: 600px;
+  z-index: 99999;
+}
+
+#introModal #content h1 {
+  font-size: 32px;
+  color: var(--color-pink);
+}
+
+#button-closeModal {
+  position: absolute;
+  right: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#button-closeModal span {
+  font-size: 32px;
+}
+
+#introModal #options-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 32px 0;
+}
+
+#option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 30%;
+}
+
+#option h2 {
+    margin: 4px 0;
+    color: white;
+    font-size: 20px;
+}
+
+#option span {
+  font-size: 64px;
+}
+
+#option img {
+  width: 64px;
+}
+
+#option p {
+  text-align: center;
+  font-size: 14px;
+}
+
+#help-icon-message {
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    padding-top: 16px;
+}
+
+#help-icon-message span {
+    font-size: 26px;
+    margin-right: 8px;
+}
+
+#join-message {
+    margin-top: 48px; 
+    text-align: center
+}

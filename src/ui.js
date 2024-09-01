@@ -54,7 +54,7 @@ function showLeftPanel(doShow) {
 
 function showRightPanel(doShow) {
   if (doShow || $("#panel-right").is(":hidden")) {
-    $("#panel-right").show();
+    $("#panel-right").removeAttr('hidden');
 
     if (isMobile()) {
       let pos = window.innerHeight * 0.4 - 32;
@@ -67,7 +67,7 @@ function showRightPanel(doShow) {
       $("#panel-right").animate({ top: "100vh" }, 400, "swing");
     } else {
       $("#panel-right").animate({ right: "-400px" }, 400, "swing", function () {
-        $(this).hide();
+        $(this).attr("hidden", "true");
       });
     }
 
@@ -78,9 +78,9 @@ function showRightPanel(doShow) {
 }
 
 function openTab(tab) {
-  tab == TAB_FILTER ? $("#panel-left-tabFilter").show() : $("#panel-left-tabFilter").hide();
-  tab == TAB_LIST ? $("#panel-left-tabList").show() : $("#panel-left-tabList").hide();
-  tab == TAB_SEARCH ? $("#panel-left-tabSearch").show() : $("#panel-left-tabSearch").hide();
+  tab == TAB_FILTER ? $("#panel-left-tabFilter").removeAttr('hidden') : $("#panel-left-tabFilter").attr("hidden", "true");
+  tab == TAB_LIST ? $("#panel-left-tabList").removeAttr('hidden') : $("#panel-left-tabList").attr("hidden", "true");
+  tab == TAB_SEARCH ? $("#panel-left-tabSearch").removeAttr('hidden') : $("#panel-left-tabSearch").attr("hidden", "true");
 }
 
 function resetModality(e) {
@@ -166,6 +166,7 @@ function renderFilters() {
   // Location
   if (mode == MODE_TRAINERS || mode == MODE_SURGEONS) {
     $("#label-location").show();
+    $("#disclaimer-location").show();
     $(".divider-location").show();
     $("#opt-country").show();
 
@@ -186,6 +187,7 @@ function renderFilters() {
     }
   } else {
     $("#label-location").hide();
+    $("#disclaimer-location").hide();
     $(".divider-location").hide();
     $("#opt-country").hide();
     $("#opt-state").hide();

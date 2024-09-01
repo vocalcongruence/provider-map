@@ -28,6 +28,10 @@
   color: var(--color-highlight2);
 }
 
+*[hidden] {
+  display: none !important;
+}
+
 .material-symbols-outlined {
   color: var(--color-pink);
 }
@@ -72,7 +76,7 @@ select {
   );
 }
 
-select.pink {
+#opt-providerType.mode-trainers {
   background-color: #d889ba;
   background-image: linear-gradient(
     45deg,
@@ -83,9 +87,19 @@ select.pink {
   font-weight: bold;
 }
 
-select.pink option {
+#opt-providerType.mode-surgeons {
+  background-color: var(--color-blue);
+  background-image: linear-gradient(
+    45deg,
+    rgba(30, 30, 33, 0.31) 0%,
+    rgba(77, 77, 82, 0.004) 100%
+  );
   color: white;
-  background: var(--color-highlight);
+  font-weight: bold;
+}
+
+#opt-providerType option  {
+  background-color: var(--color-highlight);
 }
 
 option {
@@ -131,10 +145,12 @@ ul {
   display: flex;
   align-items: center;
   padding: 4px 0;
+  font-size: 12px;
 }
 
 .labeled-icon > span {
   margin-right: 8px;
+  font-size: 18px;
 }
 
 .radioGroup {
@@ -161,6 +177,15 @@ ul {
 
 .cbGroup > input {
   margin-bottom: 8px;
+}
+
+#data-name {
+  color: white;
+}
+
+#data-credentials {
+  font-size: 16px;
+  font-weight: 500;
 }
 
 #panel-left {
@@ -229,6 +254,9 @@ ul {
 
 #data-intro {
   margin-bottom: 16px;
+  color: white;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .tabButton {
@@ -277,6 +305,7 @@ ul {
   padding: 4px 4px;
   white-space: nowrap;
   color: var(--color-pink);
+  background-color: var(--color-main);
 }
 
 .tooltip span {
@@ -327,91 +356,7 @@ ul {
   margin-bottom: 4px;
 }
 
-#introModal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  background-color: #757575be;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-#introModal #content {
-  position: relative;
-  width: 80%;
-  background-color: var(--color-main);
-  padding: 32px;
-  border-radius: 32px;
-  max-width: 600px;
-  z-index: 99999;
-}
-
-#introModal #content h1 {
-  font-size: 32px;
-  color: var(--color-pink);
-}
-
-#introModal #content h2 {
-  font-size: 20px;
-  color: white;
-  margin-bottom: 8px;
-}
-
-#introModal #content li {
-  margin-bottom: 8px;
-}
-
-#button-closeModal {
-  position: absolute;
-  right: 32px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-#button-closeModal span {
-  font-size: 32px;
-}
-
-#button-vclink {
-  position: absolute;
-  right: 16px;
-  top: 16px;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-#button-vclink img {
-  width: 48px;
-  aspect-ratio: 1;
-}
-
-#button-donate {
-  position: absolute;
-  right: 16px;
-  top: 72px;
-  cursor: pointer;
-  text-decoration: none;
-  background: var(--color-main);
-  padding: 12px;
-  border-radius: 50%;
-  font-size: 0px;
-}
-
-#button-help {
-  background: var(--color-main);
-  position: absolute;
-  top: 128px;
-  right: 16px;
-  padding: 12px;
-  border-radius: 50%;
-  font-size: 24px;
-  cursor: pointer;
-}
 
 #button-resetAll {
   background-color: var(--color-main);
@@ -424,26 +369,7 @@ ul {
   background-color: var(--color-highlight);
 }
 
-#button-openLeftPanel-filter,
-#button-openLeftPanel-list,
-#button-openLeftPanel-search {
-  background: var(--color-main);
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  padding: 12px;
-  border-radius: 50%;
-  font-size: 24px;
-  cursor: pointer;
-}
 
-#button-openLeftPanel-list {
-    top: 72px;
-}
-
-#button-openLeftPanel-search {
-    top: 128px;
-}
 
 #button-closeLeftPanel {
   position: absolute;
@@ -466,83 +392,6 @@ ul {
   align-items: center;
   justify-content: center;
   border-radius: 50% 0 0 50%;
-}
-
-.radio-label-clear {
-  display: flex;
-}
-
-.radio-label-clear button {
-  height: 20px;
-  background: none;
-  border: none;
-  border-radius: 3px;
-  margin-left: 8px;
-  display: flex;
-  align-items: center;
-}
-
-.radio-label-clear p {
-  margin-bottom: 0;
-}
-
-.radio-label-clear button:hover {
-  background-color: var(--color-highlight);
-}
-
-.radio-label-clear button .material-symbols-outlined {
-  color: var(--color-highlight2);
-  font-size: 16px;
-  margin-right: 4px;
-}
-
-details > summary {
-  list-style: none;
-}
-
-details > summary::-webkit-details-marker {
-  display: none;
-}
-
-summary {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  transition: 0.1s;
-}
-
-summary::after {
-  content: "chevron_right";
-  font-family: "Material Symbols Outlined";
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: "liga";
-  -webkit-font-smoothing: antialiased;
-  transition: 0.1s;
-}
-
-details[open] > summary::after {
-  transform: rotate(90deg);
-}
-
-summary:hover,
-details[open] > summary {
-  font-weight: bold;
-}
-
-input[type="text"] {
-    height: 24px;
-    color: var(--color-main);
-    padding-left: 4px;
-    margin-bottom: 16px;
 }
 
 /************************************************

@@ -1928,7 +1928,7 @@
                 "slp"
             ],
             "virtualLocations": [
-                "Nationally (Thailand)"
+                "Nationally (TH)"
             ],
             "numMods": {
                 "individual_inPerson": true,
@@ -4888,7 +4888,7 @@
                 "slp"
             ],
             "virtualLocations": [
-                "Nationally (Norway)"
+                "Nationally (NO)"
             ],
             "numMods": {
                 "individual_inPerson": true,
@@ -5206,7 +5206,7 @@
                 "vpst"
             ],
             "virtualLocations": [
-                "Nationally (USA)"
+                "Nationally (US)"
             ],
             "numMods": {
                 "individual_inPerson": false,
@@ -5255,7 +5255,7 @@
                 "slp"
             ],
             "virtualLocations": [
-                "Nationally (USA)"
+                "Nationally (US)"
             ],
             "numMods": {
                 "individual_inPerson": true,
@@ -7829,7 +7829,7 @@
                 "vpst"
             ],
             "virtualLocations": [
-                "Nationally (USA)"
+                "Nationally (US)"
             ],
             "numMods": {
                 "individual_inPerson": true,
@@ -8554,7 +8554,7 @@
                 "slp"
             ],
             "virtualLocations": [
-                "Nationally (Australia)"
+                "Nationally (AU)"
             ],
             "numMods": {
                 "individual_inPerson": true,
@@ -9226,7 +9226,7 @@
                 "vpst"
             ],
             "virtualLocations": [
-                "Nationally (USA)"
+                "Nationally (US)"
             ],
             "numMods": {
                 "individual_inPerson": false,
@@ -9590,8 +9590,8 @@
                 "slp"
             ],
             "virtualLocations": [
-                "Nationally (Canada)",
-                "Nationally (Brazil)"
+                "Nationally (CA)",
+                "Nationally (BR)"
             ],
             "numMods": {
                 "individual_inPerson": true,
@@ -10654,7 +10654,7 @@
                 "tac"
             ],
             "virtualLocations": [
-                "Nationally (USA)"
+                "Nationally (US)"
             ],
             "numMods": {
                 "individual_inPerson": true,
@@ -11939,7 +11939,7 @@
                 "slp"
             ],
             "virtualLocations": [
-                "Nationally (Australia)"
+                "Nationally (AU)"
             ],
             "numMods": {
                 "individual_inPerson": true,
@@ -12100,7 +12100,7 @@
                 "slp"
             ],
             "virtualLocations": [
-                "Nationally (Australia)"
+                "Nationally (AU)"
             ],
             "numMods": {
                 "individual_inPerson": true,
@@ -13330,7 +13330,7 @@
                 "slp"
             ],
             "virtualLocations": [
-                "Nationally (Switzerland)"
+                "Nationally (CH)"
             ],
             "numMods": {
                 "individual_inPerson": true,
@@ -13426,7 +13426,7 @@
                 "slp"
             ],
             "virtualLocations": [
-                "Nationally (Spain)"
+                "Nationally (ES)"
             ],
             "numMods": {
                 "individual_inPerson": false,
@@ -15274,21 +15274,21 @@
     ],
     "countries": [
         "US",
-        "CA",
-        "TH",
-        "SG",
         "AU",
+        "BR",
+        "CA",
+        "CH",
+        "CL",
+        "DE",
+        "ES",
+        "FI",
+        "GB",
+        "IL",
+        "MX",
         "NO",
         "NZ",
-        "IL",
-        "CH",
-        "ES",
-        "CL",
-        "MX",
-        "DE",
-        "BR",
-        "FI",
-        "GB"
+        "SG",
+        "TH"
     ],
     "languages": [
         {"display": "English", "value": "english"},

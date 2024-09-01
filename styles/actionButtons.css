@@ -1,0 +1,82 @@
+.actionButton {
+  position: absolute;
+  cursor: pointer;
+  background: var(--color-main);
+  border-radius: 24px;
+  width: fit-content;
+  height: 48px;
+  font-size: 24px;
+  border: none;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.actionButton.left {
+  left: 16px;
+}
+
+.actionButton.right {
+  right: 16px;
+}
+
+.actionButton > div {
+  width: 48px;
+  min-width: 48px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionButton > div > a {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.actionButton > label {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  width: fit-content;
+  max-width: 0;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.actionButton:hover > label {
+  max-width: 300px;
+}
+
+.actionButton.left:hover > label {
+  margin-right: 16px;
+}
+
+.actionButton.right:hover > label {
+  margin-left: 16px;
+}
+
+#button-openLeftPanel-filter,
+#button-vclink {
+  top: 16px;
+}
+
+#button-openLeftPanel-list,
+#button-donate {
+  top: 72px;
+}
+
+#button-openLeftPanel-search,
+#button-help {
+  top: 128px;
+}
+
+#button-vclink img {
+  width: 48px;
+  aspect-ratio: 1;
+}

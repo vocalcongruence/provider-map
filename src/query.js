@@ -130,48 +130,12 @@ function providerMatchesQuery(p, q) {
   }
 
   // Location
-  if (q.country != null && q.country != "any") {
-    if (q.country != p.country) {
-      return false;
-    }
-
-    // State
-    if (q.country == "US" && q.state != null && q.state != "any") {
-      if (q.state != p.state) {
-        // If they are a surgeon, ignore virtual locations
-        if (!p.isTrainer) {
-          return false;
-        }
-
-        // If not in person only, check virtual locations
-        if (q.modality == MODALITY_INPERSON) {
-          return false;
-        } else if (!p.virtualLocations.includes(q.state)) {
-          return false;
-        }
-      }
-    }
-
-    // Province
-    if (q.country == "CA" && q.province != null && q.province != "any") {
-      if (q.province != p.state) {
-        // If they are a surgeon, ignore virtual locations
-        if (!p.isTrainer) {
-          return false;
-        }
-
-        // If not in person only, check virtual locations
-        if (q.modality == MODALITY_INPERSON) {
-          return false;
-        } else if (!p.virtualLocations.includes(q.province)) {
-          return false;
-        }
-      }
-    }
+  if (!isLocationValid(p, q)) {
+    return false;
   }
 
   // Language
-  if (q.language != "any") {
+  if (q.language != "any" && p.isTrainer) {
     let hasLanguage = false;
 
     for (let providerLanguage of p.languages) {
@@ -226,53 +190,17 @@ function providerMatchesQuery(p, q) {
       return false;
     }
   }
-
-  /*if (p.isTrainer && q.number != null && q.modality == null) {
-      // If only number being filtered
-      if (q.number == "individual") {
-        if (!(p.numMods.individual_inPerson || p.numMods.individual_virtual)) {
-          return false;
-        }
-      } else {
-        if (!(p.numMods.group_inPerson || p.numMods.group_virtual)) {
-          return false;
-        }
-      }
-    } else if (
-      p.isTrainer &&
-      q.number == null &&
-      q.modality != null
-    ) {
-      // If only modality being filtered
-      if (q.modality == "inPerson") {
-        if (!(p.numMods.individual_inPerson || p.numMods.group_inPerson)) {
-          return false;
-        }
-      } else {
-        if (!(p.numMods.individual_virtual || p.numMods.group_virtual)) {
-          return false;
-        }
-      }
-    } else if (
-      q.profession == "trainer" &&
-      q.number != null &&
-      q.modality != null
-    ) {
-      // If both being filtered
-      if (!p.numMods[q.number + "_" + q.modality]) {
-        return false;
-      }
-    }*/
-
+  
   // Goal
   if (
-    q.profession == "trainer" &&
     q.goal != null &&
+    p.isTrainer &&
     (q.goal.androgynous || // Make sure at least one goal is selected
       q.goal.feminine ||
       q.goal.masculine ||
       q.goal.singing)
   ) {
+    
     // Check each option
     if (q.goal.androgynous == true && !p.goals.includes("androgynous")) {
       return false;
@@ -326,6 +254,78 @@ function providerMatchesQuery(p, q) {
   }
 
   // If no tests fail, provider is a match
+  return true;
+}
+
+function isLocationValid(p, q) {
+  // If no country is selected, always valid
+  if (q.country == null || q.country == "any") {
+    return true;
+  }
+
+  // If modality is not in person only, check virtual locations for country (trainers only)
+  if (q.modality != MODALITY_INPERSON && p.isTrainer) {
+    if (p.virtualLocations.includes("Globally")) {
+      return true;
+    }
+
+    if (p.virtualLocations.includes("Nationally (" + q.country + ")")) {
+      return true;
+    }
+  }
+
+  // If the country does not match, they are invalid
+  if (q.country != p.country) {
+    return false;
+  }
+
+  // US States
+  if (q.country == "US" && q.state != null && q.state != "any") {
+    // First check if in person state matches
+    if (q.state == p.state) {
+      return true;
+    }
+
+    // Then if modality is not in person, check virtual locations
+    if (q.modality != MODALITY_INPERSON) {
+      // Surgeons do not have virtual locations
+      if (!p.isTrainer) {
+        return false;
+      }
+
+      // If virtual locations includes state, it is valid
+      if (!p.virtualLocations.includes(q.state)) {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  // CA Provinces
+  if (q.country == "CA" && q.province != null && q.province != "any") {
+    // First check if in person state matches
+    if (q.province == p.state) {
+      return true;
+    }
+
+    // Then if modality is not in person, check virtual locations
+    if (q.modality != MODALITY_INPERSON) {
+      // Surgeons do not have virtual locations
+      if (!p.isTrainer) {
+        return false;
+      }
+
+      // If virtual locations includes state, it is valid
+      if (!p.virtualLocations.includes(q.province)) {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  // If no issues found, they are valid
   return true;
 }
 

@@ -6,7 +6,7 @@ https://vocalcongruence.org/
 v 0.1 - Closed Beta Testing
 */
 
-import { generateProviders, searchProviders } from "./provider.js";
+import PROVIDER, { generateProviders, searchProviders } from "./provider.js";
 import UI from "./ui.js";
 
 const { Map } = await google.maps.importLibrary("maps");
@@ -28,6 +28,7 @@ let languages;
 async function initialize() {
   UI.renderFilters();
   UI.showModal(false);
+  UI.showLeftPanel(false);
 
   await initializeMap();
   await loadData();
@@ -39,7 +40,7 @@ async function initialize() {
   createLanguageOptions();
 
   // Load initial dataset
-  generateProviders(map, trainers, surgeons);
+  generateProviders(map, trainers, surgeons, languages);
 
   attachEvents();
 }
@@ -53,6 +54,8 @@ async function initializeMap() {
     mapTypeControl: false,
     fullscreenControl: false,
     streetViewControl: false,
+    smoothZoom: true,
+    smoothPan: true,
   });
 }
 
@@ -161,9 +164,15 @@ function attachEvents() {
   });
 
   // Help Modal
-  $("#button-closeModal").on("click", () => {
+  $("#button-closeModal").on("click", (e) => {
+    UI.showModal(false);
+    e.stopPropagation(); 
+  });
+
+  $("#introModal").on("click", () => {
     UI.showModal(false);
   });
+
   $("#button-help").on("click", () => {
     UI.showModal(true);
   });
@@ -174,11 +183,25 @@ function attachEvents() {
   /////////////////////////////////////
 
   const onFilterChange = () => {
-    generateProviders(map, trainers, surgeons);
+    generateProviders(map, trainers, surgeons, languages);
     UI.renderFilters();
   };
 
   $(".filter").on("change", onFilterChange);
+
+  $("#opt-providerType").on("change", () => {
+    const val = $("#opt-providerType").val();
+
+    if (val == UI.MODE_ANY) {
+      $("#opt-providerType").attr("class", "filter mode-any")
+    }
+    else if (val == UI.MODE_TRAINERS) {
+      $("#opt-providerType").attr("class", "filter mode-trainers")      
+    }
+    else if (val == UI.MODE_SURGEONS) {
+      $("#opt-providerType").attr("class", "filter mode-surgeons")      
+    }
+  })
 
   // Filter resets
   $("#btn-reset-modality").on("click", () => {
@@ -200,7 +223,7 @@ function attachEvents() {
   
   $("#input-search").on(
     "input",
-    searchProviders.bind(null, map, trainers, surgeons)
+    searchProviders.bind(null, map, trainers, surgeons, languages)
   );
 }
 

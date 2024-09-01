@@ -35,7 +35,10 @@
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/components.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/introModal.css" />
     <link rel="stylesheet" type="text/css" href="./styles/scrollbar.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/actionButtons.css" />
   </head>
 
   <body>
@@ -57,61 +60,100 @@
           <br />
           <br />
           It includes gender-affirming voice and communication
-          <span style="color: var(--color-pink)">trainers</span> and
-          <span style="color: var(--color-blue)">surgeons</span>.
+          <strong>trainers</strong> and <strong>surgeons</strong>.
         </p>
-        <br />
-        <h2>How to Use:</h2>
-        <ul id="how-to-use">
-          <li>
-            Select a pin to learn more about a provider (<span
-              style="font-style: italic"
-              >locations are approximate</span
-            >).
-          </li>
-          <li>
-            Use the icons on the left to filter, view as a list, or search.
-          </li>
-          <li>
-            Select the
-            <span style="font-size: 16px" class="material-symbols-outlined"
-              >help</span
-            >
-            icons to see a related resource on the VCP website.
-          </li>
-          <li>
-            Use the icons on the right to visit the VCP website, support this
-            project, or view these instructions again.
-          </li>
-        </ul>
+        <div id="options-container">
+          <div id="option">
+            <span class="material-symbols-outlined">filter_alt</span>
+            <h2>Filter</h2>
+            <p>Narrow your search</p>
+          </div>
+          <div id="option">
+            <span class="material-symbols-outlined">list</span>
+            <h2>List</h2>
+            <p>View providers as list</p>
+          </div>
+          <div id="option">
+            <span class="material-symbols-outlined">search</span>
+            <h2>Search</h2>
+            <p>Search providers by name</p>
+          </div>
+        </div>
+        <div id="options-container">
+          <div id="option">
+            <img src="./vcp-logo.png" alt="Vocal Congruence Project Logo" />
+            <h2>Website</h2>
+            <p>Check out our website</p>
+          </div>
+          <div id="option">
+            <span class="material-symbols-outlined">favorite</span>
+            <h2>Support</h2>
+            <p>Support this project</p>
+          </div>
+          <div id="option">
+            <span class="material-symbols-outlined">info</span>
+            <h2>Info</h2>
+            <p>Show this message again</p>
+          </div>
+        </div>
+
+        <div id="help-icon-message">
+          <span class="material-symbols-outlined">help</span>
+          <p>
+            Click on the help icons to learn more about certain concepts and
+            terms.
+          </p>
+        </div>
+
+        <p id="join-message">
+          Are you a provider?
+          <a
+            style="color: var(--color-pink)"
+            href="https://vocalcongruence.org/#join"
+            >Learn more</a
+          >
+          about joining this map.
+        </p>
       </div>
     </div>
 
-    <span id="button-openLeftPanel-filter" class="material-symbols-outlined">
-      filter_alt
-    </span>
+    <button id="button-openLeftPanel-filter" class="actionButton left" data-label="Filter">
+      <div class="material-symbols-outlined"> filter_alt </div>
+      <label>Filter</label>
+    </button>
 
-    <span id="button-openLeftPanel-list" class="material-symbols-outlined">
-      list
-    </span>
+    <button id="button-openLeftPanel-list" class="actionButton left" data-label="List">
+      <div class="material-symbols-outlined"> list </div>
+      <label>List</label>
+    </button>
 
-    <span id="button-openLeftPanel-search" class="material-symbols-outlined">
-      search
-    </span>
+    <button id="button-openLeftPanel-search" class="actionButton left" data-label="Search">
+      <div class="material-symbols-outlined"> search </div>
+      <label>Search</label>
+    </button>
 
-    <a href="https://vocalcongruence.org/" target="_blank" id="button-vclink">
-      <img src="./vcp-logo.png" />
-    </a>
+    <button id="button-vclink" class="actionButton right" data-label="Website">
+      <label>Website</label>
+      <div>
+        <a href="https://vocalcongruence.org/" target="_blank">
+          <img src="./vcp-logo.png" alt="Vocal Congruence Project Logo" />
+        </a>
+      </div>
+    </button>
 
-    <a
-      href="https://vocalcongruence.org/#support"
-      target="_blank"
-      id="button-donate"
-    >
-      <span class="material-symbols-outlined"> favorite </span>
-    </a>
+    <button id="button-donate" class="actionButton right" data-label="Support">
+      <label>Support</label>
+      <div>
+        <a href="https://vocalcongruence.org/#support" target="_blank">
+          <span class="material-symbols-outlined"> favorite </span>
+        </a>
+      </div>
+    </button>
 
-    <span id="button-help" class="material-symbols-outlined"> help </span>
+    <button id="button-help" class="actionButton right" data-label="Info">
+      <label>Info</label>
+      <div class="material-symbols-outlined"> info </div>
+    </button>
 
     <div id="panel-left" class="panel">
       <div id="panel-left-tabMenu">
@@ -152,7 +194,8 @@
 
         <hr id="divider-nofilter" />
         <p id="nofilter">
-          Please select a provider type to filter the results.
+          Please make a selection above to further filter services offered,
+          location, and more.
         </p>
 
         <hr id="divider-resetAll" />
@@ -247,6 +290,14 @@
           <hr class="divider-location" />
 
           <p id="label-location" class="label">Location</p>
+          <p
+            id="disclaimer-location"
+            class="disclaimer"
+            style="margin-bottom: 8px"
+          >
+            Providers outside of your selected location may appear if offering
+            virtual services in that location.
+          </p>
           <select
             id="opt-country"
             class="filter"
@@ -466,8 +517,18 @@
       <h1>Provider Details</h1>
 
       <div id="panel-right-trainerDetails">
-        <h2 id="data-name">Danielle Schwartz</h2>
-        <h3 id="data-credentials">M.S., CCC-SLP</h3>
+        <h2 id="data-name"></h2>
+        <h3 style="display: flex; align-items: center">
+          <span id="data-credentials"></span
+          ><a
+            id="tooltip-credentials"
+            class="tooltip"
+            data-tooltip="Learn More"
+            href="https://vocalcongruence.org/#degrees"
+            target="_blank"
+            ><span class="material-symbols-outlined"> help </span></a
+          >
+        </h3>
 
         <hr />
 
@@ -490,10 +551,10 @@
         <div id="container-servicesSince" class="labeled-icon">
           <span class="material-symbols-outlined"> calendar_month </span>
           <div>
-            <p id="container-servicesSinceGeneral" style="font-size: 12px">
+            <p id="container-servicesSinceGeneral">
               General Services since <span id="data-since"></span>
             </p>
-            <p id="container-servicesSinceGA" style="font-size: 12px">
+            <p id="container-servicesSinceGA">
               Gender-affirming Services since
               <span id="data-sinceGA"></span>
             </p>
@@ -514,6 +575,7 @@
           <span class="material-symbols-outlined"> target </span>
           <div>
             <p>
+              Goals:
               <span id="data-goals" style="text-transform: capitalize"></span>
             </p>
           </div>
@@ -521,7 +583,7 @@
 
         <hr />
 
-        <p class="disclaimer" style="margin-bottom: 8px">
+        <p class="disclaimer" style="margin-bottom: 16px">
           Information was submitted by provider.
         </p>
 
@@ -535,12 +597,12 @@
         <div id="panel-right-trainerDetails-additional">
           <details id="section-provider-affiliations" class="section">
             <summary>
-              <span style="display: flex; align-items: center"
+              <span style="display: flex; align-items: center; color: white"
                 >Affiliations
                 <a
                   class="tooltip"
                   data-tooltip="Learn More"
-                  href="https://vocalcongruence.org/#glossary"
+                  href="https://vocalcongruence.org/#organizations"
                   target="_blank"
                   ><span class="material-symbols-outlined"> help </span></a
                 ></span
@@ -551,8 +613,11 @@
 
           <details id="section-provider-identities" class="section">
             <summary>Provider Identities</summary>
-            <p id="data-provider-identity"></p>
-            <p id="data-provider-identities"></p>
+            <p>Gender: <span id="data-provider-identity"></span></p>
+            <p id="section-provider-identities-additional">
+              Other:
+              <span id="data-provider-identities"></span>
+            </p>
           </details>
 
           <details id="section-provider-finance" class="section">
@@ -561,12 +626,22 @@
           </details>
 
           <details id="section-provider-training" class="section">
-            <summary>Specialized Trainings</summary>
+            <summary>
+              <span style="display: flex; align-items: center; color: white">
+                Specialized Trainings<a
+                  class="tooltip"
+                  data-tooltip="Learn More"
+                  href="https://vocalcongruence.org/#trainings"
+                  target="_blank"
+                  ><span class="material-symbols-outlined"> help </span></a
+                ></span
+              >
+            </summary>
             <p id="data-provider-training"></p>
           </details>
 
           <details id="section-provider-culture" class="section">
-            <summary>Cultural Competency</summary>
+            <summary>Cultural Competency Trainings</summary>
             <p id="data-provider-culture"></p>
           </details>
 

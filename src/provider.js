@@ -1,5 +1,6 @@
 import QUERY from "./query.js";
 import UI from "./ui.js";
+import MAP from "./map.js";
 
 const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
   "marker"
@@ -20,7 +21,7 @@ function getMarkers() {
   return markers;
 }
 
-export function generateProviders(map, trainers, surgeons) {
+export function generateProviders(map, trainers, surgeons, languages) {
   const mode = UI.getProviderTypeToSearch();
 
   // Remove all existing markers
@@ -73,18 +74,20 @@ export function generateProviders(map, trainers, surgeons) {
     });
 
     marker.addListener("click", (e) => {
-      loadProvider(p);
+      loadProvider(p, languages);
       marker.content.classList.add("highlight");
+      MAP.moveTo(map, marker.position);
     });
 
+    p.marker = marker;
     markers.push(marker);
   }
 
   // Generate the list view
-  loadProviderList(validProviders);
+  loadProviderList(map, validProviders, languages);
 }
 
-export function searchProviders(map, trainers, surgeons) {
+export function searchProviders(map, trainers, surgeons, languages) {
   let matches = [];
   let searchStr = $("#input-search").val().toLowerCase();
 
@@ -112,10 +115,10 @@ export function searchProviders(map, trainers, surgeons) {
 
   matches.sort((a, b) => a["name"].localeCompare(b["name"]));
 
-  loadSearchList(matches);
+  loadSearchList(map, matches, languages);
 }
 
-function loadProviderList(providers) {
+function loadProviderList(map, providers, languages) {
   const panel = document.getElementById("panel-left-tabList");
   panel.innerHTML = "";
 
@@ -137,14 +140,8 @@ function loadProviderList(providers) {
     const el = document.createElement("div");
     el.className = "provider-list-item";
     el.onclick = () => {
-      centerMarker(provider.marker);
-
-      if (searchTrainers) {
-        loadTrainer(provider);
-      } else {
-        loadSurgeon(provider);
-      }
-      showRightPanel();
+      MAP.moveTo(map, provider.marker.position);
+      loadProvider(provider, languages);
     };
 
     const name = document.createElement("p");
@@ -215,6 +212,7 @@ function loadProviderList(providers) {
       }
     }
 
+    // Procedures offered
     if (!isTrainer) {
       const procedures = document.createElement("p");
       let str = "";
@@ -237,7 +235,7 @@ function loadProviderList(providers) {
   }
 }
 
-function loadSearchList(providers) {
+function loadSearchList(map, providers, languages) {
   const panel = document.getElementById("search-results");
   panel.innerHTML = "";
 
@@ -247,21 +245,8 @@ function loadSearchList(providers) {
     const el = document.createElement("div");
     el.className = "provider-list-item";
     el.onclick = () => {
-      if (isTrainer) {
-        searchTrainers = true;
-        $("#opt-profession").val("trainer");
-        showTrainerFilters();
-        generateMarkers();
-        loadTrainer(provider);
-      } else {
-        searchTrainers = false;
-        $("#opt-profession").val("surgeon");
-        showSurgeonFilters();
-        generateMarkers();
-        loadSurgeon(provider);
-      }
-      showRightPanel();
-      centerMarker(provider.marker);
+      loadProvider(provider, languages);
+      MAP.moveTo(map, provider.marker.position)
     };
 
     const nameContainer = document.createElement("div");
@@ -362,7 +347,7 @@ function loadSearchList(providers) {
   }
 }
 
-function loadProvider(provider) {
+function loadProvider(provider, languages) {
   const isTrainer = provider.isTrainer;
 
   ///////////////////////////////////////////////////////
@@ -370,7 +355,15 @@ function loadProvider(provider) {
   ///////////////////////////////////////////////////////
 
   $("#data-name").text(provider.name);
-  $("#data-credentials").text(provider.credentials);
+  if (provider.credentials != null && provider.credentials != "") {
+    $("#data-credentials").text(provider.credentials);
+    $("#data-credentials").removeAttr("hidden");
+    $("#tooltip-credentials").removeAttr("hidden");
+  }
+  else {
+    $("#data-credentials").attr("hidden", true);
+    $("#tooltip-credentials").attr("hidden", true);
+  }
 
   ///////////////////////////////////////////////////////
   //                     Quick Info                    //
@@ -476,10 +469,16 @@ function loadProvider(provider) {
     let str = "";
 
     for (let lang of provider.languages) {
-      if (str == "") {
-        str += lang;
-      } else {
-        str += ", " + lang;
+      let langDisplay = languages.find((l) => l.value == lang);
+
+      if (langDisplay) {
+        langDisplay = langDisplay.display;
+
+        if (str == "") {
+          str += langDisplay;
+        } else {
+          str += ", " + langDisplay;
+        }
       }
     }
 
@@ -547,7 +546,14 @@ function loadProvider(provider) {
     (provider.additionalIdentity != null && provider.additionalIdentity != "")
   ) {
     $("#data-provider-identity").text(provider.identityDisplay);
-    $("#data-provider-identities").text(provider.additionalIdentity);
+
+    if (provider.additionalIdentity != null && provider.additionalIdentity != "") {
+      $("#section-provider-identities-additional").removeAttr("hidden");
+      $("#data-provider-identities").text(provider.additionalIdentity);
+    }
+    else {
+      $("#section-provider-identities-additional").attr("hidden", "true");
+    }
 
     $("#section-provider-identities").show();
   } else {
@@ -598,29 +604,6 @@ function loadProvider(provider) {
   }
 
   UI.showRightPanel(true);
-}
-
-function centerMarker(marker) {
-  map.setZoom(10);
-  if (isMobile()) {
-    map.setCenter(marker.position);
-    let offsetY = window.innerHeight * 0.3;
-    map.panBy(0, offsetY);
-  } else {
-    map.setCenter(marker.position);
-  }
-
-  const newPin = new PinElement({
-    background: "#FFFFFF",
-    borderColor: "#000000",
-    glyphColor: "#F0F0F0",
-  });
-
-  for (let marker of markers) {
-    marker.content.classList.remove("highlight");
-  }
-
-  marker.content.classList.add("highlight");
 }
 
 const PROVIDER = {
