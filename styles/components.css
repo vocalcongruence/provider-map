@@ -1,78 +1,76 @@
 .radio-label-clear {
-    display: flex;
-  }
-  
-  .radio-label-clear button {
-    height: 20px;
-    background: none;
-    border: none;
-    border-radius: 3px;
-    margin-left: 8px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .radio-label-clear p {
-    margin-bottom: 0;
-  }
-  
-  .radio-label-clear button:hover {
-    background-color: var(--color-highlight);
-  }
-  
-  .radio-label-clear button .material-symbols-outlined {
-    color: var(--color-highlight2);
-    font-size: 16px;
-    margin-right: 4px;
-  }
-  
-  details > summary {
-    list-style: none;
-  }
-  
-  details > summary::-webkit-details-marker {
-    display: none;
-  }
-  
-  summary {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    transition: 0.1s;
-    color: white;
-    font-size: 16px;
-  }
-  
-  summary::after {
-    content: "chevron_right";
-    color: var(--color-highlight2);
-    font-family: "Material Symbols Outlined";
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    white-space: nowrap;
-    word-wrap: normal;
-    direction: ltr;
-    -webkit-font-feature-settings: "liga";
-    -webkit-font-smoothing: antialiased;
-    transition: 0.1s;
-  }
-  
-details {
-    font-size: 12px;
+  display: flex;
 }
 
-  details[open] > summary::after {
-    transform: rotate(90deg);
-  }
-  
-  summary:hover,
-  details[open] > summary {
-    font-weight: bold;
-  }
-  
-  
+.resetButton {
+  height: 20px;
+  background: none;
+  border: none;
+  border-radius: 3px;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.radio-label-clear p {
+  margin-bottom: 0;
+}
+
+.resetButton:hover {
+  background-color: var(--color-highlight);
+}
+
+.resetButton .material-symbols-outlined {
+  color: var(--color-highlight2);
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+details > summary {
+  list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  transition: 0.1s;
+  color: white;
+  font-size: 16px;
+}
+
+summary::after {
+  content: "chevron_right";
+  color: var(--color-highlight2);
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  transition: 0.1s;
+}
+
+details {
+  font-size: 12px;
+}
+
+details[open] > summary::after {
+  transform: rotate(90deg);
+}
+
+summary:hover,
+details[open] > summary {
+  font-weight: bold;
+}

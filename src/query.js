@@ -1,3 +1,5 @@
+import UI from "./ui.js";
+
 const NUMBER_ANY = 0;
 const NUMBER_INDIVIDUAL = 10;
 const NUMBER_GROUP = 20;
@@ -98,6 +100,11 @@ function providerQuery() {
 }
 
 function providerMatchesQuery(p, q) {
+  // Any time no provider type is selected, ignore all filters
+  if (UI.getProviderTypeToSearch() == UI.MODE_ANY) {
+    return true;
+  }
+
   // Professional Area
   if (
     p.isTrainer &&
@@ -123,7 +130,7 @@ function providerMatchesQuery(p, q) {
   }
 
   // Procedures
-  if (q.procedure != "any") {
+  if (!p.isTrainer && q.procedure != "any") {
     if (!p.procedures[q.procedure]) {
       return false;
     }
@@ -138,10 +145,28 @@ function providerMatchesQuery(p, q) {
   if (q.language != "any" && p.isTrainer) {
     let hasLanguage = false;
 
-    for (let providerLanguage of p.languages) {
+    /*for (let providerLanguage of p.languages) {
       if (q.language == providerLanguage) {
         hasLanguage = true;
         break;
+      }
+    }*/
+
+    if (p.languages.includes(q.language)) {
+      hasLanguage = true;
+    }
+
+    // If a language includes interpretation, provider can provided services in that language or with "Interpretation Services Avaliable"
+    if (!hasLanguage && q.language.includes("(interpretation)")) {
+      // Any "Interpretation Services Availiable" is valid
+      if (p.languages.includes("interpretationservicesavailable")) {
+        hasLanguage = true;
+      }
+
+      // Check if the provider supports the langugage without interpretation
+      let baseLang = q.language.replace("(interpretation)", "");
+      if (p.languages.includes(baseLang)) {
+        hasLanguage = true;
       }
     }
 
@@ -227,16 +252,16 @@ function providerMatchesQuery(p, q) {
       q.identity.transwoman)
   ) {
     // Check each option
-    let matchCisman = q.identity.cisman == true && p.identityFilter == "cisman";
+    let matchCisman = q.identity.cisman == true && p.identityFilter.includes("cisman");
     let matchCiswoman =
-      q.identity.ciswoman == true && p.identityFilter == "ciswoman";
+      q.identity.ciswoman == true && p.identityFilter.includes("ciswoman");
     let matchNonbinary =
-      q.identity.nonbinary == true && p.identityFilter == "nonbinary";
-    let matchOther = q.identity.other == true && p.identityFilter == "other";
+      q.identity.nonbinary == true && p.identityFilter.includes("nonbinary");
+    let matchOther = q.identity.other == true && p.identityFilter.includes("other");
     let matchTransman =
-      q.identity.transman == true && p.identityFilter == "transman";
+      q.identity.transman == true && p.identityFilter.includes("transman");
     let matchTranswoman =
-      q.identity.transwoman == true && p.identityFilter == "transwoman";
+      q.identity.transwoman == true && p.identityFilter.includes("transwoman");
 
     // If at least one of these is a match, provider passes test
     if (

@@ -26,7 +26,7 @@ function showModal(doShow) {
 
 function showLeftPanel(doShow) {
   if (doShow || $("#panel-left").is(":hidden")) {
-    $("#panel-left").show();
+    $("#panel-left").removeAttr("hidden");
 
     if (isMobile()) {
       let pos = window.innerHeight * 0.4 - 32;
@@ -42,11 +42,11 @@ function showLeftPanel(doShow) {
 
       $("#button-openLeftPanel").animate({ top: pos + "px" }, 400, "swing");
       $("#panel-left").animate({ top: "100vh" }, 400, "swing", function () {
-        $("#button-closeLeftPanel").hide();
+        $(this).attr("hidden", "true");
       });
     } else {
       $("#panel-left").animate({ left: "-400px" }, 400, "swing", function () {
-        $(this).hide();
+        $(this).attr("hidden", "true");
       });
     }
   }
@@ -54,7 +54,7 @@ function showLeftPanel(doShow) {
 
 function showRightPanel(doShow) {
   if (doShow || $("#panel-right").is(":hidden")) {
-    $("#panel-right").removeAttr('hidden');
+    $("#panel-right").removeAttr("hidden");
 
     if (isMobile()) {
       let pos = window.innerHeight * 0.4 - 32;
@@ -78,25 +78,37 @@ function showRightPanel(doShow) {
 }
 
 function openTab(tab) {
-  tab == TAB_FILTER ? $("#panel-left-tabFilter").removeAttr('hidden') : $("#panel-left-tabFilter").attr("hidden", "true");
-  tab == TAB_LIST ? $("#panel-left-tabList").removeAttr('hidden') : $("#panel-left-tabList").attr("hidden", "true");
-  tab == TAB_SEARCH ? $("#panel-left-tabSearch").removeAttr('hidden') : $("#panel-left-tabSearch").attr("hidden", "true");
+  tab == TAB_FILTER
+    ? $("#panel-left-tabFilter").removeAttr("hidden")
+    : $("#panel-left-tabFilter").attr("hidden", "true");
+  tab == TAB_LIST
+    ? $("#panel-left-tabList").removeAttr("hidden")
+    : $("#panel-left-tabList").attr("hidden", "true");
+  tab == TAB_SEARCH
+    ? $("#panel-left-tabSearch").removeAttr("hidden")
+    : $("#panel-left-tabSearch").attr("hidden", "true");
 }
 
-function resetModality(e) {
+function resetModality() {
   $("#btn-reset-modality").hide();
   $("#opt-modality-inPerson").prop("checked", false);
   $("#opt-modality-virtual").prop("checked", false);
 }
 
-function resetNumber(e) {
+function resetNumber() {
   $("#btn-reset-number").hide();
   $("#opt-number-individual").prop("checked", false);
   $("#opt-number-group").prop("checked", false);
 }
 
+function resetLocation() {
+  $("#btn-reset-location").hide();
+  $("#opt-country").val("any");
+  $("#opt-state").val("any");
+  $("#opt-province").val("any");
+}
+
 function resetAllFilters() {
-  console.log("meep");
   // Professional Area
   $("#opt-professionalArea-slp").prop("checked", false);
   $("#opt-professionalArea-vpst").prop("checked", false);
@@ -108,9 +120,7 @@ function resetAllFilters() {
   $("#opt-procedure").val("any");
 
   // Location
-  $("#opt-country").val("any");
-  $("#opt-state").val("any");
-  $("#opt-province").val("any");
+  resetLocation();
 
   // Language
   $("#opt-language").val("any");
@@ -170,12 +180,19 @@ function renderFilters() {
     $("#disclaimer-location").show();
     $(".divider-location").show();
     $("#opt-country").show();
-    
+
     if (mode == MODE_SURGEONS) {
       $("#disclaimer-location").hide();
     }
 
     const country = $("#opt-country").val();
+
+    if (country != "any") {
+      $("#btn-reset-location").show();
+    }
+    else {
+      $("#btn-reset-location").hide();
+    }
 
     if (country == "US") {
       $("#opt-state").show();
@@ -197,6 +214,7 @@ function renderFilters() {
     $("#opt-country").hide();
     $("#opt-state").hide();
     $("#opt-province").hide();
+    $("#btn-reset-location").hide();
   }
 
   // Procedures
@@ -290,6 +308,7 @@ const UI = {
   showRightPanel: showRightPanel,
   resetModality: resetModality,
   resetNumber: resetNumber,
+  resetLocation: resetLocation,
   resetAllFilters: resetAllFilters,
   renderFilters: renderFilters,
   getProviderTypeToSearch: getProviderTypeToSearch,

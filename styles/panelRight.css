@@ -25,59 +25,63 @@
 }
 
 #panel-right > #panel-header > span {
-    font-size: 32px;
+  font-size: 32px;
 }
 
 /* Provider Details */
 #panel-right-providerDetails {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  height: calc(100% - 50px);
-  padding: 16px;
+  overflow: auto;
+  height: calc(100% - 132px);
+  padding: 0 16px;
   box-sizing: border-box;
 }
 
 #data-name {
   color: white;
+  padding-left: 16px;
+  margin-top: 16px;
 }
 
 #data-credentials {
   font-size: 16px;
   font-weight: 500;
+  padding-left: 16px;
 }
 
 /* Quick Info */
 
 .quick-info-item {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .quick-info-item > .quick-info-item-label {
-    display: flex;
-    align-items: center;
-    color: var(--color-pink);
-    text-transform: uppercase;
-    font-size: 10px;
-    font-weight: 700;
+  display: flex;
+  align-items: center;
+  color: var(--color-pink);
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 700;
 }
 
 .quick-info-item > .quick-info-item-label > .material-symbols-outlined {
-    font-size: 16px;
-    margin-right: 4px;
+  font-size: 16px;
+  margin-right: 4px;
 }
 
 .quick-info-item > .quick-info-item-value {
-    font-size: 14px;
+  font-size: 14px;
 }
 
+#qii-contact > .quick-info-item-value,
 #qii-servicesSince > .quick-info-item-value {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .labeled-icon {
-    position: relative;
+  position: relative;
   display: flex;
   align-items: center;
   padding: 4px 0;
@@ -91,16 +95,12 @@
 }
 
 .labeled-icon > .labeled-icon-desc {
-    position: absolute;
-    font-size: 10px;
-    top: -8px;
-    left: 28px;
-    text-transform: uppercase;
-    color: var(--color-pink);
-}
-
-#panel-right-trainerDetails-additional {
-  overflow-y: auto;
+  position: absolute;
+  font-size: 10px;
+  top: -8px;
+  left: 28px;
+  text-transform: uppercase;
+  color: var(--color-pink);
 }
 
 #data-intro {
@@ -110,11 +110,30 @@
 }
 
 #container-procedures > label {
-    color: white;
+  color: white;
 }
 
 #panel-right.surgeon > #panel-header > span,
 #panel-right.surgeon .quick-info-item-label,
 #panel-right.surgeon .quick-info-item-label > span {
-    color: var(--color-blue);
+  color: var(--color-blue);
+}
+
+/************************************************
+                MOBILE OVERRIDES
+************************************************/
+
+@media only screen and (max-width: 600px) {
+  #panel-right {
+    right: 0px;
+    left: 0;
+    width: 100vw;
+    top: calc(40vh - 32px);
+    height: calc(60vh + 32px);
+  }
+
+  #button-closeRightPanel {
+    right: 0;
+    left: unset;
+  }
 }

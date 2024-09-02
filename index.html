@@ -107,6 +107,8 @@
           </p>
         </div>
 
+        <p class="disclaimer">* Please note that provider locations are approximate.</p>
+
         <p id="join-message">
           Are you a provider?
           <a
@@ -280,8 +282,12 @@
             <option value="other">Other</option>
           </select>
 
+          <div id="container-location">
           <hr class="divider-location" />
 
+          <button id="btn-reset-location" class="resetButton">
+            <span class="material-symbols-outlined"> replay </span>RESET
+          </button>
           <p id="label-location" class="label">Location</p>
           <p
             id="disclaimer-location"
@@ -308,6 +314,7 @@
           </select>
 
           <hr class="divider-location" />
+        </div>
 
           <p id="label-language" class="label">Language</p>
           <select
@@ -323,7 +330,7 @@
 
           <div class="radio-label-clear">
             <p id="label-modality" class="label">In-Person or Virtual?</p>
-            <button id="btn-reset-modality">
+            <button id="btn-reset-modality" class="resetButton">
               <span class="material-symbols-outlined"> replay </span>RESET
             </button>
           </div>
@@ -354,7 +361,7 @@
 
           <div class="radio-label-clear">
             <p id="label-number" class="label">Individual or Group?</p>
-            <button id="btn-reset-number">
+            <button id="btn-reset-number" class="resetButton">
               <span class="material-symbols-outlined"> replay </span>RESET
             </button>
           </div>
@@ -552,7 +559,7 @@
         <span class="material-symbols-outlined">person</span>
       </div>
 
-      <div id="panel-right-providerDetails">
+      
         <h2 id="data-name"></h2>
         <h3 style="display: flex; align-items: center">
           <span id="data-credentials"></span
@@ -565,16 +572,26 @@
             ><span class="material-symbols-outlined"> help </span></a
           >
         </h3>
-
         <hr />
+
+        <div id="panel-right-providerDetails">
+
+          <p class="disclaimer" style="margin-bottom: 16px">
+            Information was submitted by provider.
+            <br>
+            Last updated <span id="data-lastUpdated"></span>.
+          </p>
+
+        <!-- Quick Info -->
 
         <div class="quick-info-item" id="qii-contact">
           <p class="quick-info-item-label">
             <span class="material-symbols-outlined">call</span>Contact Info
           </p>
           <p class="quick-info-item-value">
-            <a id="data-phone"></a> |
-            <a id="data-website" target="_blank">Website</a>
+            <a id="data-phone"></a>
+            <a id="data-email"></a>
+            <a id="data-website" target="_blank">View Website</a>
           </p>
         </div>
 
@@ -601,7 +618,7 @@
           </p>
           <p class="quick-info-item-value">
             <span id="qii-servicesSince-general"
-              >General since <span id="data-since"></span>
+              >General voice since <span id="data-since"></span>
           </span>
               <span id="qii-servicesSince-ga"
                 >Gender-affirming since <span id="data-sinceGA"></span></span
@@ -626,21 +643,22 @@
             style="text-transform: capitalize"
           ></p>
         </div>
+        
+        <div class="quick-info-item" id="qii-procedures">
+          <p class="quick-info-item-label">
+            <span class="material-symbols-outlined">local_hospital</span>Procedures Offered
+          </p>
+          <ul
+            id="data-procedures"
+            class="quick-info-item-value"
+          ></ul>
+        </div>
 
         <hr />
-
-        <p class="disclaimer" style="margin-bottom: 16px">
-          Information was submitted by provider.
-        </p>
 
         <p id="data-intro"></p>
 
         <hr />
-
-        <div id="container-procedures" style="margin-bottom: 16px">
-          <label>Procedures Offered</label>
-          <ul id="data-procedures"></ul>
-        </div>
 
         <div id="panel-right-trainerDetails-additional">
           <details id="section-provider-affiliations" class="section">
@@ -676,7 +694,7 @@
           <details id="section-provider-training" class="section">
             <summary>
               <span style="display: flex; align-items: center; color: white">
-                Specialized Trainings<a
+                Education & Training<a
                   class="tooltip"
                   data-tooltip="Learn More"
                   href="https://vocalcongruence.org/#trainings"
@@ -688,8 +706,23 @@
             <p id="data-provider-training"></p>
           </details>
 
+          <details id="section-provider-speciality" class="section">
+            <summary>
+              <span style="display: flex; align-items: center; color: white">
+                Specialty Areas<a
+                  class="tooltip"
+                  data-tooltip="Learn More"
+                  href="https://vocalcongruence.org/#trainings"
+                  target="_blank"
+                  ><span class="material-symbols-outlined"> help </span></a
+                ></span
+              >
+            </summary>
+            <p id="data-provider-speciality"></p>
+          </details>
+
           <details id="section-provider-culture" class="section">
-            <summary>Cultural Competency Trainings</summary>
+            <summary>Cultural Humility Training</summary>
             <p id="data-provider-culture"></p>
           </details>
 

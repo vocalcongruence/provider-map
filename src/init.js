@@ -3,10 +3,10 @@
 Vocal Congruence Project - Provider Map
 https://vocalcongruence.org/
 
-v 0.1 - Closed Beta Testing
+v 1.0 - Initial Release
 */
 
-import PROVIDER, { generateProviders, searchProviders } from "./provider.js";
+import PROVIDER from "./provider.js";
 import UI from "./ui.js";
 
 const { Map } = await google.maps.importLibrary("maps");
@@ -27,7 +27,7 @@ let languages;
 
 async function initialize() {
   UI.renderFilters();
-  UI.showModal(false);
+  //UI.showModal(false);
 
   await initializeMap();
   await loadData();
@@ -39,7 +39,7 @@ async function initialize() {
   createLanguageOptions();
 
   // Load initial dataset
-  generateProviders(map, trainers, surgeons, languages);
+  PROVIDER.generateProviders(map, trainers, surgeons, languages);
 
   attachEvents();
 }
@@ -175,6 +175,9 @@ function attachEvents() {
   $("#button-help").on("click", () => {
     UI.showModal(true);
   });
+  $("#introModal > #content").on("click", (e) => {
+    e.stopPropagation();  // Don't close modal if clicking within the content
+  })
 
 
   /////////////////////////////////////
@@ -182,7 +185,7 @@ function attachEvents() {
   /////////////////////////////////////
 
   const onFilterChange = () => {
-    generateProviders(map, trainers, surgeons, languages);
+    PROVIDER.generateProviders(map, trainers, surgeons, languages);
     UI.renderFilters();
   };
 
@@ -211,6 +214,10 @@ function attachEvents() {
     UI.resetNumber();
     onFilterChange();
   });
+  $("#btn-reset-location").on("click", () => {
+    UI.resetLocation();
+    onFilterChange();
+  });
   $("#button-resetAllFilters").on("click", () => {
     UI.resetAllFilters();
     onFilterChange();
@@ -226,7 +233,7 @@ function attachEvents() {
   
   $("#input-search").on(
     "input",
-    searchProviders.bind(null, map, trainers, surgeons, languages)
+    PROVIDER.searchProviders.bind(null, map, trainers, surgeons, languages)
   );
 }
 

@@ -1,3 +1,7 @@
+:root {
+  --horizontalPadding: 8px;
+}
+
 #panel-left {
   position: absolute;
   left: 0;
@@ -63,7 +67,7 @@
 }
 
 #opt-providerType {
-    margin: 0 8px;
+    margin: 0 var(--horizontalPadding);
     margin-top: 8px;
     width: auto;
     border: 1px solid var(--color-highlight2);
@@ -109,7 +113,7 @@
   border: 1px solid var(--color-highlight);
   border-radius: 8px;
   padding: 4px 0;
-  margin: 0 8px;
+  margin: 0 var(--horizontalPadding);
 }
 
 #button-resetAllFilters:hover {
@@ -117,9 +121,18 @@
 }
 
 #filterSet {
-  padding: 0 8px;
+  padding: 0 var(--horizontalPadding);
   overflow-y: auto;
   height: calc(100% - 100px);
+}
+
+#container-location {
+  position: relative;
+}
+
+#container-location > .resetButton {
+  position: absolute;
+  right: 0;
 }
 
 /* Tab List/Search */
@@ -133,11 +146,11 @@
   font-size: 16px;
   color: white;
   margin: 0;
-  padding: 0 8px;
+  padding: 0 var(--horizontalPadding);
 }
 
 #panel-left-tabList > .disclaimer {
-  padding: 0 8px;
+  padding: 0 var(--horizontalPadding);
 }
 
 #panel-left-tabList-items {
@@ -145,7 +158,7 @@
 }
 
 .provider-list-item {
-  padding: 8px;
+  padding: 8px var(--horizontalPadding);
   border-bottom: 1px solid var(--color-highlight);
   cursor: pointer;
 }
@@ -202,11 +215,11 @@
 
 #input-search-container > .disclaimer {
   margin-bottom: 8px;
-  padding: 0 8px;
+  padding: 0 var(--horizontalPadding);
 }
 
 #input-search {
-  margin: 0 8px;
+  margin: 0 var(--horizontalPadding);
   height: 32px;
   color: var(--color-main);
   padding-left: 16px;
@@ -220,7 +233,7 @@
   display: flex;
   align-items: center;
   font-size: 12px;
-  padding: 0 8px;
+  padding: 0 var(--horizontalPadding);
   justify-content: center;
 }
 
@@ -233,4 +246,57 @@
 #search-results {
   max-height: calc(100% - 96px);
   overflow: auto;
+}
+
+/************************************************
+                MOBILE OVERRIDES
+************************************************/
+
+@media only screen and (max-width: 600px) {
+  :root {
+    --horizontalPadding: 16px;
+  }
+
+  #panel-left {
+    right: 0;
+    top: 40vh;
+    max-width: 100vw;
+    width: 100vw;
+    height: 60vh;
+    left: 0;
+  }
+
+  #button-openLeftPanel {
+    top: calc(40vh - 32px);
+    left: 0;
+    right: 0;
+    width: 100vw;
+    border-radius: 0;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    font-size: 26px;
+    padding: 0;
+  }
+
+  #button-closeLeftPanel {
+    top: -32px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    border-radius: 0;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    font-size: 26px;
+  }
+
+  .tab,
+  #panel-left-tabList {
+    height: calc(60vh - 82px);
+  }
 }
