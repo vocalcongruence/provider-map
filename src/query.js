@@ -179,10 +179,20 @@ function providerMatchesQuery(p, q) {
   if (p.isTrainer) {
     const numMod = q.number + q.modality;
     let numModCheck = true;
+    console.log(q);
+    console.log(numMod);
 
     switch (numMod) {
       case NUMBER_ANY + MODALITY_ANY:
         numModCheck = true; // All providers will match any/any
+        break;
+
+      case NUMBER_ANY + MODALITY_INPERSON:
+        numModCheck = p.numMods.individual_inPerson || p.numMods.group_inPerson;
+        break;
+
+      case NUMBER_ANY + MODALITY_VIRTUAL:
+        numModCheck = p.numMods.individual_virtual || p.numMods.group_virtual;
         break;
 
       case NUMBER_INDIVIDUAL + MODALITY_ANY:
@@ -215,7 +225,7 @@ function providerMatchesQuery(p, q) {
       return false;
     }
   }
-  
+
   // Goal
   if (
     q.goal != null &&
@@ -225,7 +235,6 @@ function providerMatchesQuery(p, q) {
       q.goal.masculine ||
       q.goal.singing)
   ) {
-    
     // Check each option
     if (q.goal.androgynous == true && !p.goals.includes("androgynous")) {
       return false;
@@ -252,12 +261,14 @@ function providerMatchesQuery(p, q) {
       q.identity.transwoman)
   ) {
     // Check each option
-    let matchCisman = q.identity.cisman == true && p.identityFilter.includes("cisman");
+    let matchCisman =
+      q.identity.cisman == true && p.identityFilter.includes("cisman");
     let matchCiswoman =
       q.identity.ciswoman == true && p.identityFilter.includes("ciswoman");
     let matchNonbinary =
       q.identity.nonbinary == true && p.identityFilter.includes("nonbinary");
-    let matchOther = q.identity.other == true && p.identityFilter.includes("other");
+    let matchOther =
+      q.identity.other == true && p.identityFilter.includes("other");
     let matchTransman =
       q.identity.transman == true && p.identityFilter.includes("transman");
     let matchTranswoman =

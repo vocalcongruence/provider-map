@@ -3404,8 +3404,7 @@
             "virtualLocations": [
                 "IA",
                 "ND",
-                "TX",
-                "Nationally (US)"
+                "TX"
             ],
             "numMods": {
                 "individual_inPerson": true,
