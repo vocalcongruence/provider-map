@@ -1810,8 +1810,8 @@
             "nameSort": "Fitzpatrick",
             "credentials": "MSc, S-LP (C), Reg. CASLPO",
             "pin": {
-                "lat": 43.657527546184795,
-                "lng": -79.37911363127904
+                "lat": 43.65386854864231,
+                "lng": -79.38134564492458
             },
             "city": "Toronto",
             "state": "ON",
@@ -2305,8 +2305,8 @@
             "nameSort": "Treatman",
             "credentials": "M.A., CCC-SLP",
             "pin": {
-                "lat": 41.87664538243677,
-                "lng": -87.62613976682805
+                "lat": 41.88206364289779,
+                "lng": -87.62899647622955
             },
             "city": "Chicago",
             "state": "IL",
@@ -3016,8 +3016,8 @@
             "nameSort": "Adams",
             "credentials": "M.S., CCC-SLP",
             "pin": {
-                "lat": 37.342527757429146,
-                "lng": -121.88735378776589
+                "lat": 37.335062761014875,
+                "lng": -121.88779537349228
             },
             "city": "San Jose",
             "state": "CA",
@@ -3426,7 +3426,7 @@
             "identityFilter": [
                 "other"
             ],
-            "intro": "Louise Pinkerton, MM, MA, CCC-SLP (she/her) is a Speech-Language Pathologist and Vocal Pedagogue/Singing Instructor employed at Louise Pinkerton Voice Services (private speech and singing instruction), University of Iowa Hospitals and Clinics (clinical services), and the Wendell Johnson Speech and Hearing Clinic, University of Iowa (clinical supervision of graduate students). In addition to SLP services in Iowa, North Dakota, and Texas, she offers singing voice services across the United States.Services are offered by this provider as well as by trainees under this provider's supervision.",
+            "intro": "Louise Pinkerton, MM, MA, CCC-SLP (she/her) is a Speech-Language Pathologist and Vocal Pedagogue/Singing Instructor employed at Louise Pinkerton Voice Services (private speech and singing instruction), University of Iowa Hospitals and Clinics (clinical services), and the Wendell Johnson Speech and Hearing Clinic, University of Iowa (clinical supervision of graduate students). In addition to SLP services in Iowa, North Dakota, and Texas, she offers singing voice services across the United States. Services are offered by this provider as well as by trainees under this provider's supervision.",
             "generalSince": 1998,
             "gavcSince": 2019,
             "affiliations": [
@@ -4227,8 +4227,8 @@
             "nameSort": "Forest",
             "credentials": "CCC-SLP",
             "pin": {
-                "lat": 34.063855140705996,
-                "lng": -118.20268304279622
+                "lat": 34.06482409890085,
+                "lng": -118.20439969816765
             },
             "city": "Los Angeles",
             "state": "CA",
@@ -4332,8 +4332,8 @@
             "nameSort": "Castro",
             "credentials": "M.S. CCC-SLP",
             "pin": {
-                "lat": 34.05106156134153,
-                "lng": -118.24402807565552
+                "lat": 34.052098754024456,
+                "lng": -118.24005392558293
             },
             "city": "Los Angles",
             "state": "CA",
@@ -4389,8 +4389,8 @@
             "nameSort": "McGinty",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 35.224229659853464,
-                "lng": -80.84597111606367
+                "lat": 35.22610710267114,
+                "lng": -80.83905571973757
             },
             "city": "Charlotte",
             "state": "NC",
@@ -4611,8 +4611,8 @@
             "nameSort": "Dinsmore",
             "credentials": null,
             "pin": {
-                "lat": 41.88191157501077,
-                "lng": -87.62789710392173
+                "lat": 41.87581617630456,
+                "lng": -87.63049178765108
             },
             "city": "Chicago",
             "state": "IL",
@@ -5887,8 +5887,8 @@
             "nameSort": "Beckham",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 41.49902819818767,
-                "lng": -81.61903123990811
+                "lat": 41.50426611357559,
+                "lng": -81.61853948001043
             },
             "city": "Cleveland",
             "state": "OH",
@@ -6646,8 +6646,8 @@
             "nameSort": "DeVore",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 41.87696461570235,
-                "lng": -87.62227259791031
+                "lat": 41.87897188562942,
+                "lng": -87.62752678574454
             },
             "city": "Chicago",
             "state": "IL",
@@ -6810,8 +6810,8 @@
             "nameSort": "Hsu",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 42.36443092038455,
-                "lng": -71.06671663276869
+                "lat": 42.359479598173245,
+                "lng": -71.06946377286671
             },
             "city": "Boston",
             "state": "MA",
@@ -6959,7 +6959,7 @@
             ],
             "additionalIdentity": null,
             "financial": "My services are covered by extended health benefits in British Columbia, Canada. Check your plan for \"speech therapy.\" ",
-            "website": "www.meganmorrison.work",
+            "website": "https://www.meganmorrison.work/",
             "phone": null,
             "email": "megan.morrison.slp@gmail.com",
             "training": "I was mentored the GAVC-pioneer Shelagh Davies (RSLP & researcher) and also I also did a 2-month clinical practicum with the Changing Keys Program in Vancouver, Canada. I am committed to ongoing professional development, such as attending MedBridge Webinars and GAVC seminars, and I stay up-to-date with new evidence-based research. ",
@@ -7084,8 +7084,8 @@
             "nameSort": "Wilson",
             "credentials": "MM, MS, CCC-SLP",
             "pin": {
-                "lat": 39.29367388548783,
-                "lng": -76.59660416918103
+                "lat": 39.2998983724887,
+                "lng": -76.59303127113992
             },
             "city": "Baltimore",
             "state": "MD",
@@ -7140,8 +7140,8 @@
             "nameSort": "Pietsch",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 39.28759039971226,
-                "lng": -76.60940213276564
+                "lat": 39.29318526770018,
+                "lng": -76.61045076302857
             },
             "city": "Baltimore",
             "state": "MD",
@@ -7522,8 +7522,8 @@
             "nameSort": "Gonzalez",
             "credentials": null,
             "pin": {
-                "lat": 32.95197937543023,
-                "lng": -96.79983882890531
+                "lat": 32.95550214248448,
+                "lng": -96.79916108925921
             },
             "city": "Dallas",
             "state": "TX",
@@ -7638,8 +7638,8 @@
             "nameSort": "Garneau",
             "credentials": "MA., CCC-SLP",
             "pin": {
-                "lat": 42.36078053576898,
-                "lng": -71.07164317108321
+                "lat": 42.36484116946816,
+                "lng": -71.07062897797914
             },
             "city": "Boston",
             "state": "MA",
@@ -7851,7 +7851,7 @@
             "speciality": "Most insurances accepted including Medicaid, Medicare, and out of state insurance payers; low private pay rates",
             "cultural": "Kat completes several hours of continuing education each year related to the culture and language of the LGBTQIA2S+ community that informs the clinical language, environment, and approach she uses with clients.",
             "additionalInformation": "Kat's passion for serving the transgender and gender diverse community is provided and pursued with the intent to share medical knowledge that allows the community to share information and better support each other with their voice transition goals.",
-            "lastUpdated": "March, 2024"
+            "lastUpdated": "September, 2024"
         },
         {
             "isTrainer": true,
@@ -7914,8 +7914,8 @@
             "nameSort": "Majdalani",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 41.87733423622477,
-                "lng": -87.62004292245982
+                "lat": 41.87616514403939,
+                "lng": -87.63284575206767
             },
             "city": "Chicago",
             "state": "IL ",
@@ -7960,107 +7960,6 @@
             "speciality": "transmasculine, transfeminine, youth, neurodivergent ",
             "cultural": "To ensure cultural humility in my work with the trans and gender diverse community, I've pursued formal training and privately hired a team of trans providers for cultural competency support since the start of my business in 2020.",
             "additionalInformation": "In addition to my specialization in gender affirming voice training, I hold certifications in neurolinguistic programming, hypnotherapy, and breathwork. I\u2019m passionate about integrating mindset work and nervous system regulation techniques into my practice, providing a holistic experience for my clients. ",
-            "lastUpdated": "March, 2024"
-        },
-        {
-            "isTrainer": true,
-            "name": "Killian Coen",
-            "nameSort": "Coen",
-            "credentials": "Licensed Apprentice SLP",
-            "pin": {
-                "lat": 35.0896586,
-                "lng": -106.631603
-            },
-            "city": "Albuquerque",
-            "state": "NM",
-            "country": "US",
-            "areas": [
-                "slp"
-            ],
-            "virtualLocations": [
-                "NM"
-            ],
-            "numMods": {
-                "individual_inPerson": true,
-                "individual_virtual": true,
-                "group_inPerson": true,
-                "group_virtual": false
-            },
-            "goals": [
-                "masculine",
-                "singing"
-            ],
-            "languages": [
-                "english"
-            ],
-            "identityDisplay": "Cisgender Man",
-            "identityFilter": [
-                "cisman"
-            ],
-            "intro": "Killian Coen, Licensed Apprentice SLP (he/him) is a Speech-Language Pathologist employed at New Mexico Gender Voice Center.",
-            "generalSince": 2022,
-            "gavcSince": 2022,
-            "affiliations": [],
-            "additionalIdentity": "Killian has a passion for serving the LGBTQIA2S+ community.",
-            "financial": "Most insurances accepted including Medicaid, Medicare, and out of state insurance payers; low private pay rates.",
-            "website": "http://www.nmgvc.org",
-            "phone": 5058045358,
-            "email": "info@nmgvc.org",
-            "training": "Killian Coen (he/him) is a cisgender man and licensed to practice as an Apprentice SLP in the state of New Mexico. He has a passion for serving the transgender, nonbinary, and gender diverse community and their voice modulation needs. Killian is currently earning his Master of Science in Speech-Language Pathology at University of New Mexico. ",
-            "speciality": "Killian has worked with trans masculine clients on voice masculinization and singing for over a year with great success using different methods for modulating pitch and deepening resonance.",
-            "cultural": "Killian has completed Transgender 101 trainings with TGRCNM and TransEducation.net as part of his graduate education and work at NMGVC.",
-            "additionalInformation": "Killian works with clients wishing to masculinize their voice regardless of whether they are engaged in HRT. ",
-            "lastUpdated": "March, 2024"
-        },
-        {
-            "isTrainer": true,
-            "name": "Dahlia Exurrana",
-            "nameSort": "Exurrana",
-            "credentials": null,
-            "pin": {
-                "lat": 35.115945,
-                "lng": -106.517784
-            },
-            "city": "Albuquerque",
-            "state": "NM",
-            "country": "US",
-            "areas": [
-                "gavt"
-            ],
-            "virtualLocations": [
-                "Globally"
-            ],
-            "numMods": {
-                "individual_inPerson": false,
-                "individual_virtual": true,
-                "group_inPerson": false,
-                "group_virtual": true
-            },
-            "goals": [
-                "feminine",
-                "androgynous",
-                "singing"
-            ],
-            "languages": [
-                "english"
-            ],
-            "identityDisplay": "Transgender Woman",
-            "identityFilter": [
-                "transwoman"
-            ],
-            "intro": "Dahlia Exurrana (she/her) is a Gender Affirming Voice Trainer employed at New Mexico Gender Voice Center.",
-            "generalSince": 2022,
-            "gavcSince": 2022,
-            "affiliations": [],
-            "additionalIdentity": null,
-            "financial": "Most insurances accepted including Medicaid, Medicare, and out of state insurance payers; low private pay rates. Clients wishing to use their insurance and see Dahlia will also be assigned an SLP with NMGVC to co-lead the sessions.\n",
-            "website": "http://www.nmgvc.org",
-            "phone": 5058045358,
-            "email": "info@nmgvc.org",
-            "training": "Dahlia is a graduated student of New Mexico Gender Voice Center and a skilled vocal instructor serving clients virtually who wish to feminize their voice or pursue gender neutral voice related goals.",
-            "speciality": "Dahlia uses a highly effective curriculum combining Water Resistant Therapy, Straw Phonation, and the Stanley Method to teach resonance placement and control.",
-            "cultural": null,
-            "additionalInformation": "Dahlia has a strong interest in acoustics related to voice modulation. Her technical knowledge related to voice training supports clients with nuanced aspects of their voice transition. ",
             "lastUpdated": "March, 2024"
         },
         {
@@ -8335,8 +8234,8 @@
             "nameSort": "Diemer",
             "credentials": "MM",
             "pin": {
-                "lat": 35.59183763131407,
-                "lng": -82.54916086506877
+                "lat": 35.59227576566807,
+                "lng": -82.55307486615185
             },
             "city": "Asheville",
             "state": "NC",
@@ -8443,8 +8342,8 @@
             "nameSort": "Crutchley",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 36.07557115852383,
-                "lng": -79.79065661056347
+                "lat": 36.075726321916335,
+                "lng": -79.78876530616355
             },
             "city": "Greensboro",
             "state": "NC",
@@ -8719,8 +8618,8 @@
             "nameSort": "Kalos",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 42.364908010149435,
-                "lng": -71.07064043073717
+                "lat": 42.368256091720184,
+                "lng": -71.07005500329842
             },
             "city": "Boston",
             "state": "MA",
@@ -8768,9 +8667,9 @@
         },
         {
             "isTrainer": true,
-            "name": "Bradley Hoff MA",
-            "nameSort": "MA",
-            "credentials": "CCC-SLP",
+            "name": "Bradley Hoff",
+            "nameSort": "Hoff",
+            "credentials": "MA, CCC-SLP",
             "pin": {
                 "lat": 40.7348077,
                 "lng": -73.9897257
@@ -8803,7 +8702,7 @@
             "identityFilter": [
                 "cisman"
             ],
-            "intro": "Bradley Hoff MA, CCC-SLP (he/him) is a Speech-Language Pathologist employed at Mount Sinai Downtown Union Square.",
+            "intro": "Bradley Hoff, MA, CCC-SLP (he/him) is a Speech-Language Pathologist employed at Mount Sinai Downtown Union Square.",
             "generalSince": null,
             "gavcSince": null,
             "affiliations": [
@@ -9102,8 +9001,8 @@
             "nameSort": "Taylor",
             "credentials": "BA, MSpeechPath",
             "pin": {
-                "lat": -31.950289002171537,
-                "lng": 115.86487395485509
+                "lat": -31.94988520057694,
+                "lng": 115.8580347014454
             },
             "city": "Perth",
             "state": "Western Australia ",
@@ -9209,8 +9108,8 @@
             "nameSort": "Fitzenrider",
             "credentials": null,
             "pin": {
-                "lat": 39.75854198025427,
-                "lng": -84.18811817786082
+                "lat": 39.75911804745388,
+                "lng": -84.18799729844933
             },
             "city": "Dayton",
             "state": "OH",
@@ -10088,8 +9987,8 @@
             "nameSort": "Hook",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 35.595602971125615,
-                "lng": -82.5480805967364
+                "lat": 35.593223491878085,
+                "lng": -82.55515671049953
             },
             "city": "Asheville",
             "state": "NC",
@@ -10419,8 +10318,8 @@
             "nameSort": "Weiss",
             "credentials": "DMA",
             "pin": {
-                "lat": 44.977021096992495,
-                "lng": -93.26185079179307
+                "lat": 44.981435316169964,
+                "lng": -93.2675739948369
             },
             "city": "Minneapolis",
             "state": "MN",
@@ -11067,8 +10966,8 @@
             "nameSort": "Hassan",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 39.28694612097482,
-                "lng": -76.61351932467588
+                "lat": 39.288333542987374,
+                "lng": -76.61102547209283
             },
             "city": "Baltimore",
             "state": "MD",
@@ -11119,8 +11018,8 @@
             "nameSort": "Dubiak",
             "credentials": "M.S., CCC-SLP",
             "pin": {
-                "lat": 42.88123551622244,
-                "lng": -85.6091576818806
+                "lat": 42.88641294906838,
+                "lng": -85.60697354387175
             },
             "city": "Grand Rapids",
             "state": "MI",
@@ -11277,8 +11176,8 @@
             "nameSort": "Strong",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 33.445926938186304,
-                "lng": -112.07365791275177
+                "lat": 33.44559178993786,
+                "lng": -112.07677529354547
             },
             "city": "Phoenix ",
             "state": "AZ",
@@ -11327,8 +11226,8 @@
             "nameSort": "Adaire",
             "credentials": "Designated Linklater Voice Teacher",
             "pin": {
-                "lat": 34.053278883639884,
-                "lng": -118.23920525563754
+                "lat": 34.05692038995574,
+                "lng": -118.24381921989904
             },
             "city": "Los Angeles",
             "state": "CA",
@@ -11601,8 +11500,8 @@
             "nameSort": "Litts",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 39.73598287981712,
-                "lng": -104.98795754021559
+                "lat": 39.73867650407698,
+                "lng": -104.99363161960054
             },
             "city": "Denver",
             "state": "CO",
@@ -11655,8 +11554,8 @@
             "nameSort": "Trifiro",
             "credentials": "M.S., CCC-SLP",
             "pin": {
-                "lat": 38.26329266603323,
-                "lng": -104.61755013716706
+                "lat": 38.2636899675977,
+                "lng": -104.61132643271667
             },
             "city": "Pueblo ",
             "state": "CO",
@@ -11812,8 +11711,8 @@
             "nameSort": "Allaway",
             "credentials": "MS",
             "pin": {
-                "lat": 45.51571232069978,
-                "lng": -122.68075166034926
+                "lat": 45.51156565504469,
+                "lng": -122.67581380844327
             },
             "city": "Portland",
             "state": "OR",
@@ -13018,8 +12917,8 @@
             "nameSort": "Smeltzer",
             "credentials": "MS, CF-SLP",
             "pin": {
-                "lat": 39.741469150401606,
-                "lng": -104.84194122426688
+                "lat": 39.744880409331735,
+                "lng": -104.84359219669442
             },
             "city": "Aurora",
             "state": "CO",
@@ -13353,8 +13252,8 @@
             "nameSort": "Ziegler",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 43.03990466525013,
-                "lng": -88.02083310743829
+                "lat": 43.039813244305364,
+                "lng": -88.0270803555306
             },
             "city": "Wauwatosa",
             "state": "Wisconsin",
@@ -13605,13 +13504,13 @@
             "additionalIdentity": null,
             "financial": "A sliding scale is offered for anyone where cost might prohibit care",
             "website": "https://www.transformativecommunications.net/",
-            "phone": 2817822703,
-            "email": "bwelch.slp@gmail.com",
+            "phone": "832-449-8608",
+            "email": "brett@transformativecommunications.net",
             "training": "Brett has been a practicing voice therapist since 2018. He specializes in providing gender-affirming care and helping patients with so-called \"functional\" voice disorders. Brett recognizes the importance of the psycho-social-vocal relationships, and frequently helps clients navigate these challenging yet important aspects of the voice journey. As a researcher, Brett leverages contemporary theories and methods in quantitative psychology to interrogate these psycho-social-vocal relationships. ",
             "speciality": "Gender-affirming voice, congruence, counseling",
             "cultural": "I have attended numerous LGBTQIA+ community events, lectures, trainings, and conferences over the years. I have additionally provided and worked with others to provide such trainings. ",
             "additionalInformation": null,
-            "lastUpdated": "April, 2024"
+            "lastUpdated": "September, 2024"
         },
         {
             "isTrainer": true,
@@ -13619,8 +13518,8 @@
             "nameSort": "Lewandowski",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 40.43846746366008,
-                "lng": -79.98497539080502
+                "lat": 40.43233513198797,
+                "lng": -79.98627201901652
             },
             "city": "Pittsburgh",
             "state": "PA",
@@ -13835,8 +13734,8 @@
             "nameSort": "Goings",
             "credentials": "M.S., CCC-SLP",
             "pin": {
-                "lat": 43.15915583646883,
-                "lng": -77.61142717764452
+                "lat": 43.15899680604643,
+                "lng": -77.60532164659531
             },
             "city": "Rochester",
             "state": "NY",
@@ -13994,8 +13893,8 @@
             "nameSort": "Habich",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 40.438590703076564,
-                "lng": -79.99649795818037
+                "lat": 40.437409573081105,
+                "lng": -79.99277984270736
             },
             "city": "Pittsburgh",
             "state": "PA",
@@ -14317,8 +14216,8 @@
             "nameSort": "Collum",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 40.749719821732874,
-                "lng": -111.8254092640275
+                "lat": 40.75601228718754,
+                "lng": -111.82824505368197
             },
             "city": "Salt Lake City",
             "state": "UT",
@@ -14643,8 +14542,8 @@
             "nameSort": "Mahon",
             "credentials": "MS, CF-SLP",
             "pin": {
-                "lat": 40.438150953031716,
-                "lng": -79.98921562831823
+                "lat": 40.43494491595378,
+                "lng": -79.98211926267675
             },
             "city": "Pittsburgh",
             "state": "PA",
@@ -14916,8 +14815,8 @@
             "nameSort": "Conn",
             "credentials": "PhD Linguistics, MS SPHR, CCC-SLP",
             "pin": {
-                "lat": 45.51725150161042,
-                "lng": -122.67544280154445
+                "lat": 45.51593993655231,
+                "lng": -122.68070869288091
             },
             "city": "Portland",
             "state": "OR",
@@ -14961,6 +14860,275 @@
             "cultural": "In addition to lived experience, I have attended and provided multiple continuing education trainings for working with trans and gender expansive individuals. ",
             "additionalInformation": null,
             "lastUpdated": "August, 2024"
+        },
+        {
+            "isTrainer": true,
+            "name": "Jamie Fair",
+            "nameSort": "Fair",
+            "credentials": "B.F.A.",
+            "pin": {
+                "lat": 40.4259369,
+                "lng": -79.8339244
+            },
+            "city": "Pittsburgh",
+            "state": "PA",
+            "country": "US",
+            "areas": [
+                "vpst",
+                "tac"
+            ],
+            "virtualLocations": [
+                "Nationally (US)"
+            ],
+            "numMods": {
+                "individual_inPerson": true,
+                "individual_virtual": true,
+                "group_inPerson": false,
+                "group_virtual": false
+            },
+            "goals": [
+                "feminine",
+                "masculine",
+                "androgynous",
+                "singing"
+            ],
+            "languages": [
+                "english"
+            ],
+            "identityDisplay": "Cisgender Woman",
+            "identityFilter": [
+                "ciswoman"
+            ],
+            "intro": "Jamie Fair, B.F.A. (she/her) is a Vocal Pedagogue/Singing Instructor, Theater/Acting Coach employed at East End Performing Arts.  ",
+            "generalSince": 2009,
+            "gavcSince": 2022,
+            "affiliations": [
+                "American Guild of Musical Artists (AGMA)",
+                "AEA"
+            ],
+            "additionalIdentity": "White cis-female, hobbit-sized. ",
+            "financial": "Private Pay Only, Sliding Scale Available",
+            "website": "https://eastendperformingarts.com",
+            "phone": 4126462288,
+            "email": "eastendperfarts@gmail.com",
+            "training": "Bachelor of Fine Arts in Vocal Performance from Carnegie Mellon, Certificate studies in: Gender Affirming Speech and Signing services from The Voice Lab (Chicago,) Working with Trans and Non-binary Voices (Dr. Anita Kozan,) Vocal Health Intensive under Dr. Claudio Milstein of the Cleveland Clinic, Mental Health First Aid Training (Chatham University) ",
+            "speciality": "Somatic Voicework, Estill, transmasculine and transfeminine singing voice",
+            "cultural": null,
+            "additionalInformation": "I have long felt a kinship with the LGBTQ+ community. I was severely bullied as a child, and it shaped my outlook on life; I identify with those who society tends to 'other.'  As I began teaching, young people I worked with began to come out to me and share their gender journey with me. A neighbor in my apartment budding medically transitioned and I saw the strain she went through trying to talk with elderly neighbors, or those who just didn't want to understand. Around 2019 I learned that other voice professionals like myself were using their skill set to help this community literally find their voice, and I knew it was something I needed to learn about and become involved in. ",
+            "lastUpdated": "September, 2024"
+        },
+        {
+            "isTrainer": true,
+            "name": "Alisha Gagnon",
+            "nameSort": "Gagnon",
+            "credentials": "MA, CCC-SLP",
+            "pin": {
+                "lat": 43.494601,
+                "lng": -70.4490163
+            },
+            "city": "Saco",
+            "state": "Maine",
+            "country": "US",
+            "areas": [
+                "slp"
+            ],
+            "virtualLocations": [
+                "ME"
+            ],
+            "numMods": {
+                "individual_inPerson": true,
+                "individual_virtual": true,
+                "group_inPerson": false,
+                "group_virtual": false
+            },
+            "goals": [
+                "feminine",
+                "masculine",
+                "androgynous"
+            ],
+            "languages": [
+                "english"
+            ],
+            "identityDisplay": "Cisgender Woman",
+            "identityFilter": [
+                "ciswoman"
+            ],
+            "intro": "Alisha Gagnon, MA, CCC-SLP (she/her) is a Speech-Language Pathologist employed at The SLP by the Sea, LLC.  ",
+            "generalSince": 2021,
+            "gavcSince": 2021,
+            "affiliations": [
+                "American Speech-Language-Hearing Association (ASHA)"
+            ],
+            "additionalIdentity": null,
+            "financial": "I am in network with Anthem, Harvard Pilgrim, and MaineCare. Although coverage can vary, I do my best to support the use of insurance wherever possible.",
+            "website": null,
+            "phone": null,
+            "email": "alisha@theslpbythesea.com",
+            "training": "I took the 15 hour Gender Affirming Voice Training: A Self-Study Course for Voice Clinicians course in 2021. Since then I have honed my skills through further clinician consult and self study. ",
+            "speciality": "I work with pediatric through adult clients.",
+            "cultural": "My 15 hour self study course included a formal introduction to this topic.",
+            "additionalInformation": null,
+            "lastUpdated": "September, 2024"
+        },
+        {
+            "isTrainer": true,
+            "name": "Stephen Davidson",
+            "nameSort": "Davidson",
+            "credentials": null,
+            "pin": {
+                "lat": 51.54410439999999,
+                "lng": -0.092906
+            },
+            "city": "London",
+            "state": "England",
+            "country": "GB",
+            "areas": [
+                "other"
+            ],
+            "virtualLocations": [
+                "Globally"
+            ],
+            "numMods": {
+                "individual_inPerson": true,
+                "individual_virtual": true,
+                "group_inPerson": true,
+                "group_virtual": true
+            },
+            "goals": [
+                "feminine",
+                "masculine",
+                "androgynous",
+                "singing"
+            ],
+            "languages": [
+                "english"
+            ],
+            "identityDisplay": "Transgender Man",
+            "identityFilter": [
+                "transman"
+            ],
+            "intro": "Stephen Davidson (he/him) is a Vocal Pedagogue/Singing Instructor and Theater/Acting Coach who is self employed.  ",
+            "generalSince": 2017,
+            "gavcSince": 2017,
+            "affiliations": [],
+            "additionalIdentity": null,
+            "financial": "Private pay only. Sliding scale is available for anyone who needs",
+            "website": "http://londontranschoir.com",
+            "phone": null,
+            "email": "stephendavidson84@gmail.com",
+            "training": "I\u2019ve studied voice for singing and acting widely, and have a BMus (UBC)and MMus (McGill)in music performance. I conduct London Trans Choir and have been teaching gender affirming voice (speaking and singing) for 8 years. I\u2019m the author of \u2018Transmasculine Voice: A Guide To Vocal Euphoria\u2019, available at londontranschoir.com, and I am a trans man myself.",
+            "speciality": "Transmasculine and transfemme singing and speaking voice, voice acting, Estill informed, trauma informed, neurodivergence friendly ",
+            "cultural": "I am a member of the community and regularly attend training relevant to our members, eg disability inclusion, anti racism, trauma aware practice ",
+            "additionalInformation": null,
+            "lastUpdated": "September, 2024"
+        },
+        {
+            "isTrainer": true,
+            "name": "Selene Da Silva",
+            "nameSort": "Silva",
+            "credentials": null,
+            "pin": {
+                "lat": 41.9568433,
+                "lng": -87.71156119999999
+            },
+            "city": "Chicago",
+            "state": "IL",
+            "country": "US",
+            "areas": [
+                "other",
+                "other"
+            ],
+            "virtualLocations": [
+                "Globally"
+            ],
+            "numMods": {
+                "individual_inPerson": false,
+                "individual_virtual": true,
+                "group_inPerson": false,
+                "group_virtual": true
+            },
+            "goals": [
+                "feminine",
+                "masculine",
+                "androgynous",
+                "singing"
+            ],
+            "languages": [
+                "english"
+            ],
+            "identityDisplay": "Transgender Woman",
+            "identityFilter": [
+                "transwoman"
+            ],
+            "intro": "Selene Da Silva (she/her) is a Vocal Pedagogue/Singing Instructor and Gender Affirming Voice Trainer employed at Vox Nova.  ",
+            "generalSince": 2012,
+            "gavcSince": 2018,
+            "affiliations": [],
+            "additionalIdentity": "Trans, Latina",
+            "financial": null,
+            "website": "https://voxnovastudio.com",
+            "phone": 7736270744,
+            "email": "vox.nova.studio@gmail.com",
+            "training": "Selene has been a vocal instructor for over a decade, training singers and actors to find their voices, and use them safely and expressively. Selene takes a perception-based approach to vocal learning, and is working towards the goal of vocal liberation for all trans people.",
+            "speciality": null,
+            "cultural": null,
+            "additionalInformation": null,
+            "lastUpdated": "September, 2024"
+        },
+        {
+            "isTrainer": true,
+            "name": "Christopher Donoso",
+            "nameSort": "Donoso",
+            "credentials": "MS, CCC-SLP",
+            "pin": {
+                "lat": 40.7047775,
+                "lng": -74.0756906
+            },
+            "city": "Jersey City",
+            "state": "New Jersey",
+            "country": "US",
+            "areas": [
+                "slp"
+            ],
+            "virtualLocations": [
+                "NJ",
+                "NY"
+            ],
+            "numMods": {
+                "individual_inPerson": true,
+                "individual_virtual": true,
+                "group_inPerson": true,
+                "group_virtual": true
+            },
+            "goals": [
+                "feminine",
+                "masculine",
+                "androgynous"
+            ],
+            "languages": [
+                "english",
+                "spanish"
+            ],
+            "identityDisplay": "Cisgender Man",
+            "identityFilter": [
+                "cisman"
+            ],
+            "intro": "Christopher Donoso, MS, CCC-SLP (he/him) is a Speech-Language Pathologist employed at CD Speech Therapy.  ",
+            "generalSince": 2023,
+            "gavcSince": 2021,
+            "affiliations": [
+                "American Speech-Language-Hearing Association (ASHA)"
+            ],
+            "additionalIdentity": "Gay Cis Male Latino",
+            "financial": "Currently accepting Aetna insurance and out of pocket. ",
+            "website": "https://www.cdspeech.com/",
+            "phone": null,
+            "email": "cdspeechtherapynj@gmail.com",
+            "training": "MS in Speech Language Pathology with a focus in voice. Completed several GAVC continuing education courses provided by other SLPs and Vocal Coaches. Use of extensive literature and research papers related to GAVC. Continued support in local community groups dedicated to supporting the LGBTQ+ community. ",
+            "speciality": "Transmasculine voice training, Transfeminine gender affirming voice, Renee Yoxon trans voice training, SOVT.",
+            "cultural": "Gender Affirmative Voice Training: Approach and Technique",
+            "additionalInformation": null,
+            "lastUpdated": "September, 2024"
         }
     ],
     "surgeons": [
@@ -14970,8 +15138,8 @@
             "nameSort": "Lin",
             "credentials": "MD",
             "pin": {
-                "lat": 43.65288931593843,
-                "lng": -79.38106578468043
+                "lat": 43.65024077748799,
+                "lng": -79.37807182511634
             },
             "city": "Toronto",
             "state": "ON",
@@ -15015,8 +15183,8 @@
             "nameSort": "Born",
             "credentials": "MD, MS",
             "pin": {
-                "lat": 40.75900026004491,
-                "lng": -73.97322078527334
+                "lat": 40.75559371939584,
+                "lng": -73.9698545719653
             },
             "city": "New York City",
             "state": "NY",
@@ -15062,8 +15230,8 @@
             "nameSort": "Best",
             "credentials": "MD",
             "pin": {
-                "lat": 39.29809132082028,
-                "lng": -76.59859003147811
+                "lat": 39.29675262247441,
+                "lng": -76.59857782571365
             },
             "city": "Baltmore",
             "state": "MD",
@@ -15110,8 +15278,8 @@
             "nameSort": "Shuman",
             "credentials": "MD",
             "pin": {
-                "lat": 34.0644892565565,
-                "lng": -118.19974408948052
+                "lat": 34.05930308724632,
+                "lng": -118.20503579920128
             },
             "city": "Los Angeles",
             "state": "CA",
@@ -15157,8 +15325,8 @@
             "nameSort": "Johns",
             "credentials": "MD",
             "pin": {
-                "lat": 34.06747563250683,
-                "lng": -118.1991010259507
+                "lat": 34.06454088521147,
+                "lng": -118.20096389579474
             },
             "city": "Los Angeles",
             "state": "CA",
@@ -15348,8 +15516,8 @@
             "nameSort": "Tierney",
             "credentials": "MD, MS, MS",
             "pin": {
-                "lat": 41.505744422386904,
-                "lng": -81.62411574009494
+                "lat": 41.500460873616426,
+                "lng": -81.62223869546774
             },
             "city": "Cleveland",
             "state": "OH",
@@ -15394,8 +15562,8 @@
             "nameSort": "Hatcher",
             "credentials": "MD, FACS",
             "pin": {
-                "lat": 33.76860441802049,
-                "lng": -84.38387986011857
+                "lat": 33.76638588031327,
+                "lng": -84.3863094450993
             },
             "city": "Atlanta",
             "state": "GA",
@@ -15489,8 +15657,8 @@
             "nameSort": "Yung",
             "credentials": "MD, FACS",
             "pin": {
-                "lat": 37.78588153274395,
-                "lng": -122.40472078143576
+                "lat": 37.78551767176159,
+                "lng": -122.40828142664348
             },
             "city": "San Francisco",
             "state": "CA",
@@ -15631,8 +15799,8 @@
             "nameSort": "Rosen",
             "credentials": "MD",
             "pin": {
-                "lat": 37.785893805554956,
-                "lng": -122.44388963364095
+                "lat": 37.78397203870874,
+                "lng": -122.44274033126592
             },
             "city": "San Francisco",
             "state": "CA",
@@ -15678,8 +15846,8 @@
             "nameSort": "Madden",
             "credentials": "DO",
             "pin": {
-                "lat": 36.093821101983416,
-                "lng": -80.27040032711571
+                "lat": 36.09479855538625,
+                "lng": -80.27246645808104
             },
             "city": "Winston-Salem",
             "state": "NC",
@@ -15777,8 +15945,8 @@
             "nameSort": "Paddle",
             "credentials": "MD",
             "pin": {
-                "lat": -37.81132237285846,
-                "lng": 144.98119899418265
+                "lat": -37.80917933126899,
+                "lng": 144.9874205016844
             },
             "city": "East Melbourne ",
             "state": "Victoria",
@@ -15828,8 +15996,8 @@
             "nameSort": "Chadwick",
             "credentials": "MD, MS",
             "pin": {
-                "lat": 40.903059124211204,
-                "lng": -73.08629458582658
+                "lat": 40.898419031939696,
+                "lng": -73.08730906115792
             },
             "city": "Stony Brook",
             "state": "NY",
@@ -16046,8 +16214,8 @@
             "nameSort": "Rosow",
             "credentials": "MD",
             "pin": {
-                "lat": 25.785477459241253,
-                "lng": -80.21242477055442
+                "lat": 25.790705589522442,
+                "lng": -80.21598986367093
             },
             "city": "Miami",
             "state": "FL",
@@ -16141,8 +16309,8 @@
             "nameSort": "Leuchter",
             "credentials": "MD",
             "pin": {
-                "lat": 46.189254504498,
-                "lng": 6.148923179198516
+                "lat": 46.1915930054362,
+                "lng": 6.145029406400443
             },
             "city": "Geneva",
             "state": "Geneva",
