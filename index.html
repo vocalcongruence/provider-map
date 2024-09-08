@@ -44,6 +44,16 @@
   </head>
 
   <body>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z755L5E8NH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-Z755L5E8NH');
+    </script>
+
     <div id="map"></div>
 
     <div id="introModal">
@@ -203,60 +213,39 @@
         <hr id="divider-resetAllFilters" />
         <button id="button-resetAllFilters">Reset all Filters</button>
 
-        <hr />
         <div id="filterSet">
-          <p
-            style="display: flex; align-items: center"
-            id="label-professionalArea"
-            class="label"
-          >
-            Professional Area<a
-              class="tooltip"
-              data-tooltip="Learn More"
-              href="https://vocalcongruence.org/#provider-types"
-              target="_blank"
-              ><span class="material-symbols-outlined"> help </span></a
+          <div id="container-location">
+            <hr class="divider-location" />
+  
+            <button id="btn-reset-location" class="resetButton">
+              <span class="material-symbols-outlined"> replay </span>RESET
+            </button>
+            <p id="label-location" class="label">Location</p>
+            <p
+              id="disclaimer-location"
+              class="disclaimer"
+              style="margin-bottom: 8px"
             >
-          </p>
-          <div id="group-professionalArea" class="cbGroup">
-            <input
-              type="checkbox"
-              id="opt-professionalArea-slp"
-              name="opt-professionalArea-slp"
-              value="slp"
+              Providers outside of your selected location may appear if offering
+              virtual services in that location.
+            </p>
+            <select
+              id="opt-country"
               class="filter"
-            />
-            <label for="opt-professionalArea-slp"
-              >Speech-Language Pathologist</label
+              style="margin-bottom: 4px; margin-top: 4px"
             >
-            <input
-              type="checkbox"
-              id="opt-professionalArea-vpst"
-              name="opt-professionalArea-vpst"
-              value="vpst"
-              class="filter"
-            />
-            <label for="opt-professionalArea-vpst"
-              >Vocal Pedagogue/Singing Instructor</label
-            >
-            <input
-              type="checkbox"
-              id="opt-professionalArea-tac"
-              name="opt-professionalArea-tac"
-              value="tac"
-              class="filter"
-            />
-            <label for="opt-professionalArea-tac">Theater/Acting Coach</label>
-            <input
-              type="checkbox"
-              id="opt-professionalArea-gavt"
-              name="opt-professionalArea-gav"
-              value="gavt"
-              class="filter"
-            />
-            <label for="opt-professionalArea-gavt"
-              >Nontraditional Gender-Affirming Voice Trainers</label
-            >
+              <option value="any" default>Any Country</option>
+            </select>
+  
+            <select id="opt-state" class="filter">
+              <option value="any" default>Any State</option>
+            </select>
+  
+            <select id="opt-province" class="filter">
+              <option value="any" default>Any Province</option>
+            </select>
+  
+            <hr class="divider-location" />
           </div>
 
           <p
@@ -282,39 +271,7 @@
             <option value="other">Other</option>
           </select>
 
-          <div id="container-location">
-          <hr class="divider-location" />
-
-          <button id="btn-reset-location" class="resetButton">
-            <span class="material-symbols-outlined"> replay </span>RESET
-          </button>
-          <p id="label-location" class="label">Location</p>
-          <p
-            id="disclaimer-location"
-            class="disclaimer"
-            style="margin-bottom: 8px"
-          >
-            Providers outside of your selected location may appear if offering
-            virtual services in that location.
-          </p>
-          <select
-            id="opt-country"
-            class="filter"
-            style="margin-bottom: 4px; margin-top: 4px"
-          >
-            <option value="any" default>Any Country</option>
-          </select>
-
-          <select id="opt-state" class="filter">
-            <option value="any" default>Any State</option>
-          </select>
-
-          <select id="opt-province" class="filter">
-            <option value="any" default>Any Province</option>
-          </select>
-
-          <hr class="divider-location" />
-        </div>
+          <hr class="divider-surgeon" />
 
           <p id="label-language" class="label">Language</p>
           <select
@@ -386,6 +343,62 @@
               />
               <label for="opt-number-group">Group</label>
             </div>
+          </div>
+
+          <hr class="divider-trainer" />
+
+          <p
+            style="display: flex; align-items: center"
+            id="label-professionalArea"
+            class="label"
+          >
+            Professional Area<a
+              class="tooltip"
+              data-tooltip="Learn More"
+              href="https://vocalcongruence.org/#provider-types"
+              target="_blank"
+              ><span class="material-symbols-outlined"> help </span></a
+            >
+          </p>
+          <div id="group-professionalArea" class="cbGroup">
+            <input
+              type="checkbox"
+              id="opt-professionalArea-slp"
+              name="opt-professionalArea-slp"
+              value="slp"
+              class="filter"
+            />
+            <label for="opt-professionalArea-slp"
+              >Speech-Language Pathologist</label
+            >
+            <input
+              type="checkbox"
+              id="opt-professionalArea-vpst"
+              name="opt-professionalArea-vpst"
+              value="vpst"
+              class="filter"
+            />
+            <label for="opt-professionalArea-vpst"
+              >Vocal Pedagogue/Singing Instructor</label
+            >
+            <input
+              type="checkbox"
+              id="opt-professionalArea-tac"
+              name="opt-professionalArea-tac"
+              value="tac"
+              class="filter"
+            />
+            <label for="opt-professionalArea-tac">Theater/Acting Coach</label>
+            <input
+              type="checkbox"
+              id="opt-professionalArea-gavt"
+              name="opt-professionalArea-gav"
+              value="gavt"
+              class="filter"
+            />
+            <label for="opt-professionalArea-gavt"
+              >Nontraditional Gender-Affirming Voice Trainers</label
+            >
           </div>
 
           <hr class="divider-trainer" />

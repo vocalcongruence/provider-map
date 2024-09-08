@@ -287,8 +287,14 @@ function renderFilters() {
   // Dividers
   if (mode == MODE_TRAINERS) {
     $(".divider-trainer").show();
-  } else {
+    $(".divider-surgeon").hide();
+  } else if (mode == MODE_SURGEONS) {
     $(".divider-trainer").hide();
+    $(".divider-surgeon").show();
+  }
+  else {
+    $(".divider-trainer").hide();
+    $(".divider-surgeon").hide();
   }
 
   // Provider Identity
