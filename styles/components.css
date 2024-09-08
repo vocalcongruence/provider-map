@@ -1,5 +1,6 @@
 .radio-label-clear {
   display: flex;
+  justify-content: space-between;
 }
 
 .resetButton {
