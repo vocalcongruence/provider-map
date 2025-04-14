@@ -21,6 +21,14 @@ function getMarkers() {
   return markers;
 }
 
+function getLocationString(provider) {
+  let cityText = provider.city != null ? provider.city : "";
+  let stateText = provider.state != null ? " " + provider.state : "";
+  let countryText = provider.country != null ? provider.country : "";
+
+  return cityText + stateText + ", " + countryText;
+}
+
 function generateProviders(map, trainers, surgeons, languages) {
   const mode = UI.getProviderTypeToSearch();
 
@@ -158,11 +166,15 @@ function buildProviderListItem(map, trainers, surgeons, languages, provider) {
   const el = document.createElement("div");
   el.className = "provider-list-item";
   el.onclick = () => {
-    if ((UI.getProviderTypeToSearch() == UI.MODE_TRAINERS && !provider.isTrainer) || (UI.getProviderTypeToSearch() == UI.MODE_SURGEONS && provider.isTrainer)) {
+    if (
+      (UI.getProviderTypeToSearch() == UI.MODE_TRAINERS &&
+        !provider.isTrainer) ||
+      (UI.getProviderTypeToSearch() == UI.MODE_SURGEONS && provider.isTrainer)
+    ) {
       $("#opt-providerType").val(UI.MODE_ANY);
       $("#opt-providerType").removeClass("mode-trainers");
       $("#opt-providerType").removeClass("mode-surgeons");
-      generateProviders(map, trainers, surgeons, languages)
+      generateProviders(map, trainers, surgeons, languages);
     }
     loadProvider(provider, languages);
     provider.marker.content.classList.add("highlight");
@@ -194,11 +206,7 @@ function buildProviderListItem(map, trainers, surgeons, languages, provider) {
 
     // In Person
     if (nm.individual_inPerson || nm.group_inPerson) {
-      let cityText = provider.city != null ? provider.city : "";
-      let stateText = provider.city != null ? provider.state : "";
-      let countryText = provider.city != null ? provider.country : "";
-    
-      let str = cityText + " " + stateText + ", " + countryText;
+      let str = getLocationString(provider);
 
       const inPerson = document.createElement("p");
       inPerson.className = "inPerson-container";
@@ -246,11 +254,7 @@ function buildProviderListItem(map, trainers, surgeons, languages, provider) {
       }
     }
   } else {
-    let cityText = provider.city != null ? provider.city : "";
-    let stateText = provider.city != null ? provider.state : "";
-    let countryText = provider.city != null ? provider.country : "";
-    
-    let str = cityText + " " + stateText + ", " + countryText;
+    let str = getLocationString(provider);
 
     const inPerson = document.createElement("p");
     inPerson.className = "inPerson-container";
@@ -275,7 +279,9 @@ function loadProviderList(map, trainers, surgeons, languages, matches) {
   panel.innerHTML = "";
 
   for (let provider of matches) {
-    panel.appendChild(buildProviderListItem(map, trainers, surgeons, languages, provider));
+    panel.appendChild(
+      buildProviderListItem(map, trainers, surgeons, languages, provider)
+    );
   }
 }
 
@@ -284,7 +290,9 @@ function loadSearchList(map, trainers, surgeons, languages, matches) {
   panel.innerHTML = "";
 
   for (let provider of matches) {
-    panel.appendChild(buildProviderListItem(map, trainers, surgeons, languages, provider));
+    panel.appendChild(
+      buildProviderListItem(map, trainers, surgeons, languages, provider)
+    );
   }
 }
 
@@ -372,14 +380,7 @@ function loadProvider(provider, languages) {
     str += nm.group_inPerson ? "Group" : "";
 
     if (provider.country != null && provider.country != "") {
-      str +=
-        " - " +
-        provider.city +
-        " " +
-        provider.state +
-        ", " +
-        provider.country +
-        "";
+      str += " - " + getLocationString(provider);
     }
 
     $("#data-inPerson").text(str);
