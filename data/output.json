@@ -1757,8 +1757,8 @@
             "nameSort": "Fitzpatrick",
             "credentials": "MSc, S-LP (C), Reg. CASLPO",
             "pin": {
-                "lat": 43.65152329172408,
-                "lng": -79.38056008611466
+                "lat": 43.652479472273704,
+                "lng": -79.37395460567885
             },
             "city": "Toronto",
             "state": "ON",
@@ -2252,8 +2252,8 @@
             "nameSort": "Treatman",
             "credentials": "M.A., CCC-SLP",
             "pin": {
-                "lat": 41.87576678909667,
-                "lng": -87.629264914798
+                "lat": 41.88060140015344,
+                "lng": -87.63167043475083
             },
             "city": "Chicago",
             "state": "IL",
@@ -2963,8 +2963,8 @@
             "nameSort": "Adams",
             "credentials": "M.S., CCC-SLP",
             "pin": {
-                "lat": 37.33584198488372,
-                "lng": -121.88831605111064
+                "lat": 37.339153401032924,
+                "lng": -121.88290117101238
             },
             "city": "San Jose",
             "state": "CA",
@@ -4119,8 +4119,8 @@
             "nameSort": "Forest",
             "credentials": "CCC-SLP",
             "pin": {
-                "lat": 34.06379354294722,
-                "lng": -118.20577199371674
+                "lat": 34.06397860678893,
+                "lng": -118.20249245368929
             },
             "city": "Los Angeles",
             "state": "CA",
@@ -4174,8 +4174,8 @@
             "nameSort": "Castro",
             "credentials": "M.S. CCC-SLP",
             "pin": {
-                "lat": 34.05365502876446,
-                "lng": -118.24465096515763
+                "lat": 34.0508457827089,
+                "lng": -118.24481218851612
             },
             "city": "Los Angles",
             "state": "CA",
@@ -4231,8 +4231,8 @@
             "nameSort": "McGinty",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 35.22609545582305,
-                "lng": -80.84111295724345
+                "lat": 35.223471762226445,
+                "lng": -80.84249964438781
             },
             "city": "Charlotte",
             "state": "NC",
@@ -4454,8 +4454,8 @@
             "nameSort": "Dinsmore",
             "credentials": null,
             "pin": {
-                "lat": 41.87295419579422,
-                "lng": -87.63155396523624
+                "lat": 41.87561080292762,
+                "lng": -87.63308616657855
             },
             "city": "Chicago",
             "state": "IL",
@@ -5730,8 +5730,8 @@
             "nameSort": "Beckham",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 41.500173207438635,
-                "lng": -81.62456320695043
+                "lat": 41.502779937354724,
+                "lng": -81.62417368379396
             },
             "city": "Cleveland",
             "state": "OH",
@@ -6384,8 +6384,8 @@
             "nameSort": "DeVore",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 41.87980518150358,
-                "lng": -87.62604669871264
+                "lat": 41.87972831941506,
+                "lng": -87.62581100636126
             },
             "city": "Chicago",
             "state": "IL",
@@ -6548,8 +6548,8 @@
             "nameSort": "Hsu",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 42.362404304705535,
-                "lng": -71.06768838203979
+                "lat": 42.362946007825045,
+                "lng": -71.07234508609095
             },
             "city": "Boston",
             "state": "MA",
@@ -6822,8 +6822,8 @@
             "nameSort": "Wilson",
             "credentials": "MM, MS, CCC-SLP",
             "pin": {
-                "lat": 39.29790176307497,
-                "lng": -76.59292982163869
+                "lat": 39.29913271584811,
+                "lng": -76.5985956378221
             },
             "city": "Baltimore",
             "state": "MD",
@@ -6878,8 +6878,8 @@
             "nameSort": "Pietsch",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 39.294143794379984,
-                "lng": -76.61476627291006
+                "lat": 39.29116052028149,
+                "lng": -76.6155180536394
             },
             "city": "Baltimore",
             "state": "MD",
@@ -7261,8 +7261,8 @@
             "nameSort": "Gonzalez",
             "credentials": null,
             "pin": {
-                "lat": 32.95038058222553,
-                "lng": -96.8004861246475
+                "lat": 32.957741018004505,
+                "lng": -96.80221162914233
             },
             "city": "Dallas",
             "state": "TX",
@@ -7377,8 +7377,8 @@
             "nameSort": "Garneau",
             "credentials": "MA., CCC-SLP",
             "pin": {
-                "lat": 42.359074432496925,
-                "lng": -71.06931241554048
+                "lat": 42.363473904079676,
+                "lng": -71.06683594627562
             },
             "city": "Boston",
             "state": "MA",
@@ -7653,8 +7653,8 @@
             "nameSort": "Majdalani",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 41.87771300404152,
-                "lng": -87.63222421340133
+                "lat": 41.87446678165382,
+                "lng": -87.62823311438117
             },
             "city": "Chicago",
             "state": "IL ",
@@ -7973,8 +7973,8 @@
             "nameSort": "Diemer",
             "credentials": "MM",
             "pin": {
-                "lat": 35.591606396339174,
-                "lng": -82.54974490683094
+                "lat": 35.597311770108384,
+                "lng": -82.55124399107831
             },
             "city": "Asheville",
             "state": "NC",
@@ -8303,8 +8303,8 @@
             "nameSort": "Kalos",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 42.355608534168326,
-                "lng": -71.0715529861035
+                "lat": 42.36584304418835,
+                "lng": -71.07361808459498
             },
             "city": "Boston",
             "state": "MA",
@@ -8631,8 +8631,8 @@
             "nameSort": "Taylor",
             "credentials": "BA, MSpeechPath",
             "pin": {
-                "lat": -31.94819649778052,
-                "lng": 115.86037531154126
+                "lat": -31.953574719742683,
+                "lng": 115.86280482245245
             },
             "city": "Perth",
             "state": "Western Australia ",
@@ -8684,8 +8684,8 @@
             "nameSort": "Fitzenrider",
             "credentials": null,
             "pin": {
-                "lat": 39.75682675919927,
-                "lng": -84.19049353205271
+                "lat": 39.75530119105125,
+                "lng": -84.18926019891079
             },
             "city": "Dayton",
             "state": "OH",
@@ -9504,8 +9504,8 @@
             "nameSort": "Hook",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 35.59159701507033,
-                "lng": -82.54623673194172
+                "lat": 35.600086004644595,
+                "lng": -82.55381058429016
             },
             "city": "Asheville",
             "state": "NC",
@@ -9835,8 +9835,8 @@
             "nameSort": "Weiss",
             "credentials": "DMA",
             "pin": {
-                "lat": 44.97996333640969,
-                "lng": -93.2640329449267
+                "lat": 44.9797142069336,
+                "lng": -93.26160725937712
             },
             "city": "Minneapolis",
             "state": "MN",
@@ -10485,8 +10485,8 @@
             "nameSort": "Hassan",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 39.293662418262336,
-                "lng": -76.60988632221456
+                "lat": 39.29405883220465,
+                "lng": -76.61705077899934
             },
             "city": "Baltimore",
             "state": "MD",
@@ -10537,8 +10537,8 @@
             "nameSort": "Dubiak",
             "credentials": "M.S., CCC-SLP",
             "pin": {
-                "lat": 42.88397231611898,
-                "lng": -85.60923850173593
+                "lat": 42.8803689814803,
+                "lng": -85.60822211195969
             },
             "city": "Grand Rapids",
             "state": "MI",
@@ -10695,8 +10695,8 @@
             "nameSort": "Strong",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 33.44644844383431,
-                "lng": -112.07740881720471
+                "lat": 33.4510053757251,
+                "lng": -112.07619988494635
             },
             "city": "Phoenix ",
             "state": "AZ",
@@ -10745,8 +10745,8 @@
             "nameSort": "Adaire",
             "credentials": "Designated Linklater Voice Teacher",
             "pin": {
-                "lat": 34.05257947273629,
-                "lng": -118.24678741415148
+                "lat": 34.05261480003204,
+                "lng": -118.2427820559415
             },
             "city": "Los Angeles",
             "state": "CA",
@@ -11019,8 +11019,8 @@
             "nameSort": "Litts",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 39.73899359808734,
-                "lng": -104.9924713201992
+                "lat": 39.738712254020946,
+                "lng": -104.9935033533281
             },
             "city": "Denver",
             "state": "CO",
@@ -11073,8 +11073,8 @@
             "nameSort": "Trifiro",
             "credentials": "M.S., CCC-SLP",
             "pin": {
-                "lat": 38.268076602499725,
-                "lng": -104.61245347219544
+                "lat": 38.261259987153146,
+                "lng": -104.6133607997798
             },
             "city": "Pueblo ",
             "state": "CO",
@@ -11230,8 +11230,8 @@
             "nameSort": "Allaway",
             "credentials": "MS",
             "pin": {
-                "lat": 45.51298664388442,
-                "lng": -122.6753667463513
+                "lat": 45.51249555956988,
+                "lng": -122.67450683760524
             },
             "city": "Portland",
             "state": "OR",
@@ -12436,8 +12436,8 @@
             "nameSort": "Smeltzer",
             "credentials": "MS, CF-SLP",
             "pin": {
-                "lat": 39.7475972647177,
-                "lng": -104.84292539421378
+                "lat": 39.74611177852182,
+                "lng": -104.83929670847176
             },
             "city": "Aurora",
             "state": "CO",
@@ -12771,8 +12771,8 @@
             "nameSort": "Ziegler",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 43.0425175989473,
-                "lng": -88.02569774053924
+                "lat": 43.0364757466495,
+                "lng": -88.02382474148993
             },
             "city": "Wauwatosa",
             "state": "WI",
@@ -13037,8 +13037,8 @@
             "nameSort": "Lewandowski",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 40.43615523470827,
-                "lng": -79.98906263618359
+                "lat": 40.438187217207286,
+                "lng": -79.98227945068835
             },
             "city": "Pittsburgh",
             "state": "PA",
@@ -13253,8 +13253,8 @@
             "nameSort": "Goings",
             "credentials": "M.S., CCC-SLP",
             "pin": {
-                "lat": 43.1584376215393,
-                "lng": -77.61178959536772
+                "lat": 43.15403376228458,
+                "lng": -77.61104602485783
             },
             "city": "Rochester",
             "state": "NY",
@@ -13412,8 +13412,8 @@
             "nameSort": "Habich",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 40.44272815566415,
-                "lng": -79.99557382626266
+                "lat": 40.443442786960965,
+                "lng": -79.9990996938365
             },
             "city": "Pittsburgh",
             "state": "PA",
@@ -13735,8 +13735,8 @@
             "nameSort": "Collum",
             "credentials": "MA, CCC-SLP",
             "pin": {
-                "lat": 40.7556820173704,
-                "lng": -111.82496909428829
+                "lat": 40.75200881272158,
+                "lng": -111.82827755874312
             },
             "city": "Salt Lake City",
             "state": "UT",
@@ -14061,8 +14061,8 @@
             "nameSort": "Mahon",
             "credentials": "MS, CF-SLP",
             "pin": {
-                "lat": 40.43244656616776,
-                "lng": -79.98635537489297
+                "lat": 40.43290951069075,
+                "lng": -79.98289147627325
             },
             "city": "Pittsburgh",
             "state": "PA",
@@ -14334,8 +14334,8 @@
             "nameSort": "Conn",
             "credentials": "PhD Linguistics, MS SPHR, CCC-SLP",
             "pin": {
-                "lat": 45.51242379535404,
-                "lng": -122.68070680768828
+                "lat": 45.5131180842353,
+                "lng": -122.67780935912921
             },
             "city": "Portland",
             "state": "OR",
@@ -15157,8 +15157,8 @@
             "nameSort": "MS",
             "credentials": "CCC-SLP",
             "pin": {
-                "lat": 40.433836966905496,
-                "lng": -79.98865405359616
+                "lat": 40.42974569180348,
+                "lng": -79.98063013776681
             },
             "city": "Pittsburgh",
             "state": "PA",
@@ -15592,8 +15592,8 @@
             "nameSort": "Dibble",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 47.60365316143396,
-                "lng": -122.3308725648451
+                "lat": 47.60861891076684,
+                "lng": -122.33314498830026
             },
             "city": "Seattle",
             "state": "WA",
@@ -15865,8 +15865,8 @@
             "nameSort": "Callahan",
             "credentials": "M.S., CF-SLP, TSSLD",
             "pin": {
-                "lat": 42.509740645390266,
-                "lng": -82.90286191973937
+                "lat": 42.51175731024914,
+                "lng": -82.9062347442076
             },
             "city": "St. Clair Shores",
             "state": "Michigan",
@@ -16076,8 +16076,8 @@
             "nameSort": "Munoz",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 41.82618035310807,
-                "lng": -71.41238520438924
+                "lat": 41.82029245885067,
+                "lng": -71.41080723539503
             },
             "city": "Providence",
             "state": "RI",
@@ -16184,6 +16184,118 @@
         },
         {
             "isTrainer": true,
+            "name": "Dr. Barbara Richmond-van Olffen",
+            "nameSort": "Olffen",
+            "credentials": null,
+            "pin": {
+                "lat": 52.3878254,
+                "lng": 5.2152437
+            },
+            "city": "Almere",
+            "state": "The Netherlands ",
+            "country": "NL",
+            "areas": [
+                "slp"
+            ],
+            "virtualLocations": [
+                "Globally"
+            ],
+            "numMods": {
+                "individual_inPerson": true,
+                "individual_virtual": true,
+                "group_inPerson": true,
+                "group_virtual": true
+            },
+            "goals": [
+                "feminine",
+                "masculine",
+                "androgynous",
+                "singing"
+            ],
+            "languages": [
+                "dutch",
+                "english"
+            ],
+            "identityDisplay": "Cisgender Woman",
+            "identityFilter": [
+                "ciswoman"
+            ],
+            "intro": "Dr. Barbara Richmond-van Olffen (she/her) is a Speech-Language Pathologist employed at Logopedie Flevoland.  ",
+            "generalSince": 2001,
+            "gavcSince": 2002,
+            "affiliations": [
+                "World Professional Association for Transgender Health (WPATH)",
+                "NVLF"
+            ],
+            "additionalIdentity": null,
+            "financial": "info@logoflevo.nl for the options",
+            "website": "www.logoflevo.nl",
+            "phone": "0031625542575",
+            "email": "info@logoflevo.nl",
+            "training": "Voice and Speech therapy, linguistics, giving courses to SLP's about voice in transition",
+            "speciality": "Voice in Transition therapy all ages",
+            "cultural": "EPATH, linguistics",
+            "additionalInformation": null,
+            "lastUpdated": "January, 2025"
+        },
+        {
+            "isTrainer": true,
+            "name": "Dr. Esther Miske",
+            "nameSort": "Miske",
+            "credentials": "MA",
+            "pin": {
+                "lat": 52.38618050686132,
+                "lng": 5.2115422084565886
+            },
+            "city": "Almere",
+            "state": "The Netherlands ",
+            "country": "NL",
+            "areas": [
+                "slp"
+            ],
+            "virtualLocations": [
+                "Globally"
+            ],
+            "numMods": {
+                "individual_inPerson": true,
+                "individual_virtual": true,
+                "group_inPerson": true,
+                "group_virtual": true
+            },
+            "goals": [
+                "feminine",
+                "masculine",
+                "androgynous",
+                "singing"
+            ],
+            "languages": [
+                "dutch",
+                "english"
+            ],
+            "identityDisplay": "Cisgender Woman",
+            "identityFilter": [
+                "ciswoman"
+            ],
+            "intro": "Dr. Esther Miske, MA (she/her) is a Speech-Language Pathologist employed at Logopedie Flevoland. ",
+            "generalSince": 2017,
+            "gavcSince": null,
+            "affiliations": [
+                "World Professional Association for Transgender Health (WPATH)",
+                "NVLF"
+            ],
+            "additionalIdentity": null,
+            "financial": "info@logoflevo.nl for the options",
+            "website": "www.logoflevo.nl",
+            "phone": "0031625542575",
+            "email": "info@logoflevo.nl",
+            "training": "Voice and Speech therapy, linguistics, giving courses to SLP's about voice in transition",
+            "speciality": "Voice in Transition therapy all ages",
+            "cultural": "EPATH, linguistics",
+            "additionalInformation": null,
+            "lastUpdated": "January, 2025"
+        },
+        {
+            "isTrainer": true,
             "name": "Bobbie Albertson",
             "nameSort": "Albertson",
             "credentials": "MS CCC-SLP",
@@ -16232,6 +16344,62 @@
             "training": "I have taken several continuing education courses, including a Gender Voice Workshop led by TGNC individuals. ",
             "speciality": null,
             "cultural": "several courses in diversity, equity and inclusion, with some being taught by TGNC individuals",
+            "additionalInformation": null,
+            "lastUpdated": "February, 2025"
+        },
+        {
+            "isTrainer": true,
+            "name": "Katrien Eerdekens",
+            "nameSort": "Eerdekens",
+            "credentials": null,
+            "pin": {
+                "lat": 51.2060999,
+                "lng": 4.4289926
+            },
+            "city": "Antwerp ",
+            "state": "Antwerp",
+            "country": "BE",
+            "areas": [
+                "slp"
+            ],
+            "virtualLocations": [
+                "BE"
+            ],
+            "numMods": {
+                "individual_inPerson": true,
+                "individual_virtual": true,
+                "group_inPerson": true,
+                "group_virtual": false
+            },
+            "goals": [
+                "feminine",
+                "masculine",
+                "androgynous",
+                "singing"
+            ],
+            "languages": [
+                "dutch",
+                "english"
+            ],
+            "identityDisplay": "Cisgender Woman",
+            "identityFilter": [
+                "ciswoman"
+            ],
+            "intro": "Katrien Eerdekens (she/her) is a Speech-Language Pathologist employed at Genderteam + Private Practice.  ",
+            "generalSince": 2007,
+            "gavcSince": 2008,
+            "affiliations": [
+                "World Professional Association for Transgender Health (WPATH)",
+                "EPATH"
+            ],
+            "additionalIdentity": "I'm the leader of the Antwerp Queer Choir",
+            "financial": "Some Insurances Accepted, Private Pay Only",
+            "website": "www.findyourvoice.be",
+            "phone": null,
+            "email": "katrien@findyourvoice.be",
+            "training": "Speech and Language/Voice Therapist, specialisation voice, transgender voice, singing voice, queer choir leading",
+            "speciality": "Voice and identity, queer choir",
+            "cultural": null,
             "additionalInformation": null,
             "lastUpdated": "February, 2025"
         },
@@ -16295,8 +16463,8 @@
             "nameSort": "Wright",
             "credentials": "MM, MA, CCC-SLP",
             "pin": {
-                "lat": 33.509466650164576,
-                "lng": -86.79800144023994
+                "lat": 33.505789936534136,
+                "lng": -86.79950225495473
             },
             "city": "Birmingham",
             "state": "Alabama",
@@ -16402,8 +16570,8 @@
             "nameSort": "Ganesan",
             "credentials": "MS, CCC-SLP",
             "pin": {
-                "lat": 32.712139744970465,
-                "lng": -117.16138094169102
+                "lat": 32.71811533152728,
+                "lng": -117.16065549862967
             },
             "city": "San Diego",
             "state": "CA",
@@ -16791,8 +16959,8 @@
             "nameSort": "Lin",
             "credentials": "MD",
             "pin": {
-                "lat": 43.657221334090636,
-                "lng": -79.3793628174118
+                "lat": 43.655836157483684,
+                "lng": -79.37430349291012
             },
             "city": "Toronto",
             "state": "ON",
@@ -16836,8 +17004,8 @@
             "nameSort": "Born",
             "credentials": "MD, MS",
             "pin": {
-                "lat": 40.75665296411753,
-                "lng": -73.97248398730622
+                "lat": 40.75913290207334,
+                "lng": -73.96751997422508
             },
             "city": "New York City",
             "state": "NY",
@@ -16883,8 +17051,8 @@
             "nameSort": "Best",
             "credentials": "MD",
             "pin": {
-                "lat": 39.29660679390627,
-                "lng": -76.58913272503256
+                "lat": 39.29659755229765,
+                "lng": -76.59301000990295
             },
             "city": "Baltmore",
             "state": "MD",
@@ -16931,8 +17099,8 @@
             "nameSort": "Shuman",
             "credentials": "MD",
             "pin": {
-                "lat": 34.05954311485161,
-                "lng": -118.20456636609457
+                "lat": 34.062575621073286,
+                "lng": -118.20030199992553
             },
             "city": "Los Angeles",
             "state": "CA",
@@ -16978,8 +17146,8 @@
             "nameSort": "Johns",
             "credentials": "MD",
             "pin": {
-                "lat": 34.06583613804932,
-                "lng": -118.20254391273512
+                "lat": 34.05987512339226,
+                "lng": -118.20591499717445
             },
             "city": "Los Angeles",
             "state": "CA",
@@ -17169,8 +17337,8 @@
             "nameSort": "Tierney",
             "credentials": "MD, MS, MS",
             "pin": {
-                "lat": 41.498097681332325,
-                "lng": -81.6249735988647
+                "lat": 41.49977155737353,
+                "lng": -81.617759182111
             },
             "city": "Cleveland",
             "state": "OH",
@@ -17215,8 +17383,8 @@
             "nameSort": "Hatcher",
             "credentials": "MD, FACS",
             "pin": {
-                "lat": 33.77261182872074,
-                "lng": -84.38490977231466
+                "lat": 33.76936300518713,
+                "lng": -84.38273849847413
             },
             "city": "Atlanta",
             "state": "GA",
@@ -17310,8 +17478,8 @@
             "nameSort": "Yung",
             "credentials": "MD, FACS",
             "pin": {
-                "lat": 37.79162078278038,
-                "lng": -122.40881967596252
+                "lat": 37.79265110064968,
+                "lng": -122.40811249804236
             },
             "city": "San Francisco",
             "state": "CA",
@@ -17452,8 +17620,8 @@
             "nameSort": "Rosen",
             "credentials": "MD",
             "pin": {
-                "lat": 37.787862022706115,
-                "lng": -122.43942115402481
+                "lat": 37.78452958650059,
+                "lng": -122.4383442930661
             },
             "city": "San Francisco",
             "state": "CA",
@@ -17499,8 +17667,8 @@
             "nameSort": "Madden",
             "credentials": "DO",
             "pin": {
-                "lat": 36.09042770457429,
-                "lng": -80.27641858384509
+                "lat": 36.0951933569411,
+                "lng": -80.27101004028896
             },
             "city": "Winston-Salem",
             "state": "NC",
@@ -17550,8 +17718,8 @@
             "nameSort": "Courey",
             "credentials": "MD",
             "pin": {
-                "lat": 40.7888281470795,
-                "lng": -73.95034791162163
+                "lat": 40.78933158505822,
+                "lng": -73.95157487355691
             },
             "city": "New York",
             "state": "NY",
@@ -17598,8 +17766,8 @@
             "nameSort": "Paddle",
             "credentials": "MD",
             "pin": {
-                "lat": -37.809263393392335,
-                "lng": 144.98630774869858
+                "lat": -37.81442541650547,
+                "lng": 144.9852096763236
             },
             "city": "East Melbourne ",
             "state": "Victoria",
@@ -17649,8 +17817,8 @@
             "nameSort": "Chadwick",
             "credentials": "MD, MS",
             "pin": {
-                "lat": 40.9037715763569,
-                "lng": -73.09078142134514
+                "lat": 40.898287608698595,
+                "lng": -73.08766032843295
             },
             "city": "Stony Brook",
             "state": "NY",
@@ -17867,8 +18035,8 @@
             "nameSort": "Rosow",
             "credentials": "MD",
             "pin": {
-                "lat": 25.785854067203292,
-                "lng": -80.21027964851565
+                "lat": 25.786149728095882,
+                "lng": -80.21663791372742
             },
             "city": "Miami",
             "state": "FL",
@@ -17962,8 +18130,8 @@
             "nameSort": "Leuchter",
             "credentials": "MD",
             "pin": {
-                "lat": 46.197450292415326,
-                "lng": 6.150126630680249
+                "lat": 46.18995581345252,
+                "lng": 6.1458501988099
             },
             "city": "Geneva",
             "state": "Geneva",
@@ -18305,8 +18473,8 @@
             "nameSort": "Maria",
             "credentials": "MD, MPH",
             "pin": {
-                "lat": 40.43805083544436,
-                "lng": -79.98217109830284
+                "lat": 40.43375350846701,
+                "lng": -79.98595234619746
             },
             "city": "Pittsburgh",
             "state": "Pennsylvania",
@@ -18399,8 +18567,8 @@
             "nameSort": "Ambrose",
             "credentials": "MD",
             "pin": {
-                "lat": 39.724900095279864,
-                "lng": -104.99247591549523
+                "lat": 39.723712834914345,
+                "lng": -104.98885726293301
             },
             "city": "Denver",
             "state": "CO",
@@ -18443,6 +18611,7 @@
     "countries": [
         "US",
         "AU",
+        "BE",
         "BR",
         "CA",
         "CH",
@@ -18453,6 +18622,7 @@
         "GB",
         "IL",
         "MX",
+        "NL",
         "NO",
         "NZ",
         "SG",
@@ -18498,6 +18668,10 @@
         {
             "display": "Cantonese",
             "value": "cantonese"
+        },
+        {
+            "display": "Dutch",
+            "value": "dutch"
         },
         {
             "display": "French",
