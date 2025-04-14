@@ -242,7 +242,11 @@ function buildProviderListItem(map, trainers, surgeons, languages, provider) {
       }
     }
   } else {
-    let str = provider.city + " " + provider.state + ", " + provider.country;
+    let cityText = provider.city != null ? provider.city : "";
+    let stateText = provider.city != null ? provider.state : "";
+    let countryText = provider.city != null ? provider.country : "";
+    
+    let str = cityText + " " + stateText + ", " + countryText;
 
     const inPerson = document.createElement("p");
     inPerson.className = "inPerson-container";
