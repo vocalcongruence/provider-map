@@ -19,11 +19,19 @@
   border-radius: 32px;
   max-width: 600px;
   z-index: 99999;
+  max-height: 80vh;
 }
 
 #introModal #content h1 {
   font-size: 32px;
   color: var(--color-pink);
+}
+
+#introModal .scrollable {
+  overflow-y: auto;
+  height: 70vh;
+  max-height: 650px;
+  padding-right: 16px;
 }
 
 #button-closeModal {
