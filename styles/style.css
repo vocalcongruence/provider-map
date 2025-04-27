@@ -8,6 +8,8 @@
   --color-blue: #8aa2d9;
   --color-blue-bright: #a9bdee;
 
+  
+
   --gradient-ltr: linear-gradient(
     45deg,
     var(--color-pink) 0%,
@@ -17,6 +19,72 @@
     45deg,
     var(--color-pink-bright) 0%,
     var(--color-blue-bright) 100%
+  );
+
+  --black: hsl(0, 0%, 0%);
+  --darkestgray: hsl(0, 0%, 5%);
+  --darkergray: hsl(0, 0%, 12%);
+  --darkgray: hsl(0, 0%, 20%);
+  --gray: hsl(0, 0%, 30%);
+  --lightgray: hsl(0, 0%, 40%);
+  --lightergray: hsl(0, 0%, 60%);
+  --lightestgray: hsl(0, 0%, 80%);
+  --white: hsl(0, 0%, 100%);
+
+  --darkpink: hsl(323, 59%, 64%);
+  --pink: #e496c6;
+  --lightpink: hsl(323, 59%, 84%);
+  --lighterpink: hsl(323, 59%, 89%);
+  --darkblue: hsl(222, 51%, 60%);
+  --blue: #8ba3da;
+  --lightblue: hsl(222, 51%, 80%);
+  --lighterblue: hsl(222, 51%, 90%);
+
+  --gradient: linear-gradient(to right, var(--pink) 0%, var(--blue) 100%);
+  --gradient-darkpink: linear-gradient(
+    to right,
+    var(--darkpink) 0%,
+    var(--pink) 100%
+  );
+  --gradient-pink: linear-gradient(
+    to right,
+    var(--pink) 0%,
+    var(--lightpink) 100%
+  );
+  --gradient-lightpink: linear-gradient(
+    to right,
+    var(--lightpink) 0%,
+    var(--lighterpink) 100%
+  );
+  --gradient-darkblue: linear-gradient(
+    to right,
+    var(--darkblue) 0%,
+    var(--blue) 100%
+  );
+  --gradient-blue: linear-gradient(
+    to right,
+    var(--blue) 0%,
+    var(--lightblue) 100%
+  );
+  --gradient-lightblue: linear-gradient(
+    to right,
+    var(--lightblue) 0%,
+    var(--lighterblue) 100%
+  );
+  --gradient-darkbackground: linear-gradient(
+    to right,
+    var(--darkestgray) 0%,
+    var(--background) 100%
+  );
+  --gradient-background: linear-gradient(
+    to right,
+    var(--background) 0%,
+    var(--darkgray) 100%
+  );
+  --gradient-lightground: linear-gradient(
+    to right,
+    var(--darkgray) 0%,
+    var(--gray) 100%
   );
 }
 

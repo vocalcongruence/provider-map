@@ -32,6 +32,8 @@
   height: 70vh;
   max-height: 650px;
   padding-right: 16px;
+  display: flex;
+  flex-direction: column;
 }
 
 #button-closeModal {
@@ -46,36 +48,66 @@
   font-size: 32px;
 }
 
-#introModal #options-container {
+#button-closeModal2 {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 0 auto;
+  height: 48px;
+  border: none;
+  border-radius: 48px;
+  background: var(--gradient-pink);
+  
+  padding: 0 24px;
+}
+
+#button-closeModal2 > p {
+  color: var(--color-main);
+  font-weight: bolder;
+  font-size: 16px;
+  text-transform: uppercase;
+  height: 48px;
   display: flex;
-  justify-content: space-around;
-  margin: 32px 0;
+  align-items: center;
+  justify-content: center;
+}
+
+#introModal #options-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: fit-content;
+  column-gap: 32px;
+  margin: 32px auto;
+}
+
+.options-right,
+.options-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.options-bottom {
+  display: flex;
+  justify-content: center;
+  grid-column: span 2;
 }
 
 #option {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  max-width: 30%;
-}
-
-#option h2 {
-  margin: 4px 0;
-  color: white;
-  font-size: 20px;
+  margin-bottom: 8px;
 }
 
 #option span {
-  font-size: 64px;
+  font-size: 32px;
 }
 
 #option img {
-  width: 64px;
+  width: 32px;
 }
 
 #option p {
-  text-align: center;
-  font-size: 14px;
+  margin-left: 8px;
+  font-size: 16px;
 }
 
 #help-icon-message {
@@ -92,10 +124,25 @@
 
 #join-message {
   margin-top: 32px;
-  text-align: center;
 }
 
 #introModal .disclaimer {
   text-align: center;
-  margin-top: 32px;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  #introModal #options-container {
+    grid-template-columns: auto;
+  }
+
+  #option span {
+    font-size: 24px;
+  }
+
+  .options-right,
+  .options-left {
+    grid-column: span 2;
+  }
 }

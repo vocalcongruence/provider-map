@@ -45,13 +45,18 @@
 
   <body>
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z755L5E8NH"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Z755L5E8NH"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-Z755L5E8NH');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-Z755L5E8NH");
     </script>
 
     <div id="map"></div>
@@ -76,60 +81,56 @@
             <br />
             It includes gender-affirming voice and communication
             <strong>trainers</strong> and <strong>surgeons</strong>.
+            <br />
+            <br />
+            Are you a provider? <a
+            style="color: var(--color-pink)"
+            href="https://vocalcongruence.org/#join"
+            >Learn more about joining this map</a
+            >.
           </p>
+
           <div id="options-container">
-            <div id="option">
-              <span class="material-symbols-outlined">filter_alt</span>
-              <h2>Filter</h2>
-              <p>Narrow your search</p>
+            <div class="options-left">
+              <div id="option">
+                <span class="material-symbols-outlined">filter_alt</span>
+                <p>Narrow your search</p>
+              </div>
+              <div id="option">
+                <span class="material-symbols-outlined">list</span>
+                <p>View providers as list</p>
+              </div>
+              <div id="option">
+                <span class="material-symbols-outlined">search</span>
+                <p>Search providers by name</p>
+              </div>
             </div>
-            <div id="option">
-              <span class="material-symbols-outlined">list</span>
-              <h2>List</h2>
-              <p>View providers as list</p>
+            <div class="options-right">
+              <div id="option">
+                <img src="./vcp-logo.png" alt="Vocal Congruence Project Logo" />
+                <p>Check out our website</p>
+              </div>
+              <div id="option">
+                <span class="material-symbols-outlined">favorite</span>
+                <p>Support this project</p>
+              </div>
+              <div id="option">
+                <span class="material-symbols-outlined">info</span>
+                <p>Show this message again</p>
+              </div>
             </div>
-            <div id="option">
-              <span class="material-symbols-outlined">search</span>
-              <h2>Search</h2>
-              <p>Search providers by name</p>
+            <div class="options-bottom">
+              <div id="option">
+                <span class="material-symbols-outlined">help</span>
+                <p>Learn more about concepts and terms</p>
+              </div>
             </div>
           </div>
-          <div id="options-container">
-            <div id="option">
-              <img src="./vcp-logo.png" alt="Vocal Congruence Project Logo" />
-              <h2>Website</h2>
-              <p>Check out our website</p>
-            </div>
-            <div id="option">
-              <span class="material-symbols-outlined">favorite</span>
-              <h2>Support</h2>
-              <p>Support this project</p>
-            </div>
-            <div id="option">
-              <span class="material-symbols-outlined">info</span>
-              <h2>Info</h2>
-              <p>Show this message again</p>
-            </div>
-          </div>
 
-          <div id="help-icon-message">
-            <span class="material-symbols-outlined">help</span>
-            <p>
-              Click on the help icons to learn more about certain concepts and
-              terms.
-            </p>
-          </div>
+          <button id="button-closeModal2"><p>Browse the Map</p></button>
 
-          <p class="disclaimer">* Please note that provider locations are approximate.</p>
-
-          <p id="join-message">
-            Are you a provider?
-            <a
-              style="color: var(--color-pink)"
-              href="https://vocalcongruence.org/#join"
-              >Learn more</a
-            >
-            about joining this map.
+          <p class="disclaimer">
+            Please note that provider locations are approximate.
           </p>
         </div>
       </div>
@@ -220,7 +221,7 @@
         <div id="filterSet">
           <div id="container-location">
             <hr class="divider-location" />
-  
+
             <button id="btn-reset-location" class="resetButton">
               <span class="material-symbols-outlined"> replay </span>RESET
             </button>
@@ -240,15 +241,15 @@
             >
               <option value="any" default>Any Country</option>
             </select>
-  
+
             <select id="opt-state" class="filter">
               <option value="any" default>Any State</option>
             </select>
-  
+
             <select id="opt-province" class="filter">
               <option value="any" default>Any Province</option>
             </select>
-  
+
             <hr class="divider-location" />
           </div>
 
@@ -576,28 +577,26 @@
         <span class="material-symbols-outlined">person</span>
       </div>
 
-      
-        <h2 id="data-name"></h2>
-        <h3 style="display: flex; align-items: center">
-          <span id="data-credentials"></span
-          ><a
-            id="tooltip-credentials"
-            class="tooltip"
-            data-tooltip="Learn More"
-            href="https://vocalcongruence.org/#degrees"
-            target="_blank"
-            ><span class="material-symbols-outlined"> help </span></a
-          >
-        </h3>
-        <hr />
+      <h2 id="data-name"></h2>
+      <h3 style="display: flex; align-items: center">
+        <span id="data-credentials"></span
+        ><a
+          id="tooltip-credentials"
+          class="tooltip"
+          data-tooltip="Learn More"
+          href="https://vocalcongruence.org/#degrees"
+          target="_blank"
+          ><span class="material-symbols-outlined"> help </span></a
+        >
+      </h3>
+      <hr />
 
-        <div id="panel-right-providerDetails">
-
-          <p class="disclaimer" style="margin-bottom: 16px">
-            Information was submitted by provider.
-            <br>
-            Last updated <span id="data-lastUpdated"></span>.
-          </p>
+      <div id="panel-right-providerDetails">
+        <p class="disclaimer" style="margin-bottom: 16px">
+          Information was submitted by provider.
+          <br />
+          Last updated <span id="data-lastUpdated"></span>.
+        </p>
 
         <!-- Quick Info -->
 
@@ -636,9 +635,9 @@
           <p class="quick-info-item-value">
             <span id="qii-servicesSince-general"
               >General voice since <span id="data-since"></span>
-          </span>
-              <span id="qii-servicesSince-ga"
-                >Gender-affirming since <span id="data-sinceGA"></span></span
+            </span>
+            <span id="qii-servicesSince-ga"
+              >Gender-affirming since <span id="data-sinceGA"></span
             ></span>
           </p>
         </div>
@@ -660,15 +659,13 @@
             style="text-transform: capitalize"
           ></p>
         </div>
-        
+
         <div class="quick-info-item" id="qii-procedures">
           <p class="quick-info-item-label">
-            <span class="material-symbols-outlined">local_hospital</span>Procedures Offered
+            <span class="material-symbols-outlined">local_hospital</span
+            >Procedures Offered
           </p>
-          <ul
-            id="data-procedures"
-            class="quick-info-item-value"
-          ></ul>
+          <ul id="data-procedures" class="quick-info-item-value"></ul>
         </div>
 
         <hr />
@@ -704,14 +701,17 @@
           </details>
 
           <details id="section-provider-finance" class="section">
-            <summary><span style="display: flex; align-items: center; color: white"
-              >Financial Information<a
-              class="tooltip"
-              data-tooltip="Learn More"
-              href="https://vocalcongruence.org/#finances"
-              target="_blank"
-              ><span class="material-symbols-outlined"> help </span></a
-            ></span></summary>
+            <summary>
+              <span style="display: flex; align-items: center; color: white"
+                >Financial Information<a
+                  class="tooltip"
+                  data-tooltip="Learn More"
+                  href="https://vocalcongruence.org/#finances"
+                  target="_blank"
+                  ><span class="material-symbols-outlined"> help </span></a
+                ></span
+              >
+            </summary>
             <p id="data-provider-finance"></p>
           </details>
 
