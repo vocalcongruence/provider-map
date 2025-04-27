@@ -167,6 +167,10 @@ function attachEvents() {
     UI.showModal(false);
     e.stopPropagation(); 
   });
+  $("#button-closeModal2").on("click", (e) => {
+    UI.showModal(false);
+    e.stopPropagation(); 
+  });
 
   $("#introModal").on("click", () => {
     UI.showModal(false);
