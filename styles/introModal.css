@@ -20,6 +20,7 @@
   max-width: 600px;
   z-index: 99999;
   max-height: 80vh;
+  height: fit-content;
 }
 
 #introModal #content h1 {
@@ -29,8 +30,7 @@
 
 #introModal .scrollable {
   overflow-y: auto;
-  height: 70vh;
-  max-height: 500px;
+  max-height: 90vh;
   padding-right: 16px;
   display: flex;
   flex-direction: column;
