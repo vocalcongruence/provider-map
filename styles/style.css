@@ -1,221 +1,252 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Audio Masking Tool</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <!-- Inter from Google Fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
+:root {
+  --color-main: #1f1f1f;
+  --color-highlight: #363636;
+  --color-highlight2: rgb(209, 209, 209);
 
-    <style>
-      :root {
-        --color-main: #1f1f1f;
-        --color-highlight: #363636;
-        --color-highlight2: rgb(209, 209, 209);
+  --color-pink: #d98abb;
+  --color-pink-bright: #ebabd2;
+  --color-blue: #8aa2d9;
+  --color-blue-bright: #a9bdee;
 
-        --color-pink: #d98abb;
-        --color-pink-bright: #ebabd2;
-        --color-blue: #8aa2d9;
-        --color-blue-bright: #a9bdee;
+  
 
-        --gradient-ltr: linear-gradient(
-          45deg,
-          var(--color-pink) 0%,
-          var(--color-blue) 100%
-        );
-        --gradient-ltr-bright: linear-gradient(
-          45deg,
-          var(--color-pink-bright) 0%,
-          var(--color-blue-bright) 100%
-        );
+  --gradient-ltr: linear-gradient(
+    45deg,
+    var(--color-pink) 0%,
+    var(--color-blue) 100%
+  );
+  --gradient-ltr-bright: linear-gradient(
+    45deg,
+    var(--color-pink-bright) 0%,
+    var(--color-blue-bright) 100%
+  );
 
-        --black: hsl(0, 0%, 0%);
-        --darkestgray: hsl(0, 0%, 5%);
-        --darkergray: hsl(0, 0%, 12%);
-        --darkgray: hsl(0, 0%, 20%);
-        --gray: hsl(0, 0%, 30%);
-        --lightgray: hsl(0, 0%, 40%);
-        --lightergray: hsl(0, 0%, 60%);
-        --lightestgray: hsl(0, 0%, 80%);
-        --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --darkestgray: hsl(0, 0%, 5%);
+  --darkergray: hsl(0, 0%, 12%);
+  --darkgray: hsl(0, 0%, 20%);
+  --gray: hsl(0, 0%, 30%);
+  --lightgray: hsl(0, 0%, 40%);
+  --lightergray: hsl(0, 0%, 60%);
+  --lightestgray: hsl(0, 0%, 80%);
+  --white: hsl(0, 0%, 100%);
 
-        --darkpink: hsl(323, 59%, 64%);
-        --pink: #e496c6;
-        --lightpink: hsl(323, 59%, 84%);
-        --lighterpink: hsl(323, 59%, 89%);
-        --darkblue: hsl(222, 51%, 60%);
-        --blue: #8ba3da;
-        --lightblue: hsl(222, 51%, 80%);
-        --lighterblue: hsl(222, 51%, 90%);
-      }
+  --darkpink: hsl(323, 59%, 64%);
+  --pink: #e496c6;
+  --lightpink: hsl(323, 59%, 84%);
+  --lighterpink: hsl(323, 59%, 89%);
+  --darkblue: hsl(222, 51%, 60%);
+  --blue: #8ba3da;
+  --lightblue: hsl(222, 51%, 80%);
+  --lighterblue: hsl(222, 51%, 90%);
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+  --gradient: linear-gradient(to right, var(--pink) 0%, var(--blue) 100%);
+  --gradient-darkpink: linear-gradient(
+    to right,
+    var(--darkpink) 0%,
+    var(--pink) 100%
+  );
+  --gradient-pink: linear-gradient(
+    to right,
+    var(--pink) 0%,
+    var(--lightpink) 100%
+  );
+  --gradient-lightpink: linear-gradient(
+    to right,
+    var(--lightpink) 0%,
+    var(--lighterpink) 100%
+  );
+  --gradient-darkblue: linear-gradient(
+    to right,
+    var(--darkblue) 0%,
+    var(--blue) 100%
+  );
+  --gradient-blue: linear-gradient(
+    to right,
+    var(--blue) 0%,
+    var(--lightblue) 100%
+  );
+  --gradient-lightblue: linear-gradient(
+    to right,
+    var(--lightblue) 0%,
+    var(--lighterblue) 100%
+  );
+  --gradient-darkbackground: linear-gradient(
+    to right,
+    var(--darkestgray) 0%,
+    var(--background) 100%
+  );
+  --gradient-background: linear-gradient(
+    to right,
+    var(--background) 0%,
+    var(--darkgray) 100%
+  );
+  --gradient-lightground: linear-gradient(
+    to right,
+    var(--darkgray) 0%,
+    var(--gray) 100%
+  );
+}
 
-        font-family: "Inter", sans-serif;
-        color: var(--color-highlight2);
+* {
+  margin: 0;
+  padding: 0;
 
-        accent-color: var(--color-pink);
-      }
+  font-family: "Inter", sans-serif;
+  color: var(--color-highlight2);
 
-      .material-symbols-outlined {
-        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-        font-size: 24rem;
-      }
+  accent-color: var(--color-pink);
+}
 
-      body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        background-color: var(--color-main);
-        color: lightgray;
-        font-family: sans-serif;
-        padding: 16px;
-        height: 100dvh;
-      }
-      h1 {
-        font-size: 6rem;
-        text-align: center;
-      }
-      button {
-        width: 100%;
-        height: 40vh;
-        font-size: 10rem;
-        user-select: none;
-        background: var(--color-pink);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-radius: 48px;
-      }
+*[hidden] {
+  display: none !important;
+}
 
-      button span {
-        color: var(--color-main);
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Audio Masking Tool</h1>
-    <button id="intercom">
-      <span id="intercom-icon" class="material-symbols-outlined"> mic </span><span id="intercom-label">Intercom</span>
-    </button>
-    <button id="playNoise">
-      <span id="noise-icon" class="material-symbols-outlined"> volume_up </span><span id="noise-label">Start Noise</span>
-    </button>
+.material-symbols-outlined {
+  color: var(--color-pink);
+}
 
-    <script>
-      const noiseTrack = {
-        volume: 0.1,
-        fadeTime: 2,
-        audioCtx: null,
-        gainNode: null,
-        source: null,
-      };
+.material-symbols-outlined.blue {
+  color: var(--color-blue);
+}
 
-      const intercomState = {
-        audioCtx: null,
-        stream: null,
-        source: null,
-        isConnected: false,
-      };
+hr {
+  border: none;
+  border-bottom: 1px solid var(--color-highlight);
+  margin: 8px 0;
+}
 
-      async function loadAndPlayNoise() {
-        if (!noiseTrack.audioCtx) {
-          noiseTrack.audioCtx = new (window.AudioContext ||
-            window.webkitAudioContext)();
-          noiseTrack.gainNode = noiseTrack.audioCtx.createGain();
-          noiseTrack.gainNode.connect(noiseTrack.audioCtx.destination);
-        }
+h1 {
+  color: white;
+  margin-bottom: 16px;
+}
 
-        // Start at zero volume
-        noiseTrack.gainNode.gain.setValueAtTime(
-          noiseTrack.volume,
-          noiseTrack.audioCtx.currentTime
-        );
+label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
 
-        const res = await fetch("noise.wav");
-        const arrayBuffer = await res.arrayBuffer();
-        const buffer = await noiseTrack.audioCtx.decodeAudioData(arrayBuffer);
+.label {
+  margin-bottom: 8px;
+  color: white;
+  font-weight: bold;
+}
 
-        noiseTrack.source = noiseTrack.audioCtx.createBufferSource();
-        noiseTrack.source.buffer = buffer;
-        noiseTrack.source.loop = true;
-        noiseTrack.source.connect(noiseTrack.gainNode);
-        noiseTrack.source.start();
+input[type="radio"] + label {
+  font-weight: 500;
+}
 
-        
-        document.getElementById("playNoise").onclick = () => stopNoise();
-        document.getElementById("noise-label").innerText = "Stop Noise";
-        document.getElementById("noise-icon").innerText = "volume_off";
-      }
+select {
+  border: none;
+  width: 100%;
+  height: 32px;
+  border-radius: 16px;
+  padding: 0 8px;
+  background-color: var(--color-highlight);
+  background-image: linear-gradient(
+    45deg,
+    rgba(30, 30, 33, 0.31) 0%,
+    rgba(77, 77, 82, 0.004) 50%
+  );
+}
 
-      function stopNoise() {
-        noiseTrack.source.stop();
-        document.getElementById("playNoise").onclick = () => loadAndPlayNoise();
-        document.getElementById("noise-label").innerText = "Start Noise";
-        document.getElementById("noise-icon").innerText = "volume_up";
-      }
+option {
+  height: 24px;
+}
 
-      function fadeNoiseTo(volume, time = 0.5) {
-        const now = noiseTrack.audioCtx.currentTime;
-        noiseTrack.gainNode.gain.cancelScheduledValues(now);
-        noiseTrack.gainNode.gain.linearRampToValueAtTime(volume, now + time);
-      }
+.hidden {
+  display: none !important;
+}
 
-      async function setupIntercomOnce() {
-        if (intercomState.audioCtx) return;
+ul {
+  padding-left: 18px;
+}
 
-        intercomState.audioCtx = new (window.AudioContext ||
-          window.webkitAudioContext)();
+.GMAMP-maps-pin-view {
+  transition: 0.3s;
+}
 
-        if (intercomState.audioCtx.state === "suspended") {
-          await intercomState.audioCtx.resume();
-        }
+.highlight {
+  filter: brightness(1.3);
+  scale: 1.2;
+}
 
-        intercomState.stream = await navigator.mediaDevices.getUserMedia({
-          audio: true,
-        });
-        intercomState.source = intercomState.audioCtx.createMediaStreamSource(
-          intercomState.stream
-        );
-      }
+#map {
+  height: 100vh;
+  width: 100vw;
+}
 
-      async function startIntercom() {
-        await setupIntercomOnce();
+.radioGroup {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+}
 
-        if (!intercomState.isConnected) {
-          intercomState.source.connect(intercomState.audioCtx.destination);
-          intercomState.isConnected = true;
-        }
+.radioGroup > div {
+  width: 50%;
+}
 
-        fadeNoiseTo(noiseTrack.volume / 2, noiseTrack.fadeTime);
-      }
+.cbGroup {
+  display: grid;
+  grid-template-columns: 16px calc(100% - 16px - 8px);
+  padding: 8px 0;
+}
 
-      function stopIntercom() {
-        if (intercomState.isConnected) {
-          intercomState.source.disconnect();
-          intercomState.isConnected = false;
-        }
+.cbGroup > label {
+  margin-left: 8px;
+  font-weight: 500;
+  font-size: 14px;
+}
 
-        fadeNoiseTo(noiseTrack.volume, noiseTrack.fadeTime);
-      }
+.cbGroup > input {
+  margin-bottom: 8px;
+}
 
-      document.getElementById("playNoise").onclick = () => loadAndPlayNoise();
+.section {
+  margin: 12px 0;
+}
 
-      const intercomBtn = document.getElementById("intercom");
-      intercomBtn.addEventListener("pointerdown", startIntercom);
-      intercomBtn.addEventListener("pointerup", stopIntercom);
-      intercomBtn.addEventListener("pointercancel", stopIntercom);
-      intercomBtn.addEventListener("pointerleave", stopIntercom);
-    </script>
-  </body>
-</html>
+.section p {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.tooltip {
+  line-height: 12px;
+  margin-left: 8px;
+  position: relative;
+}
+
+.tooltip:hover::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -18px;
+  left: -26px;
+  font-size: 12px;
+  text-align: center;
+  padding: 4px 4px;
+  white-space: nowrap;
+  color: var(--color-pink);
+  background-color: var(--color-main);
+}
+
+.tooltip span {
+  font-size: 16px;
+}
+
+.disclaimer {
+  font-size: 12px;
+  font-style: italic;
+}
+
+#button-closeRightPanel {
+  position: absolute;
+  top: 0;
+  left: -50px;
+  width: 50px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50% 0 0 50%;
+}
