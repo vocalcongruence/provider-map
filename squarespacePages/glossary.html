@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vocal Congruence Project: Provider Map</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/vcp-logo.png" />
+
+    <!-- Material Symbols -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!-- Inter from Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="../styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/components.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/introModal.css" />
+    <style>
+      body {
+        background-color: var(--color-main);
+      }
+
+      #main {
+        max-width: 800px;
+        margin: auto;
+      }
+
+      input {
+        width: 100%;
+        height: 32px;
+        margin-top: 32px;
+        padding: 0 8px;
+        font-size: 24px;
+      }
+
+      ul {
+        width: 100%;
+        background-color: var(--color-highlight);
+        border-radius: 0 0 16px 16px;
+        margin-bottom: 32px;
+        max-height: 200px;
+        overflow-y: auto;
+        position: absolute;
+        padding-left: 0;
+      }
+
+      li {
+        list-style-type: none;
+        padding: 8px 16px;
+      }
+
+      li:hover {
+        background-color: var(--color-pink);
+      }
+
+      li > a {
+        color: var(--color-highlight2);
+      }
+
+      dt {
+        color: white;
+      }
+
+      dd {
+        margin-bottom: 16px;
+      }
+
+      #search-wrap {
+        position: relative;
+        margin-bottom: 64px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div id="search-wrap">
+        <input
+          type="text"
+          id="search"
+          placeholder="Search terms or explore below"
+        />
+        <ul id="search-results"></ul>
+      </div>
+
+      <h2>Degrees & Credentials</h2>
+
+      <h3>Clinical (Speech-Language Pathologists)</h3>
+      <dl id="degreesCredentials-clinical-SLP"></dl>
+
+      <h3>Clinical (Music Therapy)</h3>
+      <dl id="degreesCredentials-clinical-musicTherapy"></dl>
+
+      <h3>Clinical (Surgeons)</h3>
+      <dl id="degreesCredentials-clinical-surgeon"></dl>
+
+      <h3>Singing / Performance</h3>
+      <dl id="degreesCredentials-singingPerformance"></dl>
+
+      <h2>Professional Organizations</h2>
+
+      <h3>Clinical (Speech-Language Pathologists)</h3>
+      <dl id="professionalOrganizations-clinical-slp"></dl>
+
+      <h3>Clinical (Music Therapy)</h3>
+      <dl id="professionalOrganizations-clinical-musicTherapy"></dl>
+
+      <h3>Clinical (Surgeons)</h3>
+      <dl id="professionalOrganizations-clinical-surgeon"></dl>
+
+      <h3>Singing / Performance</h3>
+      <dl id="professionalOrganizations-singingPerformance"></dl>
+
+      <h3>Multidisciplinary</h3>
+      <dl id="professionalOrganizations-multidisciplinary"></dl>
+
+      <h3>Gender Affirming Care</h3>
+      <dl id="professionalOrganizations-genderAffirming"></dl>
+
+      <h2>Speciailty Areas / Trainings</h2>
+
+      <h3>Clinical</h3>
+      <dl id="specialties-clinical"></dl>
+
+      <h3>Singing / Performance</h3>
+      <dl id="specialties-singingPerformance"></dl>
+
+      <h3>Multidisciplinary</h3>
+      <dl id="specialties-multidisciplinary"></dl>
+
+      <h3>Gender Affirming Voice & Communication</h3>
+      <dl id="specialties-gavc"></dl>
+    </div>
+
+    <script>
+      let glossary;
+
+      async function loadData() {
+        // Load Countries List
+        const response = await fetch("../data/glossary.json");
+        glossary = await response.json();
+      }
+
+      function searchGlossary(t) {
+        console.log("searching " + t);
+        let results = [];
+
+        let tComp = t.toLowerCase().trim();
+
+        if (tComp.length == 0) {
+          return [];
+        }
+
+        for (let entry of glossary) {
+          let eComp = entry.term.toLowerCase().trim();
+          if (eComp.includes(tComp)) {
+            results.push(entry);
+          }
+        }
+
+        console.log("found", results);
+        return results;
+      }
+
+      //////////////////////
+      //       Main       //
+      //////////////////////
+
+      // Load in the data first
+      loadData().then((t) => {
+        // Build the listings
+        for (let entry of glossary) {
+          if (
+            entry.term == null ||
+            entry.term == "" ||
+            entry.section == null ||
+            entry.section == ""
+          ) {
+            continue;
+          }
+
+          // Build the DOM element
+          const termDOM = document.createElement("dt");
+          termDOM.id = "term-" + entry.key;
+          termDOM.innerHTML = entry.term;
+
+          const definitionDOM = document.createElement("dd");
+          definitionDOM.id = "definition-" + entry.key;
+          definitionDOM.innerHTML = entry.definition;
+
+          // Add it to the proper section
+          document.getElementById(entry.section).appendChild(termDOM);
+          document.getElementById(entry.section).appendChild(definitionDOM);
+        }
+
+        // Attatch search event
+        document.getElementById("search").oninput = (e) => {
+          const searchTerm = e.target.value;
+          const resultsContainer = document.getElementById("search-results");
+
+          resultsContainer.innerHTML = "";
+
+          let results = searchGlossary(searchTerm);
+
+          for (let r of results) {
+            let resultDOM = document.createElement("li");
+
+            let resultLink = document.createElement("a");
+            resultLink.innerText = r.term;
+            resultLink.href = "#term-" + r.key;
+
+            resultDOM.appendChild(resultLink);
+            resultsContainer.appendChild(resultDOM);
+          }
+        };
+
+        document.getElementById("search-results").onclick = (e) => {
+          console.log("click")
+        }
+      });
+    </script>
+  </body>
+</html>

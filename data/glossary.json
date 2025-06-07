@@ -1,0 +1,448 @@
+[
+    {
+        "key": "cred-ma",
+        "term": "MA - Master of Arts",
+        "definition": "An MA (in Speech-Language Pathology or Communication Sciences & Disorders) is one of several accepted entry-level degrees of clinical practice as an SLP. It indicates completion of graduate level coursework and clinical training across the scope of practice for SLPs.",
+        "section": "degreesCredentials-clinical-SLP"
+    },
+    {
+        "key": "cred-msc",
+        "term" : "MS / MSc - Master of Science",
+        "definition": "An MS (in Speech-Language Pathology or Communication Sciences & Disorders) is one of several accepted entry-level degrees of clinical practice as an SLP. It indicates completion of graduate level coursework and clinical training across the scope of practice for SLPs.",
+        "section": "degreesCredentials-clinical-SLP"
+    },
+    {
+        "key": "cred-med",
+        "term" : "MEd - Master of Education",
+        "definition": "An MEd (in Speech-Language Pathology or Communication Sciences & Disorders) is one of several accepted entry-level degrees of clinical practice as an SLP. It indicates completion of graduate level coursework and clinical training across the scope of practice for SLPs.",
+        "section": "degreesCredentials-clinical-SLP"
+    },
+    {
+        "key": "cred-mclsc",
+        "term" : "MClSc - Master of Clinical Science",
+        "definition": "An MClSc (in Speech-Language Pathologyor Communication Sciences & Disorders) is one of several accepted entry-level degrees of clinical practice as an SLP. It indicates completion of graduate level coursework and clinical training across the scope of practice for SLPs.",
+        "section": "degreesCredentials-clinical-SLP"
+    },
+    {
+        "key": "cred-slpd",
+        "term" : "SLPD - Doctor of Speech-Language Pathology",
+        "definition": "<a href='https://www.asha.org/academic/guidelines-for-the-clinical-doctorate-in-slp/'>Per the American Speech-Language-Hearing Assocation (ASHA)</a>, a clinical doctorate in speech-language pathology is an advanced clinical practice degree. An individual with an SLPD has completed the entry-level master’s degree in SLP, and opted to continue their training in preparation of an advanced professional role, such as master clinician, clinical educator, clinical administrator, or leader in a clinical setting or area of specialization. A clinical doctorate in SLP may also be awarded as a ClinScD, CScD, or DSLP.",
+        "section": "degreesCredentials-clinical-SLP"
+    },
+    {
+        "key": "cred-phd",
+        "term" : "PhD - Doctorate of Philosophy",
+        "definition": "A Doctorate of Philosophy is the most common doctoral degree. Philosophy does not refer to the discipline of study, but to the nature of the degree as having a research focus. This distinction differentiates the PhD from a clinical/professional doctoral degree such as a SLPD or an MD. A PhD can be awarded for many disciplines. A Speech-Language Pathologist’s PhD is most commonly (but not exclusively) in the field of Communication Sciences & Disorders, which is the umbrella term for SLP and related disciplines. Individuals with PhDs often conduct research in academic settings and/or teach at the university level.",
+        "section": "degreesCredentials-clinical-SLP"
+    },
+    {
+        "key": "cred-slp",
+        "term" : "SLP - Speech-Language Pathologist",
+        "definition": "Speech-Language Pathologists are medical professionals trained to support communication and swallowing needs across the lifespan. To learn more about SLPs, see our resources, “<a href='https://vocalcongruence.org/#provider-types'>Types of Gender-Affirming Voice Provider</a>” and “<a href='https://vocalcongruence.org/#slp-expect'>What to Expect Working With a Speech-Language Pathologist</a>”.",
+        "section": "degreesCredentials-clinical-SLP"
+    },
+    {
+        "key": "cred-slt",
+        "term" : "SLT - Speech and Language Therapist",
+        "definition": "Equivalent to a Speech-Language Pathologist, this terminology is used in some countries, including the UK and Australia.",
+        "section": "degreesCredentials-clinical-SLP"
+    },
+    {
+        "key": "cred-ccc-slp",
+        "term" : "CCC-SLP - Certificate of Clinical Competence in Speech-Language Pathology",
+        "definition": "The Certificate of Clinical Competence is awarded by the American Speech-Language-Hearing Association to a Speech-Language Pathologist following graduation from an accredited graduate program and completion of a nine month supervised Clinical Fellowship experience. (See also, CF-SLP)",
+        "section": "degreesCredentials-clinical-SLP"
+    },
+    {
+        "key": "cred-ccc-slp-l",
+        "term" : "CCC-SLP/L - Certificate of Clinical Competence in Speech-Language Pathology, Licensed",
+        "definition": "See above, The addition of an L refers to state licensure. Lack of a /L does not mean the provider is not licensed. In most cases, licensure is not explicitly stated and can be assumed.",
+        "section": "degreesCredentials-clinical-SLP"
+    },
+    {
+        "key": "cred-cf-slp",
+        "term" : "CF-SLP - Clinical Fellow in Speech-Language Pathology",
+        "definition": "A Clinical Fellow in Speech-Language Pathology has graduated from an accredited graduate program in SLP, and is now completing a supervised nine month fellowship to further their training. This is a requirement of certification and licensure. Upon successful completion, they will be awarded the Certificate of Clinical Competence.",
+        "section": "degreesCredentials-clinical-SLP"
+    },
+    {
+        "key": "cred-s-lpc",
+        "term" : "S-LP(C) - Speech-Language Pathologist, Certified",
+        "definition": "Indicates the provider is a certified Speech-Language Pathologist through Speech-Language & Audiology Canada (SAC)",
+        "section": "degreesCredentials-clinical-SLP"
+    },
+    {
+        "key": "cred-caslpo",
+        "term" : "Reg. CASLPO - Registered, College of Audiologists and Speech-Language Pathologists of Ontario",
+        "definition": "Indicates the provider is a registered Speech-Language Pathologist through College of Audiologists and Speech-Language Pathologists of Ontario (Canada).",
+        "section": "degreesCredentials-clinical-SLP"
+    },
+    {
+        "key": "cred-rslp",
+        "term" : "RSLP - Registered Speech-Language Pathologist",
+        "definition": "Indicates the provider is a registered Speech-Language Pathologist through the College of Speech and Hearing Health Professionals of British Columbia (Canada)",
+        "section": "degreesCredentials-clinical-SLP"
+    },
+    {
+        "key": "cred-bcs-s",
+        "term" : "BCS-S - Board Certified Specialist in Swallowing and Swallowing Disorders",
+        "definition": "Offered by the <a href='https://www.swallowingdisorders.org/'>American Board of Swallowing and Swallowing Disorders</a>, this indicates a Speech-Language Pathologist has completed advanced training specializing in swallowing and swallowing disorders (dysphagia), one of many areas within the speech-language pathology scope of practice. It is common for a voice-specialized SLP to also specialize in swallowing, and they may be based in a “Voice & Swallowing Center”.",
+        "section": "degreesCredentials-clinical-SLP"
+    },
+    {
+        "key": "cred-cbis",
+        "term" : "CBIS - Certified Brain Injury Specialist",
+        "definition": "Offered by the <a href='https://www.biausa.org/'>Brain Injury Association of America</a>, this indicates that the provider has completed advanced training specializing in brain injury and cognitive rehabilitation. Supporting cognitive communication needs is one of many areas within the speech-language pathology scope of practice.",
+        "section": "degreesCredentials-clinical-SLP"
+    },
+    {
+        "key": "cred-bmt",
+        "term" : "BMT - Bachelor of Music Therapy",
+        "definition": "Undergraduate degree in music therapy, an entry-level degree for clinical practice as a music therapist. It indicates completion of coursework and clinical training across the scope of practice for music therapists.",
+        "section": "degreesCredentials-clinical-musicTherapy"
+    },
+    {
+        "key": "cred-mmt",
+        "term" : "MMT - Master of Music Therapy",
+        "definition": "Graduate degree in music therapy enabling advanced clinical practice as a music therapist. It indicates completion of coursework and clinical training across the scope of practice for music therapists.",
+        "section": "degreesCredentials-clinical-musicTherapy"
+    },
+    {
+        "key": "cred-mt-bc",
+        "term" : "MT-BC - Board Certified Music Therapist",
+        "definition": "Certification awarded by the <a href='https://www.cbmt.org/'>Certification Board for Music Therapists (CBMT)</a>. This certification signifies that a music therapist has met all educational and clinical requirements, passed a standardized exam, and completes continueing education.",
+        "section": "degreesCredentials-clinical-musicTherapy"
+    },
+    {
+        "key": "cred-md",
+        "term" : "MD - Doctor of Medicine",
+        "definition": "MD is a professional doctoral degree for the practice of medicine. It is distinct from a PhD, which has an emphasis on research. Following completion of an MD degree, physicians complete years of additional training in the form of a residency, and have the option to complete even further specialized training through a fellowship. (See also, Fellowship Trained)",
+        "section": "degreesCredentials-clinical-surgeon"
+    },
+    {
+        "key": "cred-do",
+        "term" : "DO - Doctor of Osteopathic Medicine",
+        "definition": "DO is a professional doctoral degree for the practice of medicine. It is an equivalent professional doctoral degree to an MD, with identical post graduate training through residency, and the option to complete a fellowship (See also, Fellowship Trained). One notable difference between MD and DO training is that DOs complete additional training in osteopathic manipulative medicine, a system of alternative medicine that emphasizes physical manipulation of the body's muscle tissue and bones.",
+        "section": "degreesCredentials-clinical-surgeon"
+    },
+    {
+        "key": "cred-facs",
+        "term" : "FACS - Fellow of the American College of Surgeons",
+        "definition": "Per the <a href='https://www.facs.org/find-a-surgeon/'>American College of Surgeons website</a>, “Fellows are board-certified surgeons whose education, training, professional qualifications, surgical competence, and ethical conduct are reviewed and consistent with the high standards of the ACS. Not all surgeons are accepted as Fellows, and some surgeons choose not to become Fellows.”",
+        "section": "degreesCredentials-clinical-surgeon"
+    },
+    {
+        "key": "cred-fellowship",
+        "term" : "Fellowship Trained",
+        "definition": "Fellowship is the highest level of specialty training for a physician. A fellowship trained physician has a deep level of knowledge in a particular clinical area. The length of a fellowship varies by specialty. Many surgeons on the VCP Provider Map will have completed a fellowship in laryngology, equipping them with highly specialized skills related to evaluation and medical/surgical management of voice and upper airway needs.",
+        "section": "degreesCredentials-clinical-surgeon"
+    },
+    {
+        "key": "cred-bfa",
+        "term" : "BFA - Bachelor of Fine Arts",
+        "definition": "Undergraduate degree in fine arts fields, including but not limited to visual art, creative writing, theater, musical theater, and dance.",
+        "section": "degreesCredentials-singingPerformance"
+    },
+    {
+        "key": "cred-mfa",
+        "term" : "MFA - Master of Fine Arts",
+        "definition": "The terminal degree (meaning it is considered the highest degree in its field) for fine arts fields. Providers with an MFA will have training in performing arts, such as dance, theater, and musical theater, or visual arts, such as photography or graphic design.",
+        "section": "degreesCredentials-singingPerformance"
+    },
+    {
+        "key": "cred-bm",
+        "term" : "BM - Bachelor of Music",
+        "definition": "Undergraduate level degree in music with training in music theory, music history, performance, and pedagogy. Concentrations of study can include musicology, composition, performance, and education. Performance practice and training are traditionally classically focused, but some degree programs include cross-training in contemporary styles, including genres such as musical theater, jazz, and commercial music. You may also see specializations reflected in the degree abbreviation, such as BM-VP (Vocal Performance) or BM-ME (Music Education).",
+        "section": "degreesCredentials-singingPerformance"
+    },
+    {
+        "key": "cred-mm",
+        "term" : "MM - Master of Music",
+        "definition": "Masters-level degree in music with advanced training in music theory, music history, performance, and pedagogy. Concentrations of study can include musicology, theory, composition, performance, pedagogy, conducting, and education. Performance practice and training are traditionally classically focused, but some degree programs include cross-training in contemporary styles, including genres such as musical theater, jazz, and commercial music.",
+        "section": "degreesCredentials-singingPerformance"
+    },
+    {
+        "key": "cred-dma",
+        "term" : "DMA - Doctor of Musical Arts",
+        "definition": "Doctoral-level degree that combines advanced studies in an applied area of specialization, such as music performance, music composition, or conducting, with graduate-level academic study in subjects such as music history, music theory, or music education.",
+        "section": "degreesCredentials-singingPerformance"
+    },
+    {
+        "key": "cred-singing",
+        "term" : "Singing Voice Specialist",
+        "definition": "Traditionally, a singing voice specialist is a singing voice teacher with training in the anatomy and physiology of phonation, voice disorders and rehabilitation, and knowledge of laryngological interventions, in addition to performance and pedagogy training. A singing voice specialist may also be a speech-language pathologist, but this is not a requirement. The qualifications of each singing voice specialist may vary.",
+        "section": "degreesCredentials-singingPerformance"
+    },
+    {
+        "key": "org-sha",
+        "term" : "_SHA or _SHLA - [State] Speech-Language-Hearing Association",
+        "definition": "An acronym ending in either of the above is likely a state association for Speech-Language Pathologists. For example, CSHA is the California Speech Language Hearing Association.",
+        "section": "professionalOrganizations-clinical-slp"
+    },
+    {
+        "key": "org-asha",
+        "term" : "ASHA - American Speech-Language-Hearing Association",
+        "term-url": "https://www.asha.org/",
+        "definition": "The national professional organization for Speech-Language Pathologists. ASHA oversees national certification for SLPs, including ethical oversight and scope of practice. (See also, CCC-SLP)",
+        "section": "professionalOrganizations-clinical-slp"
+    },
+    {
+        "key": "org-lgasp",
+        "term" : "L’GASP: LGBTQIA+ Caucus of ASHA",
+        "term-url": "https://www.facebook.com/LGASP/",
+        "definition": "L’GASP is a Multicultural Constituency Group and the LGBTQIA+ Caucus of ASHA. They provide a forum in which to meet other LGBTQ+ professionals and friends, and to work on issues that concern their professional lives.",
+        "section": "professionalOrganizations-clinical-slp"
+    },
+    {
+        "key": "org-lgbtq-csdsa",
+        "term" : "LGBTQ+ CSDSA - LGBTQ+ Communication Sciences & Disorders Student Association",
+        "term-url": "https://lgbtqcsdsa.org/",
+        "definition": "The LGBTQ+ CSDSA is a national student group created by and for LGBTQ+ CSD students. Established in 2021, the LGBTQ+ CSDSA seeks to connect and support students, as well as advocate for their needs in the professions and in their educational settings.",
+        "section": "professionalOrganizations-clinical-slp"
+    },
+    {
+        "key": "org-nbaslh",
+        "term" : "NBASLH - National Black Association for Speech-Language and Hearing",
+        "term-url": "https://www.nbaslh.org/",
+        "definition": "A professional and scientific association addressing the communication interests and concerns of Black communication science and disorders professionals, students and consumers.",
+        "section": "professionalOrganizations-clinical-slp"
+    },
+    {
+        "key": "org-rcslt",
+        "term" : "RCSLT - Royal College of Speech and Language Therapists",
+        "term-url": "https://www.rcslt.org/",
+        "definition": "The professional organization for Speech-Language Pathologists in the United Kingdom.",
+        "section": "professionalOrganizations-clinical-slp"
+    },
+    {
+        "key": "org-sac",
+        "term" : "SAC - Speech-Language and Audiology Canada",
+        "term-url": "https://www.sac-oac.ca/",
+        "definition": "The national professional organization for Speech-Language Pathologists in Canada. SAC oversees certification for SLPs in Canada. (See also, SLP(C)).",
+        "section": "professionalOrganizations-clinical-slp"
+    },
+    {
+        "key": "org-amta",
+        "term" : "AMTA - American Music Therapy Association",
+        "term-url": "https://www.musictherapy.org/",
+        "definition": "The national professional organization for Music Therapists.",
+        "section": "professionalOrganizations-clinical-musicTherapy"
+    },
+    {
+        "key": "org-aao-hns",
+        "term" : "AAO-HNS - American Academy of Otolaryngology - Head and Neck Surgery",
+        "term-url": "https://www.entnet.org/",
+        "definition": "An organization representing specialists who treat the ears, nose, throat, and related structures of the head and neck. The AAO-HNS publishes clinical practice guidelines, among other advocacy, awareness, and research initiatives.",
+        "section": "professionalOrganizations-clinical-surgeon"
+    },
+    {
+        "key": "org-abea",
+        "term" : "ABEA - American Broncho-Esophagological Association",
+        "term-url": "https://abea.net/",
+        "definition": "A society of physicians, researchers and allied professionals who specialize in the airway and esophagus.",
+        "section": "professionalOrganizations-clinical-surgeon"
+    },
+    {
+        "key": "org-abo-hns",
+        "term" : "ABO-HNS - American Board of Otolaryngology--Head and Neck Surgery",
+        "term-url": "https://www.abohns.org/",
+        "definition": "The ABO-HNS oversees board certification in Otolaryngology - Head and Neck Surgery, a process completed by physicians after residency, consisting of written and oral examinations.",
+        "section": "professionalOrganizations-clinical-surgeon"
+    },
+    {
+        "key": "org-ala",
+        "term" : "ALA - American Laryngological Association",
+        "term-url": "https://alahns.org/",
+        "definition": "Professional society for laryngologists. This is a subspeciality of otolaryngology (or Ear, Nose, and Throat - ENT) specializing in the larynx, or your voice box. Laryngologists support a range of voice and upper airway needs.",
+        "section": "professionalOrganizations-clinical-surgeon"
+    },
+    {
+        "key": "org-aocoo-hns",
+        "term" : "AOCOO-HNS - The American Osteopathic Colleges of Ophthalmology and Otolaryngology - Head and Neck Surgery",
+        "term-url": "https://www.aocoohns.org/",
+        "definition": "Professional organization representing ophthalmologists and otolaryngologists. (See also, DO - Doctor of Osteopathic Medicine)",
+        "section": "professionalOrganizations-clinical-surgeon"
+    },
+    {
+        "key": "org-iatvs",
+        "term" : "IATVS - International Association of TransVoice Surgeons",
+        "term-url": "https://transvoicesurgeons.com/",
+        "definition": "An association of laryngologists dedicated and experienced with gender affirming phonosurgeries. The association serves as a forum for surgeons to exchange information and raise awareness of gender affirming voice surgery and its outcomes.",
+        "section": "professionalOrganizations-clinical-surgeon"
+    },
+    {
+        "key": "org-trio",
+        "term" : "Trio - Triological Society",
+        "term-url": "https://triological.org/",
+        "definition": "Formally known as the American Laryngological, Rhinological and Otological Society, the Triological Society is an organization of Ear, Nose, and Throat (ENT) physicians that hosts conferences and publishes the scientific journal The Laryngoscope.",
+        "section": "professionalOrganizations-clinical-surgeon"
+    },
+    {
+        "key": "org-nats",
+        "term" : "NATS - National Association of Teachers of Singing",
+        "term-url": "https://www.nats.org/",
+        "definition": "An organization consisting of teachers of singing that provides professional development opportunities, publishes the Journal of Singing, and hosts biannual conferences.",
+        "section": "professionalOrganizations-singingPerformance"
+    },
+    {
+        "key": "org-pama",
+        "term" : "PAMA - Performing Arts Medical Association",
+        "term-url": "https://artsmed.org/",
+        "definition": "An organization of medical professionals, artists, educators, and administrators with the common goal of improving the health care of the performing artist. PAMA offers education for professionals, including a certificate in “Essentials of Performing Arts Medicine.”",
+        "section": "professionalOrganizations-multidisciplinary"
+    },
+    {
+        "key": "org-pava",
+        "term" : "PAVA - Pan American Vocology Association",
+        "term-url": "https://pavavocology.org/",
+        "definition": "An organization consisting of speech-language pathologists, ear nose and throat (ENT) doctors,, professional dingers, voice teachers, acting coaches, music directors, stage directors, and others who work with human and animal vocalization. PAVA hosts an annual symposium, and offers a Recognized Vocologist designation. (See also, PAVA-RV)",
+        "section": "professionalOrganizations-multidisciplinary"
+    },
+    {
+        "key": "org-tvf",
+        "term" : "TVF - The Voice Foundation",
+        "term-url": "https://voicefoundation.org/",
+        "definition": "An organization consisting of surgeons, scientists, speech-language pathologists, voice teachers, and performing artists known for hosting an annual symposium, and for publishing the Journal of Voice. Some countries or states have dedicated chapters.",
+        "section": "professionalOrganizations-multidisciplinary"
+    },
+    {
+        "key": "org-vasta",
+        "term" : "VASTA - Voice and Speech Trainers Association",
+        "term-url": "https://vasta.org/",
+        "definition": "An international organization for voice and speech professionals of any discipline, encompassing publishing, mentorship, and advocacy.",
+        "section": "professionalOrganizations-multidisciplinary"
+    },
+    {
+        "key": "org-auspath",
+        "term" : "AusPATH - Australian Professional Association for Trans Health",
+        "term-url": "https://auspath.org.au/",
+        "definition": "AusPATH is a professional organization for “professionals involved in the health, rights and well-being of all trans people”",
+        "section": "professionalOrganizations-genderAffirming"
+    },
+    {
+        "key": "org-tpath",
+        "term" : "TPATH - Transgender Professional Association for Transgender Health",
+        "term-url": "https://tpathealth.org/",
+        "definition": "TPATH is an organization designed to represent the needs of trans members of the World Professional Association for Transgender Health and its regional offshoots, and to provide a space for these members. Membership in TPATH is open only to those who self-identify within the trans and gender diverse spectrum. (See also, WPATH)",
+        "section": "professionalOrganizations-genderAffirming"
+    },
+    {
+        "key": "org-uspath",
+        "term" : "USPATH - United States Professional Association for Transgender Health",
+        "termUrl": "https://www.wpath.org/uspath",
+        "definition": "United States based chapter of the World Professional Association for Transgender Health (WPATH). (See also, WPATH)",
+        "section": "professionalOrganizations-genderAffirming"
+    },
+    {
+        "key": "org-wpath",
+        "term" : "WPATH - World Professional Association for Transgender Health",
+        "termUrl": "https://www.wpath.org/",
+        "definition": "WPATH is an international interdisciplinary professional and educational organization devoted to transgender health. WPATH publishes the Standards of Care (SOC) for the Health of Transgender and Gender Diverse People, currently on its 8th edition. These “articulate a professional consensus about the psychiatric, psychological, medical, and surgical management of gender dysphoria and help professionals understand the parameters within which they may offer assistance to those with these conditions.” The SOC are cited throughout VCP resources to provide information about what is currently viewed and applied as best practice. We recognize the history of the SOC as a gatekeeper to medically necessary gender affirming care. We additionally acknowledge that WPATH leadership, SOC contributors, and providers of gender affirming care are not exempt from transphobia, and may promote and perpetuate harmful ideas. (See also, USPATH, TPATH)",
+        "section": "professionalOrganizations-genderAffirming"
+    },
+    {
+        "key": "specialties-cscft",
+        "term" : "CSCFT - Casper-Stone Confidential Flow Therapy",
+        "termUrl": "",
+        "definition": "A therapy approach designed to reduce laryngeal tension/hyperfunction and increase airflow, supporting voice production.",
+        "section": "specialties-clinical"
+    },
+    {
+        "key": "specialties-ctt",
+        "term" : "CTT - Conversation Training Therapy",
+        "termUrl": "",
+        "definition": "A therapy approach that focuses on voice awareness and production in conversational speech from the very start of treatment (as opposed to a hierarchical approach, where a target may be practiced in sounds, words, sentences, and so forth, increasing in complexity).",
+        "section": "specialties-clinical"
+    },
+    {
+        "key": "specialties-lsvt",
+        "term" : "LSVT - Lee Silverman Voice Treatment",
+        "termUrl": "https://www.lsvtglobal.com/LSVTLOUD",
+        "definition": "A therapy approach primarily used to improve speaking volume for those with parkinson's disease and other neurological conditions.",
+        "section": "specialties-clinical"
+    },
+    {
+        "key": "specialties-manualTherapy",
+        "term" : "Manual Therapy / Circumlaryngeal Massage",
+        "termUrl": "",
+        "definition": "A therapy approach including hands on manipulation of the muscles of the head and neck, often to reduce muscle tension and support voice production.",
+        "section": "specialties-clinical"
+    },
+    {
+        "key": "specialties-phorte",
+        "term" : "PhoRTE - Phonation Resistance Training Exercises",
+        "termUrl": "https://www.phorte.org/",
+        "definition": "A therapy approach used to rehabilitate the vocal mechanism and improve vocal endurance for older adults experiencing age-related voice changes.",
+        "section": "specialties-clinical"
+    },
+    {
+        "key": "specialties-rvt",
+        "term" : "RVT - Resonant Voice Therapy / LMRVT - Lessac-Madsen Resonant Voice Therapy",
+        "termUrl": "",
+        "definition": "A therapy approach used to optimize the vibratory pattern of the vocal folds, primarily used for those with voice disorders.",
+        "section": "specialties-clinical"
+    },
+    {
+        "key": "specialties-alexander",
+        "term" : "Alexander Technique",
+        "termUrl": "",
+        "definition": "An alternative therapy approach that seeks to make adjustments to movement and posture, which practitioners believe addresses a range of health problems, including voice.",
+        "section": "specialties-singingPerformance"
+    },
+    {
+        "key": "specialties-evt",
+        "term" : "EVT - Estill Voice Training",
+        "termUrl": "https://estillvoice.com/",
+        "definition": "A voice training approach for gaining isolated control of individual anatomical structures within the voice production system, thought to give greater control over the voice when speaking and singing.",
+        "section": "specialties-singingPerformance"
+    },
+    {
+        "key": "specialties-fitzmaurice",
+        "term" : "Fitzmaurice Voicework",
+        "termUrl": "https://www.fitzmauriceinstitute.org/fitzmaurice-voicework",
+        "definition": "A voice training approach that “combines adaptations of classical voice training techniques with modifications of yoga, shiatsu, bioenergetics, energy work, and many other disciplines.”",
+        "section": "specialties-singingPerformance"
+    },
+    {
+        "key": "specialties-svw",
+        "term" : "SVW - Somatic Voicework / The LoVetri Method",
+        "termUrl": "https://somaticvoicework.com/",
+        "definition": "An “organized method of vocal training for Contemporary Commercial Music (CCM) styles, based upon somatic (physical) awareness and aural discernment.”",
+        "section": "specialties-singingPerformance"
+    },
+    {
+        "key": "specialties-svi",
+        "term" : "SVI - Summer Vocology Institute",
+        "termUrl": "https://vocology.utah.edu/svi/index.php",
+        "definition": "An intensive training program for the science and practice of voice habilitation, hosted at the University of Utah. Individuals from various disciplines, including speech-language pathology and vocal pedagogy, may engage in this training. A graduate of this course may refer to themselves as an SVI-Trained Vocologist.",
+        "section": "specialties-multidisciplinary"
+    },
+    {
+        "key": "specialties-",
+        "term" : "",
+        "termUrl": "",
+        "definition": "",
+        "section": "specialties-"
+    },
+    {
+        "key": "specialties-",
+        "term" : "",
+        "termUrl": "",
+        "definition": "",
+        "section": "specialties-"
+    },
+    {
+        "key": "specialties-",
+        "term" : "",
+        "termUrl": "",
+        "definition": "",
+        "section": "specialties-"
+    },
+    {
+        "key": "specialties-",
+        "term" : "",
+        "termUrl": "",
+        "definition": "",
+        "section": "specialties-"
+    }
+]
