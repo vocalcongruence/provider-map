@@ -24,7 +24,12 @@
     <link rel="stylesheet" type="text/css" href="../styles/style.css" />
     <link rel="stylesheet" type="text/css" href="../styles/components.css" />
     <link rel="stylesheet" type="text/css" href="../styles/introModal.css" />
+    <link rel="stylesheet" type="text/css" href="./global.css" />
     <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
       body {
         background-color: var(--color-main);
       }
@@ -38,8 +43,9 @@
         width: 100%;
         height: 32px;
         margin-top: 32px;
-        padding: 0 8px;
+        padding: 24px 16px;
         font-size: 24px;
+        color: var(--color-main)
       }
 
       ul {
@@ -68,18 +74,37 @@
 
       dt {
         color: white;
+        padding: 0 16px;
+        font-weight: 600;
+        font-size: 18px;
+        margin-bottom: 2px;
       }
-
+      
       dd {
-        margin-bottom: 16px;
+        padding: 0 16px;
+        margin-bottom: 24px;
+        line-height: 24px;
       }
 
       #search-wrap {
         position: relative;
-        margin-bottom: 64px;
+        margin-bottom: 32px;
+      }
+
+      h2 {
+        color: var(--color-blue);
+        margin-bottom: 24px;
+        font-size: 32px;
       }
 
       h3 {
+        width: 100%;
+        border-bottom: 2px solid var(--lightgray);
+        margin-bottom: 16px;
+        padding-bottom: 4px;
+      }
+
+      a {
         color: var(--color-pink);
       }
     </style>
@@ -91,23 +116,26 @@
           type="text"
           id="search"
           placeholder="Search terms or explore below"
+          autocomplete="off"
         />
         <ul id="search-results"></ul>
       </div>
 
-      <h2>Degrees & Credentials</h2>
+      <div class="vcp-card">
+        <h2>Degrees & Credentials</h2>
 
-      <h3>Clinical (Speech-Language Pathologists)</h3>
-      <dl id="degreesCredentials-clinical-SLP"></dl>
+        <h3>Clinical (Speech-Language Pathologists)</h3>
+        <dl id="degreesCredentials-clinical-SLP"></dl>
 
-      <h3>Clinical (Music Therapy)</h3>
-      <dl id="degreesCredentials-clinical-musicTherapy"></dl>
+        <h3>Clinical (Music Therapy)</h3>
+        <dl id="degreesCredentials-clinical-musicTherapy"></dl>
 
-      <h3>Clinical (Surgeons)</h3>
-      <dl id="degreesCredentials-clinical-surgeon"></dl>
+        <h3>Clinical (Surgeons)</h3>
+        <dl id="degreesCredentials-clinical-surgeon"></dl>
 
-      <h3>Singing / Performance</h3>
-      <dl id="degreesCredentials-singingPerformance"></dl>
+        <h3>Singing / Performance</h3>
+        <dl id="degreesCredentials-singingPerformance"></dl>
+      </div>
 
       <h2>Professional Organizations</h2>
 
@@ -227,8 +255,8 @@
         };
 
         document.getElementById("search-results").onclick = (e) => {
-          console.log("click")
-        }
+          console.log("click");
+        };
       });
     </script>
   </body>
