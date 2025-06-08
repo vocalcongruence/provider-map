@@ -17,7 +17,7 @@
 
 .vcp-card {
   padding: 16px;
-  border: 1px solid var(--palette-gray);
+  border: 1px solid var(--lightergray);
   box-sizing: border-box;
   border-radius: 16px;
   background: hsla(0, 0%, 100%, 0.06);

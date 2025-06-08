@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="../styles/style.css" />
     <link rel="stylesheet" type="text/css" href="../styles/components.css" />
     <link rel="stylesheet" type="text/css" href="../styles/introModal.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/scrollbar.css" />
     <link rel="stylesheet" type="text/css" href="./global.css" />
     <style>
       * {
@@ -39,13 +40,17 @@
         margin: auto;
       }
 
+      .vcp-card {
+        margin-bottom: 32px;
+      }
+
       input {
         width: 100%;
         height: 32px;
         margin-top: 32px;
         padding: 24px 16px;
         font-size: 24px;
-        color: var(--color-main)
+        color: var(--color-main);
       }
 
       ul {
@@ -61,7 +66,6 @@
 
       li {
         list-style-type: none;
-        padding: 8px 16px;
       }
 
       li:hover {
@@ -69,7 +73,11 @@
       }
 
       li > a {
+        padding: 8px 16px;
         color: var(--color-highlight2);
+        width: 100%;
+        height: 100%;
+        display: block;
       }
 
       dt {
@@ -79,7 +87,7 @@
         font-size: 18px;
         margin-bottom: 2px;
       }
-      
+
       dd {
         padding: 0 16px;
         margin-bottom: 24px;
@@ -107,9 +115,18 @@
       a {
         color: var(--color-pink);
       }
+
+      #glossary {
+        max-height: 80dvh;
+        overflow-y: auto;
+        padding-bottom: 32px;
+        padding-right: 8px;
+        border-radius: 16px;
+        border-bottom: 1px solid var(--lightergray)
+      }
     </style>
   </head>
-  <body>
+  <body id="body">
     <div id="main">
       <div id="search-wrap">
         <input
@@ -121,55 +138,61 @@
         <ul id="search-results"></ul>
       </div>
 
-      <div class="vcp-card">
-        <h2>Degrees & Credentials</h2>
+      <div id="glossary">
+        <div class="vcp-card">
+          <h2>Degrees & Credentials</h2>
 
-        <h3>Clinical (Speech-Language Pathologists)</h3>
-        <dl id="degreesCredentials-clinical-SLP"></dl>
+          <h3>Clinical (Speech-Language Pathologists)</h3>
+          <dl id="degreesCredentials-clinical-SLP"></dl>
 
-        <h3>Clinical (Music Therapy)</h3>
-        <dl id="degreesCredentials-clinical-musicTherapy"></dl>
+          <h3>Clinical (Music Therapy)</h3>
+          <dl id="degreesCredentials-clinical-musicTherapy"></dl>
 
-        <h3>Clinical (Surgeons)</h3>
-        <dl id="degreesCredentials-clinical-surgeon"></dl>
+          <h3>Clinical (Surgeons)</h3>
+          <dl id="degreesCredentials-clinical-surgeon"></dl>
 
-        <h3>Singing / Performance</h3>
-        <dl id="degreesCredentials-singingPerformance"></dl>
+          <h3>Singing / Performance</h3>
+          <dl id="degreesCredentials-singingPerformance"></dl>
+        </div>
+
+        <div class="vcp-card">
+          <h2>Professional Organizations</h2>
+
+          <h3>Clinical (Speech-Language Pathologists)</h3>
+          <dl id="professionalOrganizations-clinical-slp"></dl>
+
+          <h3>Clinical (Music Therapy)</h3>
+          <dl id="professionalOrganizations-clinical-musicTherapy"></dl>
+
+          <h3>Clinical (Surgeons)</h3>
+          <dl id="professionalOrganizations-clinical-surgeon"></dl>
+
+          <h3>Singing / Performance</h3>
+          <dl id="professionalOrganizations-singingPerformance"></dl>
+
+          <h3>Multidisciplinary</h3>
+          <dl id="professionalOrganizations-multidisciplinary"></dl>
+
+          <h3>Gender Affirming Care</h3>
+          <dl id="professionalOrganizations-genderAffirming"></dl>
+        </div>
+
+        <div class="vcp-card">
+          <h2>Speciailty Areas / Trainings</h2>
+
+          <h3>Clinical</h3>
+          <dl id="specialties-clinical"></dl>
+
+          <h3>Singing / Performance</h3>
+          <dl id="specialties-singingPerformance"></dl>
+
+          <h3>Multidisciplinary</h3>
+          <dl id="specialties-multidisciplinary"></dl>
+
+          <h3>Gender Affirming Voice & Communication</h3>
+          <dl id="specialties-gavc"></dl>
+        </div>
       </div>
-
-      <h2>Professional Organizations</h2>
-
-      <h3>Clinical (Speech-Language Pathologists)</h3>
-      <dl id="professionalOrganizations-clinical-slp"></dl>
-
-      <h3>Clinical (Music Therapy)</h3>
-      <dl id="professionalOrganizations-clinical-musicTherapy"></dl>
-
-      <h3>Clinical (Surgeons)</h3>
-      <dl id="professionalOrganizations-clinical-surgeon"></dl>
-
-      <h3>Singing / Performance</h3>
-      <dl id="professionalOrganizations-singingPerformance"></dl>
-
-      <h3>Multidisciplinary</h3>
-      <dl id="professionalOrganizations-multidisciplinary"></dl>
-
-      <h3>Gender Affirming Care</h3>
-      <dl id="professionalOrganizations-genderAffirming"></dl>
-
-      <h2>Speciailty Areas / Trainings</h2>
-
-      <h3>Clinical</h3>
-      <dl id="specialties-clinical"></dl>
-
-      <h3>Singing / Performance</h3>
-      <dl id="specialties-singingPerformance"></dl>
-
-      <h3>Multidisciplinary</h3>
-      <dl id="specialties-multidisciplinary"></dl>
-
-      <h3>Gender Affirming Voice & Communication</h3>
-      <dl id="specialties-gavc"></dl>
     </div>
 
     <script>
@@ -182,7 +205,6 @@
       }
 
       function searchGlossary(t) {
-        console.log("searching " + t);
         let results = [];
 
         let tComp = t.toLowerCase().trim();
@@ -198,13 +220,13 @@
           }
         }
 
-        console.log("found", results);
         return results;
       }
 
       //////////////////////
       //       Main       //
       //////////////////////
+      const resultsContainer = document.getElementById("search-results");
 
       // Load in the data first
       loadData().then((t) => {
@@ -236,7 +258,6 @@
         // Attatch search event
         document.getElementById("search").oninput = (e) => {
           const searchTerm = e.target.value;
-          const resultsContainer = document.getElementById("search-results");
 
           resultsContainer.innerHTML = "";
 
@@ -254,8 +275,8 @@
           }
         };
 
-        document.getElementById("search-results").onclick = (e) => {
-          console.log("click");
+        document.getElementById("body").onclick = (e) => {
+          resultsContainer.innerHTML = "";
         };
       });
     </script>
