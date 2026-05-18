@@ -298,6 +298,7 @@ function loadSearchList(map, trainers, surgeons, languages, matches) {
 
 function loadProvider(provider, languages) {
   const isTrainer = provider.isTrainer;
+  console.log(provider)
 
   // Update colors of panel
   if (isTrainer) {
@@ -404,7 +405,12 @@ function loadProvider(provider, languages) {
       str += " - ";
 
       for (let i = 0; i < provider.virtualLocations.length; i++) {
-        str += provider.virtualLocations[i];
+        if (provider.virtualLocations[i] == "NO") {
+          str += "Northern Ontario"
+        }
+        else {
+          str += provider.virtualLocations[i];
+        }
         if (i < provider.virtualLocations.length - 1) {
           str += ", ";
         }
@@ -552,6 +558,17 @@ function loadProvider(provider, languages) {
     $("#section-provider-training").show();
   } else {
     $("#section-provider-training").hide();
+    $("#data-provider-training").text("");
+  }
+
+  if (provider.advancedPractice2026) {
+    $("#section-provider-training").show();
+    $("#data-vcp-training").show();
+    $("#data-vcp-training-helper").show();
+  }
+  else {
+    $("#data-vcp-training").hide();
+    $("#data-vcp-training-helper").hide();
   }
 
   // Speciality
