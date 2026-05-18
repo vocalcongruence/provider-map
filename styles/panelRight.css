@@ -119,6 +119,41 @@
   color: var(--color-blue);
 }
 
+#data-vcp-training {
+  background: var(--gradient-pink);
+  display: flex;
+  border-radius: 16px;
+
+  font-weight: bold;
+  align-items: center;
+  gap: 4px;
+  padding: 2px;
+  margin: 8px 0;
+  width: fit-content;
+
+  span {
+    color: var(--darkergray);
+    margin-right: 8px;
+    line-height: 100%;
+  }
+
+  .material-symbols-outlined {
+    margin: 0;
+    color: var(--darkergray);
+    font-size: 16px;
+    font-variation-settings:
+      "FILL" 1,
+      "wght" 400,
+      "GRAD" 0,
+      "opsz" 24;
+  }
+}
+
+#data-vcp-training-helper {
+  font-style: italic;
+  padding-bottom: 8px;
+}
+
 /************************************************
                 MOBILE OVERRIDES
 ************************************************/
